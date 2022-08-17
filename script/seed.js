@@ -1,11 +1,103 @@
 'use strict'
 
-const {db, models: {User} } = require('../server/db')
+const {db, models: {User, Exercises, Sets, Workouts} } = require('../server/db')
 
 /**
  * seed - this function clears the database, updates tables to
  *      match the models, and populates the database.
  */
+const dummyUsers = [
+  {
+    firstName: 'Kyle',
+    lastName: 'Parkinson',
+    username: 'kparki123',
+    email: 'kparki@email.com',
+    password: '123',
+    userType: 'standard'
+  },
+  {
+    firstName: 'Nicole',
+    lastName: 'Hong',
+    username: 'nicky123',
+    email: 'nicole@hong.com',
+    password: '123',
+    userType: 'trainer'
+  },
+  {
+    firstName: 'Cherry',
+    lastName: 'Xu',
+    username: 'Cherry123',
+    email: 'cherry@xu.com',
+    password: '123',
+    userType: 'trainer'
+  },
+  {
+    firstName: 'Ryan',
+    lastName: 'Scoville',
+    username: 'rscoville1',
+    email: 'ryan@scoville.com',
+    password: '123',
+    userType: 'standard'
+  }
+];
+
+const dummyExercises = [
+  {
+    name: 'bench press',
+    category: 'chest'
+  },
+  {
+    name: 'lat pulldown',
+    category: 'back'
+  },
+  {
+    name: 'back squat',
+    category: 'legs'
+  },
+  {
+    name: 'preacher curl',
+    category: 'arms'
+  },
+  {
+    name: 'leg raises',
+    category: 'core'
+  }
+];
+
+const dummySets = [
+  {
+    exerciseId: 1,
+    userId: 1,
+    workoutId:1,
+    date: 2022-01-14,
+    reps: 10,
+    weight: 150
+  },
+  {
+    exerciseId: 1,
+    userId: 1,
+    workoutId:1,
+    date: 2022-01-14,
+    reps: 6,
+    weight: 180
+  },
+  {
+    exerciseId: 1,
+    userId: 1,
+    workoutId:1,
+    date: 2022-01-14,
+    reps: 4,
+    weight: 200
+  }
+];
+
+dummyWorkouts = [
+  {userId: 1,
+  status: 'closed'}
+];
+
+
+
 async function seed() {
   await db.sync({ force: true }) // clears db and matches models to tables
   console.log('db synced!')
