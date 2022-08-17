@@ -2,13 +2,28 @@
 <html>
   <head>
     <meta charset='utf-8'>
-    <meta name='viewport' content='width=device-width initial-scale=1.0'>
+    <meta
+      name="viewport"
+      content="minimum-scale=1, initial-scale=1, width=device-width"
+    />
+    <meta name="theme-color" content="#D3D3D3" />
     <title>FS-App-Template</title>
     <link rel="stylesheet" href="/style.css" />
     <script defer src="/bundle.js"></script>
+    <link rel="manifest" href="/manifest.json" />
   </head>
   <body>
     <div id="app"></div>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker
+            .register('./serviceworker.js')
+            .then((reg) => console.log('SW Registration Successful', reg.scope))
+            .catch((err) => console.log('SW Failed to Register', err));
+        });
+      }
+    </script>
   </body>
 </html>
 
