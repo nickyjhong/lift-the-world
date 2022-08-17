@@ -4,7 +4,6 @@ const db = require('./db');
 
 const User = require('./models/User');
 const Exercise = require('./models/Exercise');
-const Set = require('./models/Set');
 const Workout = require('./models/Workout');
 const WorkoutList = require('./models/WorkoutList');
 
@@ -12,8 +11,7 @@ const WorkoutList = require('./models/WorkoutList');
 
 Workout.belongsTo(User)
 User.hasMany(Workout)
-Exercise.hasMany(Set)
-Set.hasOne(Exercise)
+
 Exercise.belongsToMany(Workout, {through: WorkoutList})
 Workout.belongsToMany(Exercise, {through: WorkoutList})
 
@@ -22,7 +20,6 @@ module.exports = {
   models: {
     User,
     Exercise,
-    Set,
     Workout,
     WorkoutList
   },

@@ -2,8 +2,9 @@ const Sequelize = require('sequelize')
 const db = require('../db')
 
 const WorkoutList = db.define('workoutlist', {
-    quantity:{
-        type: Sequelize.INTEGER
+    sets:{
+        type: Sequelize.JSONB,
+        defaultValue: []
     }
 });
 
