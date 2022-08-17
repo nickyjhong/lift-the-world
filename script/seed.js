@@ -1,45 +1,12 @@
-'use strict'
 
-const {db, models: {User, Exercises, Sets, Workouts} } = require('../server/db')
+
+const {db, models: {User, Exercise, Set, Workout, WorkoutList} } = require('../server/db')
 
 /**
  * seed - this function clears the database, updates tables to
  *      match the models, and populates the database.
  */
-const dummyUsers = [
-  {
-    firstName: 'Kyle',
-    lastName: 'Parkinson',
-    username: 'kparki123',
-    email: 'kparki@email.com',
-    password: '123',
-    userType: 'standard'
-  },
-  {
-    firstName: 'Nicole',
-    lastName: 'Hong',
-    username: 'nicky123',
-    email: 'nicole@hong.com',
-    password: '123',
-    userType: 'trainer'
-  },
-  {
-    firstName: 'Cherry',
-    lastName: 'Xu',
-    username: 'Cherry123',
-    email: 'cherry@xu.com',
-    password: '123',
-    userType: 'trainer'
-  },
-  {
-    firstName: 'Ryan',
-    lastName: 'Scoville',
-    username: 'rscoville1',
-    email: 'ryan@scoville.com',
-    password: '123',
-    userType: 'standard'
-  }
-];
+
 
 const dummyExercises = [
   {
@@ -66,35 +33,22 @@ const dummyExercises = [
 
 const dummySets = [
   {
-    exerciseId: 1,
-    userId: 1,
-    workoutId:1,
     date: 2022-01-14,
     reps: 10,
     weight: 150
   },
   {
-    exerciseId: 1,
-    userId: 1,
-    workoutId:1,
     date: 2022-01-14,
     reps: 6,
     weight: 180
   },
   {
-    exerciseId: 1,
-    userId: 1,
-    workoutId:1,
     date: 2022-01-14,
     reps: 4,
     weight: 200
   }
 ];
 
-dummyWorkouts = [
-  {userId: 1,
-  status: 'closed'}
-];
 
 
 
@@ -103,19 +57,76 @@ async function seed() {
   console.log('db synced!')
 
   // Creating Users
-  const users = await Promise.all([
-    User.create({ username: 'cody', password: '123' }),
-    User.create({ username: 'murphy', password: '123' }),
-  ])
+const kyle = await User.create(
+  {
+    firstName: 'Kyle',
+    lastName: 'Parkinson',
+    username: 'kparki123',
+    email: 'kparki@email.com',
+    password: '123',
+    isTrainer: false
+  }
+);
+
+const nicole = await User.create(
+  {
+    firstName: 'Nicole',
+    lastName: 'Hong',
+    username: 'nicky123',
+    email: 'nicole@hong.com',
+    password: '123',
+    isTrainer: true
+  }
+);
+
+const cherry = await User.create(
+  {
+    firstName: 'Cherry',
+    lastName: 'Xu',
+    username: 'Cherry123',
+    email: 'cherry@xu.com',
+    password: '123',
+    isTrainer: true
+  }
+);
+
+const ryan = await User.create(
+  {
+    firstName: 'Ryan',
+    lastName: 'Scoville',
+    username: 'rscoville1',
+    email: 'ryan@scoville.com',
+    password: '123',
+    isTrainer: false
+  }
+);
+
+await Promise.all(dummyExercises.map((exercise)=>{
+ return Exercise.create(exercise);
+}));
+
+await Promise.all(dummySets.map((set)=>{
+  return Set.create(set);
+}));
+
+await Promise.all(dummyWorkouts.map((workout)=>{
+  return Workout.create(workout);
+}));
+const exercise1 = await Exercise.findByPk(1);
+const exercise2 = await Exercise.findByPk(2);
+const exercise3 = await Exercise.findByPk(3);
+const exercise4 = await Exercise.findByPk(4);
+const exercise5 = await Exercise.findByPk(5);
+const set1 = await Set.findByPk(1);
+const workout1 = await Workout.create({status: 'closed'});
+
+await workout1.setUser(kyle);
+await workout1.addExercise(exercise1);
+await exercise1.addSet(set1);
 
   console.log(`seeded ${users.length} users`)
   console.log(`seeded successfully`)
-  return {
-    users: {
-      cody: users[0],
-      murphy: users[1]
-    }
-  }
+  
 }
 
 /*

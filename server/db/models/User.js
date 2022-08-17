@@ -39,9 +39,9 @@ const User = db.define('user', {
   password: {
     type: Sequelize.STRING,
   },
-  userType: {
-    type: Sequelize.ENUM('standard', 'trainer'),
-    defaultValue: 'standard'
+  isTrainer: {
+    type: Sequelize.BOOLEAN,
+    defaultValue: false
     }
   }
 )

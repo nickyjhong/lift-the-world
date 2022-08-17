@@ -3,22 +3,27 @@
 const db = require('./db');
 
 const User = require('./models/User');
-const Exercises = require('./models/Exercises');
-const Sets = require('./models/Sets');
-const Workouts = require('./models/Workouts');
+const Exercise = require('./models/Exercise');
+const Set = require('./models/Set');
+const Workout = require('./models/Workout');
+const WorkoutList = require('./models/WorkoutList');
 
 //associations could go here!
-User.hasMany(Workouts);
-Workouts.belongsTo(User);
-Exercises.belongsToMany(Workouts, {through: WorkoutList});
-Exercises.hasMany(Sets);
+
+Workout.belongsTo(User)
+User.hasMany(Workout)
+Exercise.hasMany(Set)
+Set.hasOne(Exercise)
+Exercise.belongsToMany(Workout, {through: WorkoutList})
+Workout.belongsToMany(Exercise, {through: WorkoutList})
 
 module.exports = {
   db,
   models: {
     User,
-    Exercises,
-    Sets,
-    Workouts
+    Exercise,
+    Set,
+    Workout,
+    WorkoutList
   },
 }

@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize')
 const db = require('../db')
 
-const Sets = db.define('set', {
+const Set = db.define('set', {
     date: {
         type: Sequelize.DATE,
     },
@@ -20,4 +20,4 @@ const Sets = db.define('set', {
     }
 })
 
-module.exports = Sets;
+module.exports = Set;
