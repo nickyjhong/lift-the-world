@@ -120,8 +120,7 @@ async function seed() {
     include: [{ model: Workout, include: [Exercise] }],
   });
 
-
-  console.log('TEST', test.workouts[0].exercises[0].workoutlist.sets);
+  // console.log('TEST', test.workouts[0].exercises[0].workoutlist.sets);
   console.log(`seeded successfully`);
 }
 

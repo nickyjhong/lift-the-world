@@ -42,22 +42,20 @@ const User = db.define('user', {
   isTrainer: {
     type: Sequelize.BOOLEAN,
     defaultValue: false
-    },
-    totalWeight: {
-      type: Sequelize.INTEGER,
-      validate:{
-        min: 0
-      }
-    },
-    level:{
-      type:
-        Sequelize.INTEGER,
-        validate: {
-          min: 0
-        }
+  },
+  totalWeight: {
+    type: Sequelize.INTEGER,
+    validate:{
+      min: 0
+    }
+  },
+  level:{
+    type: Sequelize.INTEGER,
+    validate: {
+      min: 1
     }
   }
-)
+})
 
 module.exports = User
 
