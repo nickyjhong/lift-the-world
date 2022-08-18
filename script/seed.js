@@ -94,9 +94,7 @@ async function seed() {
   const exercise4 = await Exercise.findByPk(4);
   const exercise5 = await Exercise.findByPk(5);
 
-  const set1 = await _Set.findByPk(1);
   const workout1 = await Workout.create({ status: 'closed' });
-  const workout1 = await Workout.create({status: 'closed'});
 
   await workout1.setUser(kyle);
   await workout1.addExercise(exercise1);
@@ -117,7 +115,6 @@ async function seed() {
 
   console.log('TEST', test.workouts[0].exercises[0].workoutlist.sets);
   console.log(`seeded successfully`);
-  console.log(`seeded successfully`)
 }
 
 async function runSeed() {
