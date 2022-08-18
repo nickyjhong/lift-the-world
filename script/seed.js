@@ -59,6 +59,8 @@ async function seed() {
     email: 'kparki@email.com',
     password: '123',
     isTrainer: false,
+    totalWeight: 12094,
+    level: 18
   });
 
   const nicole = await User.create({
@@ -68,6 +70,8 @@ async function seed() {
     email: 'nicole@hong.com',
     password: '123',
     isTrainer: true,
+    totalWeight: 44867,
+    level: 43
   });
 
   const cherry = await User.create({
@@ -77,6 +81,8 @@ async function seed() {
     email: 'cherry@xu.com',
     password: '123',
     isTrainer: true,
+    totalWeight: 39126,
+    level: 33
   });
 
   const ryan = await User.create({
@@ -86,6 +92,8 @@ async function seed() {
     email: 'ryan@scoville.com',
     password: '123',
     isTrainer: false,
+    totalWeight: 28643,
+    level: 24
   });
 
   const exercise1 = await Exercise.findByPk(1);
