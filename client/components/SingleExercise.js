@@ -1,16 +1,35 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {connect} from 'react-redux';
 import { getSingleExerciseThunk } from '../store/singleExercise';
+import { useEffect } from 'react';
 
 function SingleExercise(){
+    const [exercise, setExercise] = useState({
+        name: 'Example Exercise',
+        category: 'Example Category',
+        equipment: 'things, stuff',
+        tipsAndTricks: 'don\'t do this, do that',
+        youtubeLink: 'https://www.youtube.com/watch?v=h0-WO6xRbAo'
+    });
+    const equipmentArr = exercise.equipment.split(",")
+
+    useEffect(()=>{
+        if(this.props.id){
+        const exercise = getSingleExercise(this.props.id);
+        setExercise(exercise);
+        }
+    }, [])
+
     return (
         <div>
-            <h1>Workout Name</h1>
+            <h1>{exercise.name}</h1>
             <div id='embedvideo'>Youtube video here</div>
             <h2>Equipment Needed:</h2>
-            <ul>
-                <li>stuff</li>
-                <li>things</li>
+            <ul>{equipmentArr.map((equipment)=>{
+                return (
+                    <li key={equipmentArr.indexOf(equipment)}>{equipment}</li>
+                )
+            })}
             </ul>
             <h2>Tips/tricks</h2>
             <ul>
