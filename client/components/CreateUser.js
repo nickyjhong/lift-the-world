@@ -34,7 +34,7 @@ const CreateUser = (props) => {
   }
 
   return (
-    <div className="create-form form div-container">
+    <div className="create-form form">
       <form onSubmit={handleSubmit}>
         <div className="form-container signup">
           <div className="signup-card">
