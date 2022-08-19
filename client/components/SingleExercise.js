@@ -1,7 +1,6 @@
 import React from 'react';
 
 function SingleExercise(){
-
     return (
         <div>
             <h1>Workout Name</h1>
