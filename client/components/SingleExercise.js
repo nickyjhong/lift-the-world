@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react';
 import {connect} from 'react-redux';
 import { getSingleExerciseThunk } from '../store/singleExercise';
 import { useEffect } from 'react';
+import YoutubeEmbed from './YoutubeEmbed';
+
 
 function SingleExercise(){
     const [exercise, setExercise] = useState({
@@ -9,7 +11,7 @@ function SingleExercise(){
         category: 'Example Category',
         equipment: 'things, stuff',
         tipsAndTricks: 'don\'t do this, do that',
-        youtubeLink: 'https://www.youtube.com/watch?v=h0-WO6xRbAo'
+        youtubeLink: 'JB2oyawG9KI'
     });
     const equipmentArr = exercise.equipment.split(",")
     const tipsAndTricksArr = exercise.tipsAndTricks.split(',')
@@ -24,7 +26,7 @@ function SingleExercise(){
     return (
         <div>
             <h1>{exercise.name}</h1>
-            <div id='embedvideo'>Youtube video here</div>
+            <YoutubeEmbed embedId={youtubeLink}/>
             <h2>Equipment Needed:</h2>
             <ul>{equipmentArr.map((equipment)=>{
                 return (
