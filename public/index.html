@@ -12,7 +12,6 @@
     <link rel="apple-touch-icon" href="/apple-icon-180.png">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <!-- app takes up full screen of phone after we add design to the top of our login page we should be able to see time on left hand corner and battery life on right hand corner b/c of line 16 currently time is not visible due to white background -->
     <meta name="viewport" content="initial-scale=1, viewport-fit=cover user-scalable=no">
     <link rel="apple-touch-startup-image" href="/apple-splash-2048-2732.jpg" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
     <link rel="apple-touch-startup-image" href="/apple-splash-2732-2048.jpg" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)">
@@ -43,6 +42,7 @@
   </head>
   <body>
     <div id="app"></div>
+    </div>
     <script>
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {

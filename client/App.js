@@ -1,5 +1,4 @@
 import React from 'react';
-
 import Navbar from './components/Navbar';
 import Routes from './Routes';
 
@@ -8,6 +7,7 @@ const App = () => {
     <div className="appjs-div">
       <Navbar />
       <Routes />
+      <Navbar />
     </div>
   );
 };
