@@ -7,22 +7,37 @@ const dummyExercises = [
   {
     name: 'bench press',
     category: 'chest',
+    equipment: 'barbell, weights, bench',
+    tipsAndTricks: 'keep shoulders back, don\'t bounce off your chest, use a spotter if needed',
+    youtubeLink: 'https://www.youtube.com/watch?v=gRVjAtPip0Y'
   },
   {
     name: 'lat pulldown',
     category: 'back',
+    equipment: 'pulldown machine',
+    tipsAndTricks: 'use slow and controlled movements, keep shoulders back, keep back straight',
+    youtubeLink: 'https://www.youtube.com/watch?v=Z_3xHwuO8Tk'
   },
   {
     name: 'back squat',
     category: 'legs',
+    equipment: 'barbell, weights, squat wrack',
+    tipsAndTricks: 'keep your back straight, push through your heels, don\'t lock your knees',
+    youtubeLink: 'https://www.youtube.com/watch?v=Dy28eq2PjcM'
   },
   {
     name: 'preacher curl',
     category: 'arms',
+    equipment: 'dumbell or barbell, curling bench',
+    tipsAndTricks: 'utilize full range of motion, move slow and controlled movements',
+    youtubeLink: 'https://www.youtube.com/watch?v=fIWP-FRFNU0'
   },
   {
     name: 'leg raises',
     category: 'core',
+    equipment: 'floor mat',
+    tipsAndTricks: 'engage your core, use controlled movements',
+    youtubeLink: 'https://www.youtube.com/watch?v=JB2oyawG9KI'
   },
 ];
 
