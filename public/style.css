@@ -1,12 +1,16 @@
+@import './styles/navbar.css';
 @import './styles/recap.css';
 
-body {
+html {
   font-family: "Roboto", Helvetica, sans-serif;
   font-size: 2.5vh;
   overflow-x: hidden;
-  margin: 0px;
-  min-height: 100vh;
+}
+
+body {
+  margin: 0;
   width: auto;
+  min-height: 100vh;
   background: #F8F6F5;
 }
 
@@ -18,14 +22,22 @@ label {
   display: block;
 }
 
-nav a {
-  display: inline-block;
-  margin: 1em;
+.header {
+  position: fixed;
+  top: 0;
+  background-color: #AECECC;
+  width: 100%;
+  height: 50px;
+  margin-bottom: 10px;
 }
 
 form div {
   margin: 1em;
   display: inline-block;
+}
+
+.routes-container {
+  padding: 3rem 1.5rem;
 }
 
 /* media query added to accomodate space for notch */
