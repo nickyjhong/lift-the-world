@@ -17,7 +17,7 @@ class Routes extends Component {
     return (
       <div>
         <div className="header"></div>
-        <div>
+        <div className="routes-container">
           {isLoggedIn ? (
             <Switch>
               <Route path="/" component={Home} />
