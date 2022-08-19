@@ -1,0 +1,13 @@
+.nav-bar {
+  display: flex;
+}
+
+.nav-links {
+  z-index: 1;
+  display: flex;
+}
+
+nav a {
+  display: inline-block;
+  margin: 1em;
+}
