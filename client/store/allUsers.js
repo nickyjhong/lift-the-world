@@ -28,7 +28,7 @@ export const createUser = (user, history) => {
     window.localStorage.setItem('token', token);
     dispatch(_createUser(user));
     dispatch(me())
-    history.push('/');
+    // history.push('/');
   };
 };
 
