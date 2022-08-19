@@ -19,3 +19,10 @@ form div {
   margin: 1em;
   display: inline-block;
 }
+
+/* media query added to accomodate space for notch */
+@media screen and (display-mode: standalone) {
+  header {
+    height: 88px !important;
+  }
+}
