@@ -1,5 +1,9 @@
 @import './styles/navbar.css';
 
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
 html {
   font-family: "Roboto", Helvetica, sans-serif;
   font-size: 2.5vh;
@@ -35,13 +39,8 @@ form div {
   display: inline-block;
 }
 
-<<<<<<< HEAD
-.appjs-div {
-  -webkit-tap-highlight-color: 'transparent';
-=======
 .routes-container {
   padding: 3rem 1.5rem;
->>>>>>> 651c5d3743612a7efccc4b94814ab6335c9cc4f3
 }
 
 /* media query added to accomodate space for notch */
