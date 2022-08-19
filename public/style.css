@@ -20,6 +20,10 @@ form div {
   display: inline-block;
 }
 
+.appjs-div {
+  -webkit-tap-highlight-color: 'transparent';
+}
+
 /* media query added to accomodate space for notch */
 @media screen and (display-mode: standalone) {
   header {
