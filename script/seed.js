@@ -58,7 +58,7 @@ async function seed() {
     username: 'kparki123',
     email: 'kparki@email.com',
     password: '123',
-    isTrainer: false,
+    isAdmin: false,
     totalWeight: 12094,
     level: 18
   });
@@ -69,7 +69,7 @@ async function seed() {
     username: 'nicky123',
     email: 'nicole@hong.com',
     password: '123',
-    isTrainer: true,
+    isAdmin: true,
     totalWeight: 44867,
     level: 43
   });
@@ -80,7 +80,7 @@ async function seed() {
     username: 'Cherry123',
     email: 'cherry@xu.com',
     password: '123',
-    isTrainer: true,
+    isAdmin: true,
     totalWeight: 39126,
     level: 33
   });
@@ -91,7 +91,7 @@ async function seed() {
     username: 'rscoville1',
     email: 'ryan@scoville.com',
     password: '123',
-    isTrainer: false,
+    isAdmin: false,
     totalWeight: 28643,
     level: 24
   });

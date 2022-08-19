@@ -1,17 +1,30 @@
 const router = require('express').Router()
 const { models: { User }} = require('../db')
-module.exports = router
+module.exports = router;
+const { requireToken, isAdmin } = require('./middleware');
 
-router.get('/', async (req, res, next) => {
+
+// ADMIN VIEW: RETRIEVE ALL USERS ***requireToken + isAdmin
+router.get('/', requireToken, isAdmin, async (req, res, next) => {
   try {
     const users = await User.findAll({
-      // explicitly select only the id and username fields - even though
-      // users' passwords are encrypted, it won't help if we just
-      // send everything to anyone who asks!
-      attributes: ['id', 'username']
-    })
-    res.json(users)
+      where: {
+        isAdmin: false
+      }
+    });
+    res.send(users);
   } catch (err) {
-    next(err)
+    next(err);
   }
-})
+});
+
+// ALL VIEW: CREATE NEW USER
+router.post('/', async (req, res, next) => {
+  try {
+    const newUser = await User.create(req.body);
+    const userToken = await newUser.generateToken();
+    res.send(userToken);
+  } catch (error) {
+    next(error);
+  }
+});
