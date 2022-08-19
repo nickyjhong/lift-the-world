@@ -12,8 +12,9 @@ const Exercise = db.define('exercise', {
     category: {
         type: Sequelize.ENUM('chest', 'back', 'arms', 'legs', 'core')
     },
-    equipmentNeeded: {
-        type: Sequelize.STRING
+    equipment: {
+        type: Sequelize.STRING,
+        defaultValue: 'No Equipment Needed'
     },
     tipsAndTricks: {
         type: Sequelize.STRING
