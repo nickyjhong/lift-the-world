@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {connect} from 'react-redux';
 import { getSingleExerciseThunk } from '../store/singleExercise';
-import { useEffect } from 'react';
 import YoutubeEmbed from './YoutubeEmbed';
 
 
