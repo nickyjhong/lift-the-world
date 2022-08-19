@@ -1,4 +1,6 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import { getSingleExerciseThunk } from '../store/singleExercise';
 
 function SingleExercise(){
     return (
@@ -22,4 +24,10 @@ function SingleExercise(){
 
 }
 
-export default SingleExercise;
+const mapDispatchToProps = (dispatch)=>{
+    return {
+        getSingleExercise: (id) => dispatch(getSingleExerciseThunk(id))
+}
+    } 
+
+export default connect(null, mapDispatchToProps)(SingleExercise);
