@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { getSingleExerciseThunk } from "../store/singleExercise";
 import YoutubeEmbed from "./YoutubeEmbed";
-import axios from "axios";
 
 function SingleExercise() {
   const [exercise, setExercise] = useState({
@@ -21,6 +20,8 @@ function SingleExercise() {
       setExercise(exercise);
     }
   }, []);
+
+  const addExercise = () => {};
 
   return (
     <div>
