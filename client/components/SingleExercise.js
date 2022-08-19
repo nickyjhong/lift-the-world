@@ -12,6 +12,7 @@ function SingleExercise(){
         youtubeLink: 'https://www.youtube.com/watch?v=h0-WO6xRbAo'
     });
     const equipmentArr = exercise.equipment.split(",")
+    const tipsAndTricksArr = exercise.tipsAndTricks.split(',')
 
     useEffect(()=>{
         if(this.props.id){
@@ -31,10 +32,12 @@ function SingleExercise(){
                 )
             })}
             </ul>
-            <h2>Tips/tricks</h2>
-            <ul>
-                <li>more stuff</li>
-                <li>and things</li>
+            <h2>Tips:</h2>
+            <ul>{tipsAndTricksArr.map((tip)=>{
+                return (
+                    <li key={tipsAndTricksArr.indexOf(tip)}>{tip}</li>
+                )
+            })}
             </ul>
             <button>Add Exercise</button>
             <button>Get Help</button>
