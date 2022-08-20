@@ -1,52 +1,56 @@
 import axios from "axios";
 
-const GET_SINGLE_EXERCISE = "GET_SINGLE_EXERCISE";
-const ADD_SINGLE_EXERCISE = "ADD_SINGLE_EXERCISE";
+// ACTION TYPES
+const SET_EXERCISE = "SET_EXERCISE";
+const CREATE_EXERCISE = "CREATE_EXERCISE";
 
-const getSingleExercise = (exercise) => {
+// ACTION CREATORS 
+export const _setExercise = (exercise) => {
   return {
-    type: GET_SINGLE_EXERCISE,
+    type: SET_EXERCISE,
     exercise,
-  };
+  }
 };
 
-const addSingleExercise = (exercise) => {
-  return {
-    type: ADD_SINGLE_EXERCISE,
-    exercise,
-  };
-};
+// export const _createExercise = (exercise) => {
+//   return {
+//     type: CREATE_EXERCISE,
+//     exercise,
+//   };
+// };
 
-export const getSingleExerciseThunk = (id) => {
+// THUNKS 
+export const fetchExercise = (id) => {
   return async (dispatch) => {
     try {
-      const { data: exercise } = await axios.get(`/exercise/${id}`);
-      dispatch(getSingleExercise(exercise));
+      const { data } = await axios.get(`/api/exercise/${id}`);
+      dispatch(_setExercise(data));
     } catch (error) {
       console.log("getSingleExercise Error", error);
     }
   };
 };
 
-export const addSingleExerciseThunk = (id) => {
-  return async (dispatch) => {
-    try {
-      const { data: exercise } = await axios.put(`/exercise/${id}`);
-      dispatch(addSingleExercise(exercise));
-    } catch (error) {
-      console.log("addSingleExercise Error", error);
-    }
-  };
-};
+// export const createExercise = (id) => {
+//   return async (dispatch) => {
+//     try {
+//       const { data: exercise } = await axios.put(`/exercise/${id}`);
+//       dispatch(addSingleExercise(exercise));
+//     } catch (error) {
+//       console.log("addSingleExercise Error", error);
+//     }
+//   };
+// };
 
+// REDUCER
 const initialState = {};
 
 export default function singleExerciseReducer(state = initialState, action) {
   switch (action.type) {
-    case GET_SINGLE_EXERCISE:
+    case SET_EXERCISE:
       return action.exercise;
-    case ADD_SINGLE_EXERCISE:
-      return action.exercise;
+    // case ADD_SINGLE_EXERCISE:
+    //   return action.exercise;
     default:
       return state;
   }
