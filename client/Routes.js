@@ -5,6 +5,7 @@ import { Login, Signup } from './components/AuthForm';
 import CreateUser from './components/CreateUser';
 import Home from './components/Home';
 import Recap from './components/Recap'
+import SingleExercise from './components/SingleExercise';
 import { me } from './store';
 
 class Routes extends Component {
@@ -23,6 +24,7 @@ class Routes extends Component {
             <Switch>
               <Route exact path="/" component={Home} />
               <Route path="/recap" component={Recap} />
+              <Route path="/exercise/:id" component={SingleExercise} />
             </Switch>
           ) : (
             <Switch>

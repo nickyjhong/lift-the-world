@@ -1,54 +1,53 @@
-import React, { useEffect, useState } from "react";
-import { connect } from "react-redux";
-import { getSingleExerciseThunk } from "../store/singleExercise";
-import YoutubeEmbed from "./YoutubeEmbed";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { fetchExercise } from '../store/singleExercise';
+import { addToWorkout } from '../store/workout';
+import { Link } from 'react-router-dom';
 
-function SingleExercise() {
-  const [exercise, setExercise] = useState({
-    name: "Example Exercise",
-    category: "Example Category",
-    equipment: "things, stuff",
-    tipsAndTricks: "don't do this, do that",
-    embedId: "JB2oyawG9KI",
-  });
-  const equipmentArr = exercise.equipment.split(",");
-  const tipsAndTricksArr = exercise.tipsAndTricks.split(",");
+class SingleExercise extends Component {
+  constructor() {
+    super();
+    this.handleAdd = this.handleAdd.bind(this);
+  }
 
-  useEffect(() => {
-    if (this.props.id) {
-      const exercise = getSingleExercise(this.props.id);
-      setExercise(exercise);
-    }
-  }, []);
+  componentDidMount() {
+    this.props.getSingleExercise(this.props.match.params.id)
+  }
 
-  const addExercise = () => {};
+  handleAdd() {
+    this.props.addToWorkout(this.props.exercise)
+  }
 
-  return (
-    <div>
-      <h1>{exercise.name}</h1>
-      <YoutubeEmbed embedId={exercise.embedId} />
-      <h2>Equipment Needed:</h2>
-      <ul>
-        {equipmentArr.map((equipment) => {
-          return <li key={equipmentArr.indexOf(equipment)}>{equipment}</li>;
-        })}
-      </ul>
-      <h2>Tips:</h2>
-      <ul>
-        {tipsAndTricksArr.map((tip) => {
-          return <li key={tipsAndTricksArr.indexOf(tip)}>{tip}</li>;
-        })}
-      </ul>
-      <button onClick={addExercise}>Add Exercise</button>
-      <button>Get Help</button>
-    </div>
-  );
+  render() {
+    const { exercise } = this.props;
+    console.log('props', this.props)
+    console.log('exercise', exercise)
+    return (
+      <div>
+        {exercise && exercise.id ? (
+          <div>
+            <h3>{exercise.name}</h3>
+            <button onClick={() => this.handleAdd()}>
+              add to workout
+            </button>
+          </div>
+        ) : (
+          <div>
+            <p>No exercises found</p>
+          </div>
+        )}
+      </div>
+    )
+  }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    getSingleExercise: (id) => dispatch(getSingleExerciseThunk(id)),
-  };
-};
+const mapStateToProps = (state) => ({
+  exercise: state.singleExercise,
+});
 
-export default connect(null, mapDispatchToProps)(SingleExercise);
+const mapDispatchToProps = (dispatch) => ({
+  getSingleExercise: (id) => dispatch(fetchExercise(id)),
+  addToWorkout: (exercise) => dispatch(addToWorkout(exercise)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(SingleExercise);
