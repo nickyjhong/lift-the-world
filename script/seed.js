@@ -110,6 +110,18 @@ async function seed() {
   );
 
   // Creating Users
+
+  const admin = await User.create({
+    firstName: "Admin",
+    lastName: "Admin",
+    username: "admin",
+    email: "admin@gmail.com",
+    password: "123",
+    isAdmin: true,
+    totalWeight: 12094,
+    level: 18,
+  });
+
   const kyle = await User.create({
     firstName: "Kyle",
     lastName: "Parkinson",
