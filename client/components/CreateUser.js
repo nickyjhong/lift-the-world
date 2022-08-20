@@ -36,9 +36,8 @@ const CreateUser = (props) => {
   return (
     <div className="create-form form">
       <form onSubmit={handleSubmit}>
-        <div className="form-container signup">
-          <div className="signup-card">
-            <p className="title">Sign Up</p>
+        <div className="signup-container">
+            <p className="signup-title">Sign up for Lift the World</p>
             <div className="input-container">
               <label className="labelName">
                 <input
@@ -98,12 +97,11 @@ const CreateUser = (props) => {
                 />
               </label>
             </div>
-            <div>
-              <button className="button submit-btn" type="submit">
-                Create Account
+            <div className="signup-btn-container">
+              <button className="button signup-btn" type="submit">
+                Sign Up
               </button>
             </div>
-          </div>
         </div>
       </form>
     </div>
