@@ -1,18 +1,20 @@
-.signup-title {
+.signup-title, .login-title {
   font-size: 1rem;
   margin: 0;
   text-align: center;
 }
 
-.signup-btn-container {
+.signup-btn-container, .login-btn-container {
   display: flex;
   justify-content: center;
+  flex-direction: column;
 }
 
-.signup-btn {
+.signup-btn, .login-btn {
   background: #9AC1CD;
   color: white;
   font-size: 1rem;
+  font-weight: 400;
   width: 12rem;
   height: 2rem;
   border: none;

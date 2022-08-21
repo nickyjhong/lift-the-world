@@ -106,6 +106,7 @@ const CreateUser = (props) => {
               <button className="button signup-btn" type="submit">
                 Sign Up
               </button>
+              <p className="form-disclaimer">Disclaimer</p>
             </div>
         </div>
       </form>

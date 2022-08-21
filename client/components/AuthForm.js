@@ -5,32 +5,57 @@ import { authenticate } from '../store';
 
 const AuthForm = (props) => {
   const { name, displayName, handleSubmit, error } = props;
-  console.log(props);
   return (
     <div className="form">
       <form onSubmit={handleSubmit} name={name}>
-        <div className="login">
-          <div className="login-card">
-            <p className="title">Log In</p>
-            <input name="email" placeholder="Email" required />
-            <input
-              name="password"
-              placeholder="Password"
-              type="password"
-              required
-            />
-            <button className="loader">Sign in</button>
-            <p className="text">Don't have an account?</p>
+        <div className="login-container">
+          <p className="login-title">Log In</p>
+
+          <div className="form-container">
+            <label className="form-label">email</label>
+            <div className="form-input-container">
+              <input
+                className="form-input"
+                type="email"
+                name="email"
+                placeholder="Email"
+                required
+              />
+            </div>
+          </div>
+
+          <div className="form-container">
+            <label className="form-label">password</label>
+            <div className="form-input-container">
+              <input
+                className="form-input"
+                type="password"
+                name="password"
+                placeholder="Password"
+              />
+            </div>
+          </div>
+
+          <div className="login-btn-container">
+            <button className="button login-btn" type="submit">
+              Sign In
+            </button>
+            <p className="form-small-text">Don't have an account?</p>
             <Link to="/signup">
-              <button className="buttonShadow" type="submit">
+              <button className="button signup-btn" type="submit">
                 Create new account
               </button>
             </Link>
+
+            <p className="form-disclaimer">Disclaimer</p>
           </div>
+
+          
+
         </div>
-        {error && <div> {error} </div>}
-      </form>
-    </div>
+      {error && <div> {error} </div>}
+    </form>
+  </div>
   );
 };
 
