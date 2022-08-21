@@ -12,13 +12,13 @@ const AuthForm = (props) => {
           <p className="login-title">Log In</p>
 
           <div className="form-container">
-            <label className="form-label">email</label>
+            <label className="form-label">username</label>
             <div className="form-input-container">
               <input
                 className="form-input"
-                type="email"
-                name="email"
-                placeholder="Email"
+                type="username"
+                name="username"
+                placeholder="Username"
                 required
               />
             </div>
@@ -81,9 +81,9 @@ const mapDispatch = (dispatch) => {
     handleSubmit(evt) {
       evt.preventDefault();
       const formName = evt.target.name;
-      const email = evt.target.email.value;
+      const username = evt.target.username.value;
       const password = evt.target.password.value;
-      dispatch(authenticate(email, password, formName));
+      dispatch(authenticate(username, password, formName));
     },
   };
 };
