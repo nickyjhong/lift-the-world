@@ -13,8 +13,8 @@ router.post('/login', async (req, res, next) => {
 router.post('/signup', async (req, res, next) => {
   try {
     // prevents sequelize injection
-    const { email, name, password } = req.body;
-    const user = await User.create({ email, name, password });
+    const { email, username, password } = req.body;
+    const user = await User.create({ email, username, password });
     res.send({ token: await user.generateToken() });
   } catch (err) {
     if (err.name === 'SequelizeUniqueConstraintError') {
