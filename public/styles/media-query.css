@@ -8,9 +8,40 @@
     width: 15rem;
   }
 
+  .signup-btn-container {
+    padding-top: 1rem;
+  }
   .signup-container {
     margin: 0;
     width: 100%;
     padding: 1.5rem 0;
+  }
+
+  .form-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .form-input {
+    border: 1px solid #c4c4c4;
+    border-radius: 5px;
+    width: 14.5rem;
+    height: 1.5rem;
+    font-size: .75rem;
+    align-items: center;
+  }
+
+  .form-label {
+    font-size: .6rem;
+    color: #575757;
+    padding: 0 0 .25rem 0;
+  }
+
+  .form-input-container {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
   }
 }

@@ -38,64 +38,69 @@ const CreateUser = (props) => {
       <form onSubmit={handleSubmit}>
         <div className="signup-container">
             <p className="signup-title">Sign up for Lift the World</p>
-            <div className="input-container">
-              <label className="labelName">
+            <div className="form-container">
+              <label className="form-label">first name</label>
+              <div className="form-input-container">
                 <input
-                  className="input"
+                  className="form-input"
                   type="text"
                   name="firstName"
                   placeholder="First name"
                   onChange={handleChange}
                 />
-              </label>
+              </div>
             </div>
 
-            <div className="input-container">
-              <label className="labelName">
+            <div className="form-container">
+              <label className="form-label">last name</label>
+              <div className="form-input-container">
                 <input
-                  className="input"
+                  className="form-input"
                   type="text"
                   name="lastName"
                   placeholder="Last name"
                   onChange={handleChange}
                 />
-              </label>
+              </div>
             </div>
 
-            <div className="input-container">
-              <label className="labelName">
+            <div className="form-container">
+              <label className="form-label">email</label>
+              <div className="form-input-container">
                 <input
-                  className="input"
+                  className="form-input"
                   type="text"
                   name="email"
                   placeholder="Email"
                   onChange={handleChange}
                 />
-              </label>
+              </div>
             </div>
 
-            <div className="input-container">
-              <label className="labelName">
+            <div className="form-container">
+              <label className="form-label">username</label>
+              <div className="form-input-container">
                 <input
-                  className="input"
+                  className="form-input"
                   type="text"
                   name="username"
                   placeholder="Username"
                   onChange={handleChange}
                 />
-              </label>
+              </div>
             </div>
 
-            <div className="input-container">
-              <label className="labelName">
+            <div className="form-container">
+              <label className="form-label">password</label>
+              <div className="form-input-container">
                 <input
-                  className="input"
+                  className="form-input"
                   type="password"
                   name="password"
                   placeholder="Password"
                   onChange={handleChange}
                 />
-              </label>
+              </div>
             </div>
             <div className="signup-btn-container">
               <button className="button signup-btn" type="submit">
