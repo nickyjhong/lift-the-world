@@ -22,13 +22,12 @@ export const _setUsers = (users) => {
 
 
 // THUNKS
-export const createUser = (user, history) => {
+export const createUser = (user) => {
   return async (dispatch) => {
     const { data: token } = await axios.post('/api/users', user);
     window.localStorage.setItem('token', token);
     dispatch(_createUser(user));
     dispatch(me())
-    // history.push('/');
   };
 };
 

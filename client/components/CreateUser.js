@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { createUser } from '../store/allUsers';
 import { useDispatch } from "react-redux";
+import { useHistory } from 'react-router-dom';
 
 const CreateUser = (props) => {
   const dispatch = useDispatch();
+  const history = useHistory();
 
   let [user, setUser] = useState({
     firstName: '',
@@ -30,6 +32,9 @@ const CreateUser = (props) => {
       email: '',
       username: '',
       password: '',
+    })
+    history.push({
+      pathname: '/'
     })
   }
 
