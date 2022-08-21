@@ -5,11 +5,13 @@
   }
 
   .signup-btn, .login-btn {
-    width: 15rem;
+    width: 13.5rem;
   }
 
   .signup-btn-container, .login-btn-container {
     padding-top: 1rem;
+    display: flex;
+    align-items: center;
   }
 
   .signup-container, .login-container {
@@ -53,7 +55,7 @@
   }
 
   .form-disclaimer {
-    text-align: start;
+    align-self: flex-start;
     font-size: .6rem;
     padding-top: 1.25rem;
   }
