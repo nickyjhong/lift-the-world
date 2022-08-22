@@ -13,11 +13,12 @@ const Exercise = db.define("exercise", {
     type: Sequelize.ENUM("chest", "back", "arms", "legs", "core"),
   },
   equipment: {
-    type: Sequelize.STRING,
-    defaultValue: "No Equipment Needed",
+    type: Sequelize.ARRAY(Sequelize.STRING),
+    defaultValue: ["No Equipment Needed"]
   },
   tipsAndTricks: {
-    type: Sequelize.STRING,
+    type: Sequelize.ARRAY(Sequelize.STRING),
+    defaultValue: ['Don\'t hurt yourself']
   },
   embedId: {
     type: Sequelize.STRING,

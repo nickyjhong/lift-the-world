@@ -7,39 +7,37 @@ const upperExercises = [
   {
     name: "Bench press",
     category: "chest",
-    equipment: "barbell, weights, bench",
+    equipment: ["barbell", "weights", "bench"],
     tipsAndTricks:
-      "keep shoulders back, don't bounce off your chest, use a spotter if needed",
+      ["keep shoulders back", "don't bounce off your chest", "use a spotter if needed"],
     embedId: "gRVjAtPip0Y",
   },
   {
     name: "Lat pulldown",
     category: "back",
-    equipment: "pulldown machine",
+    equipment: ["pulldown machine"],
     tipsAndTricks:
-      "use slow and controlled movements, keep shoulders back, keep back straight",
+      ["use slow and controlled movements", "keep shoulders back", "keep back straight"],
     embedId: "Z_3xHwuO8Tk",
   },
   {
     name: "Preacher curl",
     category: "arms",
-    equipment: "dumbell or barbell, curling bench",
+    equipment: ["dumbell or barbell", "curling bench"],
     tipsAndTricks:
-      "utilize full range of motion, move slow and controlled movements",
+      ["utilize full range of motion", "move slow and controlled movements"],
     embedId: "fIWP-FRFNU0",
   },
   {
     name: "Shoulder press",
     category: "back",
-    equipment: "dumbbell or barbell",
-    tipsAndTricks: "",
+    equipment: ["dumbbell or barbell"],
     embedId: "5yWaNOvgFCM",
   },
   {
     name: "Row",
     category: "back",
-    equipment: "dumbbell or barbell",
-    tipsAndTricks: "",
+    equipment: ["dumbbell or barbell"],
     embedId: "roCP6wCXPqo",
   },
 ];
@@ -48,37 +46,34 @@ const lowerExercises = [
   {
     name: "Squat",
     category: "legs",
-    equipment: "barbell, weights, squat rack",
+    equipment: ["barbell", "weights", "squat rack"],
     tipsAndTricks:
-      "keep your back straight, push through your heels, don't lock your knees",
+      ["keep your back straight", "push through your heels", "don't lock your knees"],
     embedId: "Dy28eq2PjcM",
   },
   {
     name: "Leg raises",
     category: "core",
-    equipment: "floor mat",
-    tipsAndTricks: "engage your core, use controlled movements",
+    equipment: ["floor mat"],
+    tipsAndTricks: ["engage your core", "use controlled movements"],
     embedId: "JB2oyawG9KI",
   },
   {
     name: "Romanian deadlift",
     category: "legs",
-    equipment: "dumbbell or barbell",
-    tipsAndTricks: "",
+    equipment: ["dumbbell or barbell"],
     embedId: "7AaaYhMqTws",
   },
   {
     name: "Leg curl",
     category: "legs",
-    equipment: "leg curl machine",
-    tipsAndTricks: "",
+    equipment:["leg curl machine"],
     embedId: "fK0uZ3KRZRI",
   },
   {
     name: "Leg extension",
     category: "legs",
-    equipment: "leg extension machine",
-    tipsAndTricks: "",
+    equipment: ["leg extension machine"],
     embedId: "8Jqof7z3QYM",
   },
 ];
