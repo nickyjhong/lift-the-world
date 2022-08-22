@@ -5,6 +5,7 @@ import { Login, Signup } from './components/AuthForm';
 import Home from './components/Home';
 import Recap from './components/Recap'
 import SingleExercise from './components/SingleExercise';
+import Disclaimer from './components/Disclaimer';
 import { me } from './store';
 
 class Routes extends Component {
@@ -23,13 +24,15 @@ class Routes extends Component {
             <Switch>
               <Route exact path="/" component={Home} />
               <Route path="/recap" component={Recap} />
+              <Route path="/disclaimer" component={Disclaimer} />
               <Route path="/exercise/:id" component={SingleExercise} />
             </Switch>
           ) : (
             <Switch>
-              <Route exact path="/" exact component={Home} />
+              <Route exact path="/" component={Home} />
               <Route path="/login" component={Login} />
               <Route path="/signup" component={Signup} />
+              <Route path="/disclaimer" component={Disclaimer} />
             </Switch>
           )}
         </div>
