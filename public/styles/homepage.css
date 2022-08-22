@@ -6,14 +6,28 @@
   padding: 1.5rem 3rem;
 }
 
+.homepage-btn-container {
+  display: flex;
+  flex-direction: column;
+}
+
 .homepage-btn {
   text-align: center;
+  text-decoration: none;
   border-radius: 25px;
-  background: #aececc;
-  font-size: 1rem;
+  background: #B6D19F;
+  font-size: .8rem;
   border: none;
   height: 2.5rem;
-  width: 10rem;
+  width: 12rem;
   margin-top: 1rem;
-  color: inherit;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.homepage-btn:hover {
+  background: #A3BC93;
+}
+
+.homepage-btn-link {
+  color: white;
 }
