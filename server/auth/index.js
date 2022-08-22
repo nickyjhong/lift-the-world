@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { models: { User }} = require('../db');
+const { Op } = require('sequelize')
 module.exports = router;
 
 router.post('/login', async (req, res, next) => {
@@ -12,18 +13,38 @@ router.post('/login', async (req, res, next) => {
 
 router.post('/signup', async (req, res, next) => {
   try {
-    // prevents sequelize injection
-    const { email, username, password } = req.body;
-    const user = await User.create({ email, username, password });
-    res.send({ token: await user.generateToken() });
+    const { firstName, lastName, email, username, password } = req.body;
+    let sameEmail = await User.findOne({
+      where: {
+        email: {
+          [Op.iLike]: `%${email}%`
+        }
+      }
+    })
+
+    let sameUsername = await User.findOne({
+      where: {
+        username: {
+          [Op.iLike]: `%${username}%`
+        }
+      }
+    })
+
+    if (!sameEmail && !sameUsername) {
+      const user = await User.create({ firstName, lastName, email, username, password })
+      res.send({token: await user.generateToken()})
+    } else {
+      console.log('user exists!')
+    }
+
   } catch (err) {
     if (err.name === 'SequelizeUniqueConstraintError') {
-      res.status(401).send('User already exists');
+      res.status(401).send('User already exists')
     } else {
-      next(err);
+      next(err)
     }
   }
-});
+})
 
 router.get('/me', async (req, res, next) => {
   try {
