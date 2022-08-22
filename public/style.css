@@ -3,6 +3,7 @@
 @import './styles/signup.css';
 @import './styles/disclaimer.css';
 @import './styles/media-query.css';
+@import './styles/nav-bar-icons.css';
 
 * {
   -webkit-tap-highlight-color: transparent;

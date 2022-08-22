@@ -1,0 +1,16 @@
+.nav-icon-links {
+  display: flex;
+  justify-content: space-between;
+  background-color: #DEEEEF;
+  padding: 1rem;
+}
+
+.nav-icon {
+  display: flex;
+  width: 1.75rem;
+}
+
+.nav-icon-profile {
+  display: flex;
+  width: 1.5rem;
+}
