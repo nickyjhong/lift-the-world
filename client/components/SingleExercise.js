@@ -1,8 +1,9 @@
-import React, { Component, useEffect } from 'react';
-import { connect, useSelector, useDispatch } from 'react-redux';
+import React, {useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { fetchExercise } from '../store/singleExercise';
 import { addToWorkout } from '../store/workout';
 import { Link, useParams } from 'react-router-dom';
+import YoutubeEmbed from './YoutubeEmbed';
 
 const SingleExercise = () => {
   let { id } = useParams();
@@ -19,15 +20,30 @@ const SingleExercise = () => {
     dispatch(addToWorkout(exercise))
   }
 
+  const equipmentArr = exercise.equipment.split(",");
+  const tipsAndTricksArr = exercise.tipsAndTricks.split(",");
+
   return (
     <div>
       {exercise && exercise.id ? (
         <div>
-          <h3>{exercise.name}</h3>
-          <button onClick={handleAdd}>
-            add to workout
-          </button>
-        </div>
+              <h1>{exercise.name}</h1>
+              <YoutubeEmbed embedId={exercise.embedId} />
+               <h2>Equipment Needed:</h2>
+              <ul>
+                {equipmentArr.map((equipment) => {
+                  return <li key={equipmentArr.indexOf(equipment)}>{equipment}</li>
+                })}
+              </ul>
+              <h2>Tips:</h2>
+              <ul>
+                {tipsAndTricksArr.map((tip) => {
+                  return <li key={tipsAndTricksArr.indexOf(tip)}>{tip}</li>
+                })}
+              </ul>
+              <button onClick={handleAdd}>Add Exercise</button>
+              <button>Get Help</button>
+            </div>
       ) : (
         <div>
           <p>No exercises found</p>
