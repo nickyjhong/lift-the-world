@@ -1,9 +1,10 @@
-@import './styles/navbar.css';
-@import './styles/recap.css';
-@import './styles/signup.css';
-@import './styles/disclaimer.css';
-@import './styles/media-query.css';
-@import './styles/nav-bar-icons.css';
+@import "./styles/navbar.css";
+@import "./styles/recap.css";
+@import "./styles/signup.css";
+@import "./styles/disclaimer.css";
+@import "./styles/media-query.css";
+@import "./styles/nav-bar-icons.css";
+@import "./styles/homepage.css";
 
 * {
   -webkit-tap-highlight-color: transparent;
@@ -19,7 +20,7 @@ body {
   margin: 0;
   width: auto;
   min-height: 100vh;
-  background: #F8F6F5;
+  background: #f8f6f5;
 }
 
 a {
@@ -33,7 +34,7 @@ label {
 .header {
   position: fixed;
   top: 0;
-  background-color: #AECECC;
+  background-color: #aececc;
   width: 100%;
   height: 50px;
   margin-bottom: 10px;

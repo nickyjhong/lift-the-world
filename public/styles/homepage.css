@@ -1,0 +1,19 @@
+.homepage-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem 3rem;
+}
+
+.homepage-btn {
+  text-align: center;
+  border-radius: 25px;
+  background: #aececc;
+  font-size: 1rem;
+  border: none;
+  height: 2.5rem;
+  width: 10rem;
+  margin-top: 1rem;
+  color: inherit;
+}
