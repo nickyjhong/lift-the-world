@@ -3,17 +3,26 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { logout } from '../store';
 
-const Navbar = ({ handleClick, isLoggedIn }) => (
+// component to be used when logged in
+const NavBarIcons = ({ handleClick, isLoggedIn }) => (
   <div className="nav-container">
     <nav>
       {isLoggedIn ? (
-        <div className="nav-links">
+        <div className="nav-icon-links">
           {/* The navbar will show these links after you log in */}
-          <Link to="/">Home</Link>
+          <Link to="/">
+            <img className="nav-icon" src="/images/house-solid.svg" />
+          </Link>
+          <Link to="/recap">
+            Recap
+            <img className="nav-icon" src="/images/dumbbell-solid.svg" />
+          </Link>
+          <img className="nav-icon" src="/images/plus-solid.svg" />
+          <img className="nav-icon" src="/images/crown-solid.svg" />
           <a href="/" onClick={handleClick}>
             Logout
+            <img className="nav-icon-profile" src="/images/user-solid.svg" />
           </a>
-          <Link to="/recap">Recap</Link>
         </div>
       ) : (
         <div className="nav-links">
@@ -40,4 +49,4 @@ const mapDispatch = (dispatch) => {
   };
 };
 
-export default connect(mapState, mapDispatch)(Navbar);
+export default connect(mapState, mapDispatch)(NavBarIcons);

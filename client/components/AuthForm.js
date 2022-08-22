@@ -5,30 +5,125 @@ import { authenticate } from '../store';
 
 const AuthForm = (props) => {
   const { name, displayName, handleSubmit, error } = props;
-  console.log(props);
   return (
     <div className="form">
       <form onSubmit={handleSubmit} name={name}>
-        <div className="login">
-          <div className="login-card">
-            <p className="title">Log In</p>
-            <input name="email" placeholder="Email" required />
-            <input
-              name="password"
-              placeholder="Password"
-              type="password"
-              required
-            />
-            <button className="loader">Sign in</button>
-            <p className="text">Don't have an account?</p>
-            <Link to="/signup">
-              <button className="buttonShadow" type="submit">
-                Create new account
+        {name === 'signup' ? (
+          <div className="signup-container">
+            <p className="signup-title">Sign up for Lift the World</p>
+            <div className="form-container">
+              <label className="form-label">first name</label>
+              <div className="form-input-container">
+                <input
+                  className="form-input"
+                  type="text"
+                  name="firstName"
+                  placeholder="First name"
+                />
+              </div>
+            </div>
+
+            <div className="form-container">
+              <label className="form-label">last name</label>
+              <div className="form-input-container">
+                <input
+                  className="form-input"
+                  type="text"
+                  name="lastName"
+                  placeholder="Last name"
+                />
+              </div>
+            </div>
+
+            <div className="form-container">
+              <label className="form-label">email</label>
+              <div className="form-input-container">
+                <input
+                  className="form-input"
+                  type="text"
+                  name="email"
+                  placeholder="Email"
+                />
+              </div>
+            </div>
+
+            <div className="form-container">
+              <label className="form-label">username</label>
+              <div className="form-input-container">
+                <input
+                  className="form-input"
+                  type="text"
+                  name="username"
+                  placeholder="Username"
+                />
+              </div>
+            </div>
+
+            <div className="form-container">
+              <label className="form-label">password</label>
+              <div className="form-input-container">
+                <input
+                  className="form-input"
+                  type="password"
+                  name="password"
+                  placeholder="Password"
+                />
+              </div>
+            </div>
+            <div className="signup-btn-container">
+              <button className="button signup-btn" type="submit">
+                Sign Up
               </button>
-            </Link>
+              <Link to="/disclaimer" className="form-disclaimer">
+                Disclaimer
+              </Link>
+            </div>
           </div>
-        </div>
-        {error && <div> {error} </div>}
+        ) : (
+          <div className="login-container">
+            <p className="login-title">Log In</p>
+
+            <div className="form-container">
+              <label className="form-label">username</label>
+              <div className="form-input-container">
+                <input
+                  className="form-input"
+                  type="username"
+                  name="username"
+                  placeholder="Username"
+                  required
+                />
+              </div>
+            </div>
+
+            <div className="form-container">
+              <label className="form-label">password</label>
+              <div className="form-input-container">
+                <input
+                  className="form-input"
+                  type="password"
+                  name="password"
+                  placeholder="Password"
+                />
+              </div>
+            </div>
+
+            <div className="login-btn-container">
+              <button className="button login-btn" type="submit">
+                Sign In
+              </button>
+              <p className="form-small-text">Don't have an account?</p>
+              <Link to="/signup">
+                <button className="button signup-btn" type="submit">
+                  Create new account
+                </button>
+              </Link>
+              <Link to="/disclaimer" className="form-disclaimer">
+                Disclaimer
+              </Link>
+            </div>
+          </div>
+        )}
       </form>
     </div>
   );
@@ -38,7 +133,6 @@ const mapLogin = (state) => {
   return {
     name: 'login',
     displayName: 'Login',
-
     error: state.auth.error,
   };
 };
@@ -46,23 +140,32 @@ const mapLogin = (state) => {
 const mapSignup = (state) => {
   return {
     name: 'signup',
-    displayName: 'Sign Up',
+    displayName: 'Create Account',
     error: state.auth.error,
   };
 };
 
 const mapDispatch = (dispatch) => {
+  let firstName = '';
+  let lastName = '';
+  let email = '';
   return {
     handleSubmit(evt) {
       evt.preventDefault();
+      if (evt.target.name === 'signup') {
+        firstName = evt.target.firstName.value;
+        lastName = evt.target.lastName.value;
+        email = evt.target.email.value;
+      }
       const formName = evt.target.name;
-      const email = evt.target.email.value;
+      const username = evt.target.username.value;
       const password = evt.target.password.value;
-      dispatch(authenticate(email, password, formName));
+      dispatch(
+        authenticate(firstName, lastName, email, username, password, formName)
+      );
     },
   };
 };
 
 export const Login = connect(mapLogin, mapDispatch)(AuthForm);
-
 export const Signup = connect(mapSignup, mapDispatch)(AuthForm);

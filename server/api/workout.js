@@ -37,14 +37,7 @@ router.post('/', requireToken, async (req, res, next) => {
       }
     })
 
-    res.send(
-      await Workout.findOne({
-        where: {
-          id: workout.id
-        },
-        include: [Exercise]
-      })
-    )
+    res.send(workout)
   } catch(error) {
     next(error)
   }
