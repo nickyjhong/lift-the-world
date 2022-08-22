@@ -34,7 +34,7 @@ const SingleExercise = () => {
       </ul>
       <h2>Tips:</h2>
       <ul>
-         {exercise.tipsAndTricks.map((tip) => {
+        {exercise.tipsAndTricks.map((tip) => {
           return <li key={exercise.tipsAndTricks.indexOf(tip)}>{tip}</li>;
         })}
       </ul>

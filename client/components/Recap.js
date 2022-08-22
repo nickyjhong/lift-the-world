@@ -8,12 +8,7 @@ const Recap = () => {
         <p>Great job with your workout!</p>
       </div>
       <div className="recap-weights">XXXX</div>
-      <div className="recap-total-weight">
-        <p>You lifted X pounds during this workout!</p>
-        <p>That's the weight of X</p>
-        <WeightComparison />
-        <img />
-      </div>
+      <WeightComparison />
     </div>
   );
 };

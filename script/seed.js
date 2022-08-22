@@ -218,13 +218,25 @@ async function seed() {
   await workout1.setUser(kyle);
   await workout2.setUser(kyle);
   await workout1.addExercise(upper1);
+  await workout2.addExercises([upper1, upper4, lower3])
 
-  const closed1 = await WorkoutList.findOne({
+  const open1 = await WorkoutList.findOne({
     where: {
       exerciseId: 1,
       workoutId: 1,
     },
+  })
+
+  const closed1 = await WorkoutList.findOne({
+    where: {
+      exerciseId: 1,
+      workoutId: 2,
+    },
   });
+
+  open1.sets = dummySets;
+  await open1.save();
+
   closed1.sets = dummySets;
   await closed1.save();
 
