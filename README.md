@@ -1,77 +1,71 @@
-# FS-App-Template
+# Welcome to Lift the World
+![Lift the World Logo](/public/icon.png)
 
-## Setup
+## About
+[Lift the World](https://lift-the-world.herokuapp.com/) is a fitness tracker built by a team of four (wannabe) IFBB Pros.
+<br>
+You can use Lift the World to track how much weight you've moved during a specific workout and compare it to real life objects. You're guaranteed to be impressed with how strong you are! You can also compete for a spot on the global leadership board. 
 
-To use this as boilerplate, you'll need to take the following steps:
+You can use the site with the following credentials:
 
-* Don't fork or clone this repo! Instead, create a new, empty
-  directory on your machine and `git init` (or create an empty repo on
-  Github and clone it to your local machine)
+| User Type     | Email           | Password |
+| ------------- | --------------- | -------- |
+| Admin         | admin@gmail.com | 123      |
+|       |    |      |
 
-* Now you will have to add the fs-app-template as a remote and merge it into your own repository.
+### Wannabe IFBB Pros
+- [Cherry Xu](https://github.com/mscherryxu)
+- [Nicole Hong](https://github.com/nickyjhong)
+- [Ryan Scoville](https://github.com/rscoville29)
+- [Kyle Parkinson](https://github.com/kparki1130)
 
-```
-git remote add boilermaker git@github.com:FullstackAcademy/fs-app-template.git
-git fetch boilermaker
-git merge boilermaker/main
-git branch -m master main
-```
+<br/>
 
-## Customize
-
-Now that you've got the code, follow these steps to get acclimated:
-
-* Update project name and description in `package.json`
-* `npm install`
-* Create two postgres databases (`MY_APP_NAME` should match the `name`
-  parameter in `package.json`):
-* These commands will create both your **development** and **test** databases
-
-```
-createdb <YOUR APP NAME HERE FROM package.json>
-createdb <YOUR APP NAME HERE FROM package.json>-test
+## Getting Started
+**Step 1:** Clone the repo
+```js
+git@github.com:2206-capstone-lifters/lift-the-world.git
 ```
 
-* By default, running `npm test` will use your test database, while
-  regular development uses development database
+**Step 2:** Open the directory in your terminal and install dependencies
+```js
+npm install
+```
 
-## Start
+**Step 3:** Create the database
+```js
+createdb lift-the-world
+```
 
-Sync and seed your database by running `npm run seed`. Running `npm run start:dev` will make great things happen!
+**Step 4:** Seed our data
+```js
+npm run seed
+```
+**Step 5:** Run the project!
+```js
+npm run start:dev
+```
 
-- start:dev will both start your server and build your client side files using webpack
-- start:dev:logger is the same as start:dev, but you will see your SQL queries (can be helpful for debugging)
-- start:dev:seed will start your server and also seed your database (this is useful when you are making schema changes and you don't want to run your seed script separately)
+**Step 6:** Go to `localhost:8080` in your browser to run Baked!
+```js
+localhost:8080
+```
 
+<br/>
 
-### Heroku
+## Technologies Used:
+<p align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=react,redux,js,nodejs,express" />
+  </a>
+</p>
 
-1.  Set up the [Heroku command line tools][heroku-cli]
-2.  `heroku login`
-3.  Add a git remote for heroku:
+<p align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=postgres,html,css,heroku" />
+  </a>
+</p>
 
-[heroku-cli]: https://devcenter.heroku.com/articles/heroku-cli
+<br/>
 
-* **If you are creating a new app...**
-
-  1.  `heroku create` or `heroku create your-app-name` if you have a
-      name in mind.
-  2.  `heroku config:set JWT=<your secret here!>` to set a secret for JWT signing
-
-Database Setup
-
-  3.  `heroku addons:create heroku-postgresql:hobby-dev` to add
-      ("provision") a postgres database to your heroku dyno (This creates your production database)
-
-  4.  `heroku config:set SEED=true` to get heroku to sync and seed your database
-
-  5.   note everytime your app restarts, the database tables will be dropped and re-created. To avoid this you can `config:unset SEED`
-
-
-* **If you already have a Heroku app...**
-
-  1.  `heroku git:remote your-app-name` You'll need to be a
-      collaborator on the app.
-
-
-Now, you should be deployed!
+<br/>
