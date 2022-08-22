@@ -16,14 +16,3 @@ router.get('/', requireToken, isAdmin, async (req, res, next) => {
     next(err);
   }
 });
-
-// ALL VIEW: CREATE NEW USER
-router.post('/', async (req, res, next) => {
-  try {
-    const newUser = await User.create(req.body);
-    const userToken = await newUser.generateToken();
-    res.send(userToken);
-  } catch (error) {
-    next(error);
-  }
-});
