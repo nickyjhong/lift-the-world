@@ -1,5 +1,8 @@
 # Welcome to Lift the World
-![Lift the World Logo](/public/icon.png)
+
+<p align="center">
+  <img src="public/icon.png" style="width:200px">
+</p>
 
 ## About
 [Lift the World](https://lift-the-world.herokuapp.com/) is a fitness tracker built by a team of four (wannabe) IFBB Pros.
@@ -8,10 +11,10 @@ You can use Lift the World to track how much weight you've moved during a specif
 
 You can use the site with the following credentials:
 
-| User Type     | Email           | Password |
+| User Type     | Username        | Password |
 | ------------- | --------------- | -------- |
-| Admin         | admin@gmail.com | 123      |
-|       |    |      |
+| Admin         | admin           | 123      |
+|               |                 |          |
 
 ### Wannabe IFBB Pros
 - [Cherry Xu](https://github.com/mscherryxu)
@@ -65,7 +68,3 @@ localhost:8080
     <img src="https://skillicons.dev/icons?i=postgres,html,css,heroku" />
   </a>
 </p>
-
-<br/>
-
-<br/>
