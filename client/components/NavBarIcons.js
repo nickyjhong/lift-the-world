@@ -7,20 +7,15 @@ const NavBarIcons = ({ handleClick, isLoggedIn }) => (
   <div className="nav-container">
     <nav>
       {isLoggedIn ? (
-        <div className="nav-links">
+        <div className="nav-icon-links">
           {/* The navbar will show these links after you log in */}
           <Link to="/">
-            <img
-              className="nav-icon"
-              src="/images/house-icon.png"
-              alt="Home Icon"
-            />
+            <img className="nav-icon" src="/images/house-solid.svg" />
           </Link>
-          <img className="nav-icon" src="/images/workout-icon.jpg" />
-          <img className="nav-icon" src="/images/plus-icon.png" />
-          <img className="nav-icon" src="/images/crown-icon.png" />
-          <img className="nav-icon" src="/images/profile-icon.png" />
-          <Link to="/recap">Recap</Link>
+          <img className="nav-icon" src="/images/dumbbell-solid.svg" />
+          <img className="nav-icon" src="/images/plus-solid.svg" />
+          <img className="nav-icon" src="/images/crown-solid.svg" />
+          <img className="nav-icon-profile" src="/images/user-solid.svg" />
         </div>
       ) : (
         <div className="nav-links">

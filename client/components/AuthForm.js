@@ -74,7 +74,9 @@ const AuthForm = (props) => {
               <button className="button signup-btn" type="submit">
                 Sign Up
               </button>
-              <p className="form-disclaimer">Disclaimer</p>
+              <Link to="/disclaimer" className="form-disclaimer">
+                Disclaimer
+              </Link>
             </div>
           </div>
         ) : (
@@ -116,8 +118,9 @@ const AuthForm = (props) => {
                   Create new account
                 </button>
               </Link>
-
-              <p className="form-disclaimer">Disclaimer</p>
+              <Link to="/disclaimer" className="form-disclaimer">
+                Disclaimer
+              </Link>
             </div>
           </div>
         )}
