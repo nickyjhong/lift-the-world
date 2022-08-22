@@ -68,7 +68,3 @@ localhost:8080
     <img src="https://skillicons.dev/icons?i=postgres,html,css,heroku" />
   </a>
 </p>
-
-<br/>
-
-<br/>
