@@ -3,16 +3,23 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { logout } from '../store';
 
-const Navbar = ({ handleClick, isLoggedIn }) => (
+const NavBarIcons = ({ handleClick, isLoggedIn }) => (
   <div className="nav-container">
     <nav>
       {isLoggedIn ? (
         <div className="nav-links">
           {/* The navbar will show these links after you log in */}
-          <Link to="/">Home</Link>
-          <a href="/" onClick={handleClick}>
-            Logout
-          </a>
+          <Link to="/">
+            <img
+              className="nav-icon"
+              src="/images/house-icon.png"
+              alt="Home Icon"
+            />
+          </Link>
+          <img className="nav-icon" src="/images/workout-icon.jpg" />
+          <img className="nav-icon" src="/images/plus-icon.png" />
+          <img className="nav-icon" src="/images/crown-icon.png" />
+          <img className="nav-icon" src="/images/profile-icon.png" />
           <Link to="/recap">Recap</Link>
         </div>
       ) : (
@@ -40,4 +47,4 @@ const mapDispatch = (dispatch) => {
   };
 };
 
-export default connect(mapState, mapDispatch)(Navbar);
+export default connect(mapState, mapDispatch)(NavBarIcons);
