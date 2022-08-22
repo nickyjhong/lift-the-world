@@ -5,11 +5,13 @@ import {composeWithDevTools} from 'redux-devtools-extension';
 import auth from './auth';
 import singleExerciseReducer from './singleExercise';
 import workoutReducer from './workout';
+import leadersReducer from './topUsers';
 
 const reducer = combineReducers({ 
   auth: auth,
   singleExercise: singleExerciseReducer,
-  workout: workoutReducer
+  workout: workoutReducer,
+  topUsers: leadersReducer,
 
 })
   

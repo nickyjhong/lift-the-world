@@ -7,6 +7,7 @@ import Recap from './components/Recap'
 import SingleExercise from './components/SingleExercise';
 import Disclaimer from './components/Disclaimer';
 import { me } from './store';
+import LeaderBoard from './components/LeaderBoard';
 
 class Routes extends Component {
   componentDidMount() {
@@ -26,6 +27,7 @@ class Routes extends Component {
               <Route path="/recap" component={Recap} />
               <Route path="/disclaimer" component={Disclaimer} />
               <Route path="/exercise/:id" component={SingleExercise} />
+              <Route path='/leaderboard' component={LeaderBoard} />
             </Switch>
           ) : (
             <Switch>
@@ -34,6 +36,7 @@ class Routes extends Component {
               <Route path="/signup" component={Signup} />
               <Route path="/disclaimer" component={Disclaimer} />
               <Route path="/exercise/:id" component={SingleExercise} />
+              <Route path='/leaderboard' component={LeaderBoard} />
             </Switch>
           )}
         </div>
