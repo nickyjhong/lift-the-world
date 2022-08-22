@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { logout } from '../store';
 
+// component to be used when logged in
 const NavBarIcons = ({ handleClick, isLoggedIn }) => (
   <div className="nav-container">
     <nav>
@@ -12,10 +13,16 @@ const NavBarIcons = ({ handleClick, isLoggedIn }) => (
           <Link to="/">
             <img className="nav-icon" src="/images/house-solid.svg" />
           </Link>
-          <img className="nav-icon" src="/images/dumbbell-solid.svg" />
+          <Link to="/recap">
+            Recap
+            <img className="nav-icon" src="/images/dumbbell-solid.svg" />
+          </Link>
           <img className="nav-icon" src="/images/plus-solid.svg" />
           <img className="nav-icon" src="/images/crown-solid.svg" />
-          <img className="nav-icon-profile" src="/images/user-solid.svg" />
+          <a href="/" onClick={handleClick}>
+            Logout
+            <img className="nav-icon-profile" src="/images/user-solid.svg" />
+          </a>
         </div>
       ) : (
         <div className="nav-links">
