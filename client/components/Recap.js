@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import WeightComparison from './WeightComparison';
 
 const Recap = () => {
   return (
@@ -6,16 +7,10 @@ const Recap = () => {
       <div className="recap-congrats">
         <p>Great job with your workout!</p>
       </div>
-      <div className="recap-weights">
-        XXXX
-      </div>
-      <div className="recap-total-weight">
-        <p>You lifted X pounds during this workout!</p>
-        <p>That's the weight of X</p>
-        <img />
-      </div>
+      <div className="recap-weights">XXXX</div>
+      <WeightComparison />
     </div>
-  )
-}
+  );
+};
 
 export default Recap;

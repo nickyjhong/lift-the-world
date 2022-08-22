@@ -28,7 +28,7 @@ export const fetchWorkout = () => {
             authorization: token,
           },
         });
-        await dispatch(_setWorkout(data));
+        dispatch(_setWorkout(data));
       }
     } catch (error) {
       console.log(error)
