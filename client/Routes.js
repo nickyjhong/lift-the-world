@@ -20,7 +20,7 @@ class Routes extends Component {
     return (
       <div>
         {isLoggedIn ? (
-          <React.Fragment>
+          <>
             <div className="header"></div>
             <div className="routes-container">
               <Switch>
@@ -31,7 +31,7 @@ class Routes extends Component {
                 <Route path="/leaderboard" component={LeaderBoard} />
               </Switch>
             </div>
-          </React.Fragment>
+          </>
         ) : (
           <>
             <div className="header-not-signed-in">
