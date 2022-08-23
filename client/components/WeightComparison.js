@@ -20,7 +20,7 @@ const WeightComparison = () => {
     }, 0);
   })[0];
 
-  const comparison = weightFunction(totalWeight + 10000);
+  const comparison = weightFunction(totalWeight);
   return (
     <div>
       <div className="recap-total-weight">
