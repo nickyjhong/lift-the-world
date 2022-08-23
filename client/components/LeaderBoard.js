@@ -30,8 +30,8 @@ return (
         <h1>LeaderBoard:</h1>
         <div>{topTen.map((user)=>{
             return <div key={user.id}>
-                <h3>{user.firstName} {user.lastName}</h3>
-                <h3>{user.totalWeight}</h3>
+            <h3 className='leaderHead'>{user.firstName} {user.lastName}</h3>
+            <h3 className='leaderHead'>{user.totalWeight}</h3>
             </div>
         })}
 
