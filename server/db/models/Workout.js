@@ -10,6 +10,14 @@ const Workout = db.define('workout', {
     type: Sequelize.INTEGER,
     defaultValue: 0,
   },
+  presetId: {
+    type: Sequelize.INTEGER,
+    defaultValue: null,
+    validate: {
+      min: 1,
+      max: 6
+    }
+  }
 });
 
 module.exports = Workout;
