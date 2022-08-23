@@ -118,8 +118,6 @@ async function seed() {
   // Creating Users
 
   const admin = await User.create({
-    firstName: 'Admin',
-    lastName: 'Admin',
     username: 'admin',
     email: 'admin@gmail.com',
     password: '123',
@@ -129,8 +127,6 @@ async function seed() {
   });
 
   const kyle = await User.create({
-    firstName: 'Kyle',
-    lastName: 'Parkinson',
     username: 'kyle',
     email: 'kparki@email.com',
     password: '123',
@@ -140,8 +136,6 @@ async function seed() {
   });
 
   const nicole = await User.create({
-    firstName: 'Nicole',
-    lastName: 'Hong',
     username: 'nicky',
     email: 'nicole@hong.com',
     password: '123',
@@ -151,8 +145,6 @@ async function seed() {
   });
 
   const cherry = await User.create({
-    firstName: 'Cherry',
-    lastName: 'Xu',
     username: 'cherry',
     email: 'cherry@xu.com',
     password: '123',
@@ -162,8 +154,6 @@ async function seed() {
   });
 
   const ryan = await User.create({
-    firstName: 'Ryan',
-    lastName: 'Scoville',
     username: 'ryan',
     email: 'ryan@scoville.com',
     password: '123',
