@@ -11,26 +11,15 @@ const AuthForm = (props) => {
         {name === "signup" ? (
           <div className="signup-container">
             <p className="signup-title">Sign up for Lift the World</p>
-            <div className="form-container">
-              <label className="form-label">first name</label>
-              <div className="form-input-container">
-                <input
-                  className="form-input"
-                  type="text"
-                  name="firstName"
-                  placeholder="First name"
-                />
-              </div>
-            </div>
 
             <div className="form-container">
-              <label className="form-label">last name</label>
+              <label className="form-label">username</label>
               <div className="form-input-container">
                 <input
                   className="form-input"
                   type="text"
-                  name="lastName"
-                  placeholder="Last name"
+                  name="username"
+                  placeholder="Username"
                 />
               </div>
             </div>
@@ -43,18 +32,6 @@ const AuthForm = (props) => {
                   type="text"
                   name="email"
                   placeholder="Email"
-                />
-              </div>
-            </div>
-
-            <div className="form-container">
-              <label className="form-label">username</label>
-              <div className="form-input-container">
-                <input
-                  className="form-input"
-                  type="text"
-                  name="username"
-                  placeholder="Username"
                 />
               </div>
             </div>
@@ -152,22 +129,18 @@ const mapSignup = (state) => {
 };
 
 const mapDispatch = (dispatch) => {
-  let firstName = "";
-  let lastName = "";
   let email = "";
   return {
     handleSubmit(evt) {
       evt.preventDefault();
       if (evt.target.name === "signup") {
-        firstName = evt.target.firstName.value;
-        lastName = evt.target.lastName.value;
         email = evt.target.email.value;
       }
       const formName = evt.target.name;
       const username = evt.target.username.value;
       const password = evt.target.password.value;
       dispatch(
-        authenticate(firstName, lastName, email, username, password, formName)
+        authenticate(username, email, password, formName)
       );
     },
   };
