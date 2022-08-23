@@ -13,7 +13,7 @@ const reducer = combineReducers({
   singleExercise: singleExerciseReducer,
   workout: workoutReducer,
   topUsers: leadersReducer,
-  AllExercises: exercisesReducer,
+  allExercises: exercisesReducer,
 });
 
 const middleware = composeWithDevTools(
