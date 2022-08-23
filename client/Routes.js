@@ -38,12 +38,14 @@ class Routes extends Component {
               <div className="header-logo-container">
                 <img className="header-logo" src="/images/splash-icon.png" />
               </div>
-              <Switch>
-                <Route exact path="/" component={Login} />
-                <Route path="/login" component={Login} />
-                <Route path="/signup" component={Signup} />
-                <Route path="/disclaimer" component={Disclaimer} />
-              </Switch>
+              <div className="routes-container-nlg">
+                <Switch>
+                  <Route exact path="/" component={Login} />
+                  <Route path="/login" component={Login} />
+                  <Route path="/signup" component={Signup} />
+                  <Route path="/disclaimer" component={Disclaimer} />
+                </Switch>
+              </div>
             </div>
           </>
         )}
