@@ -1,9 +1,9 @@
-import React, { Component, useEffect } from 'react';
-import { connect, useSelector, useDispatch } from 'react-redux';
-import { fetchExercise } from '../store/singleExercise';
-import { addToWorkout } from '../store/workout';
-import { Link, useParams } from 'react-router-dom';
-import YoutubeEmbed from './YoutubeEmbed';
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchExercise } from "../store/singleExercise";
+import { addToWorkout } from "../store/workout";
+import { useParams } from "react-router-dom";
+import YoutubeEmbed from "./YoutubeEmbed";
 
 const SingleExercise = () => {
   let { id } = useParams();
@@ -12,13 +12,13 @@ const SingleExercise = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchExercise(id))
+    dispatch(fetchExercise(id));
   }, [dispatch, id]);
 
   const handleAdd = (event) => {
     event.preventDefault();
-    dispatch(addToWorkout(exercise))
-  }
+    dispatch(addToWorkout(exercise));
+  };
 
   return (
     <div>
@@ -28,19 +28,19 @@ const SingleExercise = () => {
           <YoutubeEmbed embedId={exercise.embedId} />
           <h2>Equipment Needed:</h2>
           <ul>
-        {exercise.equipment.map((equipment) => {
-          return <li key={exercise.equipment.indexOf(equipment)}>{equipment}</li>;
-        })}
-      </ul>
-      <h2>Tips:</h2>
-      <ul>
-        {exercise.tipsAndTricks.map((tip) => {
-          return <li key={exercise.tipsAndTricks.indexOf(tip)}>{tip}</li>;
-        })}
-      </ul>
-          <button onClick={handleAdd}>
-            add to workout
-          </button>
+            {exercise.equipment.map((equipment) => {
+              return (
+                <li key={exercise.equipment.indexOf(equipment)}>{equipment}</li>
+              );
+            })}
+          </ul>
+          <h2>Tips:</h2>
+          <ul>
+            {exercise.tipsAndTricks.map((tip) => {
+              return <li key={exercise.tipsAndTricks.indexOf(tip)}>{tip}</li>;
+            })}
+          </ul>
+          <button onClick={handleAdd}>add to workout</button>
         </div>
       ) : (
         <div>
@@ -48,7 +48,7 @@ const SingleExercise = () => {
         </div>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default SingleExercise
+export default SingleExercise;
