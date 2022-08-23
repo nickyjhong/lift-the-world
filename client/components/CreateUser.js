@@ -8,8 +8,6 @@
 //   const history = useHistory();
 
 //   let [user, setUser] = useState({
-//     firstName: '',
-//     lastName: '',
 //     email: '',
 //     username: '',
 //     password: '',
@@ -27,8 +25,6 @@
 //     event.preventDefault();
 //     dispatch(createUser(user))
 //     setUser({
-//       firstName: '',
-//       lastName: '',
 //       email: '',
 //       username: '',
 //       password: '',
@@ -43,32 +39,7 @@
 //       <form onSubmit={handleSubmit}>
 //         <div className="signup-container">
 //             <p className="signup-title">Sign up for Lift the World</p>
-//             <div className="form-container">
-//               <label className="form-label">first name</label>
-//               <div className="form-input-container">
-//                 <input
-//                   className="form-input"
-//                   type="text"
-//                   name="firstName"
-//                   placeholder="First name"
-//                   onChange={handleChange}
-//                 />
-//               </div>
-//             </div>
-
-//             <div className="form-container">
-//               <label className="form-label">last name</label>
-//               <div className="form-input-container">
-//                 <input
-//                   className="form-input"
-//                   type="text"
-//                   name="lastName"
-//                   placeholder="Last name"
-//                   onChange={handleChange}
-//                 />
-//               </div>
-//             </div>
-
+//
 //             <div className="form-container">
 //               <label className="form-label">email</label>
 //               <div className="form-input-container">

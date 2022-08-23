@@ -18,7 +18,7 @@ const LeaderBoard = () => {
           return (
             <div key={user.id}>
               <h3 className="leaderHead">
-                {user.firstName} {user.lastName}
+                {user.username}
               </h3>
               <h3 className="leaderHead">{user.totalWeight}</h3>
             </div>
