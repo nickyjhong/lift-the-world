@@ -1,15 +1,15 @@
-const router = require("express").Router();
+const router = require('express').Router();
 const {
   models: { Workout, Exercise, WorkoutList, User },
-} = require("../db/");
-const { requireToken } = require("./middleware");
+} = require('../db/');
+const { requireToken } = require('./middleware');
 
-router.get("/", requireToken, async (req, res, next) => {
+router.get('/', requireToken, async (req, res, next) => {
   try {
     const workout = await Workout.findOne({
       where: {
         userId: req.user.dataValues.id,
-        status: "active",
+        status: 'active',
       },
       include: [Exercise],
     });
@@ -21,7 +21,6 @@ router.get("/", requireToken, async (req, res, next) => {
 
 router.post('/', requireToken, async (req, res, next) => {
   try {
-
     const [workout, workoutCreated] = await Workout.findOrCreate({
       where: {
         userId: req.user.dataValues.id,
@@ -33,14 +32,14 @@ router.post('/', requireToken, async (req, res, next) => {
     const [exercise, exerciseCreated] = await WorkoutList.findOrCreate({
       where: {
         exerciseId: req.body.exerciseId,
-        workoutId: workout.id
-      }
-    })
+        workoutId: workout.id,
+      },
+    });
 
-    res.send(workout)
-  } catch(error) {
-    next(error)
+    res.send(workout);
+  } catch (error) {
+    next(error);
   }
-})
+});
 
 module.exports = router;

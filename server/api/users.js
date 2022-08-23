@@ -16,3 +16,27 @@ router.get('/', requireToken, isAdmin, async (req, res, next) => {
     next(err);
   }
 });
+
+router.get('/leaders', async (req, res, next) => {
+  try {
+    const allUsers = await User.findAll();
+    const sortedUsers = allUsers.sort((a,b)=>{
+        return a.totalWeight - b.totalWeight
+    });
+    const topTen = [];
+
+    if(sortedUsers.length >= 10){
+      console.log('wrong way')
+      for(let i = 0; i < 10; i++){
+        topTen.push(sortedUsers[i]);
+      }
+    }else{
+      for(let i = 0; i < sortedUsers.length - 1; i++){
+        topTen.push(sortedUsers[i]);
+      }
+    }
+    res.send(topTen);
+  } catch (error) {
+    next(error)
+  }
+})

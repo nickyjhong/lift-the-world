@@ -1,21 +1,16 @@
-import React from 'react'
+import React from 'react';
+import WeightComparison from './WeightComparison';
 
 const Recap = () => {
   return (
     <div className="recap-container">
       <div className="recap-congrats">
-        <p>Great job with your workout!</p>
+        <h4>Great job with your workout!</h4>
       </div>
-      <div className="recap-weights">
-        XXXX
-      </div>
-      <div className="recap-total-weight">
-        <p>You lifted X pounds during this workout!</p>
-        <p>That's the weight of X</p>
-        <img />
-      </div>
+      <div className="recap-weights">Put Workout Summary Component Here</div>
+      <WeightComparison />
     </div>
-  )
-}
+  );
+};
 
 export default Recap;

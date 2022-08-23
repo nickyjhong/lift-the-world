@@ -9,13 +9,6 @@
 <br>
 You can use Lift the World to track how much weight you've moved during a specific workout and compare it to real life objects. You're guaranteed to be impressed with how strong you are! You can also compete for a spot on the global leadership board. 
 
-You can use the site with the following credentials:
-
-| User Type     | Username        | Password |
-| ------------- | --------------- | -------- |
-| Admin         | admin           | 123      |
-|               |                 |          |
-
 ### Wannabe IFBB Pros
 - [Cherry Xu](https://github.com/mscherryxu)
 - [Nicole Hong](https://github.com/nickyjhong)
