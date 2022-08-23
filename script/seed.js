@@ -1,80 +1,91 @@
 const {
   db,
   models: { User, Exercise, Workout, WorkoutList },
-} = require("../server/db");
+} = require('../server/db');
 
 const upperExercises = [
   {
-    name: "Bench press",
-    category: "chest",
-    equipment: ["barbell", "weights", "bench"],
-    tipsAndTricks:
-      ["keep shoulders back", "don't bounce off your chest", "use a spotter if needed"],
-    embedId: "gRVjAtPip0Y",
+    name: 'Bench press',
+    category: 'chest',
+    equipment: ['barbell', 'weights', 'bench'],
+    tipsAndTricks: [
+      'keep shoulders back',
+      "don't bounce off your chest",
+      'use a spotter if needed',
+    ],
+    embedId: 'gRVjAtPip0Y',
   },
   {
-    name: "Lat pulldown",
-    category: "back",
-    equipment: ["pulldown machine"],
-    tipsAndTricks:
-      ["use slow and controlled movements", "keep shoulders back", "keep back straight"],
-    embedId: "Z_3xHwuO8Tk",
+    name: 'Lat pulldown',
+    category: 'back',
+    equipment: ['pulldown machine'],
+    tipsAndTricks: [
+      'use slow and controlled movements',
+      'keep shoulders back',
+      'keep back straight',
+    ],
+    embedId: 'Z_3xHwuO8Tk',
   },
   {
-    name: "Preacher curl",
-    category: "arms",
-    equipment: ["dumbell or barbell", "curling bench"],
-    tipsAndTricks:
-      ["utilize full range of motion", "move slow and controlled movements"],
-    embedId: "fIWP-FRFNU0",
+    name: 'Preacher curl',
+    category: 'arms',
+    equipment: ['dumbell or barbell', 'curling bench'],
+    tipsAndTricks: [
+      'utilize full range of motion',
+      'move slow and controlled movements',
+    ],
+    embedId: 'fIWP-FRFNU0',
   },
   {
-    name: "Shoulder press",
-    category: "back",
-    equipment: ["dumbbell or barbell"],
-    embedId: "5yWaNOvgFCM",
+    name: 'Shoulder press',
+    category: 'back',
+    equipment: ['dumbbell or barbell'],
+    embedId: '5yWaNOvgFCM',
   },
   {
-    name: "Row",
-    category: "back",
-    equipment: ["dumbbell or barbell"],
-    embedId: "roCP6wCXPqo",
+    name: 'Row',
+    category: 'back',
+    equipment: ['dumbbell or barbell'],
+    embedId: 'roCP6wCXPqo',
   },
 ];
 
 const lowerExercises = [
   {
-    name: "Squat",
-    category: "legs",
-    equipment: ["barbell", "weights", "squat rack"],
-    tipsAndTricks:
-      ["keep your back straight", "push through your heels", "don't lock your knees"],
-    embedId: "Dy28eq2PjcM",
+    name: 'Squat',
+    category: 'legs',
+    equipment: ['barbell', 'weights', 'squat rack'],
+    tipsAndTricks: [
+      'keep your back straight',
+      'push through your heels',
+      "don't lock your knees",
+    ],
+    embedId: 'Dy28eq2PjcM',
   },
   {
-    name: "Leg raises",
-    category: "core",
-    equipment: ["floor mat"],
-    tipsAndTricks: ["engage your core", "use controlled movements"],
-    embedId: "JB2oyawG9KI",
+    name: 'Leg raises',
+    category: 'core',
+    equipment: ['floor mat'],
+    tipsAndTricks: ['engage your core', 'use controlled movements'],
+    embedId: 'JB2oyawG9KI',
   },
   {
-    name: "Romanian deadlift",
-    category: "legs",
-    equipment: ["dumbbell or barbell"],
-    embedId: "7AaaYhMqTws",
+    name: 'Romanian deadlift',
+    category: 'legs',
+    equipment: ['dumbbell or barbell'],
+    embedId: '7AaaYhMqTws',
   },
   {
-    name: "Leg curl",
-    category: "legs",
-    equipment:["leg curl machine"],
-    embedId: "fK0uZ3KRZRI",
+    name: 'Leg curl',
+    category: 'legs',
+    equipment: ['leg curl machine'],
+    embedId: 'fK0uZ3KRZRI',
   },
   {
-    name: "Leg extension",
-    category: "legs",
-    equipment: ["leg extension machine"],
-    embedId: "8Jqof7z3QYM",
+    name: 'Leg extension',
+    category: 'legs',
+    equipment: ['leg extension machine'],
+    embedId: '8Jqof7z3QYM',
   },
 ];
 
@@ -95,7 +106,7 @@ const dummySets = [
 
 async function seed() {
   await db.sync({ force: true });
-  console.log("db synced!");
+  console.log('db synced!');
 
   await Promise.all(
     upperExercises.map((exercise) => Exercise.create(exercise))
@@ -107,55 +118,55 @@ async function seed() {
   // Creating Users
 
   const admin = await User.create({
-    firstName: "Admin",
-    lastName: "Admin",
-    username: "admin",
-    email: "admin@gmail.com",
-    password: "123",
+    firstName: 'Admin',
+    lastName: 'Admin',
+    username: 'admin',
+    email: 'admin@gmail.com',
+    password: '123',
     isAdmin: true,
     totalWeight: 12094,
     level: 18,
   });
 
   const kyle = await User.create({
-    firstName: "Kyle",
-    lastName: "Parkinson",
-    username: "kparki123",
-    email: "kparki@email.com",
-    password: "123",
+    firstName: 'Kyle',
+    lastName: 'Parkinson',
+    username: 'kyle',
+    email: 'kparki@email.com',
+    password: '123',
     isAdmin: false,
     totalWeight: 12094,
     level: 18,
   });
 
   const nicole = await User.create({
-    firstName: "Nicole",
-    lastName: "Hong",
-    username: "nicky123",
-    email: "nicole@hong.com",
-    password: "123",
+    firstName: 'Nicole',
+    lastName: 'Hong',
+    username: 'nicky',
+    email: 'nicole@hong.com',
+    password: '123',
     isAdmin: true,
     totalWeight: 44867,
     level: 43,
   });
 
   const cherry = await User.create({
-    firstName: "Cherry",
-    lastName: "Xu",
-    username: "Cherry123",
-    email: "cherry@xu.com",
-    password: "123",
+    firstName: 'Cherry',
+    lastName: 'Xu',
+    username: 'cherry',
+    email: 'cherry@xu.com',
+    password: '123',
     isAdmin: true,
     totalWeight: 39126,
     level: 33,
   });
 
   const ryan = await User.create({
-    firstName: "Ryan",
-    lastName: "Scoville",
-    username: "rscoville1",
-    email: "ryan@scoville.com",
-    password: "123",
+    firstName: 'Ryan',
+    lastName: 'Scoville',
+    username: 'ryan',
+    email: 'ryan@scoville.com',
+    password: '123',
     isAdmin: false,
     totalWeight: 28643,
     level: 24,
@@ -172,11 +183,30 @@ async function seed() {
   const lower4 = await Exercise.findByPk(9);
   const lower5 = await Exercise.findByPk(10);
 
-  const workout1 = await Workout.create({ status: "closed" });
-  const psworkout1 = await Workout.create({ status: "active" });
-  const psworkout2 = await Workout.create({ status: "active" });
-  const psworkout3 = await Workout.create({ status: "active" });
-  const psworkout4 = await Workout.create({ status: "active" });
+  const workout1 = await Workout.create({
+    status: 'closed',
+    workoutTotalWeight: 500,
+  });
+  const workout2 = await Workout.create({
+    status: 'active',
+    workoutTotalWeight: 500,
+  });
+  const psworkout1 = await Workout.create({
+    status: 'active',
+    workoutTotalWeight: 20,
+  });
+  const psworkout2 = await Workout.create({
+    status: 'active',
+    workoutTotalWeight: 250,
+  });
+  const psworkout3 = await Workout.create({
+    status: 'active',
+    workoutTotalWeight: 10000,
+  });
+  const psworkout4 = await Workout.create({
+    status: 'active',
+    workoutTotalWeight: 25000,
+  });
 
   await psworkout1.addExercises([upper1, upper2, upper3]);
   await psworkout2.addExercises([upper3, upper4, upper5]);
@@ -186,14 +216,27 @@ async function seed() {
   // ADD IN REPS HERE
 
   await workout1.setUser(kyle);
+  await workout2.setUser(kyle);
   await workout1.addExercise(upper1);
+  await workout2.addExercises([upper1, upper4, lower3])
 
-  const closed1 = await WorkoutList.findOne({
+  const open1 = await WorkoutList.findOne({
     where: {
       exerciseId: 1,
       workoutId: 1,
     },
+  })
+
+  const closed1 = await WorkoutList.findOne({
+    where: {
+      exerciseId: 1,
+      workoutId: 2,
+    },
   });
+
+  open1.sets = dummySets;
+  await open1.save();
+
   closed1.sets = dummySets;
   await closed1.save();
 
@@ -206,16 +249,16 @@ async function seed() {
 }
 
 async function runSeed() {
-  console.log("seeding...");
+  console.log('seeding...');
   try {
     await seed();
   } catch (err) {
     console.error(err);
     process.exitCode = 1;
   } finally {
-    console.log("closing db connection");
+    console.log('closing db connection');
     await db.close();
-    console.log("db connection closed");
+    console.log('db connection closed');
   }
 }
 

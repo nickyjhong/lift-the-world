@@ -1,12 +1,41 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React from "react";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 export const Home = (props) => {
   const { username } = props;
 
   return (
-    <div>
-      <h3>Welcome, {username}</h3>
+    <div className="homepage-container">
+      <h3 className="homepage-header">Welcome to Lift The World, {username}</h3>
+
+      <div className="homepage-btn-container">
+        <button className="homepage-btn">
+          <Link to="/dontKnowWhatThisIsYet" className="homepage-btn-link">
+            Select Workouts
+          </Link>
+        </button>
+
+        
+        <button className="homepage-btn">
+          <Link to="/dontKnowWhatThisIsYet" className="homepage-btn-link">
+            Get a Pre-made Program
+          </Link>
+        </button>
+
+        <button className="homepage-btn">
+          <Link to="/dontKnowWhatThisIsYet" className="homepage-btn-link">
+            View My Progress
+          </Link>
+        </button>
+
+        <button className="homepage-btn">
+          <Link to="/dontKnowWhatThisIsYet" className="homepage-btn-link">
+            Chat With a Trainer
+          </Link>
+        </button>
+
+      </div>
     </div>
   );
 };
