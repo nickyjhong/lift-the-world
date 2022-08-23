@@ -17,8 +17,9 @@ import { getLeadersThunk } from '../store/topUsers';
 
 const LeaderBoard = () => {
 
-const dispatch = useDispatch();
 const topTen = useSelector((state) => state.topUsers);
+const dispatch = useDispatch();
+
 
 useEffect(()=>{
 dispatch(getLeadersThunk());

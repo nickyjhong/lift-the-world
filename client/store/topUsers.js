@@ -10,9 +10,9 @@ const getLeaders = (leaders)=>{
 };
 
 export const getLeadersThunk = ()=>{
-    return async (dispatch)=>{
+    return async (dispatch) => {
     try {
-        const {data: leaders} = axios.get('/api/leaders');
+        const {data: leaders} = await axios.get('/api/leaders');
         dispatch(getLeaders(leaders));
     } catch (error) {
         console.log(error);
