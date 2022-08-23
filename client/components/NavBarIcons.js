@@ -1,7 +1,7 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { logout } from '../store';
+import React from "react";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import { logout } from "../store";
 
 // component to be used when logged in
 const NavBarIcons = ({ handleClick, isLoggedIn }) => (
@@ -18,7 +18,9 @@ const NavBarIcons = ({ handleClick, isLoggedIn }) => (
             <img className="nav-icon" src="/images/dumbbell-solid.svg" />
           </Link>
           <img className="nav-icon" src="/images/plus-solid.svg" />
-          <img className="nav-icon" src="/images/crown-solid.svg" />
+          <Link to="/leaderboard">
+            <img className="nav-icon" src="/images/crown-solid.svg" />
+          </Link>
           <a href="/" onClick={handleClick}>
             Logout
             <img className="nav-icon-profile" src="/images/user-solid.svg" />
