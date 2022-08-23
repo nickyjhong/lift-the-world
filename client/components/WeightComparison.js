@@ -18,15 +18,13 @@ export class WeightComparison extends Component {
       }, 0);
     })[0];
 
-    const comparison = weightFunction(totalWeight)
-  
-    console.log(comparison)
+    const comparison = weightFunction(totalWeight);
     return (
       <div>
         <div className="recap-total-weight">
           <p>You lifted {totalWeight} pounds during this workout!</p>
           <p>That's the weight of {comparison.name}</p>
-          <img src={comparison.image}/>
+          <img src={comparison.image} />
         </div>
       </div>
     );
