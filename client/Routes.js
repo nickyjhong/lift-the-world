@@ -39,6 +39,7 @@ class Routes extends Component {
                 <img className="header-logo" src="/images/splash-icon.png" />
               </div>
               <Switch>
+                <Route exact path="/" component={Login} />
                 <Route path="/login" component={Login} />
                 <Route path="/signup" component={Signup} />
                 <Route path="/disclaimer" component={Disclaimer} />
