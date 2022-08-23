@@ -8,6 +8,7 @@ import SingleExercise from "./components/SingleExercise";
 import Disclaimer from "./components/Disclaimer";
 import { me } from "./store";
 import LeaderBoard from "./components/LeaderBoard";
+import CurrentWorkout from './components/CurrentWorkout';
 
 class Routes extends Component {
   componentDidMount() {
@@ -27,6 +28,7 @@ class Routes extends Component {
                 <Route exact path="/" component={Home} />
                 <Route path="/recap" component={Recap} />
                 <Route path="/disclaimer" component={Disclaimer} />
+                <Route path="/workout" component={CurrentWorkout} />
                 <Route path="/exercise/:id" component={SingleExercise} />
                 <Route path="/leaderboard" component={LeaderBoard} />
               </Switch>
