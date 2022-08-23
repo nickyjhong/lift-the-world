@@ -5,6 +5,7 @@
 @import "./styles/nav-bar-icons.css";
 @import "./styles/homepage.css";
 @import './styles/leaderboard.css';
+@import './styles/current-workout.css';
 @import "./styles/media-query.css";
 
 * {
