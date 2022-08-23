@@ -51,15 +51,17 @@ export default function CurrentWorkout() {
               </div>
             </form>
           </div>
+          <div className="cw-btn-container">
             <button className="cw-add-btn">
               + Add Set
             </button>
+          </div>
         </div>
       </div>
         {/* this should lead to recap page and make workout closed */}
-        <button className="cw-finish-btn">
-          Finish Workout
-        </button>
+      <button className="cw-finish-btn">
+        Finish Workout
+      </button>
     </div>
   )
 }
