@@ -13,7 +13,7 @@ router.post('/login', async (req, res, next) => {
 
 router.post('/signup', async (req, res, next) => {
   try {
-    const { firstName, lastName, email, username, password } = req.body;
+    const { username, email, password } = req.body;
     let sameEmail = await User.findOne({
       where: {
         email: {
@@ -31,7 +31,7 @@ router.post('/signup', async (req, res, next) => {
     })
 
     if (!sameEmail && !sameUsername) {
-      const user = await User.create({ firstName, lastName, email, username, password })
+      const user = await User.create({ username, email, password })
       res.send({token: await user.generateToken()})
     } else {
       console.log('user exists!')
