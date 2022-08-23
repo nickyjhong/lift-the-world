@@ -15,10 +15,7 @@ const reducer = combineReducers({
   workout: workoutReducer,
   topUsers: leadersReducer,
   allExercises: exercisesReducer,
-<<<<<<< HEAD
-=======
   allUsers: usersReducer,
->>>>>>> 70f374c574ac0dc235b4a82a3343da12983ecf0b
 });
 
 const middleware = composeWithDevTools(
