@@ -21,7 +21,7 @@ const NavBarIcons = ({ handleClick, isLoggedIn }) => (
           <Link to="/leaderboard">
             <img className="nav-icon" src="/images/crown-solid.svg" />
           </Link>
-          <a href="/" onClick={handleClick}>
+          <a href="/login" onClick={handleClick}>
             Logout
             <img className="nav-icon-profile" src="/images/user-solid.svg" />
           </a>
