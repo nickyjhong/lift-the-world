@@ -21,17 +21,13 @@ const NavBarIcons = ({ handleClick, isLoggedIn }) => (
           <Link to="/leaderboard">
             <img className="nav-icon" src="/images/crown-solid.svg" />
           </Link>
-          <a href="/" onClick={handleClick}>
+          <a href="/login" onClick={handleClick}>
             Logout
             <img className="nav-icon-profile" src="/images/user-solid.svg" />
           </a>
         </div>
       ) : (
-        <div className="nav-links">
-          {/* The navbar will show these links before you log in */}
-          <Link to="/login">Login</Link>
-          <Link to="/signup">Sign Up</Link>
-        </div>
+        ""
       )}
     </nav>
   </div>

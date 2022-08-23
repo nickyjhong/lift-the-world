@@ -4,6 +4,11 @@
     padding: 1.5rem 1rem;
   }
 
+  .routes-container-nlg {
+    overflow-x: hidden;
+    padding: 1rem 1rem;
+  }
+  
   .signup-btn, .login-btn {
     width: 13.5rem;
   }
@@ -17,9 +22,9 @@
   .signup-container, .login-container {
     margin: 0;
     width: 100%;
-    padding: 1.5rem 0;
+    padding: 2rem 0;
   }
-
+  
   .form-container {
     display: flex;
     justify-content: center;

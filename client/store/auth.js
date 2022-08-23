@@ -1,10 +1,10 @@
-import axios from 'axios';
-import history from '../history';
+import axios from "axios";
+import history from "../history";
 
-export const TOKEN = 'token';
+export const TOKEN = "token";
 
 //ACTION TYPES
-const SET_AUTH = 'SET_AUTH';
+const SET_AUTH = "SET_AUTH";
 
 // ACTION CREATORS
 const setAuth = (auth) => ({ type: SET_AUTH, auth });
@@ -13,7 +13,7 @@ const setAuth = (auth) => ({ type: SET_AUTH, auth });
 export const me = () => async (dispatch) => {
   const token = window.localStorage.getItem(TOKEN);
   if (token) {
-    const res = await axios.get('/auth/me', {
+    const res = await axios.get("/auth/me", {
       headers: {
         authorization: token,
       },
@@ -22,20 +22,28 @@ export const me = () => async (dispatch) => {
   }
 };
 
-export const authenticate = (firstName, lastName, email, username, password, method) => async dispatch => {
-  try {
-    const res = await axios.post(`/auth/${method}`, {firstName, lastName, email, username, password})
-    window.localStorage.setItem(TOKEN, res.data.token)
-    dispatch(me())
-    history.push('/')
-  } catch (authError) {
-    return dispatch(setAuth({error: authError}))
-  }
-}
+export const authenticate =
+  (firstName, lastName, email, username, password, method) =>
+  async (dispatch) => {
+    try {
+      const res = await axios.post(`/auth/${method}`, {
+        firstName,
+        lastName,
+        email,
+        username,
+        password,
+      });
+      window.localStorage.setItem(TOKEN, res.data.token);
+      dispatch(me());
+      history.push("/");
+    } catch (authError) {
+      return dispatch(setAuth({ error: authError }));
+    }
+  };
 
 export const logout = () => {
   window.localStorage.removeItem(TOKEN);
-  history.push('/');
+  history.push("/login");
   return {
     type: SET_AUTH,
     auth: {},
