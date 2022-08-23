@@ -1,0 +1,21 @@
+.cw-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.cw-headings {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cw-heading {
+  margin: 0;
+  font-size: .8rem;
+}
+
+.cw-info-container {
+  background: #EFEFEF;
+  border-radius: 5px;
+}
