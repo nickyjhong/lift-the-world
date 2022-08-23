@@ -1,14 +1,14 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { authenticate } from '../store';
+import React from "react";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import { authenticate } from "../store";
 
 const AuthForm = (props) => {
   const { name, displayName, handleSubmit, error } = props;
   return (
     <div className="form">
       <form onSubmit={handleSubmit} name={name}>
-        {name === 'signup' ? (
+        {name === "signup" ? (
           <div className="signup-container">
             <p className="signup-title">Sign up for Lift the World</p>
             <div className="form-container">
@@ -74,6 +74,12 @@ const AuthForm = (props) => {
               <button className="button signup-btn" type="submit">
                 Sign Up
               </button>
+              <p className="form-small-text">Have an account?</p>
+              <Link to="/login">
+                <button className="button signup-btn" type="submit">
+                  Sign In
+                </button>
+              </Link>
               <Link to="/disclaimer" className="form-disclaimer">
                 Disclaimer
               </Link>
@@ -131,28 +137,28 @@ const AuthForm = (props) => {
 
 const mapLogin = (state) => {
   return {
-    name: 'login',
-    displayName: 'Login',
+    name: "login",
+    displayName: "Login",
     error: state.auth.error,
   };
 };
 
 const mapSignup = (state) => {
   return {
-    name: 'signup',
-    displayName: 'Create Account',
+    name: "signup",
+    displayName: "Create Account",
     error: state.auth.error,
   };
 };
 
 const mapDispatch = (dispatch) => {
-  let firstName = '';
-  let lastName = '';
-  let email = '';
+  let firstName = "";
+  let lastName = "";
+  let email = "";
   return {
     handleSubmit(evt) {
       evt.preventDefault();
-      if (evt.target.name === 'signup') {
+      if (evt.target.name === "signup") {
         firstName = evt.target.firstName.value;
         lastName = evt.target.lastName.value;
         email = evt.target.email.value;
