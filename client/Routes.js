@@ -10,6 +10,8 @@ import { me } from "./store";
 import LeaderBoard from "./components/LeaderBoard";
 import CurrentWorkout from './components/CurrentWorkout';
 import PresetWorkouts from "./components/PresetWorkouts";
+import UserProfile from "./components/UserProfile";
+
 
 class Routes extends Component {
   componentDidMount() {
@@ -33,6 +35,7 @@ class Routes extends Component {
                 <Route path="/exercise/:id" component={SingleExercise} />
                 <Route path="/leaderboard" component={LeaderBoard} />
                 <Route path="/presetworkouts" component={PresetWorkouts}/>
+                <Route path="/profile" component={UserProfile} />
               </Switch>
             </div>
           </>
