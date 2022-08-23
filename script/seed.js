@@ -25,8 +25,6 @@ async function seed() {
   // Creating Users
 
   const admin = await User.create({
-    firstName: 'Admin',
-    lastName: 'Admin',
     username: 'admin',
     email: 'admin@gmail.com',
     password: '123',
@@ -36,8 +34,6 @@ async function seed() {
   });
 
   const kyle = await User.create({
-    firstName: 'Kyle',
-    lastName: 'Parkinson',
     username: 'kyle',
     email: 'kparki@email.com',
     password: '123',
@@ -47,8 +43,6 @@ async function seed() {
   });
 
   const nicole = await User.create({
-    firstName: 'Nicole',
-    lastName: 'Hong',
     username: 'nicky',
     email: 'nicole@hong.com',
     password: '123',
@@ -58,8 +52,6 @@ async function seed() {
   });
 
   const cherry = await User.create({
-    firstName: 'Cherry',
-    lastName: 'Xu',
     username: 'cherry',
     email: 'cherry@xu.com',
     password: '123',
@@ -69,8 +61,6 @@ async function seed() {
   });
 
   const ryan = await User.create({
-    firstName: 'Ryan',
-    lastName: 'Scoville',
     username: 'ryan',
     email: 'ryan@scoville.com',
     password: '123',
@@ -232,28 +222,34 @@ async function seed() {
 
 
   const pschest1 = await Workout.create({
+    name: 'chest1',
     status: 'active',
-    presetId: 1
+    isPreset: true
   });
   const pschest2 = await Workout.create({
+    name: 'chest2',
     status: 'active',
-    presetId: 2
+    isPreset: true
   });
   const psback1 = await Workout.create({
+    name: 'back1',
     status: 'active',
-    presetId: 3
+    isPreset: true
   });
   const psback2 = await Workout.create({
+    name: 'back2',
     status: 'active',
-    presetId: 4
+    isPreset: true
   });
   const pslegs1 = await Workout.create({
+    name: 'legs1',
     status: 'active',
-    presetId: 5
+    isPreset: true
   });
   const pslegs2 = await Workout.create({
+    name: 'legs2',
     status: 'active',
-    presetId: 6
+    isPreset: true
   });
 
   await pschest1.addExercises([chest1, chest2, chest5]);
@@ -267,8 +263,8 @@ async function seed() {
 
   await workout1.setUser(kyle);
   await workout2.setUser(kyle);
-  await workout1.addExercise(upper1);
-  await workout2.addExercises([upper1, upper4, lower3])
+  await workout1.addExercise(chest1);
+  await workout2.addExercises([chest1, chest2, chest3])
 
   const open1 = await WorkoutList.findOne({
     where: {
