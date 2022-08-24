@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchWorkout } from '../../store/workout'
+import { fetchPreviousWorkout } from '../../store/workout'
 
 export default function CurrentWorkout() {
   const workout = useSelector((state) => state.workout);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchWorkout());
+    dispatch(fetchPreviousWorkout());
   }, [dispatch])
 
   const workouts = workout.exercises || []

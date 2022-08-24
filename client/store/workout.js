@@ -42,6 +42,25 @@ export const fetchWorkout = () => {
   }
 }
 
+export const fetchPreviousWorkout = () => {
+  return async (dispatch) => {
+    try {
+      const token = window.localStorage.getItem(TOKEN);
+
+      if (token) {
+        const { data } = await axios.get('/api/workout/previous', {
+          headers: {
+            authorization: token,
+          },
+        });
+        dispatch(_setWorkout(data));
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+}
+
 export const addToWorkout = (exercise) => {
   return async (dispatch) => {
     try {
