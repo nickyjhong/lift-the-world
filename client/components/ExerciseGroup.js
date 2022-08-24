@@ -16,7 +16,15 @@ export default function ExerciseGroup() {
   return (
     <div>
       {group ? (
-        <p>{group.name}</p>
+        <div>
+          <ul>
+            {group.map((exercise) => {
+              return (
+                <li key={exercise.id}>{exercise.name}</li>
+              )
+            })}
+          </ul>
+        </div>
       ) : (
         <p>No exercises</p>
       )}
