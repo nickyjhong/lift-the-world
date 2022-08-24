@@ -9,6 +9,7 @@ import leadersReducer from "./topUsers";
 import exercisesReducer from "./exercises";
 import usersReducer from "./allUsers";
 import singleUserReducer from "./singleUser";
+import presetsReducer from "./presets";
 
 const reducer = combineReducers({
   auth: auth,
@@ -18,6 +19,7 @@ const reducer = combineReducers({
   allExercises: exercisesReducer,
   allUsers: usersReducer,
   singleUser: singleUserReducer,
+  presets: presetsReducer,
 });
 
 const middleware = composeWithDevTools(
