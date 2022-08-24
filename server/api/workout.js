@@ -26,8 +26,9 @@ router.get('/previous', requireToken, async (req, res, next) => {
         userId: req.user.dataValues.id,
         status: 'closed',
       },
+      order: [ [ 'createdAt', 'DESC' ]],
       include: [Exercise],
-      order: [ [ 'createdAt', 'DESC' ]]
+
     });
     res.send(workout);
   } catch (error) {
