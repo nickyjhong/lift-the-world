@@ -39,7 +39,7 @@ class Routes extends Component {
                 <Route exact path="/workout" component={CurrentWorkout} />
                 <Route exact path="/workout/preset" component={PresetWorkouts} />
                 <Route exact path="/workout/preset/:id" component={SinglePreset} />
-                <Route path ="/exercises" component={AllExercises} />
+                <Route exact path= "/exercises" component={AllExercises} />
                 <Route exact path="/exercise/:id" component={SingleExercise} />
                 <Route path="/leaderboard" component={LeaderBoard} />
                 <Route path="/profile" component={UserProfile} />

@@ -1,8 +1,9 @@
 .nav-icon-links {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   background-color: #DEEEEF;
-  padding: 1rem;
+  padding: .75rem;
 }
 
 .nav-icon {

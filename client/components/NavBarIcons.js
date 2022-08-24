@@ -12,14 +12,23 @@ const NavBarIcons = ({ isLoggedIn }) => (
           <Link to="/">
             <img className="nav-icon" src="/images/house-solid.svg" />
           </Link>
+
           <Link to="/recap">
             Recap
+          </Link>
+
+          <Link to="/exercises">
             <img className="nav-icon" src="/images/dumbbell-solid.svg" />
           </Link>
-          <img className="nav-icon" src="/images/plus-solid.svg" />
+
+          <Link to="/workout">
+            <img className="nav-icon" src="/images/plus-solid.svg" />
+          </Link>
+
           <Link to="/leaderboard">
             <img className="nav-icon" src="/images/crown-solid.svg" />
           </Link>
+
           <Link to="/profile">
             <img className="nav-icon-profile" src="/images/user-solid.svg" />
           </Link>
