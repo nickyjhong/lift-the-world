@@ -4,8 +4,10 @@
 @import "./styles/disclaimer.css";
 @import "./styles/nav-bar-icons.css";
 @import "./styles/homepage.css";
-@import './styles/leaderboard.css';
-@import './styles/current-workout.css';
+@import "./styles/leaderboard.css";
+@import "./styles/current-workout.css";
+@import "./styles/musclegroup.css";
+@import "./styles/user-profile.css";
 @import "./styles/media-query.css";
 
 * {

@@ -1,0 +1,10 @@
+.profile-container, .character-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.character {
+  width: 12rem;
+}

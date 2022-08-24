@@ -1,4 +1,4 @@
-.homepage-container {
+.musclegroup-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -6,17 +6,17 @@
   padding: 1.5rem 3rem;
 }
 
-.homepage-btn-container {
+.musclegroup-btn-container {
   display: flex;
   flex-direction: column;
 }
 
-.homepage-btn {
+.musclegroup-btn {
   text-align: center;
   text-decoration: none;
   border-radius: 25px;
-  background: #B6D19F;
-  font-size: .8rem;
+  background: #b6d19f;
+  font-size: 0.8rem;
   border: none;
   height: 2.5rem;
   width: 12rem;
@@ -25,13 +25,7 @@
   color: white;
 }
 
-.homepage-btn:hover {
-  background: #A3BC93;
-  cursor: pointer;
-}
-
-
-.homepage-image {
-  text-align: center;
-  width: 13rem;
+.musclegroup-btn:hover {
+  background: #a3bc93;
+  cursor: pointer
 }
