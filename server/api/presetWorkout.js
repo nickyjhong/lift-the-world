@@ -10,7 +10,7 @@ router.get("/", async (req, res, next) => {
       where: {
         isPreset: true,
       },
-      // include: [{ model: Exercise }],
+      include: [{ model: Exercise }],
     });
     res.send(workouts);
   } catch (error) {
@@ -24,9 +24,13 @@ router.get("/:id", async (req, res, next) => {
       where: {
         isPreset: true,
       },
-      // include: [{ model: Exercise }],
+      include: [{ model: Exercise }],
     });
-    res.send(workout);
+    if (workout.isPreset) {
+      res.send(workout);
+    } else {
+      res.sendStatus(404);
+    }
   } catch (error) {
     next(error);
   }
