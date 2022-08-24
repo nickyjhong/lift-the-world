@@ -19,6 +19,22 @@ router.get('/', requireToken, async (req, res, next) => {
   }
 });
 
+router.get('/previous', requireToken, async (req, res, next) => {
+  try {
+    const workout = await Workout.findOne({
+      where: {
+        userId: req.user.dataValues.id,
+        status: 'closed',
+      },
+      include: [Exercise],
+      order: [ [ 'createdAt', 'DESC' ]]
+    });
+    res.send(workout);
+  } catch (error) {
+    next(error);
+  }
+});
+
 router.post('/', requireToken, async (req, res, next) => {
   try {
     const [workout, workoutCreated] = await Workout.findOrCreate({

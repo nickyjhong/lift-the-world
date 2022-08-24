@@ -249,6 +249,10 @@ async function seed() {
     status: "active",
     workoutTotalWeight: 500,
   });
+  const workout3 = await Workout.create({
+    status: "closed",
+    workoutTotalWeight: 800,
+  });
 
   await pschest1.addExercises([chest1, chest2, chest5]);
   await pschest2.addExercises([chest3, chest4, chest6]);
@@ -261,6 +265,7 @@ async function seed() {
 
   await workout1.setUser(cherry);
   await workout2.setUser(cherry);
+  await workout3.setUser(cherry);
   await workout1.addExercise(chest1);
   await workout2.addExercises([chest1, chest2, chest3]);
 
