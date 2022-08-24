@@ -1,15 +1,16 @@
 const router = require('express').Router();
 const {
-  models: { Workout },
+  models: { Workout, Exercise },
 } = require('../db/');
-const Exercise = require('../db/models/Exercise');
 module.exports = router;
 
 router.get('/', async (req, res, next) => {
   try {
+    console.log("IM IN THE ROUTE")
     const workouts = await Workout.findAll({where:{
       isPreset: true,
-    }
+    },
+    include: [{model: Exercise}]
   });
     res.send(workouts);
     
