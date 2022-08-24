@@ -10,35 +10,25 @@ export const Home = (props) => {
       <h3 className="homepage-header">Welcome to Lift The World {username}</h3>
 
       <div className="homepage-btn-container">
-        <button className="homepage-btn">
-          <Link to="/musclegroups" className="homepage-btn-link">
-            See Muscle Groups
-          </Link>
-        </button>
+        <Link to="/musclegroups" className="homepage-btn-link">
+          <button className="homepage-btn"> See Muscle Groups</button>
+        </Link>
 
-        <button className="homepage-btn">
-          <Link to="/dontKnowWhatThisIsYet" className="homepage-btn-link">
-            Select Exercises
-          </Link>
-        </button>
+        <Link to="/dontKnowWhatThisIsYet" className="homepage-btn-link">
+          <button className="homepage-btn">Select Exercises</button>
+        </Link>
 
-        <button className="homepage-btn">
-          <Link to="/dontKnowWhatThisIsYet" className="homepage-btn-link">
-            Get a Pre-made Program
-          </Link>
-        </button>
+        <Link to="/dontKnowWhatThisIsYet" className="homepage-btn-link">
+          <button className="homepage-btn">Get a Pre-made Program</button>
+        </Link>
 
-        <button className="homepage-btn">
-          <Link to="/dontKnowWhatThisIsYet" className="homepage-btn-link">
-            View My Progress
-          </Link>
-        </button>
+        <Link to="/dontKnowWhatThisIsYet" className="homepage-btn-link">
+          <button className="homepage-btn">View My Progress</button>
+        </Link>
 
-        <button className="homepage-btn">
-          <Link to="/dontKnowWhatThisIsYet" className="homepage-btn-link">
-            Chat With a Trainer
-          </Link>
-        </button>
+        <Link to="/dontKnowWhatThisIsYet" className="homepage-btn-link">
+          <button className="homepage-btn">Chat With a Trainer</button>
+        </Link>
       </div>
       <img className="homepage-image" src="/images/cat1.png" />
     </div>

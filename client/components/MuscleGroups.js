@@ -1,76 +1,37 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getExercisesThunk } from "../store/exercises";
+import React from "react";
 import { Link } from "react-router-dom";
 
 const MuscleGroups = () => {
-  const exercises = useSelector((state) => state.allExercises);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getExercisesThunk());
-  }, []);
-
   return (
     <div>
       <h1>Choose a Muscle Group To Get Started!</h1>
-      <div className="exerciseCategory-btn-container">
-        <button className="exerciseCategory-btn">
-          <Link
-            to="/dontKnowWhatThisIsYet"
-            className="exerciseCategory-btn-link"
-          >
-            Chest
-          </Link>
-        </button>
-        <button className="exerciseCategory-btn">
-          <Link
-            to="/dontKnowWhatThisIsYet"
-            className="exerciseCategory-btn-link"
-          >
-            Back
-          </Link>
-        </button>
-        <button className="exerciseCategory-btn">
-          <Link
-            to="/dontKnowWhatThisIsYet"
-            className="exerciseCategory-btn-link"
-          >
-            Biceps
-          </Link>
-        </button>
-        <button className="exerciseCategory-btn">
-          <Link
-            to="/dontKnowWhatThisIsYet"
-            className="exerciseCategory-btn-link"
-          >
-            Triceps
-          </Link>
-        </button>
-        <button className="exerciseCategory-btn">
-          <Link
-            to="/dontKnowWhatThisIsYet"
-            className="exerciseCategory-btn-link"
-          >
-            Legs
-          </Link>
-        </button>
-        <button className="exerciseCategory-btn">
-          <Link
-            to="/dontKnowWhatThisIsYet"
-            className="exerciseCategory-btn-link"
-          >
-            Glutes
-          </Link>
-        </button>
-        <button className="exerciseCategory-btn">
-          <Link
-            to="/dontKnowWhatThisIsYet"
-            className="exerciseCategory-btn-link"
-          >
-            Core
-          </Link>
-        </button>
+      <div className="musclegroup-btn-container">
+        <Link to="/musclegroups/chest" className="musclegroup-btn-link">
+          <button className="musclegroup-btn">Chest</button>
+        </Link>
+
+        <Link to="/musclegroups/back" className="musclegroup-btn-link">
+          <button className="musclegroup-btn">Back</button>
+        </Link>
+
+        <Link to="/musclegroups/biceps" className="musclegroup-btn-link">
+          <button className="musclegroup-btn">Biceps</button>
+        </Link>
+
+        <Link to="/musclegroups/triceps" className="musclegroup-btn-link">
+          <button className="musclegroup-btn">Triceps</button>
+        </Link>
+
+        <Link to="/musclegroups/legs" className="musclegroup-btn-link">
+          <button className="musclegroup-btn">Legs</button>
+        </Link>
+
+        <Link to="/musclegroups/glutes" className="musclegroup-btn-link">
+          <button className="musclegroup-btn">Glutes</button>
+        </Link>
+        <Link to="/musclegroups/core" className="musclegroup-btn-link">
+          <button className="musclegroup-btn">Core</button>
+        </Link>
       </div>
     </div>
   );
