@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchWorkout } from "../store/workout";
+import { fetchWorkout } from "../../store/workout";
 import { weightFunction } from "./WeightFunction";
 
 const WeightComparison = () => {

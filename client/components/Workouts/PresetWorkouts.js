@@ -1,11 +1,11 @@
 import React, {useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { getPresetsThunk } from '../store/presets';
+import { getPresetsThunk } from '../../store/workout';
 
 const PresetWorkouts =() => {
 
-    const presets = useSelector((state) => state.allPresets);
+    const presets = useSelector((state) => state.workout);
     const dispatch = useDispatch();
 
     useEffect(()=>{
