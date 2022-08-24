@@ -41,7 +41,7 @@ class Routes extends Component {
                 />
                 <Route path="/exercise/:id" component={SingleExercise} />
                 <Route path="/leaderboard" component={LeaderBoard} />
-                <Route path="/presetworkouts" component={PresetWorkouts} />
+                <Route exact path="/presetworkouts" component={PresetWorkouts} />
                 <Route path="/presetworkouts/:id" component={SinglePreset} />
                 <Route path="/profile" component={UserProfile} />
               </Switch>

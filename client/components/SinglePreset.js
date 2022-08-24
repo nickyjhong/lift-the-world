@@ -17,9 +17,16 @@ const SinglePreset = () => {
     <div>
       {preset && preset.id ? (
         <div>
+          <p>{preset.name}</p>
           <ul>
-            {preset.map((ps) => {
-              return <li key={ps.id}>{ps.name}</li>;
+            {preset.exercises.map((exercise) => {
+              return (
+                <li 
+                  key={exercise.id}
+                >
+                  {exercise.name}
+                </li>
+              )
             })}
           </ul>
         </div>
