@@ -1,10 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { logout } from "../store";
 
 // component to be used when logged in
-const NavBarIcons = ({ handleClick, isLoggedIn }) => (
+const NavBarIcons = ({ isLoggedIn }) => (
   <div className="nav-container">
     <nav>
       {isLoggedIn ? (
@@ -21,10 +20,9 @@ const NavBarIcons = ({ handleClick, isLoggedIn }) => (
           <Link to="/leaderboard">
             <img className="nav-icon" src="/images/crown-solid.svg" />
           </Link>
-          <a href="/login" onClick={handleClick}>
-            Logout
+          <Link to="/profile">
             <img className="nav-icon-profile" src="/images/user-solid.svg" />
-          </a>
+          </Link>
         </div>
       ) : (
         ""
@@ -33,18 +31,10 @@ const NavBarIcons = ({ handleClick, isLoggedIn }) => (
   </div>
 );
 
-const mapState = (state) => {
+const mapStateToProps = (state) => {
   return {
     isLoggedIn: !!state.auth.id,
   };
 };
 
-const mapDispatch = (dispatch) => {
-  return {
-    handleClick() {
-      dispatch(logout());
-    },
-  };
-};
-
-export default connect(mapState, mapDispatch)(NavBarIcons);
+export default connect(mapStateToProps)(NavBarIcons);
