@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from 'react-router-dom';
-import { fetchExerciseCategory } from '../store/exercises';
-import { addToWorkout } from "../store/workout";
+import { fetchExerciseCategory } from '../../store/exercises';
+import { addToWorkout } from "../../store/workout";
 import { Link } from "react-router-dom";
 
 export default function ExerciseGroup(props) {
