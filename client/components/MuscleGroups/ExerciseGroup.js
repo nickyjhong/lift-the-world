@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 
 export default function ExerciseGroup(props) {
   let { category } = useParams();
+  let catName = category.charAt(0).toUpperCase() + category.slice(1)
   const dispatch = useDispatch();
 
   const group = useSelector((state) => state.allExercises);
@@ -14,22 +15,30 @@ export default function ExerciseGroup(props) {
   useEffect(() => {
     dispatch(fetchExerciseCategory(category))
   }, [dispatch, category])
-
+  console.log('catname', catName)
   return (
     <div>
       {group ? (
-        <div>
-          <ul>
+        <div className="all-exercises-container">
+          <h1 className="all-exercises-heading">{catName} Exercises</h1>
+          <Link to="/exercises" className="all-exercises-link">
+            See all exercises
+          </Link>
+          <ul className="all-exercises-list">
             {group.map((exercise) => {
               return (
                 <li 
                   key={exercise.id}
-                  className="exercise-list-item"
+                  className="all-exercises-list-item"
                 >
-                  <Link to={`/exercise/${exercise.id}`}>
+                  <Link to={`/exercise/${exercise.id}`} className="all-exercises-list-name">
                     {exercise.name}
                   </Link>
-                  <button onClick={() => dispatch(addToWorkout(exercise))}>add to workout</button>
+                  <button 
+                    onClick={() => dispatch(addToWorkout(exercise))}
+                    className="all-exercises-add-btn"
+                  >
+                    add to workout</button>
                 </li>
               )
             })}

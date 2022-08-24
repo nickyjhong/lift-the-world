@@ -14,6 +14,7 @@ import UserProfile from "./components/UserProfile";
 import MuscleGroups from "./components/MuscleGroups/MuscleGroups";
 import ExerciseGroup from "./components/MuscleGroups/ExerciseGroup";
 import SinglePreset from "./components/Workouts/SinglePreset";
+import AllExercises from "./components/Exercise/AllExercises";
 
 class Routes extends Component {
   componentDidMount() {
@@ -33,11 +34,12 @@ class Routes extends Component {
                 <Route exact path="/" component={Home} />
                 <Route path="/recap" component={Recap} />
                 <Route path="/disclaimer" component={Disclaimer} />
-                <Route path="/workout" component={CurrentWorkout} />
                 <Route exact path="/musclegroups" component={MuscleGroups} />
-                <Route path="/musclegroups/:category" component={ExerciseGroup} />
-                <Route exact path="/exercise/preset" component={PresetWorkouts} />
-                <Route exact path="/exercise/preset/:id" component={SinglePreset} />
+                <Route exact path="/musclegroups/:category" component={ExerciseGroup} />
+                <Route exact path="/workout" component={CurrentWorkout} />
+                <Route exact path="/workout/preset" component={PresetWorkouts} />
+                <Route exact path="/workout/preset/:id" component={SinglePreset} />
+                <Route exact path= "/exercises" component={AllExercises} />
                 <Route exact path="/exercise/:id" component={SingleExercise} />
                 <Route path="/leaderboard" component={LeaderBoard} />
                 <Route path="/profile" component={UserProfile} />
