@@ -10,8 +10,7 @@ const PresetWorkouts =() => {
 
     useEffect(()=>{
         dispatch(getPresetsThunk())
-        console.log('PRESETS', presets);
-    }, [])
+    }, []);
 
     return(
         <div>
