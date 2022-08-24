@@ -11,8 +11,14 @@ export const Home = (props) => {
 
       <div className="homepage-btn-container">
         <button className="homepage-btn">
+          <Link to="/musclegroups" className="homepage-btn-link">
+            See Muscle Groups
+          </Link>
+        </button>
+
+        <button className="homepage-btn">
           <Link to="/dontKnowWhatThisIsYet" className="homepage-btn-link">
-            Select Workouts
+            Select Exercises
           </Link>
         </button>
 
