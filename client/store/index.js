@@ -8,9 +8,10 @@ import workoutReducer from "./workout";
 import leadersReducer from "./topUsers";
 import exercisesReducer from "./exercises";
 import usersReducer from "./allUsers";
-import presetsReducer from './presets';
+import presetsReducer from "./presets";
+import presetReducer from "./singlePreset";
 
-const reducer = combineReducers({ 
+const reducer = combineReducers({
   auth: auth,
   singleExercise: singleExerciseReducer,
   workout: workoutReducer,
@@ -18,13 +19,13 @@ const reducer = combineReducers({
   allExercises: exercisesReducer,
   allUsers: usersReducer,
   presets: presetsReducer,
+  singlePreset: presetReducer,
 });
 
-  
 const middleware = composeWithDevTools(
-  applyMiddleware(thunkMiddleware, createLogger({collapsed: true}))
-)
-const store = createStore(reducer, middleware)
+  applyMiddleware(thunkMiddleware, createLogger({ collapsed: true }))
+);
+const store = createStore(reducer, middleware);
 
-export default store
-export * from './auth'
+export default store;
+export * from "./auth";
