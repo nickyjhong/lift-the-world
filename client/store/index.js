@@ -20,7 +20,7 @@ const reducer = combineReducers({
   allExercises: exercisesReducer,
   allUsers: usersReducer,
   singleUser: singleUserReducer,
-  presets: presetsReducer,
+  allPresets: presetsReducer,
   singlePreset: presetReducer,
 });
 
