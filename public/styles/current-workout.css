@@ -35,6 +35,10 @@
 }
 
 .cw-weight-heading {
+  margin-left: .25rem;
+}
+
+.cw-heading-check {
   margin-right: .25rem;
 }
 
