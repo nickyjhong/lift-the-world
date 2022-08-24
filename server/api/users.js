@@ -15,6 +15,18 @@ router.get("/", requireToken, isAdmin, async (req, res, next) => {
   }
 });
 
+// RETRIEVES DATA FOR SINGLE USER
+router.get("/profile", requireToken, async (req, res, next) => {
+  try {
+    const user = await User.findByPk(req.user.dataValues.id, {
+      attributes: ["username", "totalWeight", "level"],
+    });
+    res.send(user);
+  } catch (err) {
+    next(err);
+  }
+});
+
 router.get("/leaders", async (req, res, next) => {
   try {
     const allUsers = await User.findAll();
