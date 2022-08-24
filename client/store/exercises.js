@@ -19,7 +19,7 @@ export const getExercisesThunk = () => async (dispatch) => {
 export const fetchExerciseCategory = (category) => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.get(`/api/exercise/group/:category`)
+      const { data } = await axios.get(`/api/exercise/group/${category}`)
       dispatch(getAllExercises(data))
     } catch (err) {
       console.log(err)
