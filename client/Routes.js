@@ -10,7 +10,8 @@ import { me } from "./store";
 import LeaderBoard from "./components/LeaderBoard";
 import CurrentWorkout from "./components/CurrentWorkout";
 import UserProfile from "./components/UserProfile";
-import AllExercises from "./components/AllExercises";
+import MuscleGroups from "./components/MuscleGroups";
+import ExerciseGroup from "./components/ExerciseGroup";
 
 class Routes extends Component {
   componentDidMount() {
@@ -31,7 +32,8 @@ class Routes extends Component {
                 <Route path="/recap" component={Recap} />
                 <Route path="/disclaimer" component={Disclaimer} />
                 <Route path="/workout" component={CurrentWorkout} />
-                <Route path="/exercises" component={AllExercises} />
+                <Route exact path="/musclegroups" component={MuscleGroups} />
+                <Route path="/musclegroups/:category" component={ExerciseGroup} />
                 <Route path="/exercise/:id" component={SingleExercise} />
                 <Route path="/leaderboard" component={LeaderBoard} />
                 <Route path="/profile" component={UserProfile} />

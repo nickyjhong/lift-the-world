@@ -16,6 +16,17 @@ export const getExercisesThunk = () => async (dispatch) => {
   }
 };
 
+export const fetchExerciseCategory = (category) => {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios.get(`/api/exercise/group/${category}`)
+      dispatch(getAllExercises(data))
+    } catch (err) {
+      console.log(err)
+    }
+  }
+}
+
 const initialState = [];
 
 export default function exercisesReducer(state = initialState, action) {
