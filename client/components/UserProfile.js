@@ -16,12 +16,14 @@ const UserProfile = ({ handleClick, username }) => {
   return (
     <>
       <div className="profile-container">
-        <h1>{username}</h1>
-        <h3>Level {user.level}</h3>
+        <h1 className="character-margin">{username}</h1>
+        <h3 className="character-margin">Level {user.level}</h3>
       </div>
       <div className="character-container">
         <img className="character" src="/images/cat4.png" />
-        <p>Progress bar goes here</p>
+        <p className="character-margin">Progress bar goes here</p>
+        <p className="character-margin">You've lifted a total of:</p>
+        <p className="character-margin">{user.totalWeight} lbs</p>
         <button className="homepage-btn">See my progress graph</button>
         <Link to="/login">
           <button className="homepage-btn" onClick={handleClick}>
