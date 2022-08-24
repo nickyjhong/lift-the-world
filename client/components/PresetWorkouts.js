@@ -5,7 +5,7 @@ import { getPresetsThunk } from '../store/presets';
 
 const PresetWorkouts =() => {
 
-    const presets = useSelector((state) => state.presets);
+    const presets = useSelector((state) => state.allPresets);
     const dispatch = useDispatch();
 
     useEffect(()=>{
