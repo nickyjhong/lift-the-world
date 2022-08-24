@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { connect, useDispatch } from "react-redux";
+import { connect, useDispatch, useSelector } from "react-redux";
 import { fetchUsers } from "../store/allUsers";
 import { Link } from "react-router-dom";
 import { logout } from "../store";
@@ -7,10 +7,16 @@ import { logout } from "../store";
 const UserProfile = ({ handleClick, username }) => {
   const dispatch = useDispatch();
 
+  const users = useSelector((state) => state.allUsers);
+
   useEffect(() => {
     dispatch(fetchUsers());
   }, [dispatch]);
 
+  const user = users.filter((user) => {
+    return user.username === username;
+  });
+  console.log(user[0] || "");
   return (
     <>
       <div className="profile-container">
