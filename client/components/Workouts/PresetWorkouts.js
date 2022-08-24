@@ -18,9 +18,9 @@ const PresetWorkouts = () => {
       {presets.map((preset) => {
         return (
           <Link 
-            key={presets.id}
+            key={preset.id}
             workout={preset}
-            to={`/exercise/preset/${preset.id}`}
+            to={`/workout/preset/${preset.id}`}
           >
             <button>
               {preset.name}

@@ -30,14 +30,14 @@ const SingleExercise = () => {
           <ul>
             {exercise.equipment.map((equipment) => {
               return (
-                <li key={equipment.id}>{equipment}</li>
+                <li key={exercise.equipment.indexOf(equipment)}>{equipment}</li>
               );
             })}
           </ul>
           <h2>Tips:</h2>
           <ul>
             {exercise.tipsAndTricks.map((tip) => {
-              return <li key={tip.id}>{tip}</li>;
+              return <li key={exercise.tipsAndTricks.indexOf(tip)}>{tip}</li>;
             })}
           </ul>
           <button onClick={handleAdd}>add to workout</button>

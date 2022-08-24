@@ -19,6 +19,8 @@ export default function ExerciseGroup(props) {
     <div>
       {group ? (
         <div>
+          <Link to="/exercises">
+          </Link>
           <ul>
             {group.map((exercise) => {
               return (
