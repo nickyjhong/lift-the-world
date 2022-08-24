@@ -22,10 +22,13 @@ router.get("/:id", async (req, res, next) => {
   }
 });
 
-router.get("/:category", async (req, res, next) => {
+router.get("/group/:category", async (req, res, next) => {
   try {
+    const categoryName = req.params.category.toLowerCase();
     const exercises = await Exercise.findAll({
-      where: { category: req.params.category },
+      where: { 
+        category: categoryName
+      },
     });
     res.send(exercises);
   } catch (error) {

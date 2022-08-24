@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getExercisesThunk } from "../store/exercises";
 import { Link } from "react-router-dom";
 
-const AllExercises = () => {
+const ExerciseCategories = () => {
   const exercises = useSelector((state) => state.allExercises);
   const dispatch = useDispatch();
 
@@ -76,4 +76,4 @@ const AllExercises = () => {
   );
 };
 
-export default AllExercises;
+export default ExerciseCategories;
