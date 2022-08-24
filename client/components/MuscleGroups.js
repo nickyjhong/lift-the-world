@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 const MuscleGroups = () => {
   return (
-    <div>
-      <h1>Choose a Muscle Group To Get Started!</h1>
+    <div className="musclegroup-container">
+      <h1 className="musclegroup-heading">Choose a Muscle Group To Get Started!</h1>
       <div className="musclegroup-btn-container">
         <Link to="/musclegroups/chest" className="musclegroup-btn-link">
           <button className="musclegroup-btn">Chest</button>
@@ -29,9 +29,11 @@ const MuscleGroups = () => {
         <Link to="/musclegroups/glutes" className="musclegroup-btn-link">
           <button className="musclegroup-btn">Glutes</button>
         </Link>
+        
         <Link to="/musclegroups/core" className="musclegroup-btn-link">
           <button className="musclegroup-btn">Core</button>
         </Link>
+
       </div>
     </div>
   );
