@@ -18,7 +18,7 @@ const Exercise = db.define("exercise", {
   },
   tipsAndTricks: {
     type: Sequelize.ARRAY(Sequelize.STRING),
-    defaultValue: ['Don\'t hurt yourself']
+    defaultValue: ["Don't hurt yourself"]
   },
   embedId: {
     type: Sequelize.STRING,

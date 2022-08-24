@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchExercise } from "../store/singleExercise";
-import { addToWorkout } from "../store/workout";
+import { fetchExercise } from "../../store/singleExercise";
+import { addToWorkout } from "../../store/workout";
 import { useParams } from "react-router-dom";
 import YoutubeEmbed from "./YoutubeEmbed";
 

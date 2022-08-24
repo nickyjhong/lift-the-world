@@ -1,16 +1,20 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import { withRouter, Route, Switch, Redirect } from "react-router-dom";
-import { Login, Signup } from "./components/AuthForm";
+import { Login, Signup } from "./components/Authorization/AuthForm";
 import Home from "./components/Home";
-import Recap from "./components/Recap";
-import SingleExercise from "./components/SingleExercise";
-import Disclaimer from "./components/Disclaimer";
+import Recap from "./components/Workouts/Recap";
+import SingleExercise from "./components/Exercise/SingleExercise";
+import Disclaimer from "./components/Authorization/Disclaimer";
 import { me } from "./store";
 import LeaderBoard from "./components/LeaderBoard";
-import CurrentWorkout from "./components/CurrentWorkout";
+import CurrentWorkout from "./components/Workouts/CurrentWorkout";
+import PresetWorkouts from "./components/Workouts/PresetWorkouts";
 import UserProfile from "./components/UserProfile";
-import AllExercises from "./components/AllExercises";
+import MuscleGroups from "./components/MuscleGroups/MuscleGroups";
+import ExerciseGroup from "./components/MuscleGroups/ExerciseGroup";
+import SinglePreset from "./components/Workouts/SinglePreset";
+import AllExercises from "./components/Exercise/AllExercises";
 
 class Routes extends Component {
   componentDidMount() {
@@ -30,9 +34,13 @@ class Routes extends Component {
                 <Route exact path="/" component={Home} />
                 <Route path="/recap" component={Recap} />
                 <Route path="/disclaimer" component={Disclaimer} />
-                <Route path="/workout" component={CurrentWorkout} />
-                <Route path="/exercises" component={AllExercises} />
-                <Route path="/exercise/:id" component={SingleExercise} />
+                <Route exact path="/musclegroups" component={MuscleGroups} />
+                <Route exact path="/musclegroups/:category" component={ExerciseGroup} />
+                <Route exact path="/workout" component={CurrentWorkout} />
+                <Route exact path="/workout/preset" component={PresetWorkouts} />
+                <Route exact path="/workout/preset/:id" component={SinglePreset} />
+                <Route exact path= "/exercises" component={AllExercises} />
+                <Route exact path="/exercise/:id" component={SingleExercise} />
                 <Route path="/leaderboard" component={LeaderBoard} />
                 <Route path="/profile" component={UserProfile} />
               </Switch>

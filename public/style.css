@@ -6,8 +6,10 @@
 @import "./styles/homepage.css";
 @import "./styles/leaderboard.css";
 @import "./styles/current-workout.css";
+@import "./styles/musclegroup.css";
+@import "./styles/user-profile.css";
+@import "./styles/exercises-list.css";
 @import "./styles/media-query.css";
-@import "./styles/exercise-category.css";
 
 * {
   -webkit-tap-highlight-color: transparent;

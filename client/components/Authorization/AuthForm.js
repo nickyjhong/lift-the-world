@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { authenticate } from "../store";
+import { authenticate } from "../../store";
 
 const AuthForm = (props) => {
   const { name, displayName, handleSubmit, error } = props;

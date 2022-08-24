@@ -11,16 +11,14 @@ const LeaderBoard = () => {
   }, []);
 
   return (
-    <div>
-      <h1>LeaderBoard:</h1>
+    <div className="lb-container">
+      <h1 className="lb-heading">Leaderboard:</h1>
       <div>
         {topTen.map((user) => {
           return (
-            <div key={user.id}>
-              <h3 className="leaderHead">
-                {user.username}
-              </h3>
-              <h3 className="leaderHead">{user.totalWeight}</h3>
+            <div key={user.id} className="lb-info-container">
+              <h3 className="lb-name lb-info">{user.username}</h3>
+              <h3 className="lb-weight lb-info">{user.totalWeight}</h3>
             </div>
           );
         })}
