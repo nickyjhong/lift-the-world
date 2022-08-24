@@ -38,7 +38,7 @@ async function seed() {
     email: "kparki@email.com",
     password: "123",
     isAdmin: false,
-    totalWeight: 12094,
+    totalWeight: 12097,
     level: 18,
   });
 
@@ -259,8 +259,8 @@ async function seed() {
 
   // ADD IN REPS HERE
 
-  await workout1.setUser(kyle);
-  await workout2.setUser(kyle);
+  await workout1.setUser(cherry);
+  await workout2.setUser(cherry);
   await workout1.addExercise(chest1);
   await workout2.addExercises([chest1, chest2, chest3]);
 

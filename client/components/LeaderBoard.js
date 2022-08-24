@@ -17,9 +17,7 @@ const LeaderBoard = () => {
         {topTen.map((user) => {
           return (
             <div key={user.id}>
-              <h3 className="leaderHead">
-                {user.username}
-              </h3>
+              <h3 className="leaderHead">{user.username}</h3>
               <h3 className="leaderHead">{user.totalWeight}</h3>
             </div>
           );
