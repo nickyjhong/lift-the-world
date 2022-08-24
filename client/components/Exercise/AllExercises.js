@@ -4,6 +4,7 @@ import { getExercisesThunk } from "../../store/exercises";
 import { addToWorkout } from "../../store/workout";
 import { useParams } from "react-router-dom";
 import YoutubeEmbed from "./YoutubeEmbed";
+import { Link } from "react-router-dom";
 
 const AllExercises = () => {
   const exercises = useSelector((state) => state.allExercises);
@@ -16,13 +17,21 @@ const AllExercises = () => {
   return (
     <div>
       {exercises ? (
-        <div>
-          <ul>
+        <div className="all-exercises-container">
+          <h1 className="all-exercises-heading">All Exercises</h1>
+          <ul className="all-exercises-list">
             {exercises.map((exercise) => {
               return (
-                <li key={exercise.id}>
-                  {exercise.name}
-                  <button onClick={() => dispatch(addToWorkout(exercise))}>add to workout</button>
+                <li key={exercise.id} className="all-exercises-list-item">
+                  <Link to={`/exercise/${exercise.id}`} className="all-exercises-list-name">
+                    {exercise.name}
+                  </Link>
+                  <button 
+                    onClick={() => dispatch(addToWorkout(exercise))}
+                    className="all-exercises-add-btn"
+                  >
+                    add to workout
+                  </button>
                 </li>
                 
               );

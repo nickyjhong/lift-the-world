@@ -8,6 +8,7 @@
 @import "./styles/current-workout.css";
 @import "./styles/musclegroup.css";
 @import "./styles/user-profile.css";
+@import "./styles/exercises-list.css";
 @import "./styles/media-query.css";
 
 * {
