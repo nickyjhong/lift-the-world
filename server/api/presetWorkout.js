@@ -26,7 +26,11 @@ router.get("/:id", async (req, res, next) => {
       },
       // include: [{ model: Exercise }],
     });
-    res.send(workout);
+    if (workout.isPreset) {
+      res.send(workout);
+    } else {
+      res.sendStatus(404);
+    }
   } catch (error) {
     next(error);
   }
