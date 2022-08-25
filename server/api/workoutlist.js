@@ -21,20 +21,25 @@ router.get("/", requireToken, async (req, res, next) => {
   }
 });
 
-// ALL PREVIOUS SETS FOR SPECIFIC EXERCISE
-router.get("/:id", requireToken, async (req, res, next) => {
+// ROUTE WITH CURRENT SET OF ALL EXERCISES IN MOST RECENT WORKOUT
+router.get("/current/:id", requireToken, async (req, res, next) => {
   try {
-    let exerciseSet = await WorkoutList.findAll({
+    const workout = await Workout.findOne({
       where: {
-        exerciseId: req.params.id,
         userId: req.user.dataValues.id,
+        status: "active",
       },
-      order: [["createdAt", "DESC"]],
+      include: [Exercise],
     });
 
-    res.send(exerciseSet);
+    const workoutlist = await WorkoutList.findAll({
+      where: {
+        workoutId: workout.id,
+      },
+    });
+    res.send(workoutlist);
   } catch (err) {
-    next(err);
+    console.error(err);
   }
 });
 
@@ -59,6 +64,23 @@ router.get("/prev/:id", requireToken, async (req, res, next) => {
   }
 });
 
+// ALL PREVIOUS SETS FOR SPECIFIC EXERCISE
+router.get("/:exerciseId", requireToken, async (req, res, next) => {
+  try {
+    let exerciseSet = await WorkoutList.findAll({
+      where: {
+        exerciseId: req.params.exerciseId,
+        userId: req.user.dataValues.id,
+      },
+      order: [["createdAt", "DESC"]],
+    });
+
+    res.send(exerciseSet);
+  } catch (err) {
+    next(err);
+  }
+});
+
 // UPDATES WORKOUT LIST SET
 router.put("/:id", requireToken, async (req, res, next) => {
   try {
@@ -69,6 +91,7 @@ router.put("/:id", requireToken, async (req, res, next) => {
       },
       include: [Exercise],
     });
+    console.log("HELLLLOOOOO", workout);
 
     let exercise = await WorkoutList.findOne({
       where: {
@@ -79,6 +102,7 @@ router.put("/:id", requireToken, async (req, res, next) => {
 
     console.log("EXERCISE", exercise);
     exercise.dataValues.sets.push(req.body);
+    console.log("what is req body", req.body);
     exercise.save();
     res.send(exercise);
     // res.send(
