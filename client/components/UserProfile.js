@@ -32,7 +32,7 @@ const UserProfile = ({ handleClick, username }) => {
   //   return () => clearInterval(interval);
   // }, []);
 
-  // trying to change character animation on click
+  // change character animation on click
   const counterFunc = () => {
     console.log(counter);
     setFrame(counter);
