@@ -72,6 +72,24 @@ export const getPresetsThunk = () => async (dispatch) => {
   }
 };
 
+export const finishWorkout = (workout) => {
+  return async (dispatch) => {
+    try {
+      const token = window.localStorage.getItem(TOKEN);
+      if (token) {
+        const { data } = await axios.put(`/api/workout/finish`, workout, {
+          headers: {
+            authorization: token
+          }
+        })
+        dispatch(_updateWorkout(data))
+      }
+    } catch (err) {
+      console.log(err)
+    }
+  }
+}
+
 // REDUCER
 const initialState = [];
 

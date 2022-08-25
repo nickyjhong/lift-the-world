@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchPreviousWorkout } from '../../store/previous'
 import { fetchWorkout } from "../../store/workout";
+import { finishWorkout } from "../../store/workout";
 
 export default function CurrentWorkout() {
   const workout = useSelector((state) => state.workout);
@@ -109,7 +110,7 @@ export default function CurrentWorkout() {
         })}
       </div>
         {/* this should lead to recap page and make workout closed */}
-      <button className="cw-finish-btn">
+      <button className="cw-finish-btn" onClick={() => dispatch(finishWorkout())}>
         Finish Workout
       </button>
     </div>
