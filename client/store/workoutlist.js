@@ -13,18 +13,20 @@ export const _setWorkoutlist = (workoutlist) => {
   };
 };
 
-export const _updateWorkoutlist = (workoutlist) => {
+export const _updateWorkoutlist = (exercise) => {
   return {
     type: UPDATE_WORKOUT_LIST,
-    workoutlist,
+    exercise,
   };
 };
 
 // THUNKS
-export const fetchWorkoutlist = (id) => {
+export const fetchWorkoutlist = (exerciseId) => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.get(`/api/workoutlist/${id}`);
+      const { data } = await axios.get(
+        `/api/workoutlist/current/${exerciseId}`
+      );
       dispatch(_setWorkoutlist(data));
     } catch (error) {
       console.log("getWorkoutlist Error", error);
@@ -40,9 +42,7 @@ export const addSet = (exercise) => {
       if (token) {
         const { data } = await axios.put(
           `/api/workoutlist/${exercise.id}`,
-          {
-            exerciseId: exercise.id,
-          },
+          exercise,
           {
             headers: {
               authorization: token,
@@ -50,7 +50,7 @@ export const addSet = (exercise) => {
           }
         );
         console.log("data in set exercise thunk", data);
-        dispatch(_updateWorkoutlist(data));
+        dispatch(_updateWorkoutlist(data, id));
       }
     } catch (err) {
       console.log(err);
@@ -66,7 +66,7 @@ export default function workoutlistReducer(state = initialState, action) {
     case SET_WORKOUT_LIST:
       return action.workoutlist;
     case UPDATE_WORKOUT_LIST:
-      return action.workoutlist;
+      return { ...action.exercise, workoutlist: action.exercise };
     default:
       return state;
   }
