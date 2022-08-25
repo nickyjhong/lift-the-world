@@ -119,7 +119,9 @@ export default function CurrentWorkout() {
         </Link>
 
       ) : (
-        <button>Start a new workout</button>
+        <Link to="/exercises">
+          <button>Start a new workout!</button>
+        </Link>
       ) }
 
     </div>
