@@ -261,11 +261,23 @@ async function seed() {
     workoutTotalWeight: 500,
   });
   const workout2 = await Workout.create({
-    status: "active",
+    status: "closed",
     workoutTotalWeight: 500,
   });
   const workout3 = await Workout.create({
     status: "closed",
+    workoutTotalWeight: 800,
+  });
+  const workout4 = await Workout.create({
+    status: "closed",
+    workoutTotalWeight: 800,
+  });
+  const workout5 = await Workout.create({
+    status: "closed",
+    workoutTotalWeight: 800,
+  });
+  const workout6 = await Workout.create({
+    status: "active",
     workoutTotalWeight: 800,
   });
 
@@ -281,33 +293,64 @@ async function seed() {
   await workout1.setUser(cherry);
   await workout2.setUser(cherry);
   await workout3.setUser(cherry);
+  await workout4.setUser(cherry);
+  await workout5.setUser(cherry);
+  await workout6.setUser(cherry);
   await workout1.addExercise(chest1);
   await workout2.addExercises([chest1, chest2, chest3]);
   await workout3.addExercises([chest1, chest2, chest3]);
+  await workout4.addExercises([chest1, chest2, chest3]);
+  await workout5.addExercises([chest1, chest2, chest3]);
+  await workout6.addExercises([chest1, chest2, chest3]);
 
-  const open1 = await WorkoutList.findOne({
+  const closed1 = await WorkoutList.findOne({
     where: {
       exerciseId: 1,
       workoutId: 7,
     },
   });
 
-  const closed1 = await WorkoutList.findOne({
+  const closed2 = await WorkoutList.findOne({
     where: {
-      exerciseId: 1,
+      exerciseId: 2,
       workoutId: 8,
     },
   });
-
-  const closed2 = await WorkoutList.findOne({
+  const closed3 = await WorkoutList.findOne({
     where: {
       exerciseId: 1,
       workoutId: 9,
     },
   });
 
-  open1.sets = dummySets;
-  await open1.save();
+  const closed4 = await WorkoutList.findOne({
+    where: {
+      exerciseId: 2,
+      workoutId: 10,
+    },
+  });
+  const closed5 = await WorkoutList.findOne({
+    where: {
+      exerciseId: 1,
+      workoutId: 11,
+    },
+  });
+
+
+  const open1 = await WorkoutList.findOne({
+    where: {
+      exerciseId: 1,
+      workoutId: 12,
+    },
+  });
+
+  await closed1.setUser(cherry)
+  await closed2.setUser(cherry)
+  await closed3.setUser(cherry)
+  await closed4.setUser(cherry)
+  await closed5.setUser(cherry)
+  await open1.setUser(cherry)
+
 
   closed1.sets = dummySets;
   await closed1.save();
@@ -315,9 +358,21 @@ async function seed() {
   closed2.sets = dummySets2;
   await closed2.save();
 
-  const test = await User.findByPk(1, {
-    include: [{ model: Workout, include: [Exercise] }],
-  });
+  closed3.sets = [{reps: 3, weight: 40}]
+  await closed3.save();
+
+  closed4.sets = [{reps: 20, weight: 200}]
+  await closed4.save();
+
+  closed5.sets = [{reps: 1, weight: 1}]
+  await closed5.save();
+
+  open1.sets = [{reps: 1, weight: 1}]
+  await open1.save();
+
+  // const test = await User.findByPk(1, {
+  //   include: [{ model: Workout, include: [Exercise] }],
+  // });
 
   // console.log('TEST', test.workouts[0].exercises[0].workoutlist.sets);
   console.log(`seeded successfully`);

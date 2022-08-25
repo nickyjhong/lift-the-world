@@ -7,12 +7,12 @@ import { Link } from "react-router-dom";
 
 export default function CurrentWorkout() {
   const workout = useSelector((state) => state.workout);
-  const previous = useSelector((state) => state.previous)
+  // const previous = useSelector((state) => state.previous)
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(fetchPreviousWorkout())
-  }, [dispatch])
+  // useEffect(() => {
+  //   dispatch(fetchPreviousWorkout())
+  // }, [dispatch])
 
   useEffect(() => {
     dispatch(fetchWorkout())
@@ -41,8 +41,8 @@ export default function CurrentWorkout() {
   // }
 
   const workouts = workout.exercises || []
-  const prev = previous.exercises || []
-  console.log(prev)
+  // const prev = previous.exercises || []
+  // console.log(prev)
   return (
     <div className="cw-container">
       {/* <h2 className="cw-workout-name">{workout.name}</h2> */}

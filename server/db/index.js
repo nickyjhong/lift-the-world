@@ -15,6 +15,9 @@ User.hasMany(Workout)
 Exercise.belongsToMany(Workout, {through: WorkoutList})
 Workout.belongsToMany(Exercise, {through: WorkoutList})
 
+WorkoutList.belongsTo(User)
+User.hasMany(WorkoutList)
+
 module.exports = {
   db,
   models: {
