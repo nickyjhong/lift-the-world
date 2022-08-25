@@ -1,6 +1,6 @@
 const {
   db,
-  models: { User, Exercise, Workout, WorkoutList },
+  models: { User, Exercise, Workout, WorkoutList, Sprite, userSprites },
 } = require("../server/db");
 
 const dummySets = [
@@ -369,6 +369,69 @@ async function seed() {
 
   open1.sets = [{reps: 1, weight: 1}]
   await open1.save();
+
+  //creating our sprites
+
+  const redHatBoy = Sprite.create({
+    name: 'redHatBoy'
+  });
+
+  const theBoy = Sprite.create({
+    name: 'theBoy'
+  });
+
+  const cuteGirl = Sprite.create({
+    name: 'cuteGirl'
+  });
+
+  const dino = Sprite.create({
+    name: 'dino'
+  });
+
+  const santa = Sprite.create({
+    name: 'santa'
+  });
+
+  const zombie = Sprite.create({
+    name: 'zombie'
+  });
+
+  const jackOLantern = Sprite.create({
+    name: 'jackOLantern'
+  });
+
+  const theKnight = Sprite.create({
+    name: 'theKnight'
+  });
+
+  const cat = Sprite.create({
+    name: 'cat'
+  });
+
+  const dog = Sprite.create({
+    name: 'dog'
+  });
+
+  const robot = Sprite.create({
+    name: 'robot'
+  });
+
+  const ninjaBoy = Sprite.create({
+    name: 'ninjaBoy'
+  });
+
+  const ninjaGirl = Sprite.create({
+    name: 'ninjaGirl'
+  });
+  
+  const adventureBoy = Sprite.create({
+    name: 'adventureBoy'
+  });
+
+  const adventureGirl = Sprite.create({
+    name: 'adventureGirl'
+  });
+
 
   // const test = await User.findByPk(1, {
   //   include: [{ model: Workout, include: [Exercise] }],
