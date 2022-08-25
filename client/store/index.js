@@ -10,12 +10,14 @@ import exercisesReducer from "./exercises";
 import usersReducer from "./allUsers";
 import singleWorkoutReducer from "./singleWorkout";
 import singleUserReducer from "./singleUser";
+import previousReducer from "./previous";
 
 const reducer = combineReducers({
   auth: auth,
 
   workout: workoutReducer,
   singleWorkout: singleWorkoutReducer,
+  previous: previousReducer,
 
   allExercises: exercisesReducer,
   singleExercise: singleExerciseReducer,

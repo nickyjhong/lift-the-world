@@ -18,6 +18,21 @@ const dummySets = [
   },
 ];
 
+const dummySets2 = [
+  {
+    reps: 13,
+    weight: 80,
+  },
+  {
+    reps: 14,
+    weight: 200,
+  },
+  {
+    reps: 15,
+    weight: 250,
+  },
+];
+
 async function seed() {
   await db.sync({ force: true });
   console.log("db synced!");
@@ -249,6 +264,10 @@ async function seed() {
     status: "active",
     workoutTotalWeight: 500,
   });
+  const workout3 = await Workout.create({
+    status: "closed",
+    workoutTotalWeight: 800,
+  });
 
   await pschest1.addExercises([chest1, chest2, chest5]);
   await pschest2.addExercises([chest3, chest4, chest6]);
@@ -261,8 +280,10 @@ async function seed() {
 
   await workout1.setUser(cherry);
   await workout2.setUser(cherry);
+  await workout3.setUser(cherry);
   await workout1.addExercise(chest1);
   await workout2.addExercises([chest1, chest2, chest3]);
+  await workout3.addExercises([chest1, chest2, chest3]);
 
   const open1 = await WorkoutList.findOne({
     where: {
@@ -278,11 +299,21 @@ async function seed() {
     },
   });
 
+  const closed2 = await WorkoutList.findOne({
+    where: {
+      exerciseId: 1,
+      workoutId: 9,
+    },
+  });
+
   open1.sets = dummySets;
   await open1.save();
 
   closed1.sets = dummySets;
   await closed1.save();
+
+  closed2.sets = dummySets2;
+  await closed2.save();
 
   const test = await User.findByPk(1, {
     include: [{ model: Workout, include: [Exercise] }],
