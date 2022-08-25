@@ -1,26 +1,49 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchPreviousWorkout } from '../../store/workout'
+import { fetchPreviousWorkout } from '../../store/previous'
 import { fetchWorkout } from "../../store/workout";
 
 export default function CurrentWorkout() {
   const workout = useSelector((state) => state.workout);
+  const previous = useSelector((state) => state.previous)
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchWorkout());
+    dispatch(fetchPreviousWorkout())
   }, [dispatch])
 
   useEffect(() => {
-    dispatch(fetchPreviousWorkout());
+    dispatch(fetchWorkout())
   }, [dispatch])
 
+  let [eset, setEset] = useState({
+    reps: '',
+    weight: ''
+  })
+
+  const handleChange = (event) => {
+    event.preventDefault();
+    setEset({
+      ...eset,
+      [event.target.name]: event.target.value
+    })
+  }
+
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   dispatch(createSet(set))
+  //   setEset({
+  //     reps:'',
+  //     weight:''
+  //   })
+  // }
+
   const workouts = workout.exercises || []
-  console.log(workout)
+  const prev = previous.exercises || []
+  console.log(prev)
   return (
     <div className="cw-container">
       {/* <h2 className="cw-workout-name">{workout.name}</h2> */}
-      {/* map each exercise below to replace hard coded stuff */}
       <div className="cw-exercise-container">
         {workouts.map((exercise) => {
           return (
@@ -52,24 +75,23 @@ export default function CurrentWorkout() {
                         <input
                           className="cw-sr-input cw-rep-input"
                           type="number"
-                          name="rep"
-
+                          name="reps"
+                          onChange={handleChange}
                         /> 
 
                         <input
                           className="cw-weight-input"
                           type="number"
                           name="weight"
-        
+                          // onChange={handleChange}
                         />
 
-                        {/* change into a checkbox */}
                         <input
                           className="cw-check-input"
-                          type="text"
+                          type="checkbox"
                           name="check"
-
                         />
+
                       </div>
                     </form>
                   </div>

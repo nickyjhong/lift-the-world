@@ -17,7 +17,7 @@ export const _updateWorkout = (workout) => ({
   workout
 })
 
-const getPresets = (presets) => ({
+export const getPresets = (presets) => ({
   type: GET_PRESETS,
   presets,
 });
@@ -30,25 +30,6 @@ export const fetchWorkout = () => {
 
       if (token) {
         const { data } = await axios.get('/api/workout', {
-          headers: {
-            authorization: token,
-          },
-        });
-        dispatch(_setWorkout(data));
-      }
-    } catch (error) {
-      console.log(error)
-    }
-  }
-}
-
-export const fetchPreviousWorkout = () => {
-  return async (dispatch) => {
-    try {
-      const token = window.localStorage.getItem(TOKEN);
-
-      if (token) {
-        const { data } = await axios.get('/api/workout/previous', {
           headers: {
             authorization: token,
           },
