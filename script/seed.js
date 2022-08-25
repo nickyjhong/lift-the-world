@@ -367,6 +367,9 @@ async function seed() {
   closed5.sets = [{reps: 1, weight: 1}]
   await closed5.save();
 
+  open1.sets = [{reps: 1, weight: 1}]
+  await open1.save();
+
   // const test = await User.findByPk(1, {
   //   include: [{ model: Workout, include: [Exercise] }],
   // });

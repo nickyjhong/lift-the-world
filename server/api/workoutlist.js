@@ -62,7 +62,7 @@ router.get('/prev/:id', requireToken, async (req, res, next) => {
 })
 
 // UPDATE - currently not working? not sure
-router.put('/', requireToken, async (req, res, next) => {
+router.put('/:id', requireToken, async (req, res, next) => {
   try {
     const workout = await Workout.findOne({
       where: {
@@ -71,27 +71,29 @@ router.put('/', requireToken, async (req, res, next) => {
       },
       include: [Exercise],
     });
-
+    console.log(req.user)
     let exercise = await WorkoutList.findOne({
       where: {
-        exerciseId: req.body.exerciseId,
+        exerciseId: req.params.id,
         workoutId: workout.id,
       },
     });
 
-    exercise.sets.push(req.body)
+    console.log('EXERCISE', exercise)
+    console.log('DV', exercise.dataValues.sets)
+    exercise.dataValues.sets.push(req.body)
 
-    res.send(
-      await Workout.findOne({
-        where: {
-          userId: req.user.dataValues.id,
-          status: 'active',
-        },
-        include: [Exercise],
-      })
-    )
+    // res.send(
+    //   await Workout.findOne({
+    //     where: {
+    //       userId: req.user.dataValues.id,
+    //       status: 'active',
+    //     },
+    //     include: [Exercise],
+    //   })
+    // )
 
-    // res.send(workout)
+    res.send(exercise)
 
   } catch (err) {
     next(err)
