@@ -1,10 +1,15 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchPreviousWorkout } from '../../store/workout'
+import { fetchWorkout } from "../../store/workout";
 
 export default function CurrentWorkout() {
   const workout = useSelector((state) => state.workout);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchWorkout());
+  }, [dispatch])
 
   useEffect(() => {
     dispatch(fetchPreviousWorkout());
@@ -19,7 +24,7 @@ export default function CurrentWorkout() {
       <div className="cw-exercise-container">
         {workouts.map((exercise) => {
           return (
-            <div>
+            <div key={exercise.id}>
             <h2 className="cw-exercise-name">{exercise.name}</h2>
             <div className="cw-exercise">
               <div className="cw-headings">
@@ -31,7 +36,7 @@ export default function CurrentWorkout() {
               </div>
               {exercise.workoutlist.sets.map((set, index) => {
                 return (
-                  <div className="cw-info-container">
+                  <div className="cw-info-container" key={index}>
                     <form>
                       <div className="cw-set-info">
                         <input
