@@ -11,6 +11,7 @@ import usersReducer from "./allUsers";
 import singleWorkoutReducer from "./singleWorkout";
 import singleUserReducer from "./singleUser";
 import previousReducer from "./previous";
+import workoutlistReducer from "./workoutlist";
 
 const reducer = combineReducers({
   auth: auth,
@@ -18,6 +19,7 @@ const reducer = combineReducers({
   workout: workoutReducer,
   singleWorkout: singleWorkoutReducer,
   previous: previousReducer,
+  workoutlist: workoutlistReducer,
 
   allExercises: exercisesReducer,
   singleExercise: singleExerciseReducer,
@@ -25,7 +27,6 @@ const reducer = combineReducers({
   topUsers: leadersReducer,
   allUsers: usersReducer,
   singleUser: singleUserReducer,
-
 });
 
 const middleware = composeWithDevTools(

@@ -10,6 +10,7 @@ const UserProfile = ({ handleClick, username }) => {
     "/sprites/cat/cat-idle.gif",
     "/sprites/cat/cat-jump.gif",
     "/sprites/cat/cat-run.gif",
+    "/sprites/cat/cat-dead.gif",
   ];
 
   const [frame, setFrame] = useState(0);
@@ -23,21 +24,12 @@ const UserProfile = ({ handleClick, username }) => {
     dispatch(fetchSingleUser());
   }, [dispatch]);
 
-  // automatically animate character
-  // useEffect(() => {
-  //   const handleAnimation = () => {
-  //     setFrame((frame) => (frame + 1) % character.length);
-  //   };
-  //   const interval = setInterval(handleAnimation, 5000); // 300 ms is pretty short. Did you mean 3000?
-  //   return () => clearInterval(interval);
-  // }, []);
-
   // change character animation on click
   const counterFunc = () => {
     console.log(counter);
     setFrame(counter);
     setCounter(counter + 1);
-    if (counter >= 3) {
+    if (counter >= 4) {
       setCounter(0);
     }
   };
