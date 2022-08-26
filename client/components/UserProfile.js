@@ -47,7 +47,7 @@ const UserProfile = ({ handleClick, username }) => {
         />
         <p className="character-margin">Progress bar goes here</p>
         <p className="character-margin">You've lifted a total of:</p>
-        <p className="character-margin">{user.totalWeight} lbs</p>
+        <p className="character-margin">{user.totalWeight || 0} lbs</p>
         <button className="progress-btn">See my progress graph</button>
         <Link to="/login">
           <button className="logout-btn" onClick={handleClick}>

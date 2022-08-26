@@ -14,7 +14,7 @@ class CurrentWorkout extends Component {
       !this.props.workout.exercises ||
       this.props.workout.exercises.length === 0
     ) {
-      return <div>Loading workouts..</div>;
+      return <div>Loading... please add a workout!</div>;
     }
 
     console.log("props here", this.props);
