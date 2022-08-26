@@ -20,9 +20,15 @@ Workout.belongsToMany(Exercise, {through: WorkoutList})
 WorkoutList.belongsTo(User)
 User.hasMany(WorkoutList)
 
+//this is for all unlocked sprite characters:
 Sprite.belongsToMany(User, {through: userSprites});
 User.belongsToMany(Sprite, {through: userSprites});
 
+//this is for user selected character:
+User.hasOne(Sprite, {
+  foreignKey: 'selectedSprite'
+});
+Sprite.belongsTo(User)
 
 module.exports = {
   db,

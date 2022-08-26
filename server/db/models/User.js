@@ -42,6 +42,9 @@ const User = db.define('user', {
     validate: {
       min: 1
     }
+  },
+  selectedSprite:{
+    type: Sequelize.INTEGER
   }
 })
 
