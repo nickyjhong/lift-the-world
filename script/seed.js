@@ -46,6 +46,7 @@ async function seed() {
     isAdmin: true,
     totalWeight: 12094,
     level: 18,
+    selectedSprite: 'dog'
   });
 
   const kyle = await User.create({
@@ -55,6 +56,7 @@ async function seed() {
     isAdmin: false,
     totalWeight: 12097,
     level: 18,
+    selectedSprite: 'theBoy'
   });
 
   const nicole = await User.create({
@@ -64,6 +66,7 @@ async function seed() {
     isAdmin: true,
     totalWeight: 44867,
     level: 43,
+    selectedSprite: 'redHatBoy'
   });
 
   const cherry = await User.create({
@@ -73,6 +76,7 @@ async function seed() {
     isAdmin: true,
     totalWeight: 39126,
     level: 33,
+    selectedSprite: 'cat'
   });
 
   const ryan = await User.create({
@@ -82,6 +86,7 @@ async function seed() {
     isAdmin: false,
     totalWeight: 28643,
     level: 24,
+    selectedSprite: 'cuteGirl'
   });
 
   //creating exercises for presets
@@ -372,65 +377,72 @@ async function seed() {
 
   //creating our sprites
 
-  const redHatBoy = Sprite.create({
+  const redHatBoy = await Sprite.create({
     name: 'redHatBoy'
   });
 
-  const theBoy = Sprite.create({
+  const theBoy = await Sprite.create({
     name: 'theBoy'
   });
 
-  const cuteGirl = Sprite.create({
+  const cuteGirl = await Sprite.create({
     name: 'cuteGirl'
   });
 
-  const dino = Sprite.create({
+  const dino = await Sprite.create({
     name: 'dino'
   });
 
-  const santa = Sprite.create({
+  const santa = await Sprite.create({
     name: 'santa'
   });
 
-  const zombie = Sprite.create({
+  const zombie = await Sprite.create({
     name: 'zombie'
   });
 
-  const jackOLantern = Sprite.create({
+  const jackOLantern = await Sprite.create({
     name: 'jackOLantern'
   });
 
-  const theKnight = Sprite.create({
+  const theKnight = await Sprite.create({
     name: 'theKnight'
   });
 
-  const cat = Sprite.create({
+  const cat = await Sprite.create({
     name: 'cat'
   });
 
-  const dog = Sprite.create({
+  const dog = await Sprite.create({
     name: 'dog'
   });
 
-  const robot = Sprite.create({
+  const robot = await Sprite.create({
     name: 'robot'
   });
 
-  const ninjaBoy = Sprite.create({
+  const ninjaBoy = await Sprite.create({
     name: 'ninjaBoy'
   });
 
-  const ninjaGirl = Sprite.create({
+  const ninjaGirl = await Sprite.create({
     name: 'ninjaGirl'
   });
   
-  const adventureBoy = Sprite.create({
+  const adventureBoy = await Sprite.create({
     name: 'adventureBoy'
   });
 
-  const adventureGirl = Sprite.create({
+  const adventureGirl = await Sprite.create({
     name: 'adventureGirl'
   });
+
+  await cat.setUser(cherry);
+  await cuteGirl.setUser(ryan);
+  await dog.setUser(admin);
+  await redHatBoy.setUser(nicole);
+  await theBoy.setUser(kyle);
+
 
 
   // const test = await User.findByPk(1, {
