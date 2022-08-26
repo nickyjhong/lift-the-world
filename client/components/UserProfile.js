@@ -6,10 +6,10 @@ import { logout } from "../store";
 
 const UserProfile = ({ handleClick, username }) => {
   const character = [
-    "/sprites/theBoy/theBoy-idle.gif",
-    "/sprites/theBoy/theBoy-jump.gif",
-    "/sprites/theBoy/theBoy-run.gif",
-    "/sprites/theBoy/theBoy-dead.gif",
+    "/sprites/cat/cat-idle.gif",
+    "/sprites/cat/cat-jump.gif",
+    "/sprites/cat/cat-run.gif",
+    "/sprites/cat/cat-dead.gif",
   ];
 
   const [frame, setFrame] = useState(0);
@@ -47,7 +47,7 @@ const UserProfile = ({ handleClick, username }) => {
         />
         <p className="character-margin">Progress bar goes here</p>
         <p className="character-margin">You've lifted a total of:</p>
-        <p className="character-margin">{user.totalWeight} lbs</p>
+        <p className="character-margin">{user.totalWeight || 0} lbs</p>
         <button className="progress-btn">See my progress graph</button>
         <Link to="/login">
           <button className="logout-btn" onClick={handleClick}>
