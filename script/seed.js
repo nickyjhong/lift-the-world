@@ -370,7 +370,7 @@ async function seed() {
   closed5.sets = [{ reps: 1, weight: 1 }];
   await closed5.save();
 
-  open1.sets = [{ reps: 1, weight: 1 }];
+  open1.sets = [{ reps: 1, weight: 1, setId: 0 }];
   await open1.save();
 
   //creating our sprites
