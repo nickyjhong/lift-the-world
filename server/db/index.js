@@ -7,7 +7,6 @@ const Exercise = require('./models/Exercise');
 const Workout = require('./models/Workout');
 const WorkoutList = require('./models/WorkoutList');
 const Sprite = require('./models/Sprite');
-const userSprites = require('./models/userSprites');
 
 //associations could go here!
 
@@ -21,8 +20,8 @@ WorkoutList.belongsTo(User)
 User.hasMany(WorkoutList)
 
 //this is for all unlocked sprite characters:
-Sprite.belongsToMany(User, {through: userSprites});
-User.belongsToMany(Sprite, {through: userSprites});
+Sprite.belongsToMany(User, {through: 'userSprites'});
+User.belongsToMany(Sprite, {through: 'userSprites'});
 
 //this is for user selected character:
 User.hasOne(Sprite, {
@@ -37,7 +36,6 @@ module.exports = {
     Exercise,
     Workout,
     WorkoutList,
-    Sprite,
-    userSprites
+    Sprite
   },
 }
