@@ -372,63 +372,63 @@ async function seed() {
 
   //creating our sprites
 
-  const redHatBoy = Sprite.create({
+  const redHatBoy = await Sprite.create({
     name: 'redHatBoy'
   });
 
-  const theBoy = Sprite.create({
+  const theBoy = await Sprite.create({
     name: 'theBoy'
   });
 
-  const cuteGirl = Sprite.create({
+  const cuteGirl = await Sprite.create({
     name: 'cuteGirl'
   });
 
-  const dino = Sprite.create({
+  const dino = await Sprite.create({
     name: 'dino'
   });
 
-  const santa = Sprite.create({
+  const santa = await Sprite.create({
     name: 'santa'
   });
 
-  const zombie = Sprite.create({
+  const zombie = await Sprite.create({
     name: 'zombie'
   });
 
-  const jackOLantern = Sprite.create({
+  const jackOLantern = await Sprite.create({
     name: 'jackOLantern'
   });
 
-  const theKnight = Sprite.create({
+  const theKnight = await Sprite.create({
     name: 'theKnight'
   });
 
-  const cat = Sprite.create({
+  const cat = await Sprite.create({
     name: 'cat'
   });
 
-  const dog = Sprite.create({
+  const dog = await Sprite.create({
     name: 'dog'
   });
 
-  const robot = Sprite.create({
+  const robot = await Sprite.create({
     name: 'robot'
   });
 
-  const ninjaBoy = Sprite.create({
+  const ninjaBoy = await Sprite.create({
     name: 'ninjaBoy'
   });
 
-  const ninjaGirl = Sprite.create({
+  const ninjaGirl = await Sprite.create({
     name: 'ninjaGirl'
   });
   
-  const adventureBoy = Sprite.create({
+  const adventureBoy = await Sprite.create({
     name: 'adventureBoy'
   });
 
-  const adventureGirl = Sprite.create({
+  const adventureGirl = await Sprite.create({
     name: 'adventureGirl'
   });
 
