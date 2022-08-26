@@ -6,11 +6,10 @@ import { logout } from "../store";
 
 const UserProfile = ({ handleClick, username }) => {
   const character = [
-    "/sprites/cat/cat-walk.gif",
-    "/sprites/cat/cat-idle.gif",
-    "/sprites/cat/cat-jump.gif",
-    "/sprites/cat/cat-run.gif",
-    "/sprites/cat/cat-dead.gif",
+    "/sprites/ninjaBoy/ninja-boy-idle.gif",
+    "/sprites/ninjaBoy/ninja-boy-jump.gif",
+    "/sprites/ninjaBoy/ninja-boy-run.gif",
+    "/sprites/ninjaBoy/ninja-boy-dead.gif",
   ];
 
   const [frame, setFrame] = useState(0);
@@ -29,7 +28,7 @@ const UserProfile = ({ handleClick, username }) => {
     console.log(counter);
     setFrame(counter);
     setCounter(counter + 1);
-    if (counter >= 4) {
+    if (counter >= 3) {
       setCounter(0);
     }
   };
