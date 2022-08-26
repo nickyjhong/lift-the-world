@@ -6,10 +6,10 @@ import { logout } from "../store";
 
 const UserProfile = ({ handleClick, username }) => {
   const character = [
-    "/sprites/theBoy/theBoy-idle.gif",
-    "/sprites/theBoy/theBoy-jump.gif",
-    "/sprites/theBoy/theBoy-run.gif",
-    "/sprites/theBoy/theBoy-dead.gif",
+    "/sprites/cat/cat-idle.gif",
+    "/sprites/cat/cat-jump.gif",
+    "/sprites/cat/cat-run.gif",
+    "/sprites/cat/cat-dead.gif",
   ];
 
   const [frame, setFrame] = useState(0);
