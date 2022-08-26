@@ -1,6 +1,6 @@
 const {
   db,
-  models: { User, Exercise, Workout, WorkoutList },
+  models: { User, Exercise, Workout, WorkoutList, Sprite, userSprites },
 } = require("../server/db");
 
 const dummySets = [
@@ -46,6 +46,7 @@ async function seed() {
     isAdmin: true,
     totalWeight: 12094,
     level: 18,
+    selectedSprite: 'dog'
   });
 
   const kyle = await User.create({
@@ -55,6 +56,7 @@ async function seed() {
     isAdmin: false,
     totalWeight: 12097,
     level: 18,
+    selectedSprite: 'theBoy'
   });
 
   const nicole = await User.create({
@@ -64,6 +66,7 @@ async function seed() {
     isAdmin: true,
     totalWeight: 44867,
     level: 43,
+    selectedSprite: 'redHatBoy'
   });
 
   const cherry = await User.create({
@@ -73,6 +76,7 @@ async function seed() {
     isAdmin: true,
     totalWeight: 39126,
     level: 33,
+    selectedSprite: 'cat'
   });
 
   const ryan = await User.create({
@@ -82,6 +86,7 @@ async function seed() {
     isAdmin: false,
     totalWeight: 28643,
     level: 24,
+    selectedSprite: 'cuteGirl'
   });
 
   //creating exercises for presets
@@ -367,6 +372,76 @@ async function seed() {
 
   open1.sets = [{ reps: 1, weight: 1, setId: 0 }];
   await open1.save();
+
+  //creating our sprites
+
+  const redHatBoy = await Sprite.create({
+    name: 'redHatBoy'
+  });
+
+  const theBoy = await Sprite.create({
+    name: 'theBoy'
+  });
+
+  const cuteGirl = await Sprite.create({
+    name: 'cuteGirl'
+  });
+
+  const dino = await Sprite.create({
+    name: 'dino'
+  });
+
+  const santa = await Sprite.create({
+    name: 'santa'
+  });
+
+  const zombie = await Sprite.create({
+    name: 'zombie'
+  });
+
+  const jackOLantern = await Sprite.create({
+    name: 'jackOLantern'
+  });
+
+  const theKnight = await Sprite.create({
+    name: 'theKnight'
+  });
+
+  const cat = await Sprite.create({
+    name: 'cat'
+  });
+
+  const dog = await Sprite.create({
+    name: 'dog'
+  });
+
+  const robot = await Sprite.create({
+    name: 'robot'
+  });
+
+  const ninjaBoy = await Sprite.create({
+    name: 'ninjaBoy'
+  });
+
+  const ninjaGirl = await Sprite.create({
+    name: 'ninjaGirl'
+  });
+  
+  const adventureBoy = await Sprite.create({
+    name: 'adventureBoy'
+  });
+
+  const adventureGirl = await Sprite.create({
+    name: 'adventureGirl'
+  });
+
+  await cat.setUser(cherry);
+  await cuteGirl.setUser(ryan);
+  await dog.setUser(admin);
+  await redHatBoy.setUser(nicole);
+  await theBoy.setUser(kyle);
+
+
 
   // const test = await User.findByPk(1, {
   //   include: [{ model: Workout, include: [Exercise] }],
