@@ -44,7 +44,11 @@ const User = db.define('user', {
     }
   },
   selectedSprite:{
-    type: Sequelize.INTEGER
+    type: Sequelize.STRING,
+    allowNull: false,
+    validate:{
+      notEmpty:true
+    }
   }
 })
 

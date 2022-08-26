@@ -46,6 +46,7 @@ async function seed() {
     isAdmin: true,
     totalWeight: 12094,
     level: 18,
+    selectedSprite: 'dog'
   });
 
   const kyle = await User.create({
@@ -55,6 +56,7 @@ async function seed() {
     isAdmin: false,
     totalWeight: 12097,
     level: 18,
+    selectedSprite: 'theBoy'
   });
 
   const nicole = await User.create({
@@ -64,6 +66,7 @@ async function seed() {
     isAdmin: true,
     totalWeight: 44867,
     level: 43,
+    selectedSprite: 'redHatBoy'
   });
 
   const cherry = await User.create({
@@ -73,6 +76,7 @@ async function seed() {
     isAdmin: true,
     totalWeight: 39126,
     level: 33,
+    selectedSprite: 'cat'
   });
 
   const ryan = await User.create({
@@ -82,6 +86,7 @@ async function seed() {
     isAdmin: false,
     totalWeight: 28643,
     level: 24,
+    selectedSprite: 'cuteGirl'
   });
 
   //creating exercises for presets
@@ -431,6 +436,13 @@ async function seed() {
   const adventureGirl = await Sprite.create({
     name: 'adventureGirl'
   });
+
+  await cat.setUser(cherry);
+  await cuteGirl.setUser(ryan);
+  await dog.setUser(admin);
+  await redHatBoy.setUser(nicole);
+  await theBoy.setUser(kyle);
+
 
 
   // const test = await User.findByPk(1, {
