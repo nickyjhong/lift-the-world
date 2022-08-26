@@ -25,7 +25,7 @@ class CurrentWorkoutSet extends Component {
       ...this.state,
       workoutId: this.props.workoutId,
       exerciseId: this.props.exerciseId,
-      setId: this.props.setId,
+      setId: this.props.setId - 1,
     });
   }
 

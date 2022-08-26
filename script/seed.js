@@ -336,7 +336,6 @@ async function seed() {
     },
   });
 
-
   const open1 = await WorkoutList.findOne({
     where: {
       exerciseId: 1,
@@ -344,13 +343,12 @@ async function seed() {
     },
   });
 
-  await closed1.setUser(cherry)
-  await closed2.setUser(cherry)
-  await closed3.setUser(cherry)
-  await closed4.setUser(cherry)
-  await closed5.setUser(cherry)
-  await open1.setUser(cherry)
-
+  await closed1.setUser(cherry);
+  await closed2.setUser(cherry);
+  await closed3.setUser(cherry);
+  await closed4.setUser(cherry);
+  await closed5.setUser(cherry);
+  await open1.setUser(cherry);
 
   closed1.sets = dummySets;
   await closed1.save();
@@ -358,16 +356,16 @@ async function seed() {
   closed2.sets = dummySets2;
   await closed2.save();
 
-  closed3.sets = [{reps: 3, weight: 40}]
+  closed3.sets = [{ reps: 3, weight: 40 }];
   await closed3.save();
 
-  closed4.sets = [{reps: 20, weight: 200}]
+  closed4.sets = [{ reps: 20, weight: 200 }];
   await closed4.save();
 
-  closed5.sets = [{reps: 1, weight: 1}]
+  closed5.sets = [{ reps: 1, weight: 1 }];
   await closed5.save();
 
-  open1.sets = [{reps: 1, weight: 1}]
+  open1.sets = [{ reps: 1, weight: 1, setId: 0 }];
   await open1.save();
 
   // const test = await User.findByPk(1, {
