@@ -82,7 +82,7 @@ router.get("/:exerciseId", requireToken, async (req, res, next) => {
 });
 
 // UPDATES WORKOUT LIST SET
-router.put("/:id", requireToken, async (req, res, next) => {
+router.put("/:exerciseId", requireToken, async (req, res, next) => {
   try {
     const workout = await Workout.findOne({
       where: {
@@ -95,15 +95,15 @@ router.put("/:id", requireToken, async (req, res, next) => {
 
     let exercise = await WorkoutList.findOne({
       where: {
-        exerciseId: req.params.id,
+        exerciseId: req.params.exerciseId,
         workoutId: workout.id,
       },
     });
 
     console.log("EXERCISE", exercise);
-    exercise.dataValues.sets.push(req.body);
+    exercise.sets = [...exercise.sets, req.body];
     console.log("what is req body", req.body);
-    exercise.save();
+    await exercise.save();
     res.send(exercise);
     // res.send(
     //   await Workout.findOne({
