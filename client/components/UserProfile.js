@@ -6,7 +6,6 @@ import { logout } from "../store";
 
 const UserProfile = ({ handleClick, username }) => {
   const character = [
-    "/sprites/cat/cat-walk.gif",
     "/sprites/cat/cat-idle.gif",
     "/sprites/cat/cat-jump.gif",
     "/sprites/cat/cat-run.gif",
@@ -29,7 +28,7 @@ const UserProfile = ({ handleClick, username }) => {
     console.log(counter);
     setFrame(counter);
     setCounter(counter + 1);
-    if (counter >= 4) {
+    if (counter >= 3) {
       setCounter(0);
     }
   };
@@ -48,7 +47,7 @@ const UserProfile = ({ handleClick, username }) => {
         />
         <p className="character-margin">Progress bar goes here</p>
         <p className="character-margin">You've lifted a total of:</p>
-        <p className="character-margin">{user.totalWeight} lbs</p>
+        <p className="character-margin">{user.totalWeight || 0} lbs</p>
         <button className="progress-btn">See my progress graph</button>
         <Link to="/login">
           <button className="logout-btn" onClick={handleClick}>

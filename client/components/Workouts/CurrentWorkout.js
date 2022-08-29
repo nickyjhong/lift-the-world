@@ -1,41 +1,30 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { addSet } from "../../store/workoutlist";
+import { confirmSet } from "../../store/workoutlist";
 import { fetchWorkout } from "../../store/workout";
+import { fetchWorkoutlist } from "../../store/workoutlist";
+import CurrentWorkoutSet from "./CurrentWorkoutSet";
 class CurrentWorkout extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      reps: null,
-      weight: null,
-    };
-
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleChange(event) {
-    this.setState({ ...this.state, [event.target.name]: event.target.value });
-    console.log(this.state);
-  }
-
   componentDidMount() {
     this.props.fetchWorkout();
-    // this.props.fetchWorkoutlist(id);
   }
 
   render() {
+    if (
+      !this.props.workout.exercises ||
+      this.props.workout.exercises.length === 0
+    ) {
+      return <div>Loading... please add a workout!</div>;
+    }
+
     console.log("props here", this.props);
-    const workout = this.props.workout.exercises || [];
-    // const workoutlist = this.props.workoutlist;
-    console.log("workout props", workout[0]);
-    // console.log("workoutlist props", workoutlist);
-    const { handleChange } = this;
+    const { exercises, id: workoutId } = this.props.workout;
+
     return (
       <div className="cw-container">
         {/* <h2 className="cw-workout-name">{workout.name}</h2> */}
         <div className="cw-exercise-container">
-          {/* {workout.map((exercise) => {
+          {exercises.map((exercise) => {
             return (
               <div key={exercise.id}>
                 <h2 className="cw-exercise-name">{exercise.name}</h2>
@@ -49,49 +38,16 @@ class CurrentWorkout extends Component {
                   </div>
                   {exercise.workoutlist.sets.map((set, index) => {
                     return (
-                      <div className="cw-info-container" key={index}>
-                        <form>
-                          <div className="cw-set-info">
-                            <input
-                              className="cw-sr-input cw-set"
-                              type="number"
-                              name="set"
-                              value={index + 1}
-                              disabled
-                            />
-
-                            <p className="cw-previous">
-                              {set.reps} x {set.weight}
-                            </p>
-
-                            <input
-                              className="cw-sr-input cw-rep-input"
-                              type="number"
-                              name="reps"
-                              onChange={handleChange}
-                            />
-
-                            <input
-                              className="cw-weight-input"
-                              type="number"
-                              name="weight"
-                              onChange={handleChange}
-                            />
-
-                            <button
-                              className="cw-check-input"
-                              type="checkbox"
-                              name="check"
-                              // onClick={handleAdd}
-                            >
-                              {" "}
-                            </button>
-                          </div>
-                        </form>
-                      </div>
+                      <CurrentWorkoutSet
+                        key={index}
+                        workoutId={workoutId}
+                        exerciseId={exercise.id}
+                        setId={index + 1}
+                        weight={set.weight}
+                        reps={set.reps}
+                      />
                     );
-                  }
-                  )}
+                  })}
 
                   <div className="cw-btn-container">
                     <button className="cw-add-btn">+ Add Set</button>
@@ -99,7 +55,7 @@ class CurrentWorkout extends Component {
                 </div>
               </div>
             );
-          })} */}
+          })}
         </div>
         {/* this should lead to recap page and make workout closed */}
       </div>
@@ -109,11 +65,11 @@ class CurrentWorkout extends Component {
 
 const mapStateToProps = (state) => ({
   workout: state.workout,
-  workoutlist: state.workoutlist,
+  exercise: state.workoutlist,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  addToSet: (exercise) => dispatch(addSet(exercise)),
+  confirmSet: (setData) => dispatch(confirmSet(setData)),
   fetchWorkout: () => dispatch(fetchWorkout()),
   fetchWorkoutlist: (id) => dispatch(fetchWorkoutlist(id)),
 });

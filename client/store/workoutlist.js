@@ -1,5 +1,6 @@
 import axios from "axios";
 import { TOKEN } from "./auth";
+import { _setWorkout } from "./workout";
 
 // ACTION TYPES
 const SET_WORKOUT_LIST = "SET_WORKOUT_LIST";
@@ -27,22 +28,23 @@ export const fetchWorkoutlist = (exerciseId) => {
       const { data } = await axios.get(
         `/api/workoutlist/current/${exerciseId}`
       );
-      dispatch(_setWorkoutlist(data));
+      dispatch(await _setWorkout(data));
+      dispatch(await _setWorkoutlist(exerciseId));
     } catch (error) {
       console.log("getWorkoutlist Error", error);
     }
   };
 };
 
-export const addSet = (exercise) => {
-  console.log("argument add set exercise thunk", exercise);
+export const confirmSet = (setData) => {
+  console.log("argument add set exercise thunk", setData);
   return async (dispatch) => {
     try {
       const token = window.localStorage.getItem(TOKEN);
       if (token) {
         const { data } = await axios.put(
-          `/api/workoutlist/${exercise.id}`,
-          exercise,
+          `/api/workoutlist/${setData.exerciseId}`,
+          setData,
           {
             headers: {
               authorization: token,
@@ -50,7 +52,7 @@ export const addSet = (exercise) => {
           }
         );
         console.log("data in set exercise thunk", data);
-        dispatch(_updateWorkoutlist(data, id));
+        dispatch(_updateWorkoutlist(data, setData));
       }
     } catch (err) {
       console.log(err);
@@ -59,14 +61,14 @@ export const addSet = (exercise) => {
 };
 
 // REDUCER
-const initialState = [];
+const initialState = {};
 
 export default function workoutlistReducer(state = initialState, action) {
   switch (action.type) {
     case SET_WORKOUT_LIST:
       return action.workoutlist;
     case UPDATE_WORKOUT_LIST:
-      return { ...action.exercise, workoutlist: action.exercise };
+      return { ...action.exercise, exercise: action.exercise };
     default:
       return state;
   }
