@@ -1,14 +1,20 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { addSet, confirmSet } from "../../store/workoutlist";
+import {
+  addSet,
+  confirmSet,
+  fetchAllWorkoutlist,
+} from "../../store/workoutlist";
 import { fetchWorkout, finishWorkout } from "../../store/workout";
-import { fetchWorkoutlist } from "../../store/workoutlist";
+import { fetchWorkoutlist, fetchWorkouts } from "../../store/workoutlist";
 import CurrentWorkoutSet from "./CurrentWorkoutSet";
 import { Link } from "react-router-dom";
 
 class CurrentWorkout extends Component {
   componentDidMount() {
     this.props.fetchWorkout();
+    this.props.fetchAllWorkoutList();
+    // this.props.getCurrentWorkout();
   }
 
   render() {
@@ -24,7 +30,6 @@ class CurrentWorkout extends Component {
 
     return (
       <div className="cw-container">
-        {/* <h2 className="cw-workout-name">{workout.name}</h2> */}
         <div className="cw-exercise-container">
           {exercises.map((exercise) => {
             return (
@@ -54,7 +59,18 @@ class CurrentWorkout extends Component {
                   <div className="cw-btn-container">
                     <button
                       className="cw-add-btn"
-                      onClick={(setData) => this.props.addSet(setData)}
+                      onClick={() =>
+                        this.props.addSet({
+                          exerciseId: exercise.id,
+                          reps: "0",
+                          setId:
+                            exercise.workoutlist.sets[
+                              exercise.workoutlist.sets.length - 1
+                            ].setId + 1,
+                          weight: 0,
+                          workoutId: workoutId,
+                        })
+                      }
                     >
                       + Add Set
                     </button>
@@ -64,16 +80,18 @@ class CurrentWorkout extends Component {
             );
           })}
         </div>
-        {this.props.workout.status === 'active' ? (
-        <Link to="/recap">
-          <button className="cw-finish-btn" onClick={() => this.props.finishWorkout()}>
-            Finish Workout
-          </button>
-        </Link>
-
-      ) : (
-        <button>Start a new workout</button>
-      ) }
+        {this.props.workout.status === "active" ? (
+          <Link to="/recap">
+            <button
+              className="cw-finish-btn"
+              onClick={() => this.props.finishWorkout()}
+            >
+              Finish Workout
+            </button>
+          </Link>
+        ) : (
+          <button>Start a new workout</button>
+        )}
       </div>
     );
   }
@@ -89,7 +107,9 @@ const mapDispatchToProps = (dispatch) => ({
   confirmSet: (setData) => dispatch(confirmSet(setData)),
   fetchWorkout: () => dispatch(fetchWorkout()),
   fetchWorkoutlist: (id) => dispatch(fetchWorkoutlist(id)),
-  finishWorkout: () => dispatch(finishWorkout())
+  fetchAllWorkoutList: () => dispatch(fetchAllWorkoutlist()),
+  finishWorkout: () => dispatch(finishWorkout()),
+  getCurrentWorkout: () => dispatch(fetchWorkouts()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CurrentWorkout);

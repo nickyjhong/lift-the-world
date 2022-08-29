@@ -12,7 +12,7 @@ const WeightComparison = () => {
   }, [dispatch]);
 
   const exercises = weightsComparison.exercises || [];
-
+  console.log("exercises for weight comparison", exercises);
   const totalWeight = exercises.map((exercise) => {
     return exercise.workoutlist.sets.reduce((accum, curr) => {
       let totalWeight = curr.reps * curr.weight;

@@ -22,7 +22,7 @@ router.get("/", requireToken, async (req, res, next) => {
 });
 
 // ROUTE WITH CURRENT SET OF ALL EXERCISES IN MOST RECENT WORKOUT
-router.get("/current/:id", requireToken, async (req, res, next) => {
+router.get("/current", requireToken, async (req, res, next) => {
   try {
     const workout = await Workout.findOne({
       where: {
@@ -54,11 +54,12 @@ router.get("/prev/:exerciseId", requireToken, async (req, res, next) => {
       order: [["createdAt", "DESC"]],
     });
 
-    if (exerciseSet[0].sets.length === 0) {
-      res.send(exerciseSet[1]);
-    } else {
-      res.send(exerciseSet[0]);
-    }
+    // if (exerciseSet[0].sets.length === 0) {
+    //   res.send(exerciseSet[1]);
+    // } else {
+    //   res.send(exerciseSet[0]);
+    // }
+    res.send(exerciseSet[1]);
   } catch (err) {
     next(err);
   }
@@ -73,6 +74,7 @@ router.get("/:exerciseId", requireToken, async (req, res, next) => {
         userId: req.user.dataValues.id,
       },
       order: [["createdAt", "DESC"]],
+      attributes: ["sets"],
     });
 
     res.send(exerciseSet);
@@ -84,6 +86,7 @@ router.get("/:exerciseId", requireToken, async (req, res, next) => {
 // ADDS A NEW SET
 router.post("/:exerciseId", requireToken, async (req, res, next) => {
   try {
+    console.log("does user exist", req.user);
     const workout = await Workout.findOne({
       where: {
         userId: req.user.dataValues.id,
@@ -92,7 +95,7 @@ router.post("/:exerciseId", requireToken, async (req, res, next) => {
       order: [["createdAt", "ASC"]],
       include: [Exercise],
     });
-    console.log("HELLLLOOOOO", workout);
+    console.log("WORKOUT", workout);
 
     let exercise = await WorkoutList.findOne({
       where: {
