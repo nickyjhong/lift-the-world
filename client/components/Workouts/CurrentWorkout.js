@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { confirmSet } from "../../store/workoutlist";
-import { fetchWorkout } from "../../store/workout";
+import { addSet, confirmSet } from "../../store/workoutlist";
+import { fetchWorkout, finishWorkout } from "../../store/workout";
 import { fetchWorkoutlist } from "../../store/workoutlist";
 import CurrentWorkoutSet from "./CurrentWorkoutSet";
+import { Link } from "react-router-dom";
+
 class CurrentWorkout extends Component {
   componentDidMount() {
     this.props.fetchWorkout();
@@ -50,14 +52,28 @@ class CurrentWorkout extends Component {
                   })}
 
                   <div className="cw-btn-container">
-                    <button className="cw-add-btn">+ Add Set</button>
+                    <button
+                      className="cw-add-btn"
+                      onClick={(setData) => this.props.addSet(setData)}
+                    >
+                      + Add Set
+                    </button>
                   </div>
                 </div>
               </div>
             );
           })}
         </div>
-        {/* this should lead to recap page and make workout closed */}
+        {this.props.workout.status === 'active' ? (
+        <Link to="/recap">
+          <button className="cw-finish-btn" onClick={() => this.props.finishWorkout()}>
+            Finish Workout
+          </button>
+        </Link>
+
+      ) : (
+        <button>Start a new workout</button>
+      ) }
       </div>
     );
   }
@@ -69,9 +85,11 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
+  addSet: (setData) => dispatch(addSet(setData)),
   confirmSet: (setData) => dispatch(confirmSet(setData)),
   fetchWorkout: () => dispatch(fetchWorkout()),
   fetchWorkoutlist: (id) => dispatch(fetchWorkoutlist(id)),
+  finishWorkout: () => dispatch(finishWorkout())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CurrentWorkout);

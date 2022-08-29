@@ -36,8 +36,31 @@ export const fetchWorkoutlist = (exerciseId) => {
   };
 };
 
-export const confirmSet = (setData) => {
+export const addSet = (setData) => {
   console.log("argument add set exercise thunk", setData);
+  return async (dispatch) => {
+    try {
+      const token = window.localStorage.getItem(TOKEN);
+      if (token) {
+        const { data } = await axios.post(
+          `/api/workoutlist/${setData.exerciseId}`,
+          setData,
+          {
+            headers: {
+              authorization: token,
+            },
+          }
+        );
+        console.log("data in set exercise thunk", data);
+        dispatch(_updateWorkoutlist(data, setData));
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};
+
+export const confirmSet = (setData) => {
   return async (dispatch) => {
     try {
       const token = window.localStorage.getItem(TOKEN);
@@ -51,7 +74,6 @@ export const confirmSet = (setData) => {
             },
           }
         );
-        console.log("data in set exercise thunk", data);
         dispatch(_updateWorkoutlist(data, setData));
       }
     } catch (err) {
