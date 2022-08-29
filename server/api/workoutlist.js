@@ -44,11 +44,11 @@ router.get("/current/:id", requireToken, async (req, res, next) => {
 });
 
 // MOST RECENT SET FOR SPECIFIC EXERCISE
-router.get("/prev/:id", requireToken, async (req, res, next) => {
+router.get("/prev/:exerciseId", requireToken, async (req, res, next) => {
   try {
     let exerciseSet = await WorkoutList.findAll({
       where: {
-        exerciseId: req.params.id,
+        exerciseId: req.params.exerciseId,
         userId: req.user.dataValues.id,
       },
       order: [["createdAt", "DESC"]],
@@ -81,48 +81,7 @@ router.get("/:exerciseId", requireToken, async (req, res, next) => {
   }
 });
 
-// UPDATES WORKOUT LIST SET
-router.put("/:exerciseId", requireToken, async (req, res, next) => {
-  try {
-    const workout = await Workout.findOne({
-      where: {
-        userId: req.user.dataValues.id,
-        status: "active",
-      },
-      order: [["createdAt", "ASC"]],
-      include: [Exercise],
-    });
-    console.log("HELLLLOOOOO", workout);
-
-    let exercise = await WorkoutList.findOne({
-      where: {
-        exerciseId: req.params.exerciseId,
-        workoutId: workout.id,
-      },
-    });
-
-    console.log("EXERCISE", exercise);
-    let index = exercise.sets.findIndex((s) => s.setId === req.body.setId);
-    exercise.sets[index] = req.body;
-    exercise.changed("sets", true);
-    console.log("what is req body", req.body);
-    await exercise.save();
-    res.send(exercise);
-    // res.send(
-    //   await Workout.findOne({
-    //     where: {
-    //       userId: req.user.dataValues.id,
-    //       status: "active",
-    //     },
-    //     include: [Exercise],
-    //   })
-    // );
-  } catch (err) {
-    next(err);
-  }
-});
-
-//adding a new set
+// ADDS A NEW SET
 router.post("/:exerciseId", requireToken, async (req, res, next) => {
   try {
     const workout = await Workout.findOne({
@@ -147,15 +106,37 @@ router.post("/:exerciseId", requireToken, async (req, res, next) => {
     console.log("what is req body", req.body);
     await exercise.save();
     res.send(exercise);
-    // res.send(
-    //   await Workout.findOne({
-    //     where: {
-    //       userId: req.user.dataValues.id,
-    //       status: "active",
-    //     },
-    //     include: [Exercise],
-    //   })
-    // );
+  } catch (err) {
+    next(err);
+  }
+});
+
+// UPDATES WORKOUT LIST SET
+router.put("/:exerciseId", requireToken, async (req, res, next) => {
+  try {
+    const workout = await Workout.findOne({
+      where: {
+        userId: req.user.dataValues.id,
+        status: "active",
+      },
+      order: [["createdAt", "ASC"]],
+      include: [Exercise],
+    });
+
+    let exercise = await WorkoutList.findOne({
+      where: {
+        exerciseId: req.params.exerciseId,
+        workoutId: workout.id,
+      },
+    });
+
+    console.log("EXERCISE", exercise);
+    let index = exercise.sets.findIndex((s) => s.setId === req.body.setId);
+    exercise.sets[index] = req.body;
+    exercise.changed("sets", true);
+    console.log("what is req body", req.body);
+    await exercise.save();
+    res.send(exercise);
   } catch (err) {
     next(err);
   }

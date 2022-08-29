@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { confirmSet } from "../../store/workoutlist";
+import { addSet, confirmSet } from "../../store/workoutlist";
 import { fetchWorkout } from "../../store/workout";
 import { fetchWorkoutlist } from "../../store/workoutlist";
 import CurrentWorkoutSet from "./CurrentWorkoutSet";
@@ -50,7 +50,12 @@ class CurrentWorkout extends Component {
                   })}
 
                   <div className="cw-btn-container">
-                    <button className="cw-add-btn">+ Add Set</button>
+                    <button
+                      className="cw-add-btn"
+                      onClick={(setData) => this.props.addSet(setData)}
+                    >
+                      + Add Set
+                    </button>
                   </div>
                 </div>
               </div>
@@ -69,6 +74,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
+  addSet: (setData) => dispatch(addSet(setData)),
   confirmSet: (setData) => dispatch(confirmSet(setData)),
   fetchWorkout: () => dispatch(fetchWorkout()),
   fetchWorkoutlist: (id) => dispatch(fetchWorkoutlist(id)),
