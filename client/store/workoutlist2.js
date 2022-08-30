@@ -40,7 +40,6 @@ export const fetchWorkoutlist = () => {
             authorization: token,
           },
         });
-        console.log("data", data);
         dispatch(await _setWorkoutlist(data));
       }
     } catch (error) {
