@@ -48,12 +48,12 @@ router.put("/finish", requireToken, async (req, res, next) => {
     current.update({
       status: "closed",
     });
-    
+
     const currentWeightLifted = current.workoutTotalWeight;
     const user = await User.findByPk(req.user.dataValues.id);
-    await user.update({totalWeight: totalWeight + currentWeightLifted});
+    await user.update({ totalWeight: totalWeight + currentWeightLifted });
     const newTotal = user.totalWeight;
-    if(newTotal >= 1000){
+    if (newTotal >= 1000) {
       cuteGirl.setUser(user);
     }
     if(newTotal >= 2000){
@@ -109,6 +109,10 @@ router.post("/", requireToken, async (req, res, next) => {
         workoutId: workout.id,
       },
     });
+    console.log("EXERCISE", exercise);
+    console.log("EXERCISE CREATED", exerciseCreated);
+    exercise.sets = [{ reps: "", weight: "", setId: 0 }];
+    await exercise.save();
 
     res.send(workout);
   } catch (error) {
