@@ -12,6 +12,7 @@ import singleWorkoutReducer from "./singleWorkout";
 import singleUserReducer from "./singleUser";
 import previousReducer from "./previous";
 import workoutlistReducer from "./workoutlist";
+import spritesReducer from "./sprites";
 
 const reducer = combineReducers({
   auth: auth,
@@ -27,6 +28,8 @@ const reducer = combineReducers({
   topUsers: leadersReducer,
   allUsers: usersReducer,
   singleUser: singleUserReducer,
+
+  sprites: spritesReducer,
 });
 
 const middleware = composeWithDevTools(
