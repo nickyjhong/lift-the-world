@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 import { useDispatch, useSelector, connect } from "react-redux";
 import { addSet, confirmSet, fetchWorkoutlist } from "../../store/workoutlist2";
 import { finishWorkout } from "../../store/workout";
@@ -7,11 +7,11 @@ import { Link } from "react-router-dom";
 
 function CurrentWorkout() {
   const dispatch = useDispatch();
-  const workoutlist = useSelector((state) => state.workoutlist2)
+  const workoutlist = useSelector((state) => state.workoutlist2);
 
   useEffect(() => {
-    dispatch(fetchWorkoutlist())
-  }, [dispatch])
+    dispatch(fetchWorkoutlist());
+  }, [dispatch]);
 
   if (
     !workoutlist.allExercises.exercises ||
@@ -20,7 +20,7 @@ function CurrentWorkout() {
     return <div>Loading... please add a workout!</div>;
   }
 
-  const { allExercises } = workoutlist || []
+  const { allExercises } = workoutlist || [];
   const { exercises, id: workoutId } = allExercises;
   return (
     <div className="cw-container">
@@ -54,16 +54,18 @@ function CurrentWorkout() {
                   <button
                     className="cw-add-btn"
                     onClick={() =>
-                      dispatch(addSet({
-                        exerciseId: exercise.id,
-                        reps: "0",
-                        setId:
-                          exercise.workoutlist.sets[
-                            exercise.workoutlist.sets.length - 1
-                          ].setId + 1,
-                        weight: 0,
-                        workoutId: workoutId,
-                      }))
+                      dispatch(
+                        addSet({
+                          exerciseId: exercise.id,
+                          reps: "0",
+                          setId:
+                            exercise.workoutlist.sets[
+                              exercise.workoutlist.sets.length - 1
+                            ].setId + 1,
+                          weight: 0,
+                          workoutId: workoutId,
+                        })
+                      )
                     }
                   >
                     + Add Set
@@ -76,10 +78,7 @@ function CurrentWorkout() {
       </div>
       {workoutlist.status === "active" ? (
         <Link to="/recap">
-          <button
-            className="cw-finish-btn"
-            onClick={() => finishWorkout()}
-          >
+          <button className="cw-finish-btn" onClick={() => finishWorkout()}>
             Finish Workout
           </button>
         </Link>

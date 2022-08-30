@@ -80,6 +80,7 @@ export const addSet = (emptySet) => {
           }
         );
         console.log("data in set exercise thunk", data);
+        console.log("empty set", emptySet);
         dispatch(_updateWorkoutlist(data, emptySet));
       }
     } catch (err) {
