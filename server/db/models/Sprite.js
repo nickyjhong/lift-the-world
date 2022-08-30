@@ -10,6 +10,14 @@ const Sprite = db.define("sprite", {
     },
     defaultValue: "cat",
   },
+  weightToUnlock: {
+    type: Sequelize.INTEGER,
+    allowNull: false,
+  },
+  isUnlocked: {
+    type: Sequelize.BOOLEAN,
+    defaultValue: false,
+  },
 });
 
 module.exports = Sprite;
