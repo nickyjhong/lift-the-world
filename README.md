@@ -42,7 +42,7 @@ npm run seed
 npm run start:dev
 ```
 
-**Step 6:** Go to `localhost:8080` in your browser to run Baked!
+**Step 6:** Go to `localhost:8080` in your browser to run Lift the World!
 ```js
 localhost:8080
 ```
