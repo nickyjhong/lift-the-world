@@ -40,6 +40,7 @@ export const fetchWorkoutlist = () => {
             authorization: token,
           },
         });
+        console.log('data', data)
         dispatch(await _setWorkoutlist(data));
       }
     } catch (error) {
@@ -118,8 +119,10 @@ const initialState = {
 
 export default function workoutlistReducer(state = initialState, action) {
   switch (action.type) {
-    case SET_ALL_WORKOUTS:
+    case SET_WORKOUT_LIST:
       return { ...state, allExercises: action.workoutlist };
+      // return { allExercises: action.workoutlist };
+      // return action.workoutlist;
     case UPDATE_WORKOUT_LIST:
       return { ...state, allExercises: action.exercise };
     case SET_PREV_WORKOUT_SET:
