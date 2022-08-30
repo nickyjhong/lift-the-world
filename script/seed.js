@@ -534,19 +534,16 @@ async function seed() {
   //creating our sprites
   const cat = await Sprite.create({
     name: "cat",
-    weightToUnlock: 0,
-    isUnlocked: true,
+    weightToUnlock: 0
   });
 
   const dog = await Sprite.create({
     name: "dog",
     weightToUnlock: 0,
-    isUnlocked: true,
   });
   const redHatBoy = await Sprite.create({
     name: "redHatBoy",
     weightToUnlock: 0,
-    isUnlocked: true,
   });
 
   const cuteGirl = await Sprite.create({

@@ -14,10 +14,6 @@ const Sprite = db.define("sprite", {
     type: Sequelize.INTEGER,
     allowNull: false,
   },
-  isUnlocked: {
-    type: Sequelize.BOOLEAN,
-    defaultValue: false,
-  },
 });
 
 module.exports = Sprite;
