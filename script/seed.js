@@ -235,8 +235,11 @@ async function seed() {
     name: "Barbell Curl",
     category: "biceps",
     equipment: ["barbell", "weights"],
-    tipsAndTricks: ["use controlled movements", "Use lower weight if you find yourself leaning back to assist"],
-    embedId: "dDI8ClxRS04"
+    tipsAndTricks: [
+      "use controlled movements",
+      "Use lower weight if you find yourself leaning back to assist",
+    ],
+    embedId: "dDI8ClxRS04",
   });
 
   const chinup = await Exercise.create({
@@ -244,15 +247,18 @@ async function seed() {
     category: "biceps",
     equipment: ["bar", "your body"],
     tipsAndTricks: ["use controlled movements"],
-    embedId: "brhRXlOhsAM"
+    embedId: "brhRXlOhsAM",
   });
 
   const inclinedumbellcurl = await Exercise.create({
     name: "Incline Dumbell Curl",
     category: "biceps",
     equipment: ["bench", "dumbells"],
-    tipsAndTricks: ["use controlled movements", "don't use momentum to lift the weights"],
-    embedId: "soxrZlIl35U"
+    tipsAndTricks: [
+      "use controlled movements",
+      "don't use momentum to lift the weights",
+    ],
+    embedId: "soxrZlIl35U",
   });
 
   const diamondPushups = await Exercise.create({
@@ -260,7 +266,7 @@ async function seed() {
     category: "triceps",
     equipment: ["the floor", "a mat"],
     tipsAndTricks: ["use controlled movements"],
-    embedId: "J0DnG1_S92I"
+    embedId: "J0DnG1_S92I",
   });
 
   const kickBacks = await Exercise.create({
@@ -268,7 +274,7 @@ async function seed() {
     category: "triceps",
     equipment: ["dumbells", "bench"],
     tipsAndTricks: ["use controlled movements"],
-    embedId: "ZO81bExngMI"
+    embedId: "ZO81bExngMI",
   });
 
   const tricepsExtension = await Exercise.create({
@@ -276,7 +282,7 @@ async function seed() {
     category: "triceps",
     equipment: ["dumbell", "bench"],
     tipsAndTricks: ["use controlled movements"],
-    embedId: "nRiJVZDpdL0"
+    embedId: "nRiJVZDpdL0",
   });
 
   const frontSquat = await Exercise.create({
@@ -284,7 +290,7 @@ async function seed() {
     category: "glutes",
     equipment: ["barbell", "weights", "squat wrack"],
     tipsAndTricks: ["use controlled movements"],
-    embedId: "wyDbagKS7Rg"
+    embedId: "wyDbagKS7Rg",
   });
 
   const goodMorning = await Exercise.create({
@@ -292,15 +298,18 @@ async function seed() {
     category: "legs",
     equipment: ["barbell", "weights"],
     tipsAndTricks: ["use controlled movements"],
-    embedId: "vKPGe8zb2S4"
+    embedId: "vKPGe8zb2S4",
   });
 
   const lunge = await Exercise.create({
     name: "Lunge",
     category: "legs",
     equipment: ["barbell", "weights", "dumbells"],
-    tipsAndTricks: ["use controlled movements", "lunge as far as required for your front knee to reach 90 degrees"],
-    embedId: "QOVaHwm-Q6U"
+    tipsAndTricks: [
+      "use controlled movements",
+      "lunge as far as required for your front knee to reach 90 degrees",
+    ],
+    embedId: "QOVaHwm-Q6U",
   });
 
   const forearmPlank = await Exercise.create({
@@ -308,15 +317,18 @@ async function seed() {
     category: "core",
     equipment: ["workout mat", "your body"],
     tipsAndTricks: ["activate your core", "breath through the exercise"],
-    embedId: "pSHjTRCQxIw"
+    embedId: "pSHjTRCQxIw",
   });
 
   const russianTwist = await Exercise.create({
     name: "Russian Twist",
     category: "core",
     equipment: ["Kettle Bell", "floor mat"],
-    tipsAndTricks: ["use controlled movements", "twist as far as you can comfortably"],
-    embedId: "wkD8rjkodUI"
+    tipsAndTricks: [
+      "use controlled movements",
+      "twist as far as you can comfortably",
+    ],
+    embedId: "wkD8rjkodUI",
   });
 
   const deadBug = await Exercise.create({
@@ -324,7 +336,7 @@ async function seed() {
     category: "core",
     equipment: ["floor mat"],
     tipsAndTricks: ["use controlled movements"],
-    embedId: "8NBNM8haZx0"
+    embedId: "8NBNM8haZx0",
   });
 
   const woodChop = await Exercise.create({
@@ -332,7 +344,7 @@ async function seed() {
     category: "core",
     equipment: ["dumbell", "kettle bell", "floor mat"],
     tipsAndTricks: ["use controlled movements"],
-    embedId: "SfTBo2Tjl7M"
+    embedId: "SfTBo2Tjl7M",
   });
 
   const bodySaw = await Exercise.create({
@@ -340,23 +352,30 @@ async function seed() {
     category: "core",
     equipment: ["floor mat", "floor sliders"],
     tipsAndTricks: ["use controlled movements", "squeeze your core"],
-    embedId: "oSNHVD0zT3Q"
+    embedId: "oSNHVD0zT3Q",
   });
 
   const dips = await Exercise.create({
     name: "BodyWeight or Assisted Dips",
     category: "chest",
     equipment: ["Dip wrack", "assisted dip machine"],
-    tipsAndTricks: ["use controlled movements", "don't go so far that you strain your shoulders"],
-    embedId: "wjUmnZH528Y"
+    tipsAndTricks: [
+      "use controlled movements",
+      "don't go so far that you strain your shoulders",
+    ],
+    embedId: "wjUmnZH528Y",
   });
 
   const deadLift = await Exercise.create({
     name: "DeadLift",
     category: "back",
     equipment: ["barbell", "weights", "squat wrack"],
-    tipsAndTricks: ["use controlled movements", "avoid jerking your back", "keep your back straight"],
-    embedId: "-4qRntuXBSc"
+    tipsAndTricks: [
+      "use controlled movements",
+      "avoid jerking your back",
+      "keep your back straight",
+    ],
+    embedId: "-4qRntuXBSc",
   });
 
   const cableKickback = await Exercise.create({
@@ -364,7 +383,7 @@ async function seed() {
     category: "glutes",
     equipment: ["cable machine", "ankle fastener"],
     tipsAndTricks: ["use controlled movements"],
-    embedId: "dJa_Nf4zdik&t=31s"
+    embedId: "dJa_Nf4zdik&t=31s",
   });
 
   const stepDown = await Exercise.create({
@@ -372,9 +391,8 @@ async function seed() {
     category: "glutes",
     equipment: ["Box", "Bench"],
     tipsAndTricks: ["use controlled movements"],
-    embedId: "Eerfi7WaiDE"
+    embedId: "Eerfi7WaiDE",
   });
-  
 
   const pschest1 = await Workout.create({
     name: "chest1",
@@ -519,72 +537,76 @@ async function seed() {
   await open1.save();
 
   //creating our sprites
-
-  const redHatBoy = await Sprite.create({
-    name: "redHatBoy",
-  });
-
-  const theBoy = await Sprite.create({
-    name: "theBoy",
-  });
-
-  const cuteGirl = await Sprite.create({
-    name: "cuteGirl",
-  });
-
-  const dino = await Sprite.create({
-    name: "dino",
-  });
-
-  const santa = await Sprite.create({
-    name: "santa",
-  });
-
-  const zombie = await Sprite.create({
-    name: "zombie",
-  });
-
-  const jackOLantern = await Sprite.create({
-    name: "jackOLantern",
-  });
-
-  const theKnight = await Sprite.create({
-    name: "theKnight",
-  });
-
   const cat = await Sprite.create({
     name: "cat",
+    weightToUnlock: 0,
+    isUnlocked: true,
   });
 
   const dog = await Sprite.create({
     name: "dog",
+    weightToUnlock: 0,
+    isUnlocked: true,
+  });
+  const redHatBoy = await Sprite.create({
+    name: "redHatBoy",
+    weightToUnlock: 0,
+    isUnlocked: true,
   });
 
-  const robot = await Sprite.create({
-    name: "robot",
+  const cuteGirl = await Sprite.create({
+    name: "cuteGirl",
+    weightToUnlock: 1000,
   });
-
-  const ninjaBoy = await Sprite.create({
-    name: "ninjaBoy",
+  const adventureBoy = await Sprite.create({
+    name: "adventureBoy",
+    weightToUnlock: 2000,
+  });
+  const zombie = await Sprite.create({
+    name: "zombie",
+    weightToUnlock: 4000,
   });
 
   const ninjaGirl = await Sprite.create({
     name: "ninjaGirl",
+    weightToUnlock: 8000,
+  });
+  const jackOLantern = await Sprite.create({
+    name: "jackOLantern",
+    weightToUnlock: 16000,
   });
 
-  const adventureBoy = await Sprite.create({
-    name: "adventureBoy",
+  const ninjaBoy = await Sprite.create({
+    name: "ninjaBoy",
+    weightToUnlock: 32000,
   });
 
   const adventureGirl = await Sprite.create({
     name: "adventureGirl",
+    weightToUnlock: 64000,
+  });
+  const dino = await Sprite.create({
+    name: "dino",
+    weightToUnlock: 128000,
+  });
+  const robot = await Sprite.create({
+    name: "robot",
+    weightToUnlock: 256000,
+  });
+  const santa = await Sprite.create({
+    name: "santa",
+    weightToUnlock: 512000,
+  });
+  const knight = await Sprite.create({
+    name: "theKnight",
+    weightToUnlock: 1024000,
   });
 
   await cat.setUser(cherry);
-  await cuteGirl.setUser(ryan);
-  await dog.setUser(admin);
-  await redHatBoy.setUser(nicole);
-  await theBoy.setUser(kyle);
+  await dog.setUser(ryan);
+  await redHatBoy.setUser(admin);
+  await dog.setUser(nicole);
+  await cat.setUser(kyle);
 
   // const test = await User.findByPk(1, {
   //   include: [{ model: Workout, include: [Exercise] }],
