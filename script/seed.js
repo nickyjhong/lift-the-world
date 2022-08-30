@@ -295,6 +295,54 @@ async function seed() {
     embedId: "vKPGe8zb2S4"
   });
 
+  const lunge = await Exercise.create({
+    name: "Lunge",
+    category: "legs",
+    equipment: ["barbell", "weights", "dumbells"],
+    tipsAndTricks: ["use controlled movements", "lunge as far as required for your front knee to reach 90 degrees"],
+    embedId: "QOVaHwm-Q6U"
+  });
+
+  const forearmPlank = await Exercise.create({
+    name: "ForeArm Plank",
+    category: "core",
+    equipment: ["workout mat", "your body"],
+    tipsAndTricks: ["activate your core", "breath through the exercise"],
+    embedId: "pSHjTRCQxIw"
+  });
+
+  const russianTwist = await Exercise.create({
+    name: "Russian Twist",
+    category: "core",
+    equipment: ["Kettle Bell", "floor mat"],
+    tipsAndTricks: ["use controlled movements", "twist as far as you can comfortably"],
+    embedId: "wkD8rjkodUI"
+  });
+
+  const deadBug = await Exercise.create({
+    name: "Dead Bug",
+    category: "core",
+    equipment: ["floor mat"],
+    tipsAndTricks: ["use controlled movements"],
+    embedId: "8NBNM8haZx0"
+  });
+
+  const woodChop = await Exercise.create({
+    name: "Half-kneeling Wood Chop",
+    category: "core",
+    equipment: ["dumbell", "kettle bell", "floor mat"],
+    tipsAndTricks: ["use controlled movements"],
+    embedId: "SfTBo2Tjl7M"
+  });
+
+  const bodySaw = await Exercise.create({
+    name: "Body Saw",
+    category: "core",
+    equipment: ["floor mat", "floor sliders"],
+    tipsAndTricks: ["use controlled movements", "squeeze your core"],
+    embedId: "oSNHVD0zT3Q"
+  });
+
   
 
   const pschest1 = await Workout.create({
