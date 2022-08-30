@@ -32,12 +32,12 @@ router.get("/current", requireToken, async (req, res, next) => {
       include: [Exercise],
     });
 
-    const workoutlist = await WorkoutList.findAll({
-      where: {
-        workoutId: workout.id,
-      },
-    });
-    res.send(workoutlist);
+    // const workoutlist = await WorkoutList.findAll({
+    //   where: {
+    //     workoutId: workout.id,
+    //   },
+    // });
+    res.send(workout);
   } catch (err) {
     console.error(err);
   }
@@ -105,7 +105,10 @@ router.post("/:exerciseId", requireToken, async (req, res, next) => {
     });
 
     console.log("EXERCISE", exercise);
+    let index = exercise.sets.findIndex((s) => s.setId === req.body.setId);
     exercise.sets = [...exercise.sets, req.body];
+    exercise.sets[index] = req.body;
+    exercise.changed("sets", true);
     console.log("what is req body", req.body);
     await exercise.save();
     res.send(exercise);
@@ -133,10 +136,10 @@ router.put("/:exerciseId", requireToken, async (req, res, next) => {
       },
     });
 
-    console.log("EXERCISE", exercise);
     let index = exercise.sets.findIndex((s) => s.setId === req.body.setId);
     exercise.sets[index] = req.body;
     exercise.changed("sets", true);
+    console.log("EXERCISE", exercise);
     console.log("what is req body", req.body);
     await exercise.save();
     res.send(exercise);
