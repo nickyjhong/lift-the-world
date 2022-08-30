@@ -537,80 +537,73 @@ async function seed() {
   await open1.save();
 
   //creating our sprites
-
-  const redHatBoy = await Sprite.create({
-    name: "redHatBoy",
-    weightToUnlock: 0,
-  });
-
-  const theBoy = await Sprite.create({
-    name: "theBoy",
-    weightToUnlock: 0,
-  });
-
-  const cuteGirl = await Sprite.create({
-    name: "cuteGirl",
-    weightToUnlock: 0,
-  });
-
-  const dino = await Sprite.create({
-    name: "dino",
-    weightToUnlock: 0,
-  });
-
-  const santa = await Sprite.create({
-    name: "santa",
-    weightToUnlock: 0,
-  });
-
-  const zombie = await Sprite.create({
-    name: "zombie",
-    weightToUnlock: 0,
-  });
-
-  const jackOLantern = await Sprite.create({
-    name: "jackOLantern",
-    weightToUnlock: 0,
-  });
-
-  const theKnight = await Sprite.create({
-    name: "theKnight",
-    weightToUnlock: 0,
-  });
-
   const cat = await Sprite.create({
     name: "cat",
     weightToUnlock: 0,
+    isUnlocked: true,
   });
 
   const dog = await Sprite.create({
     name: "dog",
     weightToUnlock: 0,
+    isUnlocked: true,
+  });
+  const redHatBoy = await Sprite.create({
+    name: "redHatBoy",
+    weightToUnlock: 0,
+    isUnlocked: true,
   });
 
-  const robot = await Sprite.create({
-    name: "robot",
-    weightToUnlock: 0,
+  const cuteGirl = await Sprite.create({
+    name: "cuteGirl",
+    weightToUnlock: 500,
   });
-
-  const ninjaBoy = await Sprite.create({
-    name: "ninjaBoy",
-    weightToUnlock: 0,
+  const adventureBoy = await Sprite.create({
+    name: "adventureBoy",
+    weightToUnlock: 1000,
+  });
+  const zombie = await Sprite.create({
+    name: "zombie",
+    weightToUnlock: 2000,
+  });
+  const theBoy = await Sprite.create({
+    name: "theBoy",
+    weightToUnlock: 4000,
   });
 
   const ninjaGirl = await Sprite.create({
     name: "ninjaGirl",
-    weightToUnlock: 0,
+    weightToUnlock: 8000,
+  });
+  const jackOLantern = await Sprite.create({
+    name: "jackOLantern",
+    weightToUnlock: 16000,
   });
 
-  const adventureBoy = await Sprite.create({
-    name: "adventureBoy",
-    weightToUnlock: 0,
+  const ninjaBoy = await Sprite.create({
+    name: "ninjaBoy",
+    weightToUnlock: 32000,
   });
 
   const adventureGirl = await Sprite.create({
     name: "adventureGirl",
-    weightToUnlock: 0,
+    weightToUnlock: 64000,
+  });
+  const dino = await Sprite.create({
+    name: "dino",
+    weightToUnlock: 128000,
+  });
+  const robot = await Sprite.create({
+    name: "robot",
+    weightToUnlock: 256000,
+  });
+  const santa = await Sprite.create({
+    name: "santa",
+    weightToUnlock: 512000,
+  });
+  const theKnight = await Sprite.create({
+    name: "theKnight",
+    weightToUnlock: 1024000,
   });
 
   await cat.setUser(cherry);
