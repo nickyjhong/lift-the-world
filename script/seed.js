@@ -280,7 +280,7 @@ async function seed() {
   });
 
   const frontSquat = await Exercise.create({
-    name: "front Squat",
+    name: "Front Squat",
     category: "glutes",
     equipment: ["barbell", "weights", "squat wrack"],
     tipsAndTricks: ["use controlled movements"],
