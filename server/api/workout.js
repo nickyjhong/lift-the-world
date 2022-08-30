@@ -48,9 +48,14 @@ router.put("/finish", requireToken, async (req, res, next) => {
     current.update({
       status: "closed",
     });
-    console.log("###%%%", current);
-
+    
+    const currentWeightLifted = current.workoutTotalWeight;
     const user = await User.findByPk(req.user.dataValues.id);
+    await user.update({totalWeight: totalWeight + currentWeightLifted});
+    const newTotal = user.totalWeight;
+    if(newTotal > 1000){
+      
+    }
 
     res.send(current);
   } catch (error) {
