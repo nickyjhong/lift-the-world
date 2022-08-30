@@ -343,6 +343,37 @@ async function seed() {
     embedId: "oSNHVD0zT3Q"
   });
 
+  const dips = await Exercise.create({
+    name: "BodyWeight or Assisted Dips",
+    category: "chest",
+    equipment: ["Dip wrack", "assisted dip machine"],
+    tipsAndTricks: ["use controlled movements", "don't go so far that you strain your shoulders"],
+    embedId: "wjUmnZH528Y"
+  });
+
+  const deadLift = await Exercise.create({
+    name: "DeadLift",
+    category: "back",
+    equipment: ["barbell", "weights", "squat wrack"],
+    tipsAndTricks: ["use controlled movements", "avoid jerking your back", "keep your back straight"],
+    embedId: "-4qRntuXBSc"
+  });
+
+  const cableKickback = await Exercise.create({
+    name: "Cable Kickback",
+    category: "glutes",
+    equipment: ["cable machine", "ankle fastener"],
+    tipsAndTricks: ["use controlled movements"],
+    embedId: "dJa_Nf4zdik&t=31s"
+  });
+
+  const stepDown = await Exercise.create({
+    name: "Step Down",
+    category: "glutes",
+    equipment: ["Box", "Bench"],
+    tipsAndTricks: ["use controlled movements"],
+    embedId: "Eerfi7WaiDE"
+  });
   
 
   const pschest1 = await Workout.create({
