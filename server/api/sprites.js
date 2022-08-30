@@ -10,7 +10,8 @@ router.get('/', requireToken, async (req, res, next) => {
         const user = await User.findByPk(req.user.dataValues.id, {
             include: [Sprite]
         });
-        res.send(user);
+        console.log('USER', user);
+        res.send(user.dataValues.sprites);
     } catch (error) {
         next(error);
     }

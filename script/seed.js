@@ -602,11 +602,12 @@ async function seed() {
     weightToUnlock: 1024000,
   });
 
-  await cat.setUser(cherry);
-  await dog.setUser(ryan);
-  await redHatBoy.setUser(admin);
-  await dog.setUser(nicole);
-  await cat.setUser(kyle);
+  //await cat.setUser(cherry);
+  await cherry.addSprite(cat)
+  await ryan.addSprite(dog);
+  await admin.addSprite(redHatBoy);
+  await nicole.addSprite(dog);
+  await kyle.addSprite(cat);
 
   // const test = await User.findByPk(1, {
   //   include: [{ model: Workout, include: [Exercise] }],
