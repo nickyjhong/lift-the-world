@@ -10,7 +10,7 @@ const Exercise = db.define("exercise", {
     },
   },
   category: {
-    type: Sequelize.ENUM("chest", "back", "arms", "legs", "core"),
+    type: Sequelize.ENUM("chest", "back", "biceps", "triceps", "core", "legs", "glutes"),
   },
   equipment: {
     type: Sequelize.ARRAY(Sequelize.STRING),

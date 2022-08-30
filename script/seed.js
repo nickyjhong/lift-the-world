@@ -125,7 +125,7 @@ async function seed() {
 
   const chest5 = await Exercise.create({
     name: "French Curls",
-    category: "arms",
+    category: "triceps",
     equipment: ["dumbell or barbell", "bench"],
     tipsAndTricks: [
       "utilize full range of motion",
@@ -135,7 +135,7 @@ async function seed() {
   });
   const chest6 = await Exercise.create({
     name: "Triceps Cable Pushdown",
-    category: "arms",
+    category: "triceps",
     equipment: ["cable machine"],
     embedId: "2-LAMcpzODU",
   });
@@ -170,7 +170,7 @@ async function seed() {
   });
   const back5 = await Exercise.create({
     name: "Hammer Curl",
-    category: "arms",
+    category: "biceps",
     equipment: ["dumbells"],
     tipsAndTricks: [
       "utilize full range of motion",
@@ -180,7 +180,7 @@ async function seed() {
   });
   const back6 = await Exercise.create({
     name: "Preacher curl",
-    category: "arms",
+    category: "biceps",
     equipment: ["dumbell or barbell", "curling bench"],
     tipsAndTricks: [
       "utilize full range of motion",
@@ -190,7 +190,7 @@ async function seed() {
   });
   const legs1 = await Exercise.create({
     name: "Squat",
-    category: "legs",
+    category: "glutes",
     equipment: ["barbell", "weights", "squat rack"],
     tipsAndTricks: [
       "keep your back straight",
@@ -219,7 +219,7 @@ async function seed() {
   });
   const legs5 = await Exercise.create({
     name: "Bulgarian Split Squats",
-    category: "legs",
+    category: "glutes",
     equipment: ["Dumbell or barbell", "bench"],
     embedId: "HBYGeyb4sSM",
   });
@@ -230,6 +230,72 @@ async function seed() {
     tipsAndTricks: ["engage your core", "use controlled movements"],
     embedId: "JB2oyawG9KI",
   });
+
+  const barbellCurl = await Exercise.create({
+    name: "Barbell Curl",
+    category: "biceps",
+    equipment: ["barbell", "weights"],
+    tipsAndTricks: ["use controlled movements", "Use lower weight if you find yourself leaning back to assist"],
+    embedId: "dDI8ClxRS04"
+  });
+
+  const chinup = await Exercise.create({
+    name: "Chin Up",
+    category: "biceps",
+    equipment: ["bar", "your body"],
+    tipsAndTricks: ["use controlled movements"],
+    embedId: "brhRXlOhsAM"
+  });
+
+  const inclinedumbellcurl = await Exercise.create({
+    name: "Incline Dumbell Curl",
+    category: "biceps",
+    equipment: ["bench", "dumbells"],
+    tipsAndTricks: ["use controlled movements", "don't use momentum to lift the weights"],
+    embedId: "soxrZlIl35U"
+  });
+
+  const diamondPushups = await Exercise.create({
+    name: "Diamond Pushups",
+    category: "triceps",
+    equipment: ["the floor", "a mat"],
+    tipsAndTricks: ["use controlled movements"],
+    embedId: "J0DnG1_S92I"
+  });
+
+  const kickBacks = await Exercise.create({
+    name: "KickBacks",
+    category: "triceps",
+    equipment: ["dumbells", "bench"],
+    tipsAndTricks: ["use controlled movements"],
+    embedId: "ZO81bExngMI"
+  });
+
+  const tricepsExtension = await Exercise.create({
+    name: "Triceps Extension",
+    category: "triceps",
+    equipment: ["dumbell", "bench"],
+    tipsAndTricks: ["use controlled movements"],
+    embedId: "nRiJVZDpdL0"
+  });
+
+  const frontSquat = await Exercise.create({
+    name: "front Squat",
+    category: "glutes",
+    equipment: ["barbell", "weights", "squat wrack"],
+    tipsAndTricks: ["use controlled movements"],
+    embedId: "wyDbagKS7Rg"
+  });
+
+  const goodMorning = await Exercise.create({
+    name: "Good Morning",
+    category: "legs",
+    equipment: ["barbell", "weights"],
+    tipsAndTricks: ["use controlled movements"],
+    embedId: "vKPGe8zb2S4"
+  });
+
+  
 
   const pschest1 = await Workout.create({
     name: "chest1",
