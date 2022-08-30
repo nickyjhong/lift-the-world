@@ -58,28 +58,15 @@ function CurrentWorkout() {
                         addSet({
                           exerciseId: exercise.id,
                           reps: "0",
-                          // setId:
-                          //   exercise.workoutlist.sets[
-                          //     exercise.workoutlist.sets.length - 1
-                          //   ].setId + 1,
-
-                            setId: () => {
-                              if (
-                                !(
-                                  exercise.workoutlist.sets[
-                                    exercise.workoutlist.sets.length - 1
-                                  ].setId + 1
-                                )
-                              ) {
-                                return 1;
-                              } else {
-                                return (
-                                  exercise.workoutlist.sets[
-                                    exercise.workoutlist.sets.length - 1
-                                  ].setId + 1
-                                );
-                              }
-                            },
+                          setId: !(
+                            exercise.workoutlist.sets[
+                              exercise.workoutlist.sets.length - 1
+                            ].setId + 1
+                          )
+                            ? 1
+                            : exercise.workoutlist.sets[
+                                exercise.workoutlist.sets.length - 1
+                              ].setId + 1,
                           weight: 0,
                           workoutId: workoutId,
                         })
