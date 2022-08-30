@@ -556,18 +556,14 @@ async function seed() {
 
   const cuteGirl = await Sprite.create({
     name: "cuteGirl",
-    weightToUnlock: 500,
+    weightToUnlock: 1000,
   });
   const adventureBoy = await Sprite.create({
     name: "adventureBoy",
-    weightToUnlock: 1000,
+    weightToUnlock: 2000,
   });
   const zombie = await Sprite.create({
     name: "zombie",
-    weightToUnlock: 2000,
-  });
-  const theBoy = await Sprite.create({
-    name: "theBoy",
     weightToUnlock: 4000,
   });
 
@@ -601,16 +597,16 @@ async function seed() {
     name: "santa",
     weightToUnlock: 512000,
   });
-  const theKnight = await Sprite.create({
+  const knight = await Sprite.create({
     name: "theKnight",
     weightToUnlock: 1024000,
   });
 
   await cat.setUser(cherry);
-  await cuteGirl.setUser(ryan);
-  await dog.setUser(admin);
-  await redHatBoy.setUser(nicole);
-  await theBoy.setUser(kyle);
+  await dog.setUser(ryan);
+  await redHatBoy.setUser(admin);
+  await dog.setUser(nicole);
+  await cat.setUser(kyle);
 
   // const test = await User.findByPk(1, {
   //   include: [{ model: Workout, include: [Exercise] }],
