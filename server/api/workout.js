@@ -1,15 +1,15 @@
-const router = require('express').Router();
+const router = require("express").Router();
 const {
   models: { Workout, Exercise, WorkoutList, User },
-} = require('../db/');
-const { requireToken } = require('./middleware');
+} = require("../db/");
+const { requireToken } = require("./middleware");
 
-router.get('/', requireToken, async (req, res, next) => {
+router.get("/", requireToken, async (req, res, next) => {
   try {
     const workout = await Workout.findOne({
       where: {
         userId: req.user.dataValues.id,
-        status: 'active',
+        status: "active",
       },
       include: [Exercise],
     });
@@ -36,33 +36,34 @@ router.get('/', requireToken, async (req, res, next) => {
 //   }
 // });
 
-router.put('/finish', requireToken, async (req, res, next) => {
+router.put("/finish", requireToken, async (req, res, next) => {
   try {
-
     const current = await Workout.findOne({
       where: {
         userId: req.user.dataValues.id,
-        status: 'active',
+        status: "active",
       },
       include: [Exercise],
     });
-
     current.update({
-      status: 'closed'
-    })
-    
-    res.send(current)
+      status: "closed",
+    });
+    console.log("###%%%", current);
+
+    const user = await User.findByPk(req.user.dataValues.id);
+
+    res.send(current);
   } catch (error) {
     next(error);
   }
 });
 
-router.post('/', requireToken, async (req, res, next) => {
+router.post("/", requireToken, async (req, res, next) => {
   try {
     const [workout, workoutCreated] = await Workout.findOrCreate({
       where: {
         userId: req.user.dataValues.id,
-        status: 'active',
+        status: "active",
       },
       include: [Exercise],
     });
