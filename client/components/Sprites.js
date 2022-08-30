@@ -17,6 +17,12 @@ const ChooseSprites = ()=>{
     return (
         <div>
             <h1>Here are your sprites!</h1>
+            {sprites.map((sprite) => {
+                  return (<div key={sprite.id}>
+                    {/* <img src={`../../public/sprites/${sprite.name}/${sprite.name}-idle.gif`}></img> */}
+                    <h2>{sprite.name}</h2>
+                 </div>)
+            })}
 
         </div>
     )
