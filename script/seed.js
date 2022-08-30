@@ -598,11 +598,21 @@ async function seed() {
   });
 
   //await cat.setUser(cherry);
-  await cherry.addSprite(cat)
+  await cherry.addSprite(cat);
+  await cherry.addSprite(dog);
+  await cherry.addSprite(redHatBoy);
+  await ryan.addSprite(cat);
   await ryan.addSprite(dog);
+  await ryan.addSprite(redHatBoy);
+  await admin.addSprite(cat);
+  await admin.addSprite(dog);
   await admin.addSprite(redHatBoy);
+  await nicole.addSprite(cat);
   await nicole.addSprite(dog);
+  await nicole.addSprite(redHatBoy);
   await kyle.addSprite(cat);
+  await kyle.addSprite(dog);
+  await kyle.addSprite(redHatBoy);
 
   // const test = await User.findByPk(1, {
   //   include: [{ model: Workout, include: [Exercise] }],
