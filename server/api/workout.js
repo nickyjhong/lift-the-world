@@ -57,34 +57,34 @@ router.put("/finish", requireToken, async (req, res, next) => {
       cuteGirl.setUser(user);
     }
     if(newTotal >= 2000){
-      adventureBoy.setUser(user);
+      user.addSprite(adventureBoy);
     }
     if(newTotal >= 4000){
-      zombie.setUser(user);
+      user.addSprite(zombie);
     }
     if(newTotal >= 8000){
-      ninjaGirl.setUser(user);
+      user.addSprite(ninjaGirl);
     }
     if(newTotal >= 16000){
-      jackOLantern.setUser(user);
+      user.addSprite(jackOLantern);
     }
     if(newTotal >= 32000){
-      ninjaBoy.setUser(user);
+      user.addSprite(ninjaBoy);
     }
     if(newTotal >= 64000){
-      adventureGirl.setUser(user);
+      user.addSprite(adventureGirl);
     }
     if(newTotal >= 128000){
-      dino.setUser(user);
+      user.addSprite(dino);
     }
     if(newTotal >= 256000){
-      robot.setUser(user);
+      user.addSprite(robot);
     }
     if(newTotal >= 512000){
-      santa.setUser(user);
+      user.addSprite(santa);
     }
     if(newTotal >= 1024000){
-      knight.setUser(user);
+      user.addSprite(knight);
     }
 
     res.send(current);
