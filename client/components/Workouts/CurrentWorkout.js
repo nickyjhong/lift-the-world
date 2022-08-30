@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector, connect } from "react-redux";
-import { addSet, confirmSet, fetchWorkoutlist } from "../../store/workoutlist2";
+import { addSet, confirmSet, fetchWorkoutlist } from "../../store/workoutlist";
 import { finishWorkout } from "../../store/workout";
 import CurrentWorkoutSet from "./CurrentWorkoutSet";
 import { Link } from "react-router-dom";
 
 function CurrentWorkout() {
   const dispatch = useDispatch();
-  const workoutlist = useSelector((state) => state.workoutlist2);
+  const workoutlist = useSelector((state) => state.workoutlist);
 
   useEffect(() => {
     dispatch(fetchWorkoutlist());
