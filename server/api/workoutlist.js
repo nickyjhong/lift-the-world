@@ -32,12 +32,12 @@ router.get("/current", requireToken, async (req, res, next) => {
       include: [Exercise],
     });
 
-    const workoutlist = await WorkoutList.findAll({
-      where: {
-        workoutId: workout.id,
-      },
-    });
-    res.send(workoutlist);
+    // const workoutlist = await WorkoutList.findAll({
+    //   where: {
+    //     workoutId: workout.id,
+    //   },
+    // });
+    res.send(workout);
   } catch (err) {
     console.error(err);
   }

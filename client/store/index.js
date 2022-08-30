@@ -20,6 +20,7 @@ const reducer = combineReducers({
   singleWorkout: singleWorkoutReducer,
   previous: previousReducer,
   workoutlist: workoutlistReducer,
+  workoutlist2: workoutlistReducer,
 
   allExercises: exercisesReducer,
   singleExercise: singleExerciseReducer,
