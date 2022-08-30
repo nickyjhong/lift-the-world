@@ -601,6 +601,17 @@ async function seed() {
   await cherry.addSprite(cat);
   await cherry.addSprite(dog);
   await cherry.addSprite(redHatBoy);
+  await cherry.addSprite(cuteGirl);
+  await cherry.addSprite(adventureBoy);
+  await cherry.addSprite(zombie);
+  await cherry.addSprite(ninjaGirl);
+  await cherry.addSprite(jackOLantern);
+  await cherry.addSprite(ninjaBoy);
+  await cherry.addSprite(adventureGirl);
+  await cherry.addSprite(dino);
+  await cherry.addSprite(robot);
+  await cherry.addSprite(santa);
+  await cherry.addSprite(knight);
   await ryan.addSprite(cat);
   await ryan.addSprite(dog);
   await ryan.addSprite(redHatBoy);
