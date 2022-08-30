@@ -25,7 +25,7 @@ export const fetchUnlockedSprites = ()=>{
     }
 };
 
-initialState = [];
+const initialState = [];
 
 export default function spritesReducer(state = initialState, action){
     switch(action.type){
