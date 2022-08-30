@@ -136,10 +136,10 @@ router.put("/:exerciseId", requireToken, async (req, res, next) => {
       },
     });
 
-    console.log("EXERCISE", exercise);
     let index = exercise.sets.findIndex((s) => s.setId === req.body.setId);
     exercise.sets[index] = req.body;
     exercise.changed("sets", true);
+    console.log("EXERCISE", exercise);
     console.log("what is req body", req.body);
     await exercise.save();
     res.send(exercise);

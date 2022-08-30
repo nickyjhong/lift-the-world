@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector, connect } from "react-redux";
 import { addSet, confirmSet, fetchWorkoutlist } from "../../store/workoutlist";
 import { finishWorkout } from "../../store/workout";
@@ -8,6 +8,12 @@ import { Link } from "react-router-dom";
 function CurrentWorkout() {
   const dispatch = useDispatch();
   const workoutlist = useSelector((state) => state.workoutlist);
+  function useForceUpdate() {
+    const [value, setValue] = useState(0);
+    console.log("value in force update", value);
+    return () => setValue((value) => value + 1);
+  }
+  const forceUpdate = useForceUpdate();
 
   useEffect(() => {
     dispatch(fetchWorkoutlist());
@@ -17,11 +23,15 @@ function CurrentWorkout() {
     !workoutlist.allExercises.exercises ||
     workoutlist.allExercises.exercises.length === 0
   ) {
+    setTimeout(() => {
+      dispatch(fetchWorkoutlist());
+    }, 10);
     return <div>Loading... please add a workout!</div>;
   }
 
   const { allExercises } = workoutlist || [];
   const { exercises, id: workoutId } = allExercises;
+  console.log("HI THERE!");
   return (
     <div className="cw-container">
       <div className="cw-exercise-container">
@@ -46,6 +56,7 @@ function CurrentWorkout() {
                       setId={index + 1}
                       weight={set.weight}
                       reps={set.reps}
+                      fetchWorkout={() => fetchWorkoutlist()}
                     />
                   );
                 })}
@@ -53,7 +64,7 @@ function CurrentWorkout() {
                 <div className="cw-btn-container">
                   <button
                     className="cw-add-btn"
-                    onClick={() =>
+                    onClick={() => {
                       dispatch(
                         addSet({
                           exerciseId: exercise.id,
@@ -65,8 +76,9 @@ function CurrentWorkout() {
                           weight: 0,
                           workoutId: workoutId,
                         })
-                      )
-                    }
+                      );
+                      forceUpdate();
+                    }}
                   >
                     + Add Set
                   </button>

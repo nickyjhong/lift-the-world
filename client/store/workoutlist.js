@@ -79,9 +79,7 @@ export const addSet = (emptySet) => {
             },
           }
         );
-        console.log("data in set exercise thunk", data);
-        console.log("empty set", emptySet);
-        dispatch(_updateWorkoutlist(data, emptySet));
+        dispatch(_updateWorkoutlist(data));
       }
     } catch (err) {
       console.log(err);
@@ -122,10 +120,11 @@ export default function workoutlistReducer(state = initialState, action) {
     case SET_WORKOUT_LIST:
       return { ...state, allExercises: action.workoutlist };
     case UPDATE_WORKOUT_LIST:
-      return {
-        ...state,
-        allExercises: { ...state.allExercises, ...action.exercise },
-      };
+      const exercise = state.allExercises.exercises.find(
+        (exercise) => exercise.id === action.exercise.exerciseId
+      );
+      exercise.workoutlist = action.exercise;
+      return { ...state };
     case SET_PREV_WORKOUT_SET:
       return action.exercise;
     default:
