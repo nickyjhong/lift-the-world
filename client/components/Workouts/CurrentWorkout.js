@@ -58,15 +58,10 @@ function CurrentWorkout() {
                         addSet({
                           exerciseId: exercise.id,
                           reps: "0",
-                          setId: !(
+                          setId:
                             exercise.workoutlist.sets[
                               exercise.workoutlist.sets.length - 1
-                            ].setId + 1
-                          )
-                            ? 1
-                            : exercise.workoutlist.sets[
-                                exercise.workoutlist.sets.length - 1
-                              ].setId + 1,
+                            ].setId + 1,
                           weight: 0,
                           workoutId: workoutId,
                         })
