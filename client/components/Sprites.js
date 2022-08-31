@@ -14,7 +14,7 @@ const ChooseSprites = () => {
     }, [dispatch]);
 
     const chooseSprite = (event)=>{
-        setSprite({name: event.target.name});
+        setSprite({name: event.target.value});
         dispatch(updateSelectedSprite(currentSprite));
     }
 
@@ -31,7 +31,7 @@ const ChooseSprites = () => {
             {sprites.map((sprite)=>{
                 return (<div className='sprite-small' key={sprites.indexOf(sprite)}>
                     {/* <img src={`/sprites/${sprite.name}/${sprite.name}-idle.gif`}></img> */}
-                    <input onClick={chooseSprite} type={'image'} name={`${sprite.name}`} src={`/sprites/${sprite.name}/${sprite.name}-idle.gif`}></input>
+                    <input onClick={chooseSprite} value={`${sprite.name}`} type={'image'} name={`${sprite.name}`} src={`/sprites/${sprite.name}/${sprite.name}-idle.gif`}></input>
                 </div>)
             })}
             </div>
