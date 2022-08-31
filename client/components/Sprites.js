@@ -4,7 +4,7 @@ import { fetchUnlockedSprites } from '../store/sprites';
 import { updateSelectedSprite } from '../store/updateSelectedSprite';
 
 
-const ChooseSprites = ()=>{
+const ChooseSprites = () => {
    const dispatch = useDispatch();
    const [currentSprite, setSprite] = useState({name: ''});
     
