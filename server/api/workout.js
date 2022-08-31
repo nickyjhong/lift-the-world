@@ -59,9 +59,37 @@ router.put("/finish", requireToken, async (req, res, next) => {
       },
       include: [Exercise],
     });
-    console.log("current workout finish", current);
+
+    const currentWorkout = current.dataValues.exercises.map((exercise) => {
+      return exercise.dataValues.workoutlist.dataValues.sets.map((set) => {
+        return set.reps * set.weight;
+      });
+    });
+
+    const totalWeightFromWorkoutArr = currentWorkout.map((set) => {
+      let total = 0;
+      const eachSet = set.reduce((acc, curr) => {
+        return (acc += parseInt(curr));
+      }, 0);
+      total += eachSet;
+      return total;
+    });
+
+    const totalWeightFromWorkout = totalWeightFromWorkoutArr.reduce(
+      (acc, curr) => {
+        return (acc += curr);
+      },
+      0
+    );
+
+    const user = await User.findByPk(req.user.dataValues.id);
+    await user.update({
+      totalWeight: (user.totalWeight += totalWeightFromWorkout),
+    });
+    
     await current.update({
       status: "closed",
+      workoutTotalWeight: totalWeightFromWorkout,
     });
 
     const cuteGirl = await Sprite.findOne({ where: { name: "cuteGirl" } });
@@ -121,7 +149,6 @@ router.put("/finish", requireToken, async (req, res, next) => {
     if (newTotal >= 1024000) {
       await user.addSprite(knight);
     }
-
     res.send(current);
   } catch (error) {
     next(error);

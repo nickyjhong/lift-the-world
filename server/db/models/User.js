@@ -37,12 +37,14 @@ const User = db.define("user", {
     validate: {
       min: 0,
     },
+    defaultValue: 0,
   },
   level: {
     type: Sequelize.INTEGER,
     validate: {
       min: 1,
     },
+    defaultValue: 1,
   },
   selectedSprite: {
     type: Sequelize.STRING,
