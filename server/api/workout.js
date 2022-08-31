@@ -181,35 +181,53 @@ router.post("/", requireToken, async (req, res, next) => {
   }
 });
 
-// MAKE A PRESET WORKOUT YOUR CURRENT WORKOUT
 router.post("/:id/add", requireToken, async (req, res, next) => {
   try {
-    const workout = await Workout.findOrCreate({
+    const workout = await Workout.findOne({
       where: {
         userId: req.user.dataValues.id,
         status: "active",
       },
-    });
+      include: [Exercise]
+    })
 
     if (!workout) {
       let preset = await Workout.findOne({
         where: {
-          id: req.params.id,
+          id: req.params.id
         },
-        raw: true,
-      });
+        raw: true
+      })
 
+      preset.status = "active"
+      preset.userId = req.user.dataValues.id
       delete preset.id;
-      let newWorkout = await Workout.create(preset);
+      let newWorkout = await Workout.create(preset)
 
-      res.send(newWorkout);
+      const workoutLists = await WorkoutList.findAll({
+        where: {
+          workoutId: req.params.id,
+        }
+      })
+      
+      const exercises = workoutLists.map(workoutlist => {
+        return workoutlist.dataValues.exerciseId
+      })
+
+      for (let i = 0; i < exercises.length; i++) {
+        const exercise = await Exercise.findByPk(exercises[i]);
+        await newWorkout.addExercise(exercise)
+      }
+      
+      res.send(newWorkout)
     } else {
-      console.log("FINISH THE WORKOUT THAT YOU STARTED!!!");
+      console.log('FINISH THE WORKOUT THAT YOU STARTED!!!')
+      res.send(workout)
     }
   } catch (error) {
-    next(error);
+    next (error)
   }
-});
+})
 
 router.get("/preset", async (req, res, next) => {
   try {
