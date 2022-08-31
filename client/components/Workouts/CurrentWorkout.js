@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector, connect } from "react-redux";
 import { addSet, confirmSet, fetchWorkoutlist } from "../../store/workoutlist";
 import { finishWorkout } from "../../store/workout";
@@ -8,12 +8,6 @@ import { Link } from "react-router-dom";
 function CurrentWorkout() {
   const dispatch = useDispatch();
   const workoutlist = useSelector((state) => state.workoutlist);
-  function useForceUpdate() {
-    const [value, setValue] = useState(0);
-    console.log("value in force update", value);
-    return () => setValue((value) => value + 1);
-  }
-  const forceUpdate = useForceUpdate();
 
   useEffect(() => {
     dispatch(fetchWorkoutlist());
@@ -31,7 +25,7 @@ function CurrentWorkout() {
 
   const { allExercises } = workoutlist || [];
   const { exercises, id: workoutId } = allExercises;
-  console.log("HI THERE!");
+  console.log("workoutlist status?", allExercises);
   return (
     <div className="cw-container">
       <div className="cw-exercise-container">
@@ -56,7 +50,6 @@ function CurrentWorkout() {
                       setId={index + 1}
                       weight={set.weight}
                       reps={set.reps}
-                      fetchWorkout={() => fetchWorkoutlist()}
                     />
                   );
                 })}
@@ -68,16 +61,15 @@ function CurrentWorkout() {
                       dispatch(
                         addSet({
                           exerciseId: exercise.id,
-                          reps: "0",
+                          reps: "",
                           setId:
                             exercise.workoutlist.sets[
                               exercise.workoutlist.sets.length - 1
                             ].setId + 1,
-                          weight: 0,
+                          weight: "",
                           workoutId: workoutId,
                         })
                       );
-                      forceUpdate();
                     }}
                   >
                     + Add Set
@@ -88,7 +80,7 @@ function CurrentWorkout() {
           );
         })}
       </div>
-      {workoutlist.status === "active" ? (
+      {allExercises.status === "active" ? (
         <Link to="/recap">
           <button className="cw-finish-btn" onClick={() => finishWorkout()}>
             Finish Workout
