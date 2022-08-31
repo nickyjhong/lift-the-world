@@ -13,16 +13,20 @@ router.get("/", requireToken, async (req, res, next) => {
       },
       include: [Exercise],
     });
+    console.log(
+      "workout api",
+      workout.exercises[0].workoutlist.dataValues.sets
+    );
     const currentWorkout = workout.dataValues.exercises.map((exercise) => {
-      return exercise.workoutlist.sets.map((set) => {
+      return exercise.dataValues.workoutlist.dataValues.sets.map((set) => {
         return set.reps * set.weight;
       });
     });
+    console.log("current workout set total", currentWorkout);
     const totalWeightFromWorkout = currentWorkout.reduce((acc, curr) => {
       return (acc += parseInt(curr));
     }, 0);
     console.log("totalWeightFromWorkout", totalWeightFromWorkout);
-    res.send(workout);
   } catch (error) {
     next(error);
   }
@@ -69,16 +73,18 @@ router.put("/finish", requireToken, async (req, res, next) => {
       include: [Exercise],
     });
     const currentWorkout = current.dataValues.exercises.map((exercise) => {
-      return exercise.workoutlist.sets.map((set) => {
+      return exercise.dataValues.workoutlist.dataValues.sets.map((set) => {
         return set.reps * set.weight;
       });
     });
+    console.log("current workout set total", currentWorkout);
     const totalWeightFromWorkout = currentWorkout.reduce((acc, curr) => {
       return (acc += parseInt(curr));
     }, 0);
-    console.log("total weight from workout finish", totalWeightFromWorkout);
+    console.log("totalWeightFromWorkout", totalWeightFromWorkout);
     current.update({
       status: "closed",
+      workoutTotalWeight: totalWeightFromWorkout,
     });
 
     // const currentWeightLifted = current.workoutTotalWeight;
