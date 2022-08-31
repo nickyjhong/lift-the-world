@@ -412,7 +412,8 @@ async function seed() {
   await pslegs2.addExercises([legs4, legs5, legs6]);
 
   // SAMPLE - TO DELETE
-  // await workout1.setUser(cherry);
+  await workout1.setUser(cherry);
+  await workout2.setUser(cherry);
   
   // await workout1.addExercise(chest1);
 
