@@ -17,15 +17,11 @@ function CurrentWorkout() {
     !workoutlist.allExercises.exercises ||
     workoutlist.allExercises.exercises.length === 0
   ) {
-    setTimeout(() => {
-      dispatch(fetchWorkoutlist());
-    }, 10);
     return <div>Loading... please add a workout!</div>;
   }
 
   const { allExercises } = workoutlist || [];
   const { exercises, id: workoutId } = allExercises;
-  console.log("workoutlist status?", allExercises);
   return (
     <div className="cw-container">
       <div className="cw-exercise-container">

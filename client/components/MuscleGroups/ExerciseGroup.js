@@ -15,7 +15,6 @@ export default function ExerciseGroup(props) {
   useEffect(() => {
     dispatch(fetchExerciseCategory(category))
   }, [dispatch, category])
-  console.log('catname', catName)
   return (
     <div>
       {group ? (

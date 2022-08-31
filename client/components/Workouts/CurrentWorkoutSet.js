@@ -50,6 +50,7 @@ class CurrentWorkoutSet extends Component {
             <input
               className="cw-sr-input cw-rep-input"
               type="number"
+              min="0"
               name="reps"
               value={this.state.reps}
               onChange={handleChange}
@@ -58,6 +59,7 @@ class CurrentWorkoutSet extends Component {
             <input
               className="cw-weight-input"
               type="number"
+              min="0"
               name="weight"
               value={this.state.weight}
               onChange={handleChange}

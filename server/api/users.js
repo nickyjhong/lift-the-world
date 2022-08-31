@@ -36,7 +36,6 @@ router.get("/leaders", async (req, res, next) => {
     const topTen = [];
 
     if (sortedUsers.length >= 10) {
-      console.log("wrong way");
       for (let i = 0; i < 10; i++) {
         topTen.push(sortedUsers[i]);
       }

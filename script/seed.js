@@ -3,36 +3,6 @@ const {
   models: { User, Exercise, Workout, WorkoutList, Sprite, userSprites },
 } = require("../server/db");
 
-const dummySets = [
-  {
-    reps: 10,
-    weight: 150,
-  },
-  {
-    reps: 6,
-    weight: 180,
-  },
-  {
-    reps: 4,
-    weight: 200,
-  },
-];
-
-const dummySets2 = [
-  {
-    reps: 13,
-    weight: 80,
-  },
-  {
-    reps: 14,
-    weight: 200,
-  },
-  {
-    reps: 15,
-    weight: 250,
-  },
-];
-
 async function seed() {
   await db.sync({ force: true });
   console.log("db synced!");
@@ -424,29 +394,14 @@ async function seed() {
     status: "active",
     isPreset: true,
   });
+
   const workout1 = await Workout.create({
     status: "closed",
     workoutTotalWeight: 500,
   });
   const workout2 = await Workout.create({
-    status: "closed",
-    workoutTotalWeight: 500,
-  });
-  const workout3 = await Workout.create({
-    status: "closed",
-    workoutTotalWeight: 800,
-  });
-  const workout4 = await Workout.create({
-    status: "closed",
-    workoutTotalWeight: 800,
-  });
-  const workout5 = await Workout.create({
-    status: "closed",
-    workoutTotalWeight: 800,
-  });
-  const workout6 = await Workout.create({
     status: "active",
-    workoutTotalWeight: 800,
+    workoutTotalWeight: 500,
   });
 
   await pschest1.addExercises([chest1, chest2, chest5]);
@@ -456,85 +411,22 @@ async function seed() {
   await pslegs1.addExercises([legs1, legs2, legs3]);
   await pslegs2.addExercises([legs4, legs5, legs6]);
 
-  // ADD IN REPS HERE
+  // SAMPLE - TO DELETE
+  // await workout1.setUser(cherry);
+  
+  // await workout1.addExercise(chest1);
 
-  await workout1.setUser(cherry);
-  await workout2.setUser(cherry);
-  await workout3.setUser(cherry);
-  await workout4.setUser(cherry);
-  await workout5.setUser(cherry);
-  await workout6.setUser(cherry);
-  await workout1.addExercise(chest1);
-  await workout2.addExercises([chest1, chest2, chest3]);
-  await workout3.addExercises([chest1, chest2, chest3]);
-  await workout4.addExercises([chest1, chest2, chest3]);
-  await workout5.addExercises([chest1, chest2, chest3]);
-  await workout6.addExercises([chest1, chest2, chest3]);
+  // const closed1 = await WorkoutList.findOne({
+  //   where: {
+  //     exerciseId: 1,
+  //     workoutId: 7,
+  //   },
+  // });
 
-  const closed1 = await WorkoutList.findOne({
-    where: {
-      exerciseId: 1,
-      workoutId: 7,
-    },
-  });
+  // await closed1.setUser(cherry);
 
-  const closed2 = await WorkoutList.findOne({
-    where: {
-      exerciseId: 2,
-      workoutId: 8,
-    },
-  });
-  const closed3 = await WorkoutList.findOne({
-    where: {
-      exerciseId: 1,
-      workoutId: 9,
-    },
-  });
-
-  const closed4 = await WorkoutList.findOne({
-    where: {
-      exerciseId: 2,
-      workoutId: 10,
-    },
-  });
-  const closed5 = await WorkoutList.findOne({
-    where: {
-      exerciseId: 1,
-      workoutId: 11,
-    },
-  });
-
-  const open1 = await WorkoutList.findOne({
-    where: {
-      exerciseId: 1,
-      workoutId: 12,
-    },
-  });
-
-  await closed1.setUser(cherry);
-  await closed2.setUser(cherry);
-  await closed3.setUser(cherry);
-  await closed4.setUser(cherry);
-  await closed5.setUser(cherry);
-  await open1.setUser(cherry);
-
-  closed1.sets = dummySets;
-  await closed1.save();
-
-  closed2.sets = dummySets2;
-  await closed2.save();
-
-  closed3.sets = [{ reps: 3, weight: 40 }];
-  await closed3.save();
-
-  closed4.sets = [{ reps: 20, weight: 200 }];
-  await closed4.save();
-
-  closed5.sets = [{ reps: 1, weight: 1 }];
-  await closed5.save();
-
-  open1.sets = [{ reps: 1, weight: 1, setId: 0 }];
-  await open1.save();
+  // closed1.sets = [{ reps: 3, weight: 40 }];
+  // await closed1.save();
 
   //creating our sprites
   const cat = await Sprite.create({
