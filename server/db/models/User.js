@@ -43,6 +43,9 @@ const User = db.define("user", {
       min: 1,
     },
   },
+  selectedSprite: {
+    type: Sequelize.STRING,
+  }
 });
 
 module.exports = User;
