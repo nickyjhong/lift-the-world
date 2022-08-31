@@ -13,6 +13,15 @@ router.get("/", requireToken, async (req, res, next) => {
       },
       include: [Exercise],
     });
+    const currentWorkout = workout.dataValues.exercises.map((exercise) => {
+      return exercise.workoutlist.sets.map((set) => {
+        return set.reps * set.weight;
+      });
+    });
+    const totalWeightFromWorkout = currentWorkout.reduce((acc, curr) => {
+      return (acc += parseInt(curr));
+    }, 0);
+    console.log("totalWeightFromWorkout", totalWeightFromWorkout);
     res.send(workout);
   } catch (error) {
     next(error);
@@ -59,7 +68,15 @@ router.put("/finish", requireToken, async (req, res, next) => {
       },
       include: [Exercise],
     });
-    console.log("current workout finish", current);
+    const currentWorkout = current.dataValues.exercises.map((exercise) => {
+      return exercise.workoutlist.sets.map((set) => {
+        return set.reps * set.weight;
+      });
+    });
+    const totalWeightFromWorkout = currentWorkout.reduce((acc, curr) => {
+      return (acc += parseInt(curr));
+    }, 0);
+    console.log("total weight from workout finish", totalWeightFromWorkout);
     current.update({
       status: "closed",
     });
@@ -142,28 +159,28 @@ router.post("/:id/add", requireToken, async (req, res, next) => {
       where: {
         userId: req.user.dataValues.id,
         status: "active",
-      }
-    })
+      },
+    });
 
     if (!workout) {
       let preset = await Workout.findOne({
         where: {
-          id: req.params.id
+          id: req.params.id,
         },
-        raw: true
-      })
+        raw: true,
+      });
 
       delete preset.id;
-      let newWorkout = await Workout.create(preset)
+      let newWorkout = await Workout.create(preset);
 
-      res.send(newWorkout)
+      res.send(newWorkout);
     } else {
-      console.log('FINISH THE WORKOUT THAT YOU STARTED!!!')
+      console.log("FINISH THE WORKOUT THAT YOU STARTED!!!");
     }
   } catch (error) {
-    next (error)
+    next(error);
   }
-})
+});
 
 router.get("/preset", async (req, res, next) => {
   try {
