@@ -59,11 +59,96 @@ router.put("/finish", requireToken, async (req, res, next) => {
       },
       include: [Exercise],
     });
-    console.log("current workout finish", current);
-    current.update({
-      status: "closed",
+
+    const currentWorkout = current.dataValues.exercises.map((exercise) => {
+      return exercise.dataValues.workoutlist.dataValues.sets.map((set) => {
+        return set.reps * set.weight;
+      });
     });
 
+    const totalWeightFromWorkoutArr = currentWorkout.map((set) => {
+      let total = 0;
+      const eachSet = set.reduce((acc, curr) => {
+        return (acc += parseInt(curr));
+      }, 0);
+      total += eachSet;
+      return total;
+    });
+
+    const totalWeightFromWorkout = totalWeightFromWorkoutArr.reduce(
+      (acc, curr) => {
+        return (acc += curr);
+      },
+      0
+    );
+
+    const user = await User.findByPk(req.user.dataValues.id);
+    await user.update({
+      totalWeight: (user.totalWeight += totalWeightFromWorkout),
+    });
+    
+    await current.update({
+      status: "closed",
+      workoutTotalWeight: totalWeightFromWorkout,
+    });
+
+    const cuteGirl = await Sprite.findOne({ where: { name: "cuteGirl" } });
+    const adventureBoy = await Sprite.findOne({
+      where: { name: "adventureBoy" },
+    });
+    const zombie = await Sprite.findOne({ where: { name: "zombie" } });
+    const ninjaGirl = await Sprite.findOne({ where: { name: "ninjaGirl" } });
+    const jackOLantern = await Sprite.findOne({
+      where: { name: "jackOLantern" },
+    });
+    const ninjaBoy = await Sprite.findOne({ where: { name: "ninjaBoy" } });
+    const adventureGirl = await Sprite.findOne({
+      where: { name: "adventureGirl" },
+    });
+    const dino = await Sprite.findOne({ where: { name: "dino" } });
+    const robot = await Sprite.findOne({ where: { name: "robot" } });
+    const santa = await Sprite.findOne({ where: { name: "santa" } });
+    const knight = await Sprite.findOne({ where: { name: "knight" } });
+
+    const currentWeightLifted = current.workoutTotalWeight;
+    console.log("current weight lifted", currentWeightLifted);
+    const user = await User.findByPk(req.user.dataValues.id);
+    const totalWeight = user.totalWeight;
+    await user.update({ totalWeight: totalWeight + currentWeightLifted });
+    const newTotal = user.totalWeight;
+    if (newTotal >= 1000) {
+      await user.addSprite(cuteGirl);
+    }
+    if (newTotal >= 2000) {
+      await user.addSprite(adventureBoy);
+    }
+    if (newTotal >= 4000) {
+      await user.addSprite(zombie);
+    }
+    if (newTotal >= 8000) {
+      await user.addSprite(ninjaGirl);
+    }
+    if (newTotal >= 16000) {
+      await user.addSprite(jackOLantern);
+    }
+    if (newTotal >= 32000) {
+      await user.addSprite(ninjaBoy);
+    }
+    if (newTotal >= 64000) {
+      await user.addSprite(adventureGirl);
+    }
+    if (newTotal >= 128000) {
+      await user.addSprite(dino);
+    }
+    if (newTotal >= 256000) {
+      await user.addSprite(robot);
+    }
+    if (newTotal >= 512000) {
+      await user.addSprite(santa);
+    }
+    if (newTotal >= 1024000) {
+      await user.addSprite(knight);
+    }
     res.send(current);
   } catch (error) {
     next(error);
