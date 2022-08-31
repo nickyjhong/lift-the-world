@@ -104,11 +104,8 @@ function CurrentWorkout() {
 const mapDispatchToProps = (dispatch) => ({
   addSet: (setData) => dispatch(addSet(setData)),
   confirmSet: (setData) => dispatch(confirmSet(setData)),
-  // fetchWorkout: () => dispatch(fetchWorkout()),
   fetchWorkoutlist: () => dispatch(fetchWorkoutlist()),
-  // fetchAllWorkoutList: () => dispatch(fetchAllWorkoutlist()),
   finishWorkout: () => dispatch(finishWorkout()),
-  // getCurrentWorkout: () => dispatch(fetchWorkouts()),
 });
 
 export default connect(null, mapDispatchToProps)(CurrentWorkout);
