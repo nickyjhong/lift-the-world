@@ -229,8 +229,6 @@ router.post("/:id/add", requireToken, async (req, res, next) => {
         exercise.update({ userId: req.user.dataValues.id })
       })
 
-      console.log('NEW WORKOUT', newWorkoutExercise)
-
       res.send(newWorkout)
     } else {
       console.log('FINISH THE WORKOUT THAT YOU STARTED!!!')

@@ -30,7 +30,7 @@ const SinglePreset = () => {
               )
             })}
           </ul>
-          <button onClick={() => dispatch(doPresetWorkout())}>Let's Go!</button>
+          <button onClick={() => dispatch(doPresetWorkout(id))}>Let's Go!</button>
         </div>
       ) : (
         <p> No preset workout here!</p>

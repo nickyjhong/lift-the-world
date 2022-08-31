@@ -72,7 +72,9 @@ export const doPresetWorkout = (workoutId) => {
       const token = window.localStorage.getItem(TOKEN);
       if (token) {
         const { data } = await axios.post(
-          `/api/workout/${workoutId}/add`, workout,
+          `/api/workout/${workoutId}/add`, {
+            workoutId: workoutId
+          },
           {
             headers: {
               authorization: token,
