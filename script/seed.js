@@ -16,6 +16,7 @@ async function seed() {
     isAdmin: true,
     totalWeight: 12094,
     level: 18,
+    selectedSprite: "dog",
   });
 
   const kyle = await User.create({
@@ -25,6 +26,7 @@ async function seed() {
     isAdmin: false,
     totalWeight: 12097,
     level: 18,
+    selectedSprite: "cat",
   });
 
   const nicole = await User.create({
@@ -34,6 +36,7 @@ async function seed() {
     isAdmin: true,
     totalWeight: 44867,
     level: 43,
+    selectedSprite: "redHatBoy",
   });
 
   const cherry = await User.create({
@@ -43,6 +46,7 @@ async function seed() {
     isAdmin: true,
     totalWeight: 39126,
     level: 33,
+    selectedSprite: "cat",
   });
 
   const ryan = await User.create({
@@ -52,6 +56,7 @@ async function seed() {
     isAdmin: false,
     totalWeight: 28643,
     level: 24,
+    selectedSprite: "dog",
   });
 
   //creating exercises for presets

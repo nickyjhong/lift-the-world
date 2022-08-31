@@ -5,19 +5,26 @@ import { fetchUnlockedSprites } from '../store/sprites';
 
 const ChooseSprites = ()=>{
    const dispatch = useDispatch();
-   const sprites = useSelector((state)=>{
-    state.sprites
-   });
     
     useEffect(()=>{
         dispatch(fetchUnlockedSprites());
+        console.log('SPRITES', sprites);
     }, [dispatch]);
 
-    console.log('SPRITES', sprites);
+    const sprites = useSelector((state)=>{
+        return state.sprites
+       }) || [];
+
+    
 
     return (
         <div>
             <h1>Here are your sprites!</h1>
+            {sprites.map((sprite)=>{
+                return (<div key={sprites.indexOf(sprite)}>
+                    <h2>{sprite.name}</h2>
+                </div>)
+            })}
             
 
         </div>
