@@ -65,7 +65,6 @@ export const fetchPrevWorkoutSet = (exerciseId) => {
 
 // add set to current exercise
 export const addSet = (emptySet) => {
-  console.log("argument add set exercise thunk", emptySet);
   return async (dispatch) => {
     try {
       const token = window.localStorage.getItem(TOKEN);

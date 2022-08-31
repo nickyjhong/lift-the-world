@@ -25,7 +25,6 @@ const UserProfile = ({ handleClick, username }) => {
 
   // change character animation on click
   const counterFunc = () => {
-    console.log(counter);
     setFrame(counter);
     setCounter(counter + 1);
     if (counter >= 3) {
