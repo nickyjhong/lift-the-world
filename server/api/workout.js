@@ -64,9 +64,28 @@ router.put("/finish", requireToken, async (req, res, next) => {
       status: "closed",
     });
 
+    const cuteGirl = await Sprite.findOne({ where: { name: "cuteGirl" } });
+    const adventureBoy = await Sprite.findOne({
+      where: { name: "adventureBoy" },
+    });
+    const zombie = await Sprite.findOne({ where: { name: "zombie" } });
+    const ninjaGirl = await Sprite.findOne({ where: { name: "ninjaGirl" } });
+    const jackOLantern = await Sprite.findOne({
+      where: { name: "jackOLantern" },
+    });
+    const ninjaBoy = await Sprite.findOne({ where: { name: "ninjaBoy" } });
+    const adventureGirl = await Sprite.findOne({
+      where: { name: "adventureGirl" },
+    });
+    const dino = await Sprite.findOne({ where: { name: "dino" } });
+    const robot = await Sprite.findOne({ where: { name: "robot" } });
+    const santa = await Sprite.findOne({ where: { name: "santa" } });
+    const knight = await Sprite.findOne({ where: { name: "knight" } });
+
     const currentWeightLifted = current.workoutTotalWeight;
     console.log("current weight lifted", currentWeightLifted);
     const user = await User.findByPk(req.user.dataValues.id);
+    const totalWeight = user.totalWeight;
     await user.update({ totalWeight: totalWeight + currentWeightLifted });
     const newTotal = user.totalWeight;
     if (newTotal >= 1000) {
@@ -142,28 +161,28 @@ router.post("/:id/add", requireToken, async (req, res, next) => {
       where: {
         userId: req.user.dataValues.id,
         status: "active",
-      }
-    })
+      },
+    });
 
     if (!workout) {
       let preset = await Workout.findOne({
         where: {
-          id: req.params.id
+          id: req.params.id,
         },
-        raw: true
-      })
+        raw: true,
+      });
 
       delete preset.id;
-      let newWorkout = await Workout.create(preset)
+      let newWorkout = await Workout.create(preset);
 
-      res.send(newWorkout)
+      res.send(newWorkout);
     } else {
-      console.log('FINISH THE WORKOUT THAT YOU STARTED!!!')
+      console.log("FINISH THE WORKOUT THAT YOU STARTED!!!");
     }
   } catch (error) {
-    next (error)
+    next(error);
   }
-})
+});
 
 router.get("/preset", async (req, res, next) => {
   try {
