@@ -1,0 +1,9 @@
+.sprite-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.sprite-small{
+    max-width: 175px;
+    max-width: 175px;
+}

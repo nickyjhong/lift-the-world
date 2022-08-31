@@ -5,11 +5,17 @@ import { fetchUnlockedSprites } from '../store/sprites';
 
 const ChooseSprites = ()=>{
    const dispatch = useDispatch();
+   const [currentSprite, setSprite] = useState({name: ''});
     
     useEffect(()=>{
         dispatch(fetchUnlockedSprites());
         console.log('SPRITES', sprites);
     }, [dispatch]);
+
+    const chooseSprite = (event)=>{
+        setSprite({name: event.name});
+        dispatch(selectSprite(currentSprite));
+    }
 
     const sprites = useSelector((state)=>{
         return state.sprites
@@ -19,13 +25,15 @@ const ChooseSprites = ()=>{
 
     return (
         <div>
-            <h1>Here are your sprites!</h1>
+            <h1>Select from your unlocked sprites!</h1>
+            <div className='sprite-container'>
             {sprites.map((sprite)=>{
-                return (<div key={sprites.indexOf(sprite)}>
-                    <h2>{sprite.name}</h2>
-                    <img src={`/sprites/${sprite.name}/${sprite.name}-idle.gif`}></img>
+                return (<div className='sprite-small' key={sprites.indexOf(sprite)}>
+                    {/* <img src={`/sprites/${sprite.name}/${sprite.name}-idle.gif`}></img> */}
+                    <input onClick={chooseSprite} type={'image'} name={`${sprite.name}`} src={`/sprites/${sprite.name}/${sprite.name}-idle.gif`}></input>
                 </div>)
             })}
+            </div>
             
 
         </div>
