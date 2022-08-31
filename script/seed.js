@@ -487,7 +487,7 @@ async function seed() {
     weightToUnlock: 512000,
   });
   const knight = await Sprite.create({
-    name: "theKnight",
+    name: "knight",
     weightToUnlock: 1024000,
   });
 

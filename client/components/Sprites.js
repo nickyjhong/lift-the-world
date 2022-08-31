@@ -23,6 +23,7 @@ const ChooseSprites = ()=>{
             {sprites.map((sprite)=>{
                 return (<div key={sprites.indexOf(sprite)}>
                     <h2>{sprite.name}</h2>
+                    <img src={`/sprites/${sprite.name}/${sprite.name}-idle.gif`}></img>
                 </div>)
             })}
             
