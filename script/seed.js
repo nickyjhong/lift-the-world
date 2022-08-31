@@ -26,7 +26,7 @@ async function seed() {
     isAdmin: false,
     totalWeight: 12097,
     level: 18,
-    selectedSprite: "theBoy",
+    selectedSprite: "cat",
   });
 
   const nicole = await User.create({
@@ -56,7 +56,7 @@ async function seed() {
     isAdmin: false,
     totalWeight: 28643,
     level: 24,
-    selectedSprite: "cuteGirl",
+    selectedSprite: "dog",
   });
 
   //creating exercises for presets
@@ -77,12 +77,22 @@ async function seed() {
     name: "Shoulder press",
     category: "chest",
     equipment: ["dumbbell or barbell"],
+    tipsAndTricks: [
+      "keep palms facing away from you",
+      "keep chest and core braced",
+      "press weights upwards until arms are straight and weights touch above your head",
+    ],
     embedId: "5yWaNOvgFCM",
   });
   const chest3 = await Exercise.create({
     name: "Dumbell Flys",
     category: "chest",
     equipment: ["Dumbells", "Bench"],
+    tipsAndTricks: [
+      "lift arms above the head so they're extended but not locked",
+      "slight bend at your elbow, and palms and dumbbells should face each other",
+      "lower dumbbells in an arc motion until they're in line with the chest",
+    ],
     embedId: "eozdVDA78K0",
   });
 
@@ -90,6 +100,10 @@ async function seed() {
     name: "Decline Bench Press",
     category: "chest",
     equipment: ["Press Machine or Decline bench", "weights"],
+    tipsAndTricks: [
+      "keeps palms facing forward and arms slightly wider than shoulder-width apart",
+      "lower until bar touches your mid chest",
+    ],
     embedId: "OR6WM5Z2Hqs",
   });
 
@@ -107,6 +121,10 @@ async function seed() {
     name: "Triceps Cable Pushdown",
     category: "triceps",
     equipment: ["cable machine"],
+    tipsAndTricks: [
+      "tilt torso at a 30-40 degree angle instead of standing straight up",
+      "use slwo and controlled movements",
+    ],
     embedId: "2-LAMcpzODU",
   });
   const back1 = await Exercise.create({
@@ -124,18 +142,32 @@ async function seed() {
     name: "Row",
     category: "back",
     equipment: ["Row Machine"],
+    tipsAndTricks: [
+      "don't pull the handle to your neck",
+      "don't lean back too far, you only want to be slightly behind vertical",
+    ],
     embedId: "roCP6wCXPqo",
   });
   const back3 = await Exercise.create({
     name: "Bent Over Row",
     category: "back",
     equipment: ["dumbbells or barbell"],
+    tipsAndTricks: [
+      "keep palms facing down",
+      "lift barbell towards you while keepting torso stationary",
+      "lower barbell back to starting postition using slow and controlled movements",
+    ],
     embedId: "FWJR5Ve8bnQ",
   });
   const back4 = await Exercise.create({
     name: "Shoulder Shrugs",
     category: "back",
     equipment: ["dumbbells or barbell"],
+    tipsAndTricks: [
+      "keep chin up, neck straight and face straight ahead",
+      "bring shoulders as high up towards your ears as you can",
+      "repeat using slow and controlled movements",
+    ],
     embedId: "cJRVVxmytaM",
   });
   const back5 = await Exercise.create({
@@ -143,7 +175,8 @@ async function seed() {
     category: "biceps",
     equipment: ["dumbells"],
     tipsAndTricks: [
-      "utilize full range of motion",
+      "stand or kneel with legs about hips-width distance apart",
+      "lift weights to shoulders, keep shoulders down and back",
       "move slow and controlled movements",
     ],
     embedId: "TwD-YGVP4Bk",
@@ -173,24 +206,41 @@ async function seed() {
     name: "Romanian deadlift",
     category: "legs",
     equipment: ["dumbbell or barbell"],
+    tipsAndTricks: [
+      "stand with feet shoulder-width apart",
+      "push hips back and lower dumbbells while keeping legs straight or slightly bent",
+    ],
     embedId: "7AaaYhMqTws",
   });
   const legs3 = await Exercise.create({
     name: "Leg curl",
     category: "legs",
     equipment: ["leg curl machine"],
+    tipsAndTricks: [
+      "maintain neutral spine - don't put your head too high or too low",
+      "use slow and controlled movements",
+    ],
     embedId: "fK0uZ3KRZRI",
   });
   const legs4 = await Exercise.create({
     name: "Leg extension",
     category: "legs",
     equipment: ["leg extension machine"],
+    tipsAndTricks: [
+      "concentrate on contracting your quads to move the weight rather than yanking your feet up",
+      "use slow and controlled movements",
+    ],
     embedId: "8Jqof7z3QYM",
   });
   const legs5 = await Exercise.create({
     name: "Bulgarian Split Squats",
     category: "glutes",
     equipment: ["Dumbell or barbell", "bench"],
+    tipsAndTricks: [
+      "stand 2-3 feet in front of knee-high bench",
+      "keep torso upright, slowly lower knee towards floor",
+      "reverse the move and return to starting position",
+    ],
     embedId: "HBYGeyb4sSM",
   });
   const legs6 = await Exercise.create({
@@ -216,7 +266,10 @@ async function seed() {
     name: "Chin Up",
     category: "biceps",
     equipment: ["bar", "your body"],
-    tipsAndTricks: ["use controlled movements"],
+    tipsAndTricks: [
+      "keep hands shoulder-width apart",
+      "use controlled movements",
+    ],
     embedId: "brhRXlOhsAM",
   });
 
@@ -225,8 +278,8 @@ async function seed() {
     category: "biceps",
     equipment: ["bench", "dumbells"],
     tipsAndTricks: [
-      "use controlled movements",
       "don't use momentum to lift the weights",
+      "use controlled movements",
     ],
     embedId: "soxrZlIl35U",
   });
@@ -235,7 +288,11 @@ async function seed() {
     name: "Diamond Pushups",
     category: "triceps",
     equipment: ["the floor", "a mat"],
-    tipsAndTricks: ["use controlled movements"],
+    tipsAndTricks: [
+      "put your hands in a diamond position",
+      "keep core tight and straight like a plank",
+      "use controlled movements",
+    ],
     embedId: "J0DnG1_S92I",
   });
 
@@ -243,7 +300,11 @@ async function seed() {
     name: "KickBacks",
     category: "triceps",
     equipment: ["dumbells", "bench"],
-    tipsAndTricks: ["use controlled movements"],
+    tipsAndTricks: [
+      "bend forward slightly at waist so torso is almost parallel to the floor",
+      "engage your core and keep head, neck and spine inline",
+      "use controlled movements",
+    ],
     embedId: "ZO81bExngMI",
   });
 
@@ -251,7 +312,11 @@ async function seed() {
     name: "Triceps Extension",
     category: "triceps",
     equipment: ["dumbell", "bench"],
-    tipsAndTricks: ["use controlled movements"],
+    tipsAndTricks: [
+      "slowly bend your elbows and lower the weight behind your head",
+      "keep trunk upright and core engaged",
+      "the weight should follow the path of your spine",
+    ],
     embedId: "nRiJVZDpdL0",
   });
 
@@ -259,7 +324,10 @@ async function seed() {
     name: "Front Squat",
     category: "glutes",
     equipment: ["barbell", "weights", "squat wrack"],
-    tipsAndTricks: ["use controlled movements"],
+    tipsAndTricks: [
+      "keep toes pointed slightly outwards and make sure knees track in the direction the toes point",
+      "keep chest up and elbows high",
+    ],
     embedId: "wyDbagKS7Rg",
   });
 
@@ -267,7 +335,11 @@ async function seed() {
     name: "Good Morning",
     category: "legs",
     equipment: ["barbell", "weights"],
-    tipsAndTricks: ["use controlled movements"],
+    tipsAndTricks: [
+      "keep hips back and knees slightly bent",
+      "lower torso until your spine is almost parallel to floor, maintaining a slight arch in lower back",
+      "keep core engaged, lift torso to return to starting positon",
+    ],
     embedId: "vKPGe8zb2S4",
   });
 
@@ -276,8 +348,8 @@ async function seed() {
     category: "legs",
     equipment: ["barbell", "weights", "dumbells"],
     tipsAndTricks: [
-      "use controlled movements",
       "lunge as far as required for your front knee to reach 90 degrees",
+      "use controlled movements",
     ],
     embedId: "QOVaHwm-Q6U",
   });
@@ -295,8 +367,8 @@ async function seed() {
     category: "core",
     equipment: ["Kettle Bell", "floor mat"],
     tipsAndTricks: [
-      "use controlled movements",
       "twist as far as you can comfortably",
+      "use controlled movements",
     ],
     embedId: "wkD8rjkodUI",
   });
@@ -305,7 +377,10 @@ async function seed() {
     name: "Dead Bug",
     category: "core",
     equipment: ["floor mat"],
-    tipsAndTricks: ["use controlled movements"],
+    tipsAndTricks: [
+      "lie down on back, bend legs and stabilize lower body",
+      "exhale as your rise, inhale as you lower",
+    ],
     embedId: "8NBNM8haZx0",
   });
 
@@ -313,7 +388,10 @@ async function seed() {
     name: "Half-kneeling Wood Chop",
     category: "core",
     equipment: ["dumbell", "kettle bell", "floor mat"],
-    tipsAndTricks: ["use controlled movements"],
+    tipsAndTricks: [
+      "keep feet on ground shoulder-width apart",
+      "use slow and controlled movements",
+    ],
     embedId: "SfTBo2Tjl7M",
   });
 
@@ -330,8 +408,8 @@ async function seed() {
     category: "chest",
     equipment: ["Dip wrack", "assisted dip machine"],
     tipsAndTricks: [
-      "use controlled movements",
       "don't go so far that you strain your shoulders",
+      "use controlled movements",
     ],
     embedId: "wjUmnZH528Y",
   });
@@ -341,9 +419,9 @@ async function seed() {
     category: "back",
     equipment: ["barbell", "weights", "squat wrack"],
     tipsAndTricks: [
-      "use controlled movements",
-      "avoid jerking your back",
       "keep your back straight",
+      "avoid jerking your back",
+      "use controlled movements",
     ],
     embedId: "-4qRntuXBSc",
   });
@@ -352,7 +430,11 @@ async function seed() {
     name: "Cable Kickback",
     category: "glutes",
     equipment: ["cable machine", "ankle fastener"],
-    tipsAndTricks: ["use controlled movements"],
+    tipsAndTricks: [
+      "keep knees slightly bent",
+      "turning leg out going back can be helpful",
+      "use slow and controlled movements",
+    ],
     embedId: "dJa_Nf4zdik&t=31s",
   });
 
@@ -360,7 +442,10 @@ async function seed() {
     name: "Step Down",
     category: "glutes",
     equipment: ["Box", "Bench"],
-    tipsAndTricks: ["use controlled movements"],
+    tipsAndTricks: [
+      "control body weight and keep balance",
+      "slowly move body down and keep body aligned",
+    ],
     embedId: "Eerfi7WaiDE",
   });
 
@@ -414,7 +499,7 @@ async function seed() {
   // SAMPLE - TO DELETE
   await workout1.setUser(cherry);
   await workout2.setUser(cherry);
-  
+
   // await workout1.addExercise(chest1);
 
   // const closed1 = await WorkoutList.findOne({
