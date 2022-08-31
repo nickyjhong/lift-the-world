@@ -29,11 +29,11 @@ const ChooseSprites = () => {
 
     return (
         <div>
-            <h1>Select from your unlocked sprites!</h1>
+            <h1>Choose from your Unlocked Sprites!</h1>
             <div className='sprite-container'>
             {sprites.map((sprite)=>{
-                return (<div className='sprite-small' key={sprites.indexOf(sprite)}>
-                    <input onClick={chooseSprite} value={`${sprite.name}`} type={'image'} name={`${sprite.name}`} src={`/sprites/${sprite.name}/${sprite.name}-idle.gif`}></input>
+                return (<div key={sprites.indexOf(sprite)}>
+                    <input className='sprite-small' onClick={chooseSprite} value={`${sprite.name}`} type={'image'} name={`${sprite.name}`} src={`/sprites/${sprite.name}/${sprite.name}-idle.gif`}></input>
                 </div>)
             })}
             </div>
