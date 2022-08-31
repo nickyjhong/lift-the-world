@@ -6,10 +6,10 @@ import { logout } from "../store";
 
 const UserProfile = ({ handleClick, username }) => {
   const character = [
-    "/sprites/ninjaGirl/ninjaGirl-idle.gif",
-    "/sprites/ninjaGirl/ninjaGirl-jump.gif",
-    "/sprites/ninjaGirl/ninjaGirl-run.gif",
-    "/sprites/ninjaGirl/ninjaGirl-dead.gif",
+    "/sprites/zombie/zombie-idle.gif",
+    "/sprites/zombie/zombie-jump.gif",
+    "/sprites/zombie/zombie-run.gif",
+    "/sprites/zombie/zombie-dead.gif",
   ];
 
   const [frame, setFrame] = useState(0);
@@ -32,7 +32,7 @@ const UserProfile = ({ handleClick, username }) => {
     }
   };
 
-  const totalWeight = user.totalWeight || []
+  const totalWeight = user.totalWeight || [];
 
   return (
     <>
@@ -48,7 +48,9 @@ const UserProfile = ({ handleClick, username }) => {
         />
         <p className="character-margin">Progress bar goes here</p>
         <p className="character-margin">You've lifted a total of:</p>
-        <p className="character-margin">{totalWeight.toLocaleString('en-US') || 0} lbs</p>
+        <p className="character-margin">
+          {totalWeight.toLocaleString("en-US") || 0} lbs
+        </p>
         <button className="progress-btn">See my progress graph</button>
         <Link to="/login">
           <button className="logout-btn" onClick={handleClick}>
