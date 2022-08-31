@@ -123,6 +123,7 @@ router.post("/", requireToken, async (req, res, next) => {
         workoutId: workout.id,
       },
     });
+    exercise.userId = req.user.dataValues.id;
     exercise.sets = [{ reps: "", weight: "", setId: 0 }];
     await exercise.save();
 
@@ -131,6 +132,36 @@ router.post("/", requireToken, async (req, res, next) => {
     next(error);
   }
 });
+
+// MAKE A PRESET WORKOUT YOUR CURRENT WORKOUT
+router.post("/:id/add", requireToken, async (req, res, next) => {
+  try {
+    const workout = await Workout.findOrCreate({
+      where: {
+        userId: req.user.dataValues.id,
+        status: "active",
+      }
+    })
+
+    if (!workout) {
+      let preset = await Workout.findOne({
+        where: {
+          id: req.params.id
+        },
+        raw: true
+      })
+
+      delete preset.id;
+      let newWorkout = await Workout.create(preset)
+
+      res.send(newWorkout)
+    } else {
+      console.log('FINISH THE WORKOUT THAT YOU STARTED!!!')
+    }
+  } catch (error) {
+    next (error)
+  }
+})
 
 router.get("/preset", async (req, res, next) => {
   try {
