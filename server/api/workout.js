@@ -19,6 +19,20 @@ router.get("/", requireToken, async (req, res, next) => {
   }
 });
 
+router.get("/all", requireToken, async (req, res, next) => {
+  try {
+    const workout = await Workout.findAll({
+      where: {
+        userId: req.user.dataValues.id,
+      },
+      include: [Exercise],
+    });
+    res.send(workout);
+  } catch (error) {
+    next(error);
+  }
+});
+
 // router.get('/previous', requireToken, async (req, res, next) => {
 //   try {
 //     const workout = await Workout.findOne({
@@ -45,47 +59,49 @@ router.put("/finish", requireToken, async (req, res, next) => {
       },
       include: [Exercise],
     });
+    console.log("current workout finish", current);
     current.update({
       status: "closed",
     });
 
-    const currentWeightLifted = current.workoutTotalWeight;
-    const user = await User.findByPk(req.user.dataValues.id);
-    await user.update({ totalWeight: totalWeight + currentWeightLifted });
-    const newTotal = user.totalWeight;
-    if (newTotal >= 1000) {
-      cuteGirl.setUser(user);
-    }
-    if (newTotal >= 2000) {
-      adventureBoy.setUser(user);
-    }
-    if (newTotal >= 4000) {
-      zombie.setUser(user);
-    }
-    if (newTotal >= 8000) {
-      ninjaGirl.setUser(user);
-    }
-    if (newTotal >= 16000) {
-      jackOLantern.setUser(user);
-    }
-    if (newTotal >= 32000) {
-      ninjaBoy.setUser(user);
-    }
-    if (newTotal >= 64000) {
-      adventureGirl.setUser(user);
-    }
-    if (newTotal >= 128000) {
-      dino.setUser(user);
-    }
-    if (newTotal >= 256000) {
-      robot.setUser(user);
-    }
-    if (newTotal >= 512000) {
-      santa.setUser(user);
-    }
-    if (newTotal >= 1024000) {
-      knight.setUser(user);
-    }
+    // const currentWeightLifted = current.workoutTotalWeight;
+    // console.log("current weight lifted", currentWeightLifted);
+    // const user = await User.findByPk(req.user.dataValues.id);
+    // await user.update({ totalWeight: totalWeight + currentWeightLifted });
+    // const newTotal = user.totalWeight;
+    // if (newTotal >= 1000) {
+    //   cuteGirl.setUser(user);
+    // }
+    // if (newTotal >= 2000) {
+    //   adventureBoy.setUser(user);
+    // }
+    // if (newTotal >= 4000) {
+    //   zombie.setUser(user);
+    // }
+    // if (newTotal >= 8000) {
+    //   ninjaGirl.setUser(user);
+    // }
+    // if (newTotal >= 16000) {
+    //   jackOLantern.setUser(user);
+    // }
+    // if (newTotal >= 32000) {
+    //   ninjaBoy.setUser(user);
+    // }
+    // if (newTotal >= 64000) {
+    //   adventureGirl.setUser(user);
+    // }
+    // if (newTotal >= 128000) {
+    //   dino.setUser(user);
+    // }
+    // if (newTotal >= 256000) {
+    //   robot.setUser(user);
+    // }
+    // if (newTotal >= 512000) {
+    //   santa.setUser(user);
+    // }
+    // if (newTotal >= 1024000) {
+    //   knight.setUser(user);
+    // }
 
     res.send(current);
   } catch (error) {
@@ -109,6 +125,7 @@ router.post("/", requireToken, async (req, res, next) => {
         workoutId: workout.id,
       },
     });
+    exercise.userId = req.user.dataValues.id;
     exercise.sets = [{ reps: "", weight: "", setId: 0 }];
     await exercise.save();
 
@@ -117,6 +134,36 @@ router.post("/", requireToken, async (req, res, next) => {
     next(error);
   }
 });
+
+// MAKE A PRESET WORKOUT YOUR CURRENT WORKOUT
+router.post("/:id/add", requireToken, async (req, res, next) => {
+  try {
+    const workout = await Workout.findOrCreate({
+      where: {
+        userId: req.user.dataValues.id,
+        status: "active",
+      }
+    })
+
+    if (!workout) {
+      let preset = await Workout.findOne({
+        where: {
+          id: req.params.id
+        },
+        raw: true
+      })
+
+      delete preset.id;
+      let newWorkout = await Workout.create(preset)
+
+      res.send(newWorkout)
+    } else {
+      console.log('FINISH THE WORKOUT THAT YOU STARTED!!!')
+    }
+  } catch (error) {
+    next (error)
+  }
+})
 
 router.get("/preset", async (req, res, next) => {
   try {

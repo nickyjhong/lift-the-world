@@ -78,7 +78,7 @@ function CurrentWorkout() {
       </div>
       {allExercises.status === "active" ? (
         <Link to="/recap">
-          <button className="cw-finish-btn" onClick={() => finishWorkout()}>
+          <button className="cw-finish-btn" onClick={() => dispatch(finishWorkout())}>
             Finish Workout
           </button>
         </Link>
