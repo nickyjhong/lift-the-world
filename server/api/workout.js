@@ -59,11 +59,13 @@ router.put("/finish", requireToken, async (req, res, next) => {
       },
       include: [Exercise],
     });
+    console.log("current workout finish", current);
     current.update({
       status: "closed",
     });
 
     // const currentWeightLifted = current.workoutTotalWeight;
+    // console.log("current weight lifted", currentWeightLifted);
     // const user = await User.findByPk(req.user.dataValues.id);
     // await user.update({ totalWeight: totalWeight + currentWeightLifted });
     // const newTotal = user.totalWeight;
