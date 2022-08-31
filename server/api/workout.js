@@ -64,45 +64,6 @@ router.put("/finish", requireToken, async (req, res, next) => {
       status: "closed",
     });
 
-    // const currentWeightLifted = current.workoutTotalWeight;
-    // console.log("current weight lifted", currentWeightLifted);
-    // const user = await User.findByPk(req.user.dataValues.id);
-    // await user.update({ totalWeight: totalWeight + currentWeightLifted });
-    // const newTotal = user.totalWeight;
-    // if (newTotal >= 1000) {
-    //   cuteGirl.setUser(user);
-    // }
-    // if (newTotal >= 2000) {
-    //   adventureBoy.setUser(user);
-    // }
-    // if (newTotal >= 4000) {
-    //   zombie.setUser(user);
-    // }
-    // if (newTotal >= 8000) {
-    //   ninjaGirl.setUser(user);
-    // }
-    // if (newTotal >= 16000) {
-    //   jackOLantern.setUser(user);
-    // }
-    // if (newTotal >= 32000) {
-    //   ninjaBoy.setUser(user);
-    // }
-    // if (newTotal >= 64000) {
-    //   adventureGirl.setUser(user);
-    // }
-    // if (newTotal >= 128000) {
-    //   dino.setUser(user);
-    // }
-    // if (newTotal >= 256000) {
-    //   robot.setUser(user);
-    // }
-    // if (newTotal >= 512000) {
-    //   santa.setUser(user);
-    // }
-    // if (newTotal >= 1024000) {
-    //   knight.setUser(user);
-    // }
-
     res.send(current);
   } catch (error) {
     next(error);
@@ -135,7 +96,6 @@ router.post("/", requireToken, async (req, res, next) => {
   }
 });
 
-// MAKE A PRESET WORKOUT YOUR CURRENT WORKOUT
 router.post("/:id/add", requireToken, async (req, res, next) => {
   try {
     const workout = await Workout.findOne({
@@ -161,12 +121,19 @@ router.post("/:id/add", requireToken, async (req, res, next) => {
 
       const workoutLists = await WorkoutList.findAll({
         where: {
-          workoutId: req.params.id
+          workoutId: req.params.id,
         }
       })
+      
+      const exercises = workoutLists.map(workoutlist => {
+        return workoutlist.dataValues.exerciseId
+      })
 
-      console.log(workoutLists)
-
+      for (let i = 0; i < exercises.length; i++) {
+        const exercise = await Exercise.findByPk(exercises[i]);
+        await newWorkout.addExercise(exercise)
+      }
+      
       res.send(newWorkout)
     } else {
       console.log('FINISH THE WORKOUT THAT YOU STARTED!!!')
