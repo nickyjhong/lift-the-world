@@ -21,7 +21,7 @@ router.put('/update', requireToken, async (req, res, next) => {
     try {
         const {sprite} = req.body;
         const user = await User.findByPk(req.user.dataValues.id);
-        await user.update({selectedSprite: sprite.name})
+        await user.update({selectedSprite: sprite})
         res.send(user);
     } catch (error) {
         next(error);
