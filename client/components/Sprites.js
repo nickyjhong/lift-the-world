@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { fetchUnlockedSprites } from '../store/sprites';
+import { updateSelectedSprite } from '../store/updateSelectedSprite';
 
 
 const ChooseSprites = ()=>{
@@ -13,8 +14,8 @@ const ChooseSprites = ()=>{
     }, [dispatch]);
 
     const chooseSprite = (event)=>{
-        setSprite({name: event.name});
-        dispatch(selectSprite(currentSprite));
+        setSprite({name: event.target.name});
+        dispatch(updateSelectedSprite(currentSprite));
     }
 
     const sprites = useSelector((state)=>{
