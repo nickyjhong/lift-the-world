@@ -2,12 +2,15 @@ import axios from "axios";
 
 const SET_SPRITES = 'SET_SPRITES';
 
+
 const setSprites = (sprites)=>{
     return {
         type: SET_SPRITES,
         sprites
     }
 };
+
+
 
 export const fetchUnlockedSprites = ()=>{
     return async (dispatch)=>{
@@ -24,6 +27,8 @@ export const fetchUnlockedSprites = ()=>{
         }
     }
 };
+
+
 
 const initialState = [];
 

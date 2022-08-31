@@ -16,3 +16,14 @@ router.get('/', requireToken, async (req, res, next) => {
         next(error);
     }
 });
+
+router.put('/update', requireToken, async (req, res, next) => {
+    try {
+        const {sprite} = req.body;
+        const user = await User.findByPk(req.user.dataValues.id);
+        await user.update({selectedSprite: sprite})
+        
+    } catch (error) {
+        next(error);
+    }
+})
