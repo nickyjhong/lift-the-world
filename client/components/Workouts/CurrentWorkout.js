@@ -17,9 +17,6 @@ function CurrentWorkout() {
     !workoutlist.allExercises.exercises ||
     workoutlist.allExercises.exercises.length === 0
   ) {
-    setTimeout(() => {
-      dispatch(fetchWorkoutlist());
-    }, 10);
     return <div>Loading... please add a workout!</div>;
   }
 
