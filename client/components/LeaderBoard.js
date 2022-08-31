@@ -12,6 +12,7 @@ const LeaderBoard = () => {
 
   return (
     <div className="lb-container">
+      <img src="images/crown.png" className="leaderboard-crown" />
       <h1 className="lb-heading">Leaderboard:</h1>
       <div>
         {topTen.map((user) => {

@@ -25,7 +25,7 @@ class CurrentWorkoutSet extends Component {
       ...this.state,
       workoutId: this.props.workoutId,
       exerciseId: this.props.exerciseId,
-      setId: this.props.setId,
+      setId: this.props.setId - 1,
     });
   }
 
@@ -50,6 +50,7 @@ class CurrentWorkoutSet extends Component {
             <input
               className="cw-sr-input cw-rep-input"
               type="number"
+              min="0"
               name="reps"
               value={this.state.reps}
               onChange={handleChange}
@@ -58,6 +59,7 @@ class CurrentWorkoutSet extends Component {
             <input
               className="cw-weight-input"
               type="number"
+              min="0"
               name="weight"
               value={this.state.weight}
               onChange={handleChange}

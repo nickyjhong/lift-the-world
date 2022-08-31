@@ -1,9 +1,9 @@
 import axios from "axios";
 import { TOKEN } from "./auth";
-import { _setWorkout } from "./workout";
 
 // ACTION TYPES
 const SET_WORKOUT_LIST = "SET_WORKOUT_LIST";
+const SET_PREV_WORKOUT_SET = "SET_PREV_WORKOUT_SET";
 const UPDATE_WORKOUT_LIST = "UPDATE_WORKOUT_LIST";
 
 // ACTION CREATORS
@@ -11,6 +11,13 @@ export const _setWorkoutlist = (workoutlist) => {
   return {
     type: SET_WORKOUT_LIST,
     workoutlist,
+  };
+};
+
+export const _setPrevWorkoutSet = (exercise) => {
+  return {
+    type: SET_PREV_WORKOUT_SET,
+    exercise,
   };
 };
 
@@ -22,22 +29,65 @@ export const _updateWorkoutlist = (exercise) => {
 };
 
 // THUNKS
-export const fetchWorkoutlist = (exerciseId) => {
+// fetch all current exercises in workout list
+export const fetchWorkoutlist = () => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.get(
-        `/api/workoutlist/current/${exerciseId}`
-      );
-      dispatch(await _setWorkout(data));
-      dispatch(await _setWorkoutlist(exerciseId));
+      const token = window.localStorage.getItem(TOKEN);
+      if (token) {
+        const { data } = await axios.get("/api/workoutlist/current", {
+          headers: {
+            authorization: token,
+          },
+        });
+        dispatch(await _setWorkoutlist(data));
+      }
     } catch (error) {
-      console.log("getWorkoutlist Error", error);
+      console.log("setWorkoutlist Error", error);
     }
   };
 };
 
+// fetches previous set of same exercise from last workout
+export const fetchPrevWorkoutSet = (exerciseId) => {
+  return async (dispatch) => {
+    try {
+      const token = window.localStorage.getItem(TOKEN);
+      if (token) {
+        const { data } = await axios.get(`/api/workoutlist/prev/${exerciseId}`);
+        dispatch(await _setPrevWorkoutSet(data));
+      }
+    } catch (error) {
+      console.log("setPrevWorkoutSet Error", error);
+    }
+  };
+};
+
+// add set to current exercise
+export const addSet = (emptySet) => {
+  return async (dispatch) => {
+    try {
+      const token = window.localStorage.getItem(TOKEN);
+      if (token) {
+        const { data } = await axios.post(
+          `/api/workoutlist/${emptySet.exerciseId}`,
+          emptySet,
+          {
+            headers: {
+              authorization: token,
+            },
+          }
+        );
+        dispatch(_updateWorkoutlist(data));
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};
+
+// updates current set
 export const confirmSet = (setData) => {
-  console.log("argument add set exercise thunk", setData);
   return async (dispatch) => {
     try {
       const token = window.localStorage.getItem(TOKEN);
@@ -51,7 +101,6 @@ export const confirmSet = (setData) => {
             },
           }
         );
-        console.log("data in set exercise thunk", data);
         dispatch(_updateWorkoutlist(data, setData));
       }
     } catch (err) {
@@ -61,14 +110,22 @@ export const confirmSet = (setData) => {
 };
 
 // REDUCER
-const initialState = {};
+const initialState = {
+  allExercises: {},
+};
 
 export default function workoutlistReducer(state = initialState, action) {
   switch (action.type) {
     case SET_WORKOUT_LIST:
-      return action.workoutlist;
+      return { ...state, allExercises: action.workoutlist };
     case UPDATE_WORKOUT_LIST:
-      return { ...action.exercise, exercise: action.exercise };
+      const exercise = state.allExercises.exercises.find(
+        (exercise) => exercise.id === action.exercise.exerciseId
+      );
+      exercise.workoutlist = action.exercise;
+      return { ...state };
+    case SET_PREV_WORKOUT_SET:
+      return action.exercise;
     default:
       return state;
   }

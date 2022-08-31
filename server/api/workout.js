@@ -1,15 +1,29 @@
-const router = require('express').Router();
+const router = require("express").Router();
 const {
-  models: { Workout, Exercise, WorkoutList, User },
-} = require('../db/');
-const { requireToken } = require('./middleware');
+  models: { Workout, Exercise, WorkoutList, User, Sprite },
+} = require("../db/");
+const { requireToken } = require("./middleware");
 
-router.get('/', requireToken, async (req, res, next) => {
+router.get("/", requireToken, async (req, res, next) => {
   try {
     const workout = await Workout.findOne({
       where: {
         userId: req.user.dataValues.id,
-        status: 'active',
+        status: "active",
+      },
+      include: [Exercise],
+    });
+    res.send(workout);
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.get("/all", requireToken, async (req, res, next) => {
+  try {
+    const workout = await Workout.findAll({
+      where: {
+        userId: req.user.dataValues.id,
       },
       include: [Exercise],
     });
@@ -36,33 +50,69 @@ router.get('/', requireToken, async (req, res, next) => {
 //   }
 // });
 
-router.put('/finish', requireToken, async (req, res, next) => {
+router.put("/finish", requireToken, async (req, res, next) => {
   try {
-
     const current = await Workout.findOne({
       where: {
         userId: req.user.dataValues.id,
-        status: 'active',
+        status: "active",
       },
       include: [Exercise],
     });
-
     current.update({
-      status: 'closed'
-    })
-    
-    res.send(current)
+      status: "closed",
+    });
+
+    // const currentWeightLifted = current.workoutTotalWeight;
+    // const user = await User.findByPk(req.user.dataValues.id);
+    // await user.update({ totalWeight: totalWeight + currentWeightLifted });
+    // const newTotal = user.totalWeight;
+    // if (newTotal >= 1000) {
+    //   cuteGirl.setUser(user);
+    // }
+    // if (newTotal >= 2000) {
+    //   adventureBoy.setUser(user);
+    // }
+    // if (newTotal >= 4000) {
+    //   zombie.setUser(user);
+    // }
+    // if (newTotal >= 8000) {
+    //   ninjaGirl.setUser(user);
+    // }
+    // if (newTotal >= 16000) {
+    //   jackOLantern.setUser(user);
+    // }
+    // if (newTotal >= 32000) {
+    //   ninjaBoy.setUser(user);
+    // }
+    // if (newTotal >= 64000) {
+    //   adventureGirl.setUser(user);
+    // }
+    // if (newTotal >= 128000) {
+    //   dino.setUser(user);
+    // }
+    // if (newTotal >= 256000) {
+    //   robot.setUser(user);
+    // }
+    // if (newTotal >= 512000) {
+    //   santa.setUser(user);
+    // }
+    // if (newTotal >= 1024000) {
+    //   knight.setUser(user);
+    // }
+
+    res.send(current);
   } catch (error) {
     next(error);
   }
 });
 
-router.post('/', requireToken, async (req, res, next) => {
+router.post("/", requireToken, async (req, res, next) => {
   try {
     const [workout, workoutCreated] = await Workout.findOrCreate({
       where: {
         userId: req.user.dataValues.id,
-        status: 'active',
+        status: "active",
       },
       include: [Exercise],
     });
@@ -73,6 +123,8 @@ router.post('/', requireToken, async (req, res, next) => {
         workoutId: workout.id,
       },
     });
+    exercise.sets = [{ reps: "", weight: "", setId: 0 }];
+    await exercise.save();
 
     res.send(workout);
   } catch (error) {
