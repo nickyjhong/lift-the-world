@@ -9,6 +9,7 @@
 @import "./styles/musclegroup.css";
 @import "./styles/user-profile.css";
 @import "./styles/exercises-list.css";
+@import "./styles/choose-sprite.css";
 @import "./styles/media-query.css";
 
 * {

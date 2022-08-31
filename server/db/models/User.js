@@ -4,6 +4,7 @@ const db = require("../db");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const axios = require("axios");
+const Sprite = require('./Sprite');
 
 const SALT_ROUNDS = 5;
 
@@ -43,6 +44,9 @@ const User = db.define("user", {
       min: 1,
     },
   },
+  selectedSprite: {
+    type: Sequelize.STRING,
+  }
 });
 
 module.exports = User;
@@ -95,5 +99,13 @@ const hashPassword = async (user) => {
 User.beforeCreate(hashPassword);
 User.beforeUpdate(hashPassword);
 User.beforeBulkCreate((users) => Promise.all(users.map(hashPassword)));
+User.addHook('afterCreate', async (user)=>{
+  const sprites = await Sprite.findAll({where:{
+    weightToUnlock: 0
+  }});
+  sprites.map((sprite)=>{
+     user.addSprite(sprite);
+  });
+})
 
 module.exports = User;

@@ -13,6 +13,7 @@ import singleUserReducer from "./singleUser";
 import previousReducer from "./previous";
 import workoutlistReducer from "./workoutlist";
 import spritesReducer from "./sprites";
+import selectedSpriteReducer from "./updateSelectedSprite";
 
 const reducer = combineReducers({
   auth: auth,
@@ -30,6 +31,7 @@ const reducer = combineReducers({
   singleUser: singleUserReducer,
 
   sprites: spritesReducer,
+  selectedSprite: selectedSpriteReducer,
 });
 
 const middleware = composeWithDevTools(
