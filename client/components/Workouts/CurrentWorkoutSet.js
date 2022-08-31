@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+<<<<<<< HEAD
 import { confirmSet, fetchWorkoutlist } from "../../store/workoutlist";
+=======
+import { confirmSet } from "../../store/workoutlist";
+>>>>>>> 464a613b63b1f51565278581da3d2284c2a37c92
 
 class CurrentWorkoutSet extends Component {
   constructor(props) {
@@ -50,6 +54,7 @@ class CurrentWorkoutSet extends Component {
             <input
               className="cw-sr-input cw-rep-input"
               type="number"
+              min="0"
               name="reps"
               value={this.state.reps}
               onChange={handleChange}
@@ -58,6 +63,7 @@ class CurrentWorkoutSet extends Component {
             <input
               className="cw-weight-input"
               type="number"
+              min="0"
               name="weight"
               value={this.state.weight}
               onChange={handleChange}
@@ -79,7 +85,10 @@ class CurrentWorkoutSet extends Component {
 
 const mapDispatchToProps = (dispatch) => ({
   confirmSet: (setData) => dispatch(confirmSet(setData)),
+<<<<<<< HEAD
   getAllWorkoutlist: () => dispatch(fetchWorkoutlist()),
+=======
+>>>>>>> 464a613b63b1f51565278581da3d2284c2a37c92
 });
 
 export default connect(null, mapDispatchToProps)(CurrentWorkoutSet);

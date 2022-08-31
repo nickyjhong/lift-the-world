@@ -12,19 +12,22 @@ const WeightComparison = () => {
   }, [dispatch]);
 
   const exercises = weightsComparison.exercises || [];
-  console.log("exercises for weight comparison", exercises);
-  const totalWeight = exercises.map((exercise) => {
-    return exercise.workoutlist.sets.reduce((accum, curr) => {
-      let totalWeight = curr.reps * curr.weight;
-      return accum + totalWeight;
-    }, 0);
-  })[0] || [];
+  const totalWeight =
+    exercises.map((exercise) => {
+      return exercise.workoutlist.sets.reduce((accum, curr) => {
+        let totalWeight = curr.reps * curr.weight;
+        return accum + totalWeight;
+      }, 0);
+    })[0] || [];
 
   const comparison = weightFunction(totalWeight);
   return (
     <div>
       <div className="recap-total-weight">
-        <p>You lifted {totalWeight.toLocaleString('en-US')} pounds during this workout!</p>
+        <p>
+          You lifted {totalWeight.toLocaleString("en-US")} pounds during this
+          workout!
+        </p>
         <p>That's the weight of {comparison.name}</p>
         <img className="comparison-image" src={comparison.image} />
       </div>

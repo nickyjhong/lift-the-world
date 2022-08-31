@@ -109,8 +109,6 @@ router.post("/", requireToken, async (req, res, next) => {
         workoutId: workout.id,
       },
     });
-    console.log("EXERCISE", exercise);
-    console.log("EXERCISE CREATED", exerciseCreated);
     exercise.sets = [{ reps: "", weight: "", setId: 0 }];
     await exercise.save();
 
