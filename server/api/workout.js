@@ -13,20 +13,7 @@ router.get("/", requireToken, async (req, res, next) => {
       },
       include: [Exercise],
     });
-    console.log(
-      "workout api",
-      workout.exercises[0].workoutlist.dataValues.sets
-    );
-    const currentWorkout = workout.dataValues.exercises.map((exercise) => {
-      return exercise.dataValues.workoutlist.dataValues.sets.map((set) => {
-        return set.reps * set.weight;
-      });
-    });
-    console.log("current workout set total", currentWorkout);
-    const totalWeightFromWorkout = currentWorkout.reduce((acc, curr) => {
-      return (acc += parseInt(curr));
-    }, 0);
-    console.log("totalWeightFromWorkout", totalWeightFromWorkout);
+    res.send(workout);
   } catch (error) {
     next(error);
   }
@@ -72,6 +59,9 @@ router.put("/finish", requireToken, async (req, res, next) => {
       },
       include: [Exercise],
     });
+
+    // code to test route
+    console.log("current workout info", current.dataValues.exercises);
     const currentWorkout = current.dataValues.exercises.map((exercise) => {
       return exercise.dataValues.workoutlist.dataValues.sets.map((set) => {
         return set.reps * set.weight;
@@ -82,7 +72,17 @@ router.put("/finish", requireToken, async (req, res, next) => {
       return (acc += parseInt(curr));
     }, 0);
     console.log("totalWeightFromWorkout", totalWeightFromWorkout);
-    current.update({
+    const user = await User.findByPk(req.user.dataValues.id);
+    console.log("user info here", user);
+    console.log(
+      "user total weight",
+      (user.totalWeight += totalWeightFromWorkout)
+    );
+    await user.update({
+      totalWeight: (user.totalWeight += totalWeightFromWorkout),
+    });
+
+    await current.update({
       status: "closed",
       workoutTotalWeight: totalWeightFromWorkout,
     });
