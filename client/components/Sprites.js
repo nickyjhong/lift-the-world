@@ -6,16 +6,19 @@ import { updateSelectedSprite } from '../store/updateSelectedSprite';
 
 const ChooseSprites = () => {
    const dispatch = useDispatch();
-   const [currentSprite, setSprite] = useState({name: ''});
+   const [currentSprite, setCurrentSprite] = useState({name: ''});
     
     useEffect(()=>{
         dispatch(fetchUnlockedSprites());
-        console.log('SPRITES', sprites);
-    }, [dispatch]);
+    }, []);
+
+    useEffect(()=>{
+        dispatch(updateSelectedSprite(currentSprite));
+    }, [currentSprite]);
 
     const chooseSprite = (event)=>{
-        setSprite({name: event.target.value});
-        dispatch(updateSelectedSprite(currentSprite));
+        setCurrentSprite({name: event.target.value});
+        
     }
 
     const sprites = useSelector((state)=>{
@@ -30,13 +33,10 @@ const ChooseSprites = () => {
             <div className='sprite-container'>
             {sprites.map((sprite)=>{
                 return (<div className='sprite-small' key={sprites.indexOf(sprite)}>
-                    {/* <img src={`/sprites/${sprite.name}/${sprite.name}-idle.gif`}></img> */}
                     <input onClick={chooseSprite} value={`${sprite.name}`} type={'image'} name={`${sprite.name}`} src={`/sprites/${sprite.name}/${sprite.name}-idle.gif`}></input>
                 </div>)
             })}
             </div>
-            
-
         </div>
     )
 }
