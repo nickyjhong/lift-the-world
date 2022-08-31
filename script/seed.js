@@ -26,7 +26,7 @@ async function seed() {
     isAdmin: false,
     totalWeight: 12097,
     level: 18,
-    selectedSprite: "theBoy",
+    selectedSprite: "cat",
   });
 
   const nicole = await User.create({
@@ -56,7 +56,7 @@ async function seed() {
     isAdmin: false,
     totalWeight: 28643,
     level: 24,
-    selectedSprite: "cuteGirl",
+    selectedSprite: "dog",
   });
 
   //creating exercises for presets
@@ -77,12 +77,22 @@ async function seed() {
     name: "Shoulder press",
     category: "chest",
     equipment: ["dumbbell or barbell"],
+    tipsAndTricks: [
+      "keep palms facing away from you",
+      "keep chest and core braced",
+      "press weights upwards until arms are straight and weights touch above your head",
+    ],
     embedId: "5yWaNOvgFCM",
   });
   const chest3 = await Exercise.create({
     name: "Dumbell Flys",
     category: "chest",
     equipment: ["Dumbells", "Bench"],
+    tipsAndTricks: [
+      "lift arms above the head so they're extended but not locked",
+      "slight bend at your elbow, and palms and dumbbells should face each other",
+      "lower dumbbells in an arc motion until they're in line with the chest",
+    ],
     embedId: "eozdVDA78K0",
   });
 
@@ -90,6 +100,10 @@ async function seed() {
     name: "Decline Bench Press",
     category: "chest",
     equipment: ["Press Machine or Decline bench", "weights"],
+    tipsAndTricks: [
+      "keeps palms facing forward and arms slightly wider than shoulder-width apart",
+      "lower until bar touches your mid chest",
+    ],
     embedId: "OR6WM5Z2Hqs",
   });
 
@@ -107,6 +121,10 @@ async function seed() {
     name: "Triceps Cable Pushdown",
     category: "triceps",
     equipment: ["cable machine"],
+    tipsAndTricks: [
+      "tilt torso at a 30-40 degree angle instead of standing straight up",
+      "use slwo and controlled movements",
+    ],
     embedId: "2-LAMcpzODU",
   });
   const back1 = await Exercise.create({
@@ -124,18 +142,32 @@ async function seed() {
     name: "Row",
     category: "back",
     equipment: ["Row Machine"],
+    tipsAndTricks: [
+      "don't pull the handle to your neck",
+      "don't lean back too far, you only want to be slightly behind vertical",
+    ],
     embedId: "roCP6wCXPqo",
   });
   const back3 = await Exercise.create({
     name: "Bent Over Row",
     category: "back",
     equipment: ["dumbbells or barbell"],
+    tipsAndTricks: [
+      "keep palms facing down",
+      "lift barbell towards you while keepting torso stationary",
+      "lower barbell back to starting postition using slow and controlled movements",
+    ],
     embedId: "FWJR5Ve8bnQ",
   });
   const back4 = await Exercise.create({
     name: "Shoulder Shrugs",
     category: "back",
     equipment: ["dumbbells or barbell"],
+    tipsAndTricks: [
+      "keep chin up, neck straight and face straight ahead",
+      "bring shoulders as high up towards your ears as you can",
+      "repeat using slow and controlled movements",
+    ],
     embedId: "cJRVVxmytaM",
   });
   const back5 = await Exercise.create({
@@ -143,7 +175,8 @@ async function seed() {
     category: "biceps",
     equipment: ["dumbells"],
     tipsAndTricks: [
-      "utilize full range of motion",
+      "stand or kneel with legs about hips-width distance apart",
+      "lift weights to shoulders, keep shoulders down and back",
       "move slow and controlled movements",
     ],
     embedId: "TwD-YGVP4Bk",
@@ -173,24 +206,41 @@ async function seed() {
     name: "Romanian deadlift",
     category: "legs",
     equipment: ["dumbbell or barbell"],
+    tipsAndTricks: [
+      "stand with feet shoulder-width apart",
+      "push hips back and lower dumbbells while keeping legs straight or slightly bent",
+    ],
     embedId: "7AaaYhMqTws",
   });
   const legs3 = await Exercise.create({
     name: "Leg curl",
     category: "legs",
     equipment: ["leg curl machine"],
+    tipsAndTricks: [
+      "maintain neutral spine - don't put your head too high or too low",
+      "use slow and controlled movements",
+    ],
     embedId: "fK0uZ3KRZRI",
   });
   const legs4 = await Exercise.create({
     name: "Leg extension",
     category: "legs",
     equipment: ["leg extension machine"],
+    tipsAndTricks: [
+      "concentrate on contracting your quads to move the weight rather than yanking your feet up",
+      "use slow and controlled movements",
+    ],
     embedId: "8Jqof7z3QYM",
   });
   const legs5 = await Exercise.create({
     name: "Bulgarian Split Squats",
     category: "glutes",
     equipment: ["Dumbell or barbell", "bench"],
+    tipsAndTricks: [
+      "stand 2-3 feet in front of knee-high bench",
+      "keep torso upright, slowly lower knee towards floor",
+      "reverse the move and return to starting position",
+    ],
     embedId: "HBYGeyb4sSM",
   });
   const legs6 = await Exercise.create({
@@ -413,7 +463,7 @@ async function seed() {
 
   // SAMPLE - TO DELETE
   // await workout1.setUser(cherry);
-  
+
   // await workout1.addExercise(chest1);
 
   // const closed1 = await WorkoutList.findOne({
