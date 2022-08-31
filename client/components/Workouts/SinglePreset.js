@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { fetchPresetWorkout } from "../../store/singleWorkout";
+import { doPresetWorkout } from "../../store/workout";
 
 const SinglePreset = () => {
   const { id } = useParams();
@@ -29,7 +30,7 @@ const SinglePreset = () => {
               )
             })}
           </ul>
-          <button>Let's Go!</button>
+          <button onClick={() => dispatch(doPresetWorkout())}>Let's Go!</button>
         </div>
       ) : (
         <p> No preset workout here!</p>
