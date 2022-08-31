@@ -86,7 +86,6 @@ router.get("/:exerciseId", requireToken, async (req, res, next) => {
 // ADDS A NEW SET
 router.post("/:exerciseId", requireToken, async (req, res, next) => {
   try {
-    console.log("does user exist", req.user);
     const workout = await Workout.findOne({
       where: {
         userId: req.user.dataValues.id,
@@ -95,7 +94,6 @@ router.post("/:exerciseId", requireToken, async (req, res, next) => {
       order: [["createdAt", "ASC"]],
       include: [Exercise],
     });
-    console.log("WORKOUT", workout);
 
     let exercise = await WorkoutList.findOne({
       where: {
@@ -104,12 +102,10 @@ router.post("/:exerciseId", requireToken, async (req, res, next) => {
       },
     });
 
-    console.log("EXERCISE", exercise);
     let index = exercise.sets.findIndex((s) => s.setId === req.body.setId);
     exercise.sets = [...exercise.sets, req.body];
     exercise.sets[index] = req.body;
     exercise.changed("sets", true);
-    console.log("what is req body", req.body);
     await exercise.save();
     res.send(exercise);
   } catch (err) {
@@ -139,8 +135,6 @@ router.put("/:exerciseId", requireToken, async (req, res, next) => {
     let index = exercise.sets.findIndex((s) => s.setId === req.body.setId);
     exercise.sets[index] = req.body;
     exercise.changed("sets", true);
-    console.log("EXERCISE", exercise);
-    console.log("what is req body", req.body);
     await exercise.save();
     res.send(exercise);
   } catch (err) {

@@ -22,7 +22,6 @@ function CurrentWorkout() {
 
   const { allExercises } = workoutlist || [];
   const { exercises, id: workoutId } = allExercises;
-  console.log("workoutlist status?", allExercises);
   return (
     <div className="cw-container">
       <div className="cw-exercise-container">
