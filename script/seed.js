@@ -517,19 +517,16 @@ async function seed() {
   //creating our sprites
   const cat = await Sprite.create({
     name: "cat",
-    weightToUnlock: 0,
-    isUnlocked: true,
+    weightToUnlock: 0
   });
 
   const dog = await Sprite.create({
     name: "dog",
     weightToUnlock: 0,
-    isUnlocked: true,
   });
   const redHatBoy = await Sprite.create({
     name: "redHatBoy",
     weightToUnlock: 0,
-    isUnlocked: true,
   });
 
   const cuteGirl = await Sprite.create({
@@ -576,15 +573,37 @@ async function seed() {
     weightToUnlock: 512000,
   });
   const knight = await Sprite.create({
-    name: "theKnight",
+    name: "knight",
     weightToUnlock: 1024000,
   });
 
-  await cat.setUser(cherry);
-  await dog.setUser(ryan);
-  await redHatBoy.setUser(admin);
-  await dog.setUser(nicole);
-  await cat.setUser(kyle);
+  //await cat.setUser(cherry);
+  await cherry.addSprite(cat);
+  await cherry.addSprite(dog);
+  await cherry.addSprite(redHatBoy);
+  await cherry.addSprite(cuteGirl);
+  await cherry.addSprite(adventureBoy);
+  await cherry.addSprite(zombie);
+  await cherry.addSprite(ninjaGirl);
+  await cherry.addSprite(jackOLantern);
+  await cherry.addSprite(ninjaBoy);
+  await cherry.addSprite(adventureGirl);
+  await cherry.addSprite(dino);
+  await cherry.addSprite(robot);
+  await cherry.addSprite(santa);
+  await cherry.addSprite(knight);
+  await ryan.addSprite(cat);
+  await ryan.addSprite(dog);
+  await ryan.addSprite(redHatBoy);
+  await admin.addSprite(cat);
+  await admin.addSprite(dog);
+  await admin.addSprite(redHatBoy);
+  await nicole.addSprite(cat);
+  await nicole.addSprite(dog);
+  await nicole.addSprite(redHatBoy);
+  await kyle.addSprite(cat);
+  await kyle.addSprite(dog);
+  await kyle.addSprite(redHatBoy);
 
   // const test = await User.findByPk(1, {
   //   include: [{ model: Workout, include: [Exercise] }],

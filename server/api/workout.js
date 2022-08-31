@@ -86,46 +86,69 @@ router.put("/finish", requireToken, async (req, res, next) => {
     await user.update({
       totalWeight: (user.totalWeight += totalWeightFromWorkout),
     });
+    
     await current.update({
       status: "closed",
       workoutTotalWeight: totalWeightFromWorkout,
     });
 
-    // const newTotal = user.totalWeight;
-    // if (newTotal >= 1000) {
-    //   cuteGirl.setUser(user);
-    // }
-    // if (newTotal >= 2000) {
-    //   adventureBoy.setUser(user);
-    // }
-    // if (newTotal >= 4000) {
-    //   zombie.setUser(user);
-    // }
-    // if (newTotal >= 8000) {
-    //   ninjaGirl.setUser(user);
-    // }
-    // if (newTotal >= 16000) {
-    //   jackOLantern.setUser(user);
-    // }
-    // if (newTotal >= 32000) {
-    //   ninjaBoy.setUser(user);
-    // }
-    // if (newTotal >= 64000) {
-    //   adventureGirl.setUser(user);
-    // }
-    // if (newTotal >= 128000) {
-    //   dino.setUser(user);
-    // }
-    // if (newTotal >= 256000) {
-    //   robot.setUser(user);
-    // }
-    // if (newTotal >= 512000) {
-    //   santa.setUser(user);
-    // }
-    // if (newTotal >= 1024000) {
-    //   knight.setUser(user);
-    // }
+    const cuteGirl = await Sprite.findOne({ where: { name: "cuteGirl" } });
+    const adventureBoy = await Sprite.findOne({
+      where: { name: "adventureBoy" },
+    });
+    const zombie = await Sprite.findOne({ where: { name: "zombie" } });
+    const ninjaGirl = await Sprite.findOne({ where: { name: "ninjaGirl" } });
+    const jackOLantern = await Sprite.findOne({
+      where: { name: "jackOLantern" },
+    });
+    const ninjaBoy = await Sprite.findOne({ where: { name: "ninjaBoy" } });
+    const adventureGirl = await Sprite.findOne({
+      where: { name: "adventureGirl" },
+    });
+    const dino = await Sprite.findOne({ where: { name: "dino" } });
+    const robot = await Sprite.findOne({ where: { name: "robot" } });
+    const santa = await Sprite.findOne({ where: { name: "santa" } });
+    const knight = await Sprite.findOne({ where: { name: "knight" } });
 
+    const currentWeightLifted = current.workoutTotalWeight;
+    console.log("current weight lifted", currentWeightLifted);
+    const user = await User.findByPk(req.user.dataValues.id);
+    const totalWeight = user.totalWeight;
+    await user.update({ totalWeight: totalWeight + currentWeightLifted });
+    const newTotal = user.totalWeight;
+    if (newTotal >= 1000) {
+      await user.addSprite(cuteGirl);
+    }
+    if (newTotal >= 2000) {
+      await user.addSprite(adventureBoy);
+    }
+    if (newTotal >= 4000) {
+      await user.addSprite(zombie);
+    }
+    if (newTotal >= 8000) {
+      await user.addSprite(ninjaGirl);
+    }
+    if (newTotal >= 16000) {
+      await user.addSprite(jackOLantern);
+    }
+    if (newTotal >= 32000) {
+      await user.addSprite(ninjaBoy);
+    }
+    if (newTotal >= 64000) {
+      await user.addSprite(adventureGirl);
+    }
+    if (newTotal >= 128000) {
+      await user.addSprite(dino);
+    }
+    if (newTotal >= 256000) {
+      await user.addSprite(robot);
+    }
+    if (newTotal >= 512000) {
+      await user.addSprite(santa);
+    }
+    if (newTotal >= 1024000) {
+      await user.addSprite(knight);
+    }
     res.send(current);
   } catch (error) {
     next(error);
