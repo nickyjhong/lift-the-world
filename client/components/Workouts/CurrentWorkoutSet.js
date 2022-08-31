@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { confirmSet, fetchAllWorkoutlist } from "../../store/workoutlist";
+import { confirmSet } from "../../store/workoutlist";
 
 class CurrentWorkoutSet extends Component {
   constructor(props) {
@@ -79,7 +79,6 @@ class CurrentWorkoutSet extends Component {
 
 const mapDispatchToProps = (dispatch) => ({
   confirmSet: (setData) => dispatch(confirmSet(setData)),
-  getAllWorkoutlist: () => dispatch(fetchAllWorkoutlist()),
 });
 
 export default connect(null, mapDispatchToProps)(CurrentWorkoutSet);
