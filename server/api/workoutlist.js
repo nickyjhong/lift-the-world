@@ -156,7 +156,6 @@ router.delete("/:exerciseId", requireToken, async (req, res, next) => {
     });
 
     let index = exercise.sets.findIndex((s) => s.setId === req.body.setId);
-    
     exercise.sets.pop()
     exercise.changed("sets", true);
 

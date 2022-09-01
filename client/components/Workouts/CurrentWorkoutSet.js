@@ -18,6 +18,11 @@ const CurrentWorkoutSet = (props) => {
     })
   }
 
+  const handleDelete = (event) => {
+    event.preventDefault();
+    dispatch(deleteSet(props.exerciseId))
+  }
+
   const handleConfirmSet = (event) => {
     event.preventDefault();
     dispatch(confirmSet({
@@ -69,7 +74,7 @@ const CurrentWorkoutSet = (props) => {
             {" "}
           </button>
 
-          <button className="set-delete-btn" onClick={() => dispatch(deleteSet(props.exerciseId))}>
+          <button className="set-delete-btn" onClick={handleDelete}>
             <img className="set-delete-btn-img" src="/images/trash.png" />
           </button>
         </div>
