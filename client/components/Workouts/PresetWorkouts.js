@@ -6,7 +6,7 @@ import { getPresetsThunk } from "../../store/workout";
 const PresetWorkouts = () => {
   const dispatch = useDispatch();
 
-  const presets = useSelector((state) => state.workout);
+  const presets = useSelector((state) => state.workout || []);
 
   useEffect(() => {
     dispatch(getPresetsThunk());
