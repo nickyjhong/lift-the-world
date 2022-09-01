@@ -56,7 +56,7 @@ class Routes extends Component {
                 <Route exact path="/exercise/:id" component={SingleExercise} />
                 <Route path="/leaderboard" component={LeaderBoard} />
                 <Route path="/profile" component={UserProfile} />
-                <Route path='/sprites' component={ChooseSprites} />
+                <Route path="/sprites" component={ChooseSprites} />
               </Switch>
             </div>
           </>

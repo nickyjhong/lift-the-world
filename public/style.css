@@ -11,6 +11,7 @@
 @import "./styles/exercises-list.css";
 @import "./styles/choose-sprite.css";
 @import "./styles/workout-summary.css";
+@import "./styles/loading.css";
 @import "./styles/media-query.css";
 
 * {
@@ -32,6 +33,8 @@ body {
 
 a {
   text-decoration: none;
+  color: inherit;
+  cursor: pointer;
 }
 
 label {

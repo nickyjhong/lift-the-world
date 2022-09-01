@@ -13,15 +13,11 @@ const NavBarIcons = ({ isLoggedIn }) => (
             <img className="nav-icon" src="/images/house-solid.svg" />
           </Link>
 
-          <Link to="/recap">
-            Recap
-          </Link>
-
-          <Link to="/exercises">
+          <Link to="/workout">
             <img className="nav-icon" src="/images/dumbbell-solid.svg" />
           </Link>
 
-          <Link to="/workout">
+          <Link to="/exercises">
             <img className="nav-icon" src="/images/plus-solid.svg" />
           </Link>
 

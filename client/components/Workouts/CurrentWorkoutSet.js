@@ -1,32 +1,34 @@
-import React, { useState } from 'react'
-import { useDispatch } from 'react-redux';
-import { confirmSet, deleteSet } from "../../store/workoutlist";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { confirmSet } from "../../store/workoutlist";
 
 const CurrentWorkoutSet = (props) => {
   const dispatch = useDispatch();
-  
+
   let [setInfo, setSetInfo] = useState({
     reps: props.reps,
-    weight: props.weight
-  })
+    weight: props.weight,
+  });
 
   const handleChange = (event) => {
     event.preventDefault();
     setSetInfo({
       ...setInfo,
-      [event.target.name]: event.target.value
-    })
-  }
+      [event.target.name]: event.target.value,
+    });
+  };
 
   const handleConfirmSet = (event) => {
     event.preventDefault();
-    dispatch(confirmSet({
-      ...setInfo,
-      workoutId: props.workoutId,
-      exerciseId: props.exerciseId,
-      setId: props.setId - 1
-    }))
-  }
+    dispatch(
+      confirmSet({
+        ...setInfo,
+        workoutId: props.workoutId,
+        exerciseId: props.exerciseId,
+        setId: props.setId - 1,
+      })
+    );
+  };
   return (
     <div className="cw-info-container">
       <form>
@@ -68,14 +70,10 @@ const CurrentWorkoutSet = (props) => {
           >
             {" "}
           </button>
-
-          <button className="set-delete-btn" onClick={() => dispatch(deleteSet(props.exerciseId))}>
-            <img className="set-delete-btn-img" src="/images/trash.png" />
-          </button>
         </div>
       </form>
     </div>
   );
-}
+};
 
-export default CurrentWorkoutSet
+export default CurrentWorkoutSet;
