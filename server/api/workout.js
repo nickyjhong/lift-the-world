@@ -226,7 +226,7 @@ router.post("/:id/add", requireToken, async (req, res, next) => {
       })
 
       newWorkoutExercise.map(exercise => {
-        exercise.update({ userId: req.user.dataValues.id })
+        exercise.update({ userId: req.user.dataValues.id, sets: [{ reps: "", weight: "", setId: 0 }] })
       })
 
       res.send(newWorkout)
