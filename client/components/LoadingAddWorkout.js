@@ -10,10 +10,10 @@ const LoadingAddWorkout = () => {
       </div>
       <div className="see-exercises">
         <Link to="/exercises">
-          <button className="see-preset-button">See all exercises</button>
+          <button className="see-exercises-button">See all exercises</button>
         </Link>
         <Link to="/workout/preset">
-          <button className="see-preset-button">See preset workouts</button>
+          <button className="see-exercises-button">See preset workouts</button>
         </Link>
       </div>
     </>
