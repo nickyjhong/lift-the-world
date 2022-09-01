@@ -35,29 +35,6 @@ const AllExercises = () => {
       {exercises ? (
         <div className="all-exercises-container">
           <h1 className="all-exercises-heading">All Exercises</h1>
-          {/* <ul className="all-exercises-list">
-            {exercises.map((exercise) => {
-              return (
-                <li key={exercise.id} className="all-exercises-list-item">
-                  <Link
-                    to={`/exercise/${exercise.id}`}
-                    className="all-exercises-list-name"
-                  >
-                    {exercise.name}
-                  </Link>
-                  <button
-                    onClick={() => {
-                      dispatch(addToWorkout(exercise));
-                      // notification("info");
-                    }}
-                    className="all-exercises-add-btn"
-                  >
-                    add to workout
-                  </button>
-                </li>
-              );
-            })}
-          </ul> */}
           {exercises.map((exercise) => {
             return (
             <div className="exercise-container" key={exercise.id}>
@@ -87,7 +64,7 @@ const AllExercises = () => {
                   }}
                   className="exercise-add-btn"
                 >
-                  <img src="/images/dumbbell.png" className="exercise-add-btn-img" />
+                  <img src="/images/plus-solid.svg" className="exercise-add-btn-img" />
                 </button>
               </div>
             </div>
