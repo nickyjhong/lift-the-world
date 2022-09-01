@@ -14,6 +14,9 @@ const SinglePreset = () => {
     dispatch(fetchPresetWorkout(id));
   }, [dispatch, id]);
 
+  if (!preset || preset.length === 0) {
+    return <div>Loading...</div>
+  }
   return (
     <div>
       {preset && preset.id ? (

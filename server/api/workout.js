@@ -278,6 +278,7 @@ router.delete('/:exerciseId', requireToken, async (req, res, next) => {
         userId: req.user.dataValues.id,
         status: "active",
       },
+      include: [Exercise]
     })
 
 
@@ -290,7 +291,14 @@ router.delete('/:exerciseId', requireToken, async (req, res, next) => {
       })
     }
 
-    res.send(workout)
+    res.send(
+      await Workout.findOne({
+      where: {
+        userId: req.user.dataValues.id,
+        status: "active",
+      },
+      include: [Exercise]
+    }))
   } catch (error) {
     next(error)
   }

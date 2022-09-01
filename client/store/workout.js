@@ -126,8 +126,8 @@ export const deleteFromWorkout = (exerciseId) => {
             authorization: token,
           },
         });
+        dispatch(_updateWorkout(data));
       }
-      dispatch(_updateWorkout(data));
     } catch (error) {
       console.log(error)
     }
