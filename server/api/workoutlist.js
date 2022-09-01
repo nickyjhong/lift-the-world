@@ -136,3 +136,31 @@ router.put("/:exerciseId", requireToken, async (req, res, next) => {
     next(err);
   }
 });
+
+router.delete("/:exerciseId", requireToken, async (req, res, next) => {
+  try {
+    const workout = await Workout.findOne({
+      where: {
+        userId: req.user.dataValues.id,
+        status: "active",
+      },
+      order: [["createdAt", "ASC"]],
+      include: [Exercise],
+    });
+
+    let exercise = await WorkoutList.findOne({
+      where: {
+        exerciseId: req.params.exerciseId,
+        workoutId: workout.id,
+      },
+    });
+
+    let index = exercise.sets.findIndex((s) => s.setId === req.body.setId);
+    exercise.sets.pop()
+    exercise.changed("sets", true);
+    await exercise.save();
+    res.send(exercise);
+  } catch (err) {
+    next (err)
+  }
+})
