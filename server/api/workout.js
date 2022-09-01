@@ -270,4 +270,29 @@ router.get("/preset/:id", async (req, res, next) => {
     next(error);
   }
 });
+
+router.delete('/:exerciseId', requireToken, async (req, res, next) => {
+  try {
+    const workout = await Workout.findOne({
+      where: {
+        userId: req.user.dataValues.id,
+        status: "active",
+      },
+    })
+
+
+    if (workout) {
+      await WorkoutList.destroy({
+        where: {
+          workoutId: workout.id,
+          exerciseId: req.params.exerciseId
+        }
+      })
+    }
+
+    res.send(workout)
+  } catch (error) {
+    next(error)
+  }
+})
 module.exports = router;

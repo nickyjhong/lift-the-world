@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector, connect } from "react-redux";
 import { addSet, confirmSet, fetchWorkoutlist } from "../../store/workoutlist";
-import { finishWorkout } from "../../store/workout";
+import { finishWorkout, deleteFromWorkout } from "../../store/workout";
 import CurrentWorkoutSet from "./CurrentWorkoutSet";
 import { Link } from "react-router-dom";
 
@@ -28,7 +28,9 @@ function CurrentWorkout() {
         {allExercises.exercises.map((exercise) => {
           return (
             <div key={exercise.id}>
-              <h2 className="cw-exercise-name">{exercise.name}</h2>
+              <h2 className="cw-exercise-name">{exercise.name}
+                <button onClick={() => dispatch(deleteFromWorkout(exercise.id))}>Remove from exercise</button>
+              </h2> 
               <div className="cw-exercise">
                 <div className="cw-headings">
                   <p className="cw-heading">Set</p>
@@ -94,6 +96,7 @@ const mapDispatchToProps = (dispatch) => ({
   confirmSet: (setData) => dispatch(confirmSet(setData)),
   fetchWorkoutlist: () => dispatch(fetchWorkoutlist()),
   finishWorkout: () => dispatch(finishWorkout()),
+  
 });
 
 export default connect(null, mapDispatchToProps)(CurrentWorkout);
