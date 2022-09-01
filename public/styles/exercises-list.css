@@ -33,3 +33,56 @@
   font-size: .8rem;
   color: #5B5757;
 }
+
+.exercise-img {
+  max-width: 2.25rem;
+  max-height: 2.25rem;
+}
+
+.exercise-container {
+  display: flex;
+  border-bottom: 1px solid lightgray;
+  height: 2.5rem;
+  justify-content: flex-start
+}
+
+.exercise-info-container {
+  font-size: .8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 1rem;
+  width: 12rem;
+}
+
+.exercise-img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.25rem;
+}
+
+.exercise-name {
+  font-weight: 700;
+  margin: 0;
+  padding-bottom: .15rem;
+}
+
+.exercise-category {
+  font-size: .6rem;
+  margin: 0;
+}
+
+.exercise-add-btn {
+  border: none;
+  background: inherit;
+}
+
+.exercise-add-btn-img {
+  height: .75rem;
+}
+
+.exercise-btn-container {
+  display: flex;
+  justify-content: center;
+}
