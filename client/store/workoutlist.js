@@ -5,6 +5,7 @@ import { TOKEN } from "./auth";
 const SET_WORKOUT_LIST = "SET_WORKOUT_LIST";
 const SET_PREV_WORKOUT_SET = "SET_PREV_WORKOUT_SET";
 const UPDATE_WORKOUT_LIST = "UPDATE_WORKOUT_LIST";
+const DELETE_EXERCISE = "DELETE_EXERCISE"
 
 // ACTION CREATORS
 export const _setWorkoutlist = (workoutlist) => {
@@ -27,6 +28,13 @@ export const _updateWorkoutlist = (exercise) => {
     exercise,
   };
 };
+
+export const _deleteExerciseFromWOL = (exercise) => {
+  return {
+    type: DELETE_EXERCISE,
+    exercise
+  }
+}
 
 // THUNKS
 // fetch all current exercises in workout list
@@ -96,7 +104,12 @@ export const deleteSet = (exerciseId) => {
             authorization: token,
           },
         })
-      dispatch(_updateWorkoutlist(data))
+        console.log('DATA', data)
+        if (data.sets.length === 0) {
+          dispatch(_deleteExerciseFromWOL(data))
+        } else {
+          dispatch(_updateWorkoutlist(data))
+        }
       }
     } catch (err) {
       console.log(err)
@@ -162,6 +175,9 @@ export default function workoutlistReducer(state = initialState, action) {
       return { ...state };
     case SET_PREV_WORKOUT_SET:
       return action.exercise;
+    case DELETE_EXERCISE:
+      const filtered = state.allExercises.exercises.filter((exercise) => exercise.id !== action.exercise.exerciseId)
+      return { ...state, allExercises: { ...state.allExercises, exercises: filtered }}
     default:
       return state;
   }
