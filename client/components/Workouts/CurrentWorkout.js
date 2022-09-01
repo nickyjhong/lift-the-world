@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector, connect } from "react-redux";
-import { addSet, confirmSet, fetchWorkoutlist } from "../../store/workoutlist";
-import { finishWorkout, deleteFromWorkout } from "../../store/workout";
+import { addSet, confirmSet, fetchWorkoutlist, deleteFromWorkout } from "../../store/workoutlist";
+import { finishWorkout } from "../../store/workout";
 import CurrentWorkoutSet from "./CurrentWorkoutSet";
 import { Link } from "react-router-dom";
 

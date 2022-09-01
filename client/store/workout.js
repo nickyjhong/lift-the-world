@@ -116,24 +116,6 @@ export const finishWorkout = (workout) => {
   };
 };
 
-export const deleteFromWorkout = (exerciseId) => {
-  return async (dispatch) => {
-    try {
-      const token = window.localStorage.getItem(TOKEN);
-      if (token) {
-        const { data } = await axios.delete(`/api/workout/${exerciseId}`, {
-          headers: {
-            authorization: token,
-          },
-        });
-        dispatch(_updateWorkout(data));
-      }
-    } catch (error) {
-      console.log(error)
-    }
-  }
-}
-
 // REDUCER
 const initialState = [];
 
