@@ -23,6 +23,9 @@ const Exercise = db.define("exercise", {
   embedId: {
     type: Sequelize.STRING,
   },
+  image: {
+    type: Sequelize.TEXT
+  }
 });
 
 module.exports = Exercise;

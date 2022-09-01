@@ -19,7 +19,7 @@ const LeaderBoard = () => {
           return (
             <div key={user.id} className="lb-info-container">
               <h3 className="lb-name lb-info">{user.username}</h3>
-              <h3 className="lb-weight lb-info">{user.totalWeight}</h3>
+              <h3 className="lb-weight lb-info">{user.totalWeight.toLocaleString("en-US")}</h3>
             </div>
           );
         })}
