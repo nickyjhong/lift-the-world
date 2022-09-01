@@ -82,4 +82,24 @@
     font-weight: 600;
   }
 
+  .cw-btn-container {
+    display: flex;
+    justify-content: space-between;
+    margin: .6rem;
+  }
+
+  .cw-add-btn, .cw-delete-btn {
+    width: 6rem;
+    height: 1.25rem;
+    font-size: .75rem;
+  }
+
+  .cw-single-exercise-container {
+    margin: 1.25rem 0;
+  }
+
+  .cw-workout-name {
+    margin: 1rem 0;
+    font-weight: 700;
+  }
 }

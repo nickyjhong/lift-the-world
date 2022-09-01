@@ -4,6 +4,7 @@ import {
   addSet,
   fetchWorkoutlist,
   deleteFromWorkout,
+  deleteSet
 } from "../../store/workoutlist";
 import { fetchWorkout, finishWorkout } from "../../store/workout";
 import CurrentWorkoutSet from "./CurrentWorkoutSet";
@@ -19,7 +20,6 @@ const CurrentWorkout = () => {
     dispatch(fetchWorkout());
     dispatch(fetchWorkoutlist());
   }, [dispatch]);
-
 
   if (
     !workoutlist.allExercises || !workoutlist.allExercises.exercises ||
@@ -38,18 +38,18 @@ const CurrentWorkout = () => {
   return (
     <div className="cw-container">
       <div className="cw-exercise-container">
-        <h1>{workout.name}</h1>
+        <h1 className="cw-workout-name">{workout.name}</h1>
         {allExercises.exercises.map((exercise) => {
           return (
-            <div key={exercise.id}>
+            <div key={exercise.id} className="cw-single-exercise-container">
               <Link
                 to={`/exercise/${exercise.id}`}
                 className="cw-exercise-name"
               >
                 {exercise.name}
               </Link>
-              <button onClick={() => dispatch(deleteFromWorkout(exercise.id))}>
-                Remove from exercise
+              <button className="exercise-delete-btn" onClick={() => dispatch(deleteFromWorkout(exercise.id))}>
+                <img className="exercise-delete-btn-img" src="/images/trash.png" />
               </button>
               <div className="cw-exercise">
                 <div className="cw-headings">
@@ -73,6 +73,12 @@ const CurrentWorkout = () => {
                 })}
 
                 <div className="cw-btn-container">
+                <button
+                    className="cw-delete-btn"
+                    onClick={() => dispatch(deleteSet(exercise.id))}
+                  >
+                    - Remove Set
+                  </button>
                   <button
                     className="cw-add-btn"
                     onClick={() => {
