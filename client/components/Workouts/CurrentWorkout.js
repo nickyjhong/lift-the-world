@@ -33,9 +33,10 @@ function CurrentWorkout() {
         {allExercises.exercises.map((exercise) => {
           return (
             <div key={exercise.id}>
-              <h2 className="cw-exercise-name">{exercise.name}
-                <button onClick={() => dispatch(deleteFromWorkout(exercise.id))}>Remove from exercise</button>
-              </h2> 
+              <Link to={`/exercise/${exercise.id}`} className="cw-exercise-name">
+                {exercise.name}
+              </Link>
+              <button onClick={() => dispatch(deleteFromWorkout(exercise.id))}>Remove from exercise</button>
               <div className="cw-exercise">
                 <div className="cw-headings">
                   <p className="cw-heading">Set</p>
