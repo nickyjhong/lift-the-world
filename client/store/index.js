@@ -14,6 +14,7 @@ import previousReducer from "./previous";
 import workoutlistReducer from "./workoutlist";
 import spritesReducer from "./sprites";
 import selectedSpriteReducer from "./updateSelectedSprite";
+import getSelectedSpriteReducer from "./fetchSelectedSprite";
 
 const reducer = combineReducers({
   auth: auth,
@@ -32,6 +33,7 @@ const reducer = combineReducers({
 
   sprites: spritesReducer,
   selectedSprite: selectedSpriteReducer,
+  userSelectedSprite: getSelectedSpriteReducer,
 });
 
 const middleware = composeWithDevTools(

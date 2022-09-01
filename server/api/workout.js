@@ -110,44 +110,96 @@ router.put("/finish", requireToken, async (req, res, next) => {
     const santa = await Sprite.findOne({ where: { name: "santa" } });
     const knight = await Sprite.findOne({ where: { name: "knight" } });
 
-    const currentWeightLifted = current.workoutTotalWeight;
-
-    const totalWeight = user.totalWeight;
-    await user.update({ totalWeight: totalWeight + currentWeightLifted });
     const newTotal = user.totalWeight;
+    let newLevel = user.level;
+
     if (newTotal >= 1000) {
       await user.addSprite(cuteGirl);
+      if (user.hasReached2 === false) {
+        newLevel += 1;
+        await user.update({ level: newLevel, hasReached2: true });
+      }
+      if (newTotal >= 2500) {
+        await user.addSprite(adventureBoy);
+        if (user.hasReached3 === false) {
+          newLevel += 1;
+          await user.update({ level: newLevel, hasReached3: true });
+        }
+        if (newTotal >= 5000) {
+          await user.addSprite(zombie);
+          if (user.hasReached4 === false) {
+            newLevel += 1;
+            await user.update({ level: newLevel, hasReached4: true });
+          }
+          if (newTotal >= 10000) {
+            await user.addSprite(ninjaGirl);
+            if (user.hasReached5 === false) {
+              newLevel += 1;
+              await user.update({ level: newLevel, hasReached5: true });
+            }
+            if (newTotal >= 20000) {
+              await user.addSprite(jackOLantern);
+              if (user.hasReached6 === false) {
+                newLevel += 1;
+                await user.update({ level: newLevel, hasReached6: true });
+              }
+              if (newTotal >= 40000) {
+                await user.addSprite(ninjaBoy);
+                if (user.hasReached7 === false) {
+                  newLevel += 1;
+                  await user.update({ level: newLevel, hasReached7: true });
+                }
+                if (newTotal >= 75000) {
+                  await user.addSprite(adventureGirl);
+                  if (user.hasReached8 === false) {
+                    newLevel += 1;
+                    await user.update({ level: newLevel, hasReached8: true });
+                  }
+                  if (newTotal >= 125000) {
+                    await user.addSprite(dino);
+                    if (user.hasReached9 === false) {
+                      newLevel += 1;
+                      await user.update({ level: newLevel, hasReached9: true });
+                    }
+                    if (newTotal >= 250000) {
+                      await user.addSprite(robot);
+                      if (user.hasReached10 === false) {
+                        newLevel += 1;
+                        await user.update({
+                          level: newLevel,
+                          hasReached10: true,
+                        });
+                      }
+                      if (newTotal >= 500000) {
+                        await user.addSprite(santa);
+                        if (user.hasReached11 === false) {
+                          newLevel += 1;
+                          await user.update({
+                            level: newLevel,
+                            hasReached11: true,
+                          });
+                        }
+                        if (newTotal >= 1000000) {
+                          await user.addSprite(knight);
+                          if (user.hasReached12 === false) {
+                            newLevel += 1;
+                            await user.update({
+                              level: newLevel,
+                              hasReached12: true,
+                            });
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
-    if (newTotal >= 2000) {
-      await user.addSprite(adventureBoy);
-    }
-    if (newTotal >= 4000) {
-      await user.addSprite(zombie);
-    }
-    if (newTotal >= 8000) {
-      await user.addSprite(ninjaGirl);
-    }
-    if (newTotal >= 16000) {
-      await user.addSprite(jackOLantern);
-    }
-    if (newTotal >= 32000) {
-      await user.addSprite(ninjaBoy);
-    }
-    if (newTotal >= 64000) {
-      await user.addSprite(adventureGirl);
-    }
-    if (newTotal >= 128000) {
-      await user.addSprite(dino);
-    }
-    if (newTotal >= 256000) {
-      await user.addSprite(robot);
-    }
-    if (newTotal >= 512000) {
-      await user.addSprite(santa);
-    }
-    if (newTotal >= 1024000) {
-      await user.addSprite(knight);
-    }
+
     res.send(current);
   } catch (error) {
     next(error);
