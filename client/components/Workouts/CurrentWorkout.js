@@ -91,12 +91,4 @@ function CurrentWorkout() {
   );
 }
 
-const mapDispatchToProps = (dispatch) => ({
-  addSet: (setData) => dispatch(addSet(setData)),
-  confirmSet: (setData) => dispatch(confirmSet(setData)),
-  fetchWorkoutlist: () => dispatch(fetchWorkoutlist()),
-  finishWorkout: () => dispatch(finishWorkout()),
-  
-});
-
-export default connect(null, mapDispatchToProps)(CurrentWorkout);
+export default CurrentWorkout

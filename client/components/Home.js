@@ -1,9 +1,9 @@
 import React from "react";
-import { connect } from "react-redux";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-export const Home = (props) => {
-  const { username } = props;
+export const Home = () => {
+  const username = useSelector((state) => state.auth.username)
 
   return (
     <div className="homepage-container">
@@ -46,10 +46,4 @@ export const Home = (props) => {
   );
 };
 
-const mapState = (state) => {
-  return {
-    username: state.auth.username,
-  };
-};
-
-export default connect(mapState)(Home);
+export default Home

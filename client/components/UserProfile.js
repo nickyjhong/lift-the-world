@@ -4,7 +4,7 @@ import { fetchSingleUser } from "../store/singleUser";
 import { Link } from "react-router-dom";
 import { logout } from "../store";
 
-const UserProfile = ({ handleClick, username }) => {
+const UserProfile = () => {
   const character = [
     "/sprites/zombie/zombie-idle.gif",
     "/sprites/zombie/zombie-jump.gif",
@@ -18,6 +18,7 @@ const UserProfile = ({ handleClick, username }) => {
   const dispatch = useDispatch();
 
   const user = useSelector((state) => state.singleUser);
+  const username = useSelector((state) => state.auth.username);
 
   useEffect(() => {
     dispatch(fetchSingleUser());
@@ -53,7 +54,7 @@ const UserProfile = ({ handleClick, username }) => {
         </p>
         <button className="progress-btn">See my progress graph</button>
         <Link to="/login">
-          <button className="logout-btn" onClick={handleClick}>
+          <button className="logout-btn" onClick={() => dispatch(logout())}>
             Logout
           </button>
         </Link>
@@ -62,14 +63,4 @@ const UserProfile = ({ handleClick, username }) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  username: state.auth.username,
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  handleClick() {
-    dispatch(logout());
-  },
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(UserProfile);
+export default UserProfile

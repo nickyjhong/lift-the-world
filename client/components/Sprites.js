@@ -5,8 +5,8 @@ import { updateSelectedSprite } from '../store/updateSelectedSprite';
 
 
 const ChooseSprites = () => {
-   const dispatch = useDispatch();
-   const [currentSprite, setCurrentSprite] = useState({name: ''});
+    const dispatch = useDispatch();
+    const [currentSprite, setCurrentSprite] = useState({name: ''});
     
     useEffect(()=>{
         dispatch(fetchUnlockedSprites());
@@ -23,7 +23,7 @@ const ChooseSprites = () => {
 
     const sprites = useSelector((state)=>{
         return state.sprites
-       }) || [];
+    }) || [];
 
     
 
