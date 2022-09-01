@@ -7,7 +7,7 @@ export const Home = () => {
 
   return (
     <div className="homepage-container">
-      <h3 className="homepage-header">Welcome to Lift The World {username}</h3>
+      <h3 className="homepage-header">Welcome, {username}</h3>
 
       <div className="homepage-btn-container">
         
@@ -30,16 +30,16 @@ export const Home = () => {
         </div>
 
         <div className="homepage-link-btn">
-          <Link to="/dontKnowWhatThisIsYet" className="homepage-btn-link">
-            <button className="homepage-btn">View My Progress</button>
+          <Link to="/sprites" className="homepage-btn-link">
+            <button className="homepage-btn">View Unlocked Sprites</button>
           </Link>
         </div>
 
-        <div className="homepage-link-btn">
+        {/* <div className="homepage-link-btn">
           <Link to="/dontKnowWhatThisIsYet" className="homepage-btn-link">
             <button className="homepage-btn">Chat With a Trainer</button>
           </Link>
-        </div>
+        </div> */}
       </div>
       <img className="homepage-image" src="/images/cat1.png" />
     </div>
