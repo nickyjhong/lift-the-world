@@ -19,8 +19,9 @@ const CurrentWorkout = () => {
     dispatch(fetchWorkoutlist());
   }, [dispatch]);
 
+
   if (
-    !workoutlist.allExercises.exercises ||
+    !workoutlist.allExercises || !workoutlist.allExercises.exercises ||
     workoutlist.allExercises.exercises.length === 0
   ) {
     return <div>Loading... please add a workout!</div>;
