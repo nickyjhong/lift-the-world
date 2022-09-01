@@ -1,15 +1,17 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector, connect } from "react-redux";
 import { addSet, confirmSet, fetchWorkoutlist, deleteFromWorkout } from "../../store/workoutlist";
-import { finishWorkout } from "../../store/workout";
+import { fetchWorkout, finishWorkout } from "../../store/workout";
 import CurrentWorkoutSet from "./CurrentWorkoutSet";
 import { Link } from "react-router-dom";
 
 function CurrentWorkout() {
   const dispatch = useDispatch();
   const workoutlist = useSelector((state) => state.workoutlist);
+  const workout = useSelector((state) => state.workout)
 
   useEffect(() => {
+    dispatch(fetchWorkout())
     dispatch(fetchWorkoutlist());
   }, [dispatch]);
 
@@ -22,9 +24,12 @@ function CurrentWorkout() {
 
   const { allExercises } = workoutlist || [];
   const { exercises, id: workoutId } = allExercises;
+
+  console.log('WORKOUT', workout)
   return (
     <div className="cw-container">
       <div className="cw-exercise-container">
+        <h1>{workout.name}</h1>
         {allExercises.exercises.map((exercise) => {
           return (
             <div key={exercise.id}>
