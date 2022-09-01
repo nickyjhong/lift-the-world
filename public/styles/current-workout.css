@@ -130,3 +130,11 @@
 .cw-exercise-name {
   font-size: .8rem;
 }
+
+.set-delete-btn {
+  border: none;
+}
+
+.set-delete-btn-img {
+  height: 1rem;
+}

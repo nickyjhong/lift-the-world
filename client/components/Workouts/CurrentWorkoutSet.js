@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
-import { confirmSet } from "../../store/workoutlist";
+import { confirmSet, deleteSet } from "../../store/workoutlist";
 
 const CurrentWorkoutSet = (props) => {
   const dispatch = useDispatch();
@@ -67,6 +67,10 @@ const CurrentWorkoutSet = (props) => {
             onClick={handleConfirmSet}
           >
             {" "}
+          </button>
+
+          <button className="set-delete-btn" onClick={() => dispatch(deleteSet(props.exerciseId))}>
+            <img className="set-delete-btn-img" src="/images/trash.png" />
           </button>
         </div>
       </form>
