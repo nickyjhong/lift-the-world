@@ -1,0 +1,31 @@
+.workout-summary-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.workout-summary-table {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.workout-summary-heading {
+  margin: 0;
+  font-size: .8rem;
+  font-weight: 600;
+  color: #5B5757;
+}
+
+.set-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.set-p-info {
+  font-size: 0.8rem;
+  color: #5B5757;
+}

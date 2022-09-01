@@ -4,6 +4,8 @@
 }
 
 .cw-workout-name {
+  display: flex;
+  flex-direction: row;
   font-size: 1.35rem;
   margin-bottom: 0;
   font-weight: 500;

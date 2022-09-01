@@ -12,13 +12,27 @@ const WeightComparison = () => {
   }, [dispatch]);
 
   const exercises = weightsComparison.exercises || [];
-  const totalWeight =
+  const totalWeightArrSets =
     exercises.map((exercise) => {
-      return exercise.workoutlist.sets.reduce((accum, curr) => {
-        let totalWeight = curr.reps * curr.weight;
-        return accum + totalWeight;
-      }, 0);
-    })[0] || [];
+      return exercise.workoutlist.sets.map((set) => {
+        let total = 0;
+        total += set.reps * set.weight;
+        return total;
+      });
+    }) || [];
+
+  const totalWeightArr = totalWeightArrSets.map((set) => {
+    let total = 0;
+    const newTotal = set.reduce((acc, curr) => {
+      return (acc += parseInt(curr));
+    }, 0);
+    total += newTotal;
+    return total;
+  });
+
+  const totalWeight = totalWeightArr.reduce((acc, curr) => {
+    return (acc += curr);
+  }, 0);
 
   const comparison = weightFunction(totalWeight);
   return (
