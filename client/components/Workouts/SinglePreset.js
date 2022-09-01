@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { fetchPresetWorkout } from "../../store/singleWorkout";
 import { doPresetWorkout } from "../../store/workout";
+import Loading from "../Loading";
 
 const SinglePreset = () => {
   const { id } = useParams();
@@ -15,7 +16,11 @@ const SinglePreset = () => {
   }, [dispatch, id]);
 
   if (!preset || preset.length === 0) {
-    return <div>Loading...</div>
+    return (
+      <div>
+        <Loading />
+      </div>
+    );
   }
   return (
     <div>
@@ -24,16 +29,12 @@ const SinglePreset = () => {
           <p>{preset.name}</p>
           <ul>
             {preset.exercises.map((exercise) => {
-              return (
-                <li 
-                  key={exercise.id}
-                >
-                  {exercise.name}
-                </li>
-              )
+              return <li key={exercise.id}>{exercise.name}</li>;
             })}
           </ul>
-          <button onClick={() => dispatch(doPresetWorkout(id))}>Let's Go!</button>
+          <button onClick={() => dispatch(doPresetWorkout(id))}>
+            Let's Go!
+          </button>
         </div>
       ) : (
         <p> No preset workout here!</p>

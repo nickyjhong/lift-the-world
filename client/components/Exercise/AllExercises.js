@@ -5,6 +5,22 @@ import { addToWorkout } from "../../store/workout";
 import { useParams } from "react-router-dom";
 import YoutubeEmbed from "./YoutubeEmbed";
 import { Link } from "react-router-dom";
+import {
+  NotificationContainer,
+  NotificationManager,
+} from "react-notifications";
+
+// const notification = () => {
+//   createNotification = (type) => {
+//     return () => {
+//       switch (type) {
+//         case "info":
+//           NotificationManager.info("Added exercise!");
+//           break;
+//       }
+//     };
+//   };
+// };
 
 const AllExercises = () => {
   const exercises = useSelector((state) => state.allExercises);
@@ -23,17 +39,22 @@ const AllExercises = () => {
             {exercises.map((exercise) => {
               return (
                 <li key={exercise.id} className="all-exercises-list-item">
-                  <Link to={`/exercise/${exercise.id}`} className="all-exercises-list-name">
+                  <Link
+                    to={`/exercise/${exercise.id}`}
+                    className="all-exercises-list-name"
+                  >
                     {exercise.name}
                   </Link>
-                  <button 
-                    onClick={() => dispatch(addToWorkout(exercise))}
+                  <button
+                    onClick={() => {
+                      dispatch(addToWorkout(exercise));
+                      // notification("info");
+                    }}
                     className="all-exercises-add-btn"
                   >
                     add to workout
                   </button>
                 </li>
-                
               );
             })}
           </ul>

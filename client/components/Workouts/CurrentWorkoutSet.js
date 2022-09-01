@@ -1,37 +1,40 @@
-import React, { useState } from 'react'
-import { useDispatch } from 'react-redux';
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { confirmSet, deleteSet } from "../../store/workoutlist";
 
 const CurrentWorkoutSet = (props) => {
   const dispatch = useDispatch();
-  
+
   let [setInfo, setSetInfo] = useState({
     reps: props.reps,
-    weight: props.weight
-  })
+    weight: props.weight,
+  });
 
   const handleChange = (event) => {
     event.preventDefault();
     setSetInfo({
       ...setInfo,
-      [event.target.name]: event.target.value
-    })
-  }
+      [event.target.name]: event.target.value,
+    });
+  };
 
   const handleDelete = (event) => {
     event.preventDefault();
-    dispatch(deleteSet(props.exerciseId))
-  }
+    alert("you deleted a set");
+    dispatch(deleteSet(props.exerciseId));
+  };
 
   const handleConfirmSet = (event) => {
     event.preventDefault();
-    dispatch(confirmSet({
-      ...setInfo,
-      workoutId: props.workoutId,
-      exerciseId: props.exerciseId,
-      setId: props.setId - 1
-    }))
-  }
+    dispatch(
+      confirmSet({
+        ...setInfo,
+        workoutId: props.workoutId,
+        exerciseId: props.exerciseId,
+        setId: props.setId - 1,
+      })
+    );
+  };
   return (
     <div className="cw-info-container">
       <form>
@@ -81,6 +84,6 @@ const CurrentWorkoutSet = (props) => {
       </form>
     </div>
   );
-}
+};
 
-export default CurrentWorkoutSet
+export default CurrentWorkoutSet;

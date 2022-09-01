@@ -8,6 +8,7 @@ import {
 import { fetchWorkout, finishWorkout } from "../../store/workout";
 import CurrentWorkoutSet from "./CurrentWorkoutSet";
 import { Link } from "react-router-dom";
+import LoadingAddWorkout from "../LoadingAddWorkout";
 
 const CurrentWorkout = () => {
   const dispatch = useDispatch();
@@ -24,7 +25,11 @@ const CurrentWorkout = () => {
     !workoutlist.allExercises || !workoutlist.allExercises.exercises ||
     workoutlist.allExercises.exercises.length === 0
   ) {
-    return <div>Loading... please add a workout!</div>;
+    return (
+      <div>
+        <LoadingAddWorkout />
+      </div>
+    );
   }
 
   const { allExercises } = workoutlist || [];
