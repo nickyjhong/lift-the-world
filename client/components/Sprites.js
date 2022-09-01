@@ -1,11 +1,11 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useRef} from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { fetchUnlockedSprites } from '../store/sprites';
 import { updateSelectedSprite } from '../store/updateSelectedSprite';
-import { Link } from 'react-router-dom';
 
 
-const ChooseSprites = () => {
+const ChooseSprites = (props) => {
+    const isMounted = useRef(false);
     const dispatch = useDispatch();
     const [currentSprite, setCurrentSprite] = useState({name: ''});
     
@@ -14,8 +14,16 @@ const ChooseSprites = () => {
     }, []);
 
     useEffect(()=>{
-        dispatch(updateSelectedSprite(currentSprite));
-        console.log("CURRENT SPRITE IN SPRITES", currentSprite);
+        if(isMounted.current){
+            dispatch(updateSelectedSprite(currentSprite));
+            setTimeout(()=>{
+                props.history.push('/profile');
+            }, 10);
+            
+        }else{
+            isMounted.current = true;
+        }
+        
     }, [currentSprite]);
 
     const chooseSprite = (event)=>{
