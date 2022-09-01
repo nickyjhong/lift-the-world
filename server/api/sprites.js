@@ -5,6 +5,18 @@ const {
 const { requireToken } = require("./middleware");
 module.exports = router;
 
+router.get('/selectedSprite', requireToken, async (req, res, next)=>{
+    try {
+        const user = await User.findByPk(req.user.dataValues.id);
+        console.log("USER", user);
+        const sprite = user.selectedSprite;
+        console.log("SELECTED SPRITE", sprite);
+        res.send(sprite);
+    } catch (error) {
+        next(error)
+    }
+})
+
 router.get('/', requireToken, async (req, res, next) => {
     try {
         const user = await User.findByPk(req.user.dataValues.id, {
