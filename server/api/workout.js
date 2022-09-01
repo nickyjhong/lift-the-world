@@ -226,7 +226,7 @@ router.post("/:id/add", requireToken, async (req, res, next) => {
       })
 
       newWorkoutExercise.map(exercise => {
-        exercise.update({ userId: req.user.dataValues.id })
+        exercise.update({ userId: req.user.dataValues.id, sets: [{ reps: "", weight: "", setId: 0 }] })
       })
 
       res.send(newWorkout)
@@ -270,4 +270,37 @@ router.get("/preset/:id", async (req, res, next) => {
     next(error);
   }
 });
+
+router.delete('/:exerciseId', requireToken, async (req, res, next) => {
+  try {
+    const workout = await Workout.findOne({
+      where: {
+        userId: req.user.dataValues.id,
+        status: "active",
+      },
+      include: [Exercise]
+    })
+
+
+    if (workout) {
+      await WorkoutList.destroy({
+        where: {
+          workoutId: workout.id,
+          exerciseId: req.params.exerciseId
+        }
+      })
+    }
+
+    res.send(
+      await Workout.findOne({
+      where: {
+        userId: req.user.dataValues.id,
+        status: "active",
+      },
+      include: [Exercise]
+    }))
+  } catch (error) {
+    next(error)
+  }
+})
 module.exports = router;

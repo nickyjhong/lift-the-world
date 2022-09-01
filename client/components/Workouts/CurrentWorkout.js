@@ -1,15 +1,17 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector, connect } from "react-redux";
-import { addSet, confirmSet, fetchWorkoutlist } from "../../store/workoutlist";
-import { finishWorkout } from "../../store/workout";
+import { addSet, confirmSet, fetchWorkoutlist, deleteFromWorkout } from "../../store/workoutlist";
+import { fetchWorkout, finishWorkout } from "../../store/workout";
 import CurrentWorkoutSet from "./CurrentWorkoutSet";
 import { Link } from "react-router-dom";
 
 function CurrentWorkout() {
   const dispatch = useDispatch();
   const workoutlist = useSelector((state) => state.workoutlist);
+  const workout = useSelector((state) => state.workout)
 
   useEffect(() => {
+    dispatch(fetchWorkout())
     dispatch(fetchWorkoutlist());
   }, [dispatch]);
 
@@ -22,13 +24,19 @@ function CurrentWorkout() {
 
   const { allExercises } = workoutlist || [];
   const { exercises, id: workoutId } = allExercises;
+
+  console.log('WORKOUT', workout)
   return (
     <div className="cw-container">
       <div className="cw-exercise-container">
+        <h1>{workout.name}</h1>
         {allExercises.exercises.map((exercise) => {
           return (
             <div key={exercise.id}>
-              <h2 className="cw-exercise-name">{exercise.name}</h2>
+              <Link to={`/exercise/${exercise.id}`} className="cw-exercise-name">
+                {exercise.name}
+              </Link>
+              <button onClick={() => dispatch(deleteFromWorkout(exercise.id))}>Remove from exercise</button>
               <div className="cw-exercise">
                 <div className="cw-headings">
                   <p className="cw-heading">Set</p>
@@ -89,11 +97,4 @@ function CurrentWorkout() {
   );
 }
 
-const mapDispatchToProps = (dispatch) => ({
-  addSet: (setData) => dispatch(addSet(setData)),
-  confirmSet: (setData) => dispatch(confirmSet(setData)),
-  fetchWorkoutlist: () => dispatch(fetchWorkoutlist()),
-  finishWorkout: () => dispatch(finishWorkout()),
-});
-
-export default connect(null, mapDispatchToProps)(CurrentWorkout);
+export default CurrentWorkout

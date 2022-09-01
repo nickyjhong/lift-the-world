@@ -86,6 +86,24 @@ export const addSet = (emptySet) => {
   };
 };
 
+export const deleteFromWorkout = (exerciseId) => {
+  return async (dispatch) => {
+    try {
+      const token = window.localStorage.getItem(TOKEN);
+      if (token) {
+        const { data } = await axios.delete(`/api/workout/${exerciseId}`, {
+          headers: {
+            authorization: token,
+          },
+        });
+        dispatch(await _setWorkoutlist(data));
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+}
+
 // updates current set
 export const confirmSet = (setData) => {
   return async (dispatch) => {
