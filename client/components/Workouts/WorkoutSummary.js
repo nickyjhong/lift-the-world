@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
-import { useDispatch, useSelector, connect } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { fetchWorkoutlist } from "../../store/workoutlist";
+import Loading from "../Loading";
 
-const WorkoutSummary = () => {
+export const WorkoutSummary = () => {
   const dispatch = useDispatch();
   const workoutlist = useSelector((state) => state.workoutlist);
 
@@ -14,7 +15,11 @@ const WorkoutSummary = () => {
     !workoutlist.allExercises.exercises ||
     workoutlist.allExercises.exercises.length === 0
   ) {
-    return <div>Loading...</div>;
+    return (
+      <div>
+        <Loading />
+      </div>
+    );
   }
 
   const { allExercises } = workoutlist || [];
@@ -55,5 +60,3 @@ const WorkoutSummary = () => {
     </div>
   );
 };
-
-export default connect(null, null)(WorkoutSummary);

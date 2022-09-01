@@ -1,6 +1,6 @@
 import React from "react";
 import WeightComparison from "./WeightComparison";
-import WorkoutSummary from "./WorkoutSummary";
+import { WorkoutSummary } from "./WorkoutSummary";
 
 const Recap = () => {
   return (

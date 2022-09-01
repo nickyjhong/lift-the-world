@@ -294,18 +294,18 @@ router.delete("/:exerciseId", requireToken, async (req, res, next) => {
 
     const workoutlists = await WorkoutList.findAll({
       where: {
-        workoutId: workout.id
-      }
-    })
+        workoutId: workout.id,
+      },
+    });
 
     if (workoutlists.length === 0) {
       await Workout.destroy({
         where: {
-          id: workout.id
-        }
-      })
+          id: workout.id,
+        },
+      });
     }
-    
+
     res.send(
       await Workout.findOne({
         where: {
