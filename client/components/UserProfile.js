@@ -5,13 +5,8 @@ import { Link } from "react-router-dom";
 import { logout } from "../store";
 
 const UserProfile = () => {
-  const character = [
-    "/sprites/zombie/zombie-idle.gif",
-    "/sprites/zombie/zombie-jump.gif",
-    "/sprites/zombie/zombie-run.gif",
-    "/sprites/zombie/zombie-dead.gif",
-  ];
-
+  
+ 
   const [frame, setFrame] = useState(0);
   let [counter, setCounter] = useState(1);
 
@@ -19,6 +14,18 @@ const UserProfile = () => {
 
   const user = useSelector((state) => state.singleUser);
   const username = useSelector((state) => state.auth.username);
+  const spriteName = useSelector((state) => { state.selectedSprite});
+  
+  const character = [
+    `/sprites/${spriteName}/${spriteName}-idle.gif`,
+    `/sprites/${spriteName}/${spriteName}-jump.gif`,
+    `/sprites/${spriteName}/${spriteName}-run.gif`,
+    `/sprites/${spriteName}/${spriteName}-dead.gif`,
+  ];
+
+  useEffect(()=>{
+    dispatch(fetchSelectedSprite());
+}, []);
 
   useEffect(() => {
     dispatch(fetchSingleUser());
