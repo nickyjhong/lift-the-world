@@ -158,6 +158,15 @@ router.delete("/:exerciseId", requireToken, async (req, res, next) => {
     let index = exercise.sets.findIndex((s) => s.setId === req.body.setId);
     exercise.sets.pop()
     exercise.changed("sets", true);
+
+    if (exercise.sets.length === 0) {
+      await WorkoutList.destroy({
+        where: {
+          workoutId: workout.id,
+          exerciseId: req.params.exerciseId
+        }
+      })
+    } 
     await exercise.save();
     res.send(exercise);
   } catch (err) {
