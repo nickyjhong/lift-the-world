@@ -22,7 +22,7 @@ const UserProfile = () => {
 
   useEffect(() => {
     dispatch(fetchSingleUser());
-  }, [dispatch]);
+  }, []);
 
   // change character animation on click
   const counterFunc = () => {
@@ -52,7 +52,7 @@ const UserProfile = () => {
         <p className="character-margin">
           {totalWeight.toLocaleString("en-US") || 0} lbs
         </p>
-        <button className="progress-btn">See my progress graph</button>
+        <Link to='/sprites'><button className="progress-btn">View Unlocked Sprites</button></Link>
         <Link to="/login">
           <button className="logout-btn" onClick={() => dispatch(logout())}>
             Logout

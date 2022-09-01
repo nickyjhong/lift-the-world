@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { fetchUnlockedSprites } from '../store/sprites';
 import { updateSelectedSprite } from '../store/updateSelectedSprite';
+import { Link } from 'react-router-dom';
 
 
 const ChooseSprites = () => {
@@ -33,7 +34,7 @@ const ChooseSprites = () => {
             <div className='sprite-container'>
             {sprites.map((sprite)=>{
                 return (<div key={sprites.indexOf(sprite)}>
-                    <input className='sprite-small' onClick={chooseSprite} value={`${sprite.name}`} type={'image'} name={`${sprite.name}`} src={`/sprites/${sprite.name}/${sprite.name}-idle.gif`}></input>
+                    <Link to='/profile'><input className='sprite-small' onClick={chooseSprite} value={`${sprite.name}`} type={'image'} name={`${sprite.name}`} src={`/sprites/${sprite.name}/${sprite.name}-idle.gif`}></input></Link>  
                 </div>)
             })}
             </div>
