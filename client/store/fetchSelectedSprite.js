@@ -27,7 +27,7 @@ export const fetchSelectedSprite = ()=>{
 
 const initialState = {};
 
-export default function selectedSpriteReducer(state = initialState, action){
+export default function getSelectedSpriteReducer(state = initialState, action){
     switch(action.type){
         case GET_SELECTED_SPRITE:
             return action.sprite;

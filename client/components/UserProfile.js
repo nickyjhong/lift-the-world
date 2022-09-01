@@ -1,36 +1,39 @@
 import React, { useEffect, useState } from "react";
-import { connect, useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { fetchSingleUser } from "../store/singleUser";
 import { Link } from "react-router-dom";
 import { logout } from "../store";
+import { fetchSelectedSprite } from "../store/fetchSelectedSprite";
 
 const UserProfile = () => {
-  
- 
-  const [frame, setFrame] = useState(0);
-  let [counter, setCounter] = useState(1);
 
   const dispatch = useDispatch();
-
-  const user = useSelector((state) => state.singleUser);
-  const username = useSelector((state) => state.auth.username);
-  const spriteName = useSelector((state) => { state.selectedSprite});
-  
-  const character = [
-    `/sprites/${spriteName}/${spriteName}-idle.gif`,
-    `/sprites/${spriteName}/${spriteName}-jump.gif`,
-    `/sprites/${spriteName}/${spriteName}-run.gif`,
-    `/sprites/${spriteName}/${spriteName}-dead.gif`,
-  ];
-
-  useEffect(()=>{
-    dispatch(fetchSelectedSprite());
-}, []);
 
   useEffect(() => {
     dispatch(fetchSingleUser());
   }, []);
 
+
+  useEffect(()=>{
+    dispatch(fetchSelectedSprite());
+}, []);
+ 
+  const [frame, setFrame] = useState(0);
+  let [counter, setCounter] = useState(1);
+
+  const user = useSelector((state) => state.singleUser);
+  const username = useSelector((state) => state.auth.username);
+  const spriteName = useSelector((state) =>  state.userSelectedSprite);
+  console.log('SPRITE NAME', spriteName);
+
+  const character = [
+    `/sprites/${spriteName}/${spriteName}-idle.gif`,
+    `/sprites/${spriteName}/${spriteName}-jump.gif`,
+    `/sprites/${spriteName}/${spriteName}-run.gif`,
+    `/sprites/${spriteName}/${spriteName}-dead.gif`,
+  ] || [];
+
+  
   // change character animation on click
   const counterFunc = () => {
     setFrame(counter);
