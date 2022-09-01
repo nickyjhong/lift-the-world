@@ -164,8 +164,7 @@ async function seed() {
       "lower until bar touches your mid chest",
     ],
     embedId: "OR6WM5Z2Hqs",
-    image:
-      "https://www.hevyapp.com/wp-content/uploads/03011201-Dumbbell-Decline-Bench-Press_Chest.jpg",
+    image: 'https://static.strengthlevel.com/images/illustrations/decline-dumbbell-fly-1000x1000.jpg'
   });
 
   const chest5 = await Exercise.create({
@@ -289,8 +288,7 @@ async function seed() {
       "push hips back and lower dumbbells while keeping legs straight or slightly bent",
     ],
     embedId: "7AaaYhMqTws",
-    image:
-      "https://fitnessprogramer.com/wp-content/uploads/2021/02/Barbell-Romanian-Deadlift.gif",
+    image: 'http://cdn.shopify.com/s/files/1/0250/0362/2496/articles/5e595712f146e8e14db4ca6f_dumbbell-romanian-deadlift-exercise-anabolic-aliens-p-500.png?v=1644927440'
   });
   const legs3 = await Exercise.create({
     name: "Leg curl",
@@ -440,8 +438,7 @@ async function seed() {
       "keep core engaged, lift torso to return to starting positon",
     ],
     embedId: "vKPGe8zb2S4",
-    image:
-      "https://fitnessprogramer.com/wp-content/uploads/2021/02/Barbell-Good-Morning.gif",
+    image: 'https://static.strengthlevel.com/images/illustrations/good-morning-1000x1000.jpg'
   });
 
   const lunge = await Exercise.create({

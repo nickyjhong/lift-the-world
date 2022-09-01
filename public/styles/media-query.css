@@ -1,9 +1,4 @@
 @media(max-width: 390px) and (max-height: 844px) {
-  .routes-container {
-    overflow-x: hidden;
-    padding: 1.5rem 1rem;
-  }
-
   .routes-container-nlg {
     overflow-x: hidden;
     padding: 1rem 1rem;
