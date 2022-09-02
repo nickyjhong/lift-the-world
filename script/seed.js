@@ -17,17 +17,6 @@ async function seed() {
     totalWeight: 12094,
     level: 18,
     selectedSprite: "dog",
-    hasReached2: false,
-    hasReached3: false,
-    hasReached4: false,
-    hasReached5: false,
-    hasReached6: false,
-    hasReached7: false,
-    hasReached8: false,
-    hasReached9: false,
-    hasReached10: false,
-    hasReached11: false,
-    hasReached12: false,
   });
 
   const kyle = await User.create({
@@ -38,17 +27,6 @@ async function seed() {
     totalWeight: 12097,
     level: 18,
     selectedSprite: "cat",
-    hasReached2: false,
-    hasReached3: false,
-    hasReached4: false,
-    hasReached5: false,
-    hasReached6: false,
-    hasReached7: false,
-    hasReached8: false,
-    hasReached9: false,
-    hasReached10: false,
-    hasReached11: false,
-    hasReached12: false,
   });
 
   const nicole = await User.create({
@@ -59,17 +37,6 @@ async function seed() {
     totalWeight: 44867,
     level: 43,
     selectedSprite: "redHatBoy",
-    hasReached2: false,
-    hasReached3: false,
-    hasReached4: false,
-    hasReached5: false,
-    hasReached6: false,
-    hasReached7: false,
-    hasReached8: false,
-    hasReached9: false,
-    hasReached10: false,
-    hasReached11: false,
-    hasReached12: false,
   });
 
   const cherry = await User.create({
@@ -80,17 +47,6 @@ async function seed() {
     totalWeight: 39126,
     level: 33,
     selectedSprite: "cat",
-    hasReached2: false,
-    hasReached3: false,
-    hasReached4: false,
-    hasReached5: false,
-    hasReached6: false,
-    hasReached7: false,
-    hasReached8: false,
-    hasReached9: false,
-    hasReached10: false,
-    hasReached11: false,
-    hasReached12: false,
   });
 
   const ryan = await User.create({
@@ -101,17 +57,6 @@ async function seed() {
     totalWeight: 28643,
     level: 24,
     selectedSprite: "dog",
-    hasReached2: false,
-    hasReached3: false,
-    hasReached4: false,
-    hasReached5: false,
-    hasReached6: false,
-    hasReached7: false,
-    hasReached8: false,
-    hasReached9: false,
-    hasReached10: false,
-    hasReached11: false,
-    hasReached12: false,
   });
 
   //creating exercises for presets
