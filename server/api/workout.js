@@ -117,57 +117,56 @@ router.put("/finish", requireToken, async (req, res, next) => {
       await user.addSprite(cuteGirl);
       if (userLevel < 2) {
         newLevel += 1;
-        await user.update({ level: newLevel, hasReached2: true });
+        await user.update({ level: newLevel });
       }
       if (newTotal >= 2500) {
         await user.addSprite(adventureBoy);
         if (userLevel < 3) {
           newLevel += 1;
-          await user.update({ level: newLevel, hasReached3: true });
+          await user.update({ level: newLevel});
         }
         if (newTotal >= 5000) {
           await user.addSprite(zombie);
           if (userLevel < 4) {
             newLevel += 1;
-            await user.update({ level: newLevel, hasReached4: true });
+            await user.update({ level: newLevel});
           }
           if (newTotal >= 10000) {
             await user.addSprite(ninjaGirl);
             if (userLevel < 5) {
               newLevel += 1;
-              await user.update({ level: newLevel, hasReached5: true });
+              await user.update({ level: newLevel});
             }
             if (newTotal >= 20000) {
               await user.addSprite(jackOLantern);
               if (userLevel < 6) {
                 newLevel += 1;
-                await user.update({ level: newLevel, hasReached6: true });
+                await user.update({ level: newLevel });
               }
               if (newTotal >= 40000) {
                 await user.addSprite(ninjaBoy);
                 if (userLevel < 7) {
                   newLevel += 1;
-                  await user.update({ level: newLevel, hasReached7: true });
+                  await user.update({ level: newLevel});
                 }
                 if (newTotal >= 75000) {
                   await user.addSprite(adventureGirl);
                   if (userLevel < 8) {
                     newLevel += 1;
-                    await user.update({ level: newLevel, hasReached8: true });
+                    await user.update({ level: newLevel});
                   }
                   if (newTotal >= 125000) {
                     await user.addSprite(dino);
                     if (userLevel < 9) {
                       newLevel += 1;
-                      await user.update({ level: newLevel, hasReached9: true });
+                      await user.update({ level: newLevel});
                     }
                     if (newTotal >= 250000) {
                       await user.addSprite(robot);
                       if (userLevel < 10) {
                         newLevel += 1;
                         await user.update({
-                          level: newLevel,
-                          hasReached10: true,
+                          level: newLevel
                         });
                       }
                       if (newTotal >= 500000) {
@@ -175,8 +174,7 @@ router.put("/finish", requireToken, async (req, res, next) => {
                         if (userLevel < 11) {
                           newLevel += 1;
                           await user.update({
-                            level: newLevel,
-                            hasReached11: true,
+                            level: newLevel
                           });
                         }
                         if (newTotal >= 1000000) {
@@ -184,8 +182,7 @@ router.put("/finish", requireToken, async (req, res, next) => {
                           if (userLevel < 12) {
                             newLevel += 1;
                             await user.update({
-                              level: newLevel,
-                              hasReached12: true,
+                              level: newLevel
                             });
                           }
                         }
