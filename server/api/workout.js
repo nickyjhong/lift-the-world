@@ -282,7 +282,7 @@ router.post("/:id/add", requireToken, async (req, res, next) => {
 
       res.send(newWorkout);
     } else {
-      console.log("FINISH THE WORKOUT THAT YOU STARTED!!!");
+      console.log("You have an active workout already!");
       res.send(workout);
     }
   } catch (error) {

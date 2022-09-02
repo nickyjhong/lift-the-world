@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 export const Home = () => {
-  const username = useSelector((state) => state.auth.username);
+  const username = useSelector((state) => state.auth.username)
 
   return (
     <div className="homepage-container">
@@ -33,6 +33,7 @@ export const Home = () => {
             <button className="homepage-btn">View Unlocked Sprites</button>
           </Link>
         </div>
+
       </div>
       <img className="homepage-image" src="/images/cat1.png" />
     </div>
