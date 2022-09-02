@@ -16,6 +16,7 @@ import ExerciseGroup from "./components/MuscleGroups/ExerciseGroup";
 import SinglePreset from "./components/Workouts/SinglePreset";
 import AllExercises from "./components/Exercise/AllExercises";
 import ChooseSprites from "./components/Sprites";
+import Timer from "./components/Timer/Timer";
 
 class Routes extends Component {
   componentDidMount() {
@@ -57,6 +58,7 @@ class Routes extends Component {
                 <Route path="/leaderboard" component={LeaderBoard} />
                 <Route path="/profile" component={UserProfile} />
                 <Route path="/sprites" component={ChooseSprites} />
+                <Route path="/timer" component={Timer} />
               </Switch>
             </div>
           </>

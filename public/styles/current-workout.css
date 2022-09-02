@@ -78,7 +78,7 @@
 }
 
 .cw-rep-input {
-  margin-left: .75rem;
+  margin-left: .25rem;
   width: 1.5rem;
 }
 
@@ -88,11 +88,11 @@
   background: #C9E0E8;
   border-radius: 5px;
   border: none;
-  margin-left: .3rem;
+  margin-left: .5rem;
 }
 
 .cw-reps-heading {
-  margin-left: .75rem;
+  margin-left: 1.35rem;
 }
 
 .cw-check-input {

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   addSet,
@@ -10,11 +10,14 @@ import { fetchWorkout, finishWorkout } from "../../store/workout";
 import CurrentWorkoutSet from "./CurrentWorkoutSet";
 import { Link } from "react-router-dom";
 import LoadingAddWorkout from "../LoadingAddWorkout";
+import Timer from "../Timer/Timer";
 
 const CurrentWorkout = () => {
   const dispatch = useDispatch();
   const workoutlist = useSelector((state) => state.workoutlist);
   const workout = useSelector((state) => state.workout);
+
+  const [openModal, setOpenModal] = useState(false)
 
   useEffect(() => {
     dispatch(fetchWorkout());
@@ -38,6 +41,12 @@ const CurrentWorkout = () => {
   return (
     <div className="cw-container">
       <div className="cw-exercise-container">
+        {!openModal &&
+          <button className="timer-modal-btn" onClick={() => setOpenModal(true)}>
+            <img src="/images/timer.png" className="timer-modal-img" />
+          </button>
+        }
+          {openModal && <Timer closeModal={setOpenModal}/>}
         <h1 className="cw-workout-name">{workout.name}</h1>
         {allExercises.exercises.map((exercise) => {
           return (

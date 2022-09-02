@@ -1,0 +1,68 @@
+.timer-play-btn, .timer-pause-btn {
+  background: transparent;
+  border: 0;
+  width: 100px;;
+}
+
+.timer-play-btn {
+  color: #D2EBC0
+}
+
+.timer-pause-btn {
+  color: #FFA2AD
+}
+
+.timer-slider {
+  height: 40px;
+  border: 2px dotted #CAB7A6;
+  border-radius: 20px;
+}
+
+.thumb {
+  background: #a2d0e9;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+}
+
+.timer-btn-container {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.timer-label {
+  margin: .5rem .25rem;
+  color: #908680;
+}
+
+.timer-modal-btn {
+  border: none;
+  background: inherit;
+  padding: 0;
+}
+
+.timer-modal-img {
+  height: 1rem;
+}
+
+.timer-modal-close-btn-container {
+  display: flex;
+  justify-content: center;
+  margin: 2.5rem;
+}
+
+.timer-modal-close-btn {
+  font-size: .8rem;
+  background: #DDECD2;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15), 0px 4px 4px rgba(0, 0, 0, 0.01);
+  border-radius: 5px;
+  border: none;
+  width: 15rem;
+  height: 1.5rem;
+}
+
+.timer-container {
+  margin: 1.5rem 0;
+}

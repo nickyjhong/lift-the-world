@@ -35,8 +35,10 @@
     "morgan": "^1.9.1",
     "pg": "^8.5.1",
     "pwa-asset-generator": "^6.1.1",
+    "react-circular-progressbar": "^2.1.0",
     "react-notifications": "^1.7.4",
     "react-router-dom": "^5.3.3",
+    "react-slider": "^2.0.3",
     "react-toastify": "^9.0.8",
     "sequelize": "^6.3.5"
   },

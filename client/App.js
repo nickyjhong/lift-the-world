@@ -1,16 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import Routes from "./Routes";
 import NavBarIcons from "./components/NavBarIcons";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
+import SettingsContext from "./components/Timer/SettingsContext";
 
 const App = () => {
-  const notify = () => toast('Yay')
+  const [timer, setTimer] = useState(2)
   return (
     <div>
-      <Routes />
-      <ToastContainer />
-      <NavBarIcons />
+      <SettingsContext.Provider value={{
+        timer,
+        setTimer
+      }}>
+        <Routes />
+        <ToastContainer />
+        <NavBarIcons />
+      </SettingsContext.Provider>
     </div>
   );
 };
