@@ -160,3 +160,8 @@
 .cw-exercise-name-btn {
   margin: .5rem 0;
 }
+
+.cw-finish-workout-btn {
+  display: flex;
+  justify-content: center;
+}

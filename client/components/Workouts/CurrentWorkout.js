@@ -106,7 +106,7 @@ const CurrentWorkout = () => {
           );
         })}
       </div>
-      {allExercises.status === "active" ? (
+      <div className="cw-finish-workout-btn">
         <Link to="/recap">
           <button
             className="cw-finish-btn"
@@ -115,9 +115,7 @@ const CurrentWorkout = () => {
             Finish Workout
           </button>
         </Link>
-      ) : (
-        <button>Start a new workout</button>
-      )}
+      </div>
     </div>
   );
 };
