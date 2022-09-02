@@ -31,7 +31,7 @@
   color: #5B5757;
 }
 
-.cw-previous-heading {
+.cw-pushed-heading {
   width: 3.5rem;
   text-align: center;
 }
@@ -76,7 +76,7 @@
 }
 
 .cw-rep-input {
-  margin-left: .8rem;
+  margin-left: .75rem;
   width: 1.5rem;
 }
 
@@ -89,11 +89,15 @@
   margin-left: .6rem;
 }
 
+.cw-reps-heading {
+  margin-left: .75rem;
+}
+
 .cw-check-input {
   background: #C8E5B8;
 }
 
-.cw-previous {
+.cw-pushed {
   font-size: .7rem;
   margin: 0;
   color: #5B5757;

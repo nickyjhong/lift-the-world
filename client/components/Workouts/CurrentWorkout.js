@@ -54,9 +54,9 @@ const CurrentWorkout = () => {
               <div className="cw-exercise">
                 <div className="cw-headings">
                   <p className="cw-heading">Set</p>
-                  <p className="cw-heading cw-previous-heading">Previous</p>
-                  <p className="cw-heading">Reps</p>
+                  <p className="cw-heading cw-reps-heading">Reps</p>
                   <p className="cw-heading cw-weight-heading">Weight</p>
+                  <p className="cw-heading cw-pushed-heading">Pushed</p>
                   <p className="cw-heading cw-heading-check">️✔️️</p>
                 </div>
                 {exercise.workoutlist.sets.map((set, index) => {
