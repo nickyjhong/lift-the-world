@@ -5,22 +5,8 @@ import { addToWorkout } from "../../store/workout";
 import { useParams } from "react-router-dom";
 import YoutubeEmbed from "./YoutubeEmbed";
 import { Link } from "react-router-dom";
-import {
-  NotificationContainer,
-  NotificationManager,
-} from "react-notifications";
-
-// const notification = () => {
-//   createNotification = (type) => {
-//     return () => {
-//       switch (type) {
-//         case "info":
-//           NotificationManager.info("Added exercise!");
-//           break;
-//       }
-//     };
-//   };
-// };
+import { toast } from 'react-toastify';
+// import "react-toastify/dist/ReactToastify.css";
 
 const AllExercises = () => {
   const exercises = useSelector((state) => state.allExercises);
@@ -59,8 +45,8 @@ const AllExercises = () => {
               <div className="exercise-btn-container">
                 <button
                   onClick={() => {
+                    toast('Added to workout'); 
                     dispatch(addToWorkout(exercise));
-                    // notification("info");
                   }}
                   className="exercise-add-btn"
                 >

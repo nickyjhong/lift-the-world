@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 
 export const Home = () => {
   const username = useSelector((state) => state.auth.username)
-
   return (
     <div className="homepage-container">
       <h3 className="homepage-header">Welcome, {username}</h3>
@@ -35,11 +34,6 @@ export const Home = () => {
           </Link>
         </div>
 
-        {/* <div className="homepage-link-btn">
-          <Link to="/dontKnowWhatThisIsYet" className="homepage-btn-link">
-            <button className="homepage-btn">Chat With a Trainer</button>
-          </Link>
-        </div> */}
       </div>
       <img className="homepage-image" src="/images/cat1.png" />
     </div>
