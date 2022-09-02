@@ -6,8 +6,8 @@
 .cw-workout-name {
   display: flex;
   flex-direction: row;
-  font-size: 1.35rem;
-  margin-bottom: 0;
+  font-size: 1.25rem;
+  margin: 0;
   font-weight: 500;
 }
 .cw-exercise-name {
@@ -21,7 +21,8 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 0 .25rem;
+  padding: 0;
+  font-size: .5rem;
 }
 
 .cw-heading {
@@ -34,14 +35,15 @@
 .cw-pushed-heading {
   width: 3.5rem;
   text-align: center;
+  margin-left: .7rem;
 }
 
 .cw-weight-heading {
-  margin-left: .25rem;
+  margin-left: 1rem;
 }
 
 .cw-heading-check {
-  margin-right: .25rem;
+  margin-left: .25rem;
 }
 
 .cw-info-container {
@@ -82,11 +84,11 @@
 
 .cw-weight-input {
   height: 1.25rem;
-  width: 2.5rem;
+  width: 2.25rem;
   background: #C9E0E8;
   border-radius: 5px;
   border: none;
-  margin-left: .6rem;
+  margin-left: .3rem;
 }
 
 .cw-reps-heading {
@@ -153,4 +155,8 @@
 
 .exercise-delete-btn-img {
   height: 1rem;
+}
+
+.cw-exercise-name-btn {
+  margin: .5rem 0;
 }

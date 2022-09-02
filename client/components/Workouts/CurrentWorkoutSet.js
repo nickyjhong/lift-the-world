@@ -68,7 +68,7 @@ const CurrentWorkoutSet = (props) => {
             type="submit"
             onClick={handleConfirmSet}
           >
-            {" "}
+            ✓
           </button>
         </div>
       </form>
