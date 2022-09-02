@@ -12,6 +12,7 @@
 @import "./styles/choose-sprite.css";
 @import "./styles/workout-summary.css";
 @import "./styles/loading.css";
+@import "./styles/preset-workouts.css";
 @import "./styles/media-query.css";
 
 * {

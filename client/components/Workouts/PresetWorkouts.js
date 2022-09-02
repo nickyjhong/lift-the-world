@@ -12,7 +12,7 @@ const PresetWorkouts = () => {
   useEffect(() => {
     dispatch(getPresetsThunk());
   }, [dispatch]);
-
+  console.log("presets workouts", presets);
   if (!presets || !presets[0] || presets.length === 0) {
     return (
       <div>
@@ -20,10 +20,11 @@ const PresetWorkouts = () => {
       </div>
     );
   }
-
   return (
     <div>
-      <h1>Need Help Getting Started? Choose from the Workouts Below:</h1>
+      <h1 className="presets-heading">
+        Need help getting started? Choose from the workouts below:
+      </h1>
       {presets.map((preset) => {
         return (
           <Link
@@ -31,7 +32,10 @@ const PresetWorkouts = () => {
             workout={preset}
             to={`/workout/preset/${preset.id}`}
           >
-            <button>{preset.name}</button>
+            <button>
+              <img src="" />
+              {preset.name}
+            </button>
           </Link>
         );
       })}

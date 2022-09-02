@@ -1,6 +1,6 @@
 const {
   db,
-  models: { User, Exercise, Workout, WorkoutList, Sprite, userSprites },
+  models: { User, Exercise, Workout, Sprite },
 } = require("../server/db");
 
 async function seed() {
@@ -59,10 +59,9 @@ async function seed() {
     selectedSprite: "dog",
   });
 
-  //creating exercises for presets
-
+  // creating exercises for presets
   const chest1 = await Exercise.create({
-    name: "Bench press",
+    name: "Bench Press",
     category: "chest",
     equipment: ["barbell", "weights", "bench"],
     tipsAndTricks: [
@@ -76,7 +75,7 @@ async function seed() {
   });
 
   const chest2 = await Exercise.create({
-    name: "Shoulder press",
+    name: "Shoulder Press",
     category: "chest",
     equipment: ["dumbbell or barbell"],
     tipsAndTricks: [
@@ -87,6 +86,7 @@ async function seed() {
     embedId: "5yWaNOvgFCM",
     image: "https://www.burnthefatinnercircle.com/members/images/1302.jpg",
   });
+
   const chest3 = await Exercise.create({
     name: "Dumbell Flys",
     category: "chest",
@@ -109,7 +109,8 @@ async function seed() {
       "lower until bar touches your mid chest",
     ],
     embedId: "OR6WM5Z2Hqs",
-    image: 'https://static.strengthlevel.com/images/illustrations/decline-dumbbell-fly-1000x1000.jpg'
+    image:
+      "https://static.strengthlevel.com/images/illustrations/decline-dumbbell-fly-1000x1000.jpg",
   });
 
   const chest5 = await Exercise.create({
@@ -124,6 +125,7 @@ async function seed() {
     image:
       "https://s3.amazonaws.com/prod.skimble/assets/2287282/image_iphone.jpg",
   });
+
   const chest6 = await Exercise.create({
     name: "Triceps Cable Pushdown",
     category: "triceps",
@@ -136,8 +138,9 @@ async function seed() {
     image:
       "https://static.strengthlevel.com/images/illustrations/tricep-rope-pushdown-1000x1000.jpg",
   });
+
   const back1 = await Exercise.create({
-    name: "Lat pulldown",
+    name: "Lat Pulldown",
     category: "back",
     equipment: ["pulldown machine"],
     tipsAndTricks: [
@@ -149,6 +152,7 @@ async function seed() {
     image:
       "http://cdn.shopify.com/s/files/1/0250/0362/2496/articles/5f19b4eff633a10684ef6193_wide-grip-lat-pulldown-anabolic-aliens.png?v=1644918521",
   });
+
   const back2 = await Exercise.create({
     name: "Row",
     category: "back",
@@ -161,6 +165,7 @@ async function seed() {
     image:
       "https://s3.amazonaws.com/prod.skimble/assets/2124438/image_iphone.jpg",
   });
+
   const back3 = await Exercise.create({
     name: "Bent Over Row",
     category: "back",
@@ -186,6 +191,7 @@ async function seed() {
     embedId: "cJRVVxmytaM",
     image: "https://www.burnthefatinnercircle.com/members/images/1893.jpg",
   });
+
   const back5 = await Exercise.create({
     name: "Hammer Curl",
     category: "biceps",
@@ -200,7 +206,7 @@ async function seed() {
       "https://static.strengthlevel.com/images/illustrations/hammer-curl-1000x1000.jpg",
   });
   const back6 = await Exercise.create({
-    name: "Preacher curl",
+    name: "Preacher Curl",
     category: "biceps",
     equipment: ["dumbell or barbell", "curling bench"],
     tipsAndTricks: [
@@ -224,8 +230,9 @@ async function seed() {
     image:
       "https://static.strengthlevel.com/images/illustrations/squat-1000x1000.jpg",
   });
+
   const legs2 = await Exercise.create({
-    name: "Romanian deadlift",
+    name: "Romanian Deadlift",
     category: "legs",
     equipment: ["dumbbell or barbell"],
     tipsAndTricks: [
@@ -233,10 +240,12 @@ async function seed() {
       "push hips back and lower dumbbells while keeping legs straight or slightly bent",
     ],
     embedId: "7AaaYhMqTws",
-    image: 'http://cdn.shopify.com/s/files/1/0250/0362/2496/articles/5e595712f146e8e14db4ca6f_dumbbell-romanian-deadlift-exercise-anabolic-aliens-p-500.png?v=1644927440'
+    image:
+      "http://cdn.shopify.com/s/files/1/0250/0362/2496/articles/5e595712f146e8e14db4ca6f_dumbbell-romanian-deadlift-exercise-anabolic-aliens-p-500.png?v=1644927440",
   });
+
   const legs3 = await Exercise.create({
-    name: "Leg curl",
+    name: "Leg Curl",
     category: "legs",
     equipment: ["leg curl machine"],
     tipsAndTricks: [
@@ -248,7 +257,7 @@ async function seed() {
       "https://static.strengthlevel.com/images/illustrations/lying-leg-curl-1000x1000.jpg",
   });
   const legs4 = await Exercise.create({
-    name: "Leg extension",
+    name: "Leg Extension",
     category: "legs",
     equipment: ["leg extension machine"],
     tipsAndTricks: [
@@ -259,6 +268,7 @@ async function seed() {
     image:
       "https://i.pinimg.com/originals/19/77/ae/1977aec3424113ef355b1b3bca2655bc.jpg",
   });
+
   const legs5 = await Exercise.create({
     name: "Bulgarian Split Squats",
     category: "glutes",
@@ -271,8 +281,9 @@ async function seed() {
     embedId: "HBYGeyb4sSM",
     image: "https://www.burnthefatinnercircle.com/members/images/1224.jpg",
   });
+
   const legs6 = await Exercise.create({
-    name: "Leg raises",
+    name: "Leg Raises",
     category: "core",
     equipment: ["floor mat"],
     tipsAndTricks: ["engage your core", "use controlled movements"],
@@ -334,7 +345,7 @@ async function seed() {
   });
 
   const kickBacks = await Exercise.create({
-    name: "KickBacks",
+    name: "Kickbacks",
     category: "triceps",
     equipment: ["dumbells", "bench"],
     tipsAndTricks: [
@@ -383,7 +394,8 @@ async function seed() {
       "keep core engaged, lift torso to return to starting positon",
     ],
     embedId: "vKPGe8zb2S4",
-    image: 'https://static.strengthlevel.com/images/illustrations/good-morning-1000x1000.jpg'
+    image:
+      "https://static.strengthlevel.com/images/illustrations/good-morning-1000x1000.jpg",
   });
 
   const lunge = await Exercise.create({
@@ -399,12 +411,12 @@ async function seed() {
   });
 
   const forearmPlank = await Exercise.create({
-    name: "ForeArm Plank",
+    name: "Forearm Plank",
     category: "core",
     equipment: ["workout mat", "your body"],
     tipsAndTricks: ["activate your core", "breath through the exercise"],
     embedId: "pSHjTRCQxIw",
-    image: " ",
+    image: "/images/ForearmPlank.png",
   });
 
   const russianTwist = await Exercise.create({
@@ -429,11 +441,12 @@ async function seed() {
       "exhale as your rise, inhale as you lower",
     ],
     embedId: "8NBNM8haZx0",
-    image: " ",
+    image:
+      "https://images.assetsdelivery.com/compings_v2/lioputra/lioputra2104/lioputra210400056.jpg",
   });
 
   const woodChop = await Exercise.create({
-    name: "Half-kneeling Wood Chop",
+    name: "Half-Kneeling Wood Chop",
     category: "core",
     equipment: ["dumbell", "kettle bell", "floor mat"],
     tipsAndTricks: [
@@ -441,7 +454,8 @@ async function seed() {
       "use slow and controlled movements",
     ],
     embedId: "SfTBo2Tjl7M",
-    image: " ",
+    image:
+      "https://fitnessandhealthpromotion.ca/wp-content/uploads/2021/09/half-kneeling-woodchop.jpg",
   });
 
   const bodySaw = await Exercise.create({
@@ -450,7 +464,8 @@ async function seed() {
     equipment: ["floor mat", "floor sliders"],
     tipsAndTricks: ["use controlled movements", "squeeze your core"],
     embedId: "oSNHVD0zT3Q",
-    image: " ",
+    image:
+      "https://t4.ftcdn.net/jpg/04/41/56/51/360_F_441565158_qbxu8tdsVAQ0FryS1UjagNURfJnJAkCo.jpg",
   });
 
   const dips = await Exercise.create({
@@ -466,7 +481,7 @@ async function seed() {
   });
 
   const deadLift = await Exercise.create({
-    name: "DeadLift",
+    name: "Deadlift",
     category: "back",
     equipment: ["barbell", "weights", "squat wrack"],
     tipsAndTricks: [
@@ -505,31 +520,54 @@ async function seed() {
     image: "https://www.burnthefatinnercircle.com/members/images/2008.png",
   });
 
+  const flatLegRaise = await Exercise.create({
+    name: "Flat Leg Raise",
+    category: "core",
+    equipment: ["none"],
+    tipsAndTricks: ["keep core tight", "slowly move legs down with control"],
+    embedId: "BUq5RTDXeZ0",
+    image: "/images/FlatLegRaises.png",
+  });
+
+  const flatKneeRaise = await Exercise.create({
+    name: "Flat Knee Raise",
+    category: "core",
+    equipment: ["none"],
+    tipsAndTricks: ["keep core tight", "slowly move legs with control"],
+    embedId: "xqTh6NqbAtM",
+    image: "/images/FlatKneeRaise.png",
+  });
+
   const pschest1 = await Workout.create({
     name: "chest1",
     status: "active",
     isPreset: true,
   });
+
   const pschest2 = await Workout.create({
     name: "chest2",
     status: "active",
     isPreset: true,
   });
+
   const psback1 = await Workout.create({
     name: "back1",
     status: "active",
     isPreset: true,
   });
+
   const psback2 = await Workout.create({
     name: "back2",
     status: "active",
     isPreset: true,
   });
+
   const pslegs1 = await Workout.create({
     name: "legs1",
     status: "active",
     isPreset: true,
   });
+
   const pslegs2 = await Workout.create({
     name: "legs2",
     status: "active",
@@ -540,6 +578,7 @@ async function seed() {
     status: "closed",
     workoutTotalWeight: 500,
   });
+
   const workout2 = await Workout.create({
     status: "active",
     workoutTotalWeight: 500,
@@ -555,20 +594,6 @@ async function seed() {
   // SAMPLE - TO DELETE
   await workout1.setUser(cherry);
   await workout2.setUser(cherry);
-
-  // await workout1.addExercise(chest1);
-
-  // const closed1 = await WorkoutList.findOne({
-  //   where: {
-  //     exerciseId: 1,
-  //     workoutId: 7,
-  //   },
-  // });
-
-  // await closed1.setUser(cherry);
-
-  // closed1.sets = [{ reps: 3, weight: 40 }];
-  // await closed1.save();
 
   //creating our sprites
   const cat = await Sprite.create({
@@ -661,11 +686,6 @@ async function seed() {
   await kyle.addSprite(dog);
   await kyle.addSprite(redHatBoy);
 
-  // const test = await User.findByPk(1, {
-  //   include: [{ model: Workout, include: [Exercise] }],
-  // });
-
-  // console.log('TEST', test.workouts[0].exercises[0].workoutlist.sets);
   console.log(`seeded successfully`);
 }
 
