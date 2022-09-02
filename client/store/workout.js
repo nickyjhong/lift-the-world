@@ -72,8 +72,9 @@ export const doPresetWorkout = (workoutId) => {
       const token = window.localStorage.getItem(TOKEN);
       if (token) {
         const { data } = await axios.post(
-          `/api/workout/${workoutId}/add`, {
-            workoutId: workoutId
+          `/api/workout/${workoutId}/add`,
+          {
+            workoutId: workoutId,
           },
           {
             headers: {
@@ -84,10 +85,10 @@ export const doPresetWorkout = (workoutId) => {
         dispatch(_updateWorkout(data));
       }
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
-}
+  };
+};
 
 export const getPresetsThunk = () => async (dispatch) => {
   try {

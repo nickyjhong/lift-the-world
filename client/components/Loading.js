@@ -18,7 +18,7 @@ const Loading = () => {
         <div></div>
         <div></div>
       </div>
-      <img className="cat-loading" src="images/cat2.png" />
+      <img className="cat-loading" src="/images/cat2.png" />
     </div>
   );
 };

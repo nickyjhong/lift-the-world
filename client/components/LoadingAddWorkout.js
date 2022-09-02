@@ -6,7 +6,7 @@ const LoadingAddWorkout = () => {
     <>
       <div className="loading-container">
         <p className="loading-add-workout-page">Please add a workout!</p>
-        <img className="cat-loading-image" src="images/cat4.png" />
+        <img className="cat-loading-image" src="/images/cat4.png" />
       </div>
       <div className="see-exercises">
         <Link to="/exercises">
