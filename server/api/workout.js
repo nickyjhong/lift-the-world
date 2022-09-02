@@ -91,7 +91,7 @@ router.put("/finish", requireToken, async (req, res, next) => {
       status: "closed",
       workoutTotalWeight: totalWeightFromWorkout,
     });
-
+    const redHatBoy = await Sprite.findOne({ where: { name: "redHatBoy" } });
     const cuteGirl = await Sprite.findOne({ where: { name: "cuteGirl" } });
     const adventureBoy = await Sprite.findOne({
       where: { name: "adventureBoy" },
@@ -114,76 +114,569 @@ router.put("/finish", requireToken, async (req, res, next) => {
     let newLevel = user.level;
 
     if (newTotal >= 1000) {
-      await user.addSprite(cuteGirl);
+      await user.addSprite(redHatBoy);
       if (newLevel < 2) {
         newLevel += 1;
         await user.update({ level: newLevel });
       }
       if (newTotal >= 2500) {
-        await user.addSprite(adventureBoy);
         if (newLevel < 3) {
           newLevel += 1;
-          await user.update({ level: newLevel});
+          await user.update({ level: newLevel });
         }
         if (newTotal >= 5000) {
-          await user.addSprite(zombie);
           if (newLevel < 4) {
             newLevel += 1;
-            await user.update({ level: newLevel});
+            await user.update({ level: newLevel });
           }
-          if (newTotal >= 10000) {
-            await user.addSprite(ninjaGirl);
+          if (newTotal >= 8000) {
             if (newLevel < 5) {
               newLevel += 1;
-              await user.update({ level: newLevel});
+              await user.update({ level: newLevel });
             }
-            if (newTotal >= 20000) {
-              await user.addSprite(jackOLantern);
+            if (newTotal >= 12000) {
+              await user.addSprite(cuteGirl);
               if (newLevel < 6) {
                 newLevel += 1;
                 await user.update({ level: newLevel });
               }
-              if (newTotal >= 40000) {
-                await user.addSprite(ninjaBoy);
+              if (newTotal >= 16000) {
                 if (newLevel < 7) {
                   newLevel += 1;
-                  await user.update({ level: newLevel});
+                  await user.update({ level: newLevel });
                 }
-                if (newTotal >= 75000) {
-                  await user.addSprite(adventureGirl);
+                if (newTotal >= 20000) {
                   if (newLevel < 8) {
                     newLevel += 1;
-                    await user.update({ level: newLevel});
+                    await user.update({ level: newLevel });
                   }
-                  if (newTotal >= 125000) {
-                    await user.addSprite(dino);
+                  if (newTotal >= 25000) {
+                    await user.addSprite(adventureBoy);
                     if (newLevel < 9) {
                       newLevel += 1;
-                      await user.update({ level: newLevel});
+                      await user.update({ level: newLevel });
                     }
-                    if (newTotal >= 250000) {
-                      await user.addSprite(robot);
+                    if (newTotal >= 30000) {
                       if (newLevel < 10) {
                         newLevel += 1;
-                        await user.update({
-                          level: newLevel
-                        });
+                        await user.update({ level: newLevel });
                       }
-                      if (newTotal >= 500000) {
-                        await user.addSprite(santa);
+                      if (newTotal >= 35000) {
                         if (newLevel < 11) {
                           newLevel += 1;
-                          await user.update({
-                            level: newLevel
-                          });
+                          await user.update({ level: newLevel });
                         }
-                        if (newTotal >= 1000000) {
-                          await user.addSprite(knight);
+                        if (newTotal >= 40000) {
                           if (newLevel < 12) {
                             newLevel += 1;
-                            await user.update({
-                              level: newLevel
-                            });
+                            await user.update({ level: newLevel });
+                          }
+                          if (newTotal >= 50000) {
+                            await user.addSprite(zombie);
+                            if (newLevel < 13) {
+                              newLevel += 1;
+                              await user.update({ level: newLevel });
+                            }
+                            if (newTotal >= 60000) {
+                              if (newLevel < 14) {
+                                newLevel += 1;
+                                await user.update({ level: newLevel });
+                              }
+                              if (newTotal >= 75000) {
+                                if (newLevel < 15) {
+                                  newLevel += 1;
+                                  await user.update({ level: newLevel });
+                                }
+                                if (newTotal >= 100000) {
+                                  await user.addSprite(ninjaGirl);
+                                  if (newLevel < 16) {
+                                    newLevel += 1;
+                                    await user.update({ level: newLevel });
+                                  }
+                                  if (newTotal >= 125000) {
+                                    if (newLevel < 17) {
+                                      newLevel += 1;
+                                      await user.update({ level: newLevel });
+                                    }
+                                    if (newTotal >= 150000) {
+                                      if (newLevel < 18) {
+                                        newLevel += 1;
+                                        await user.update({ level: newLevel });
+                                      }
+                                      if (newTotal >= 175000) {
+                                        if (newLevel < 19) {
+                                          newLevel += 1;
+                                          await user.update({
+                                            level: newLevel,
+                                          });
+                                        }
+                                        if (newTotal >= 200000) {
+                                          if (newLevel < 20) {
+                                            newLevel += 1;
+                                            await user.update({
+                                              level: newLevel,
+                                            });
+                                          }
+                                          if (newTotal >= 250000) {
+                                            await user.addSprite(jackOLantern);
+                                            if (newLevel < 21) {
+                                              newLevel += 1;
+                                              await user.update({
+                                                level: newLevel,
+                                              });
+                                            }
+                                            if (newTotal >= 300000) {
+                                              if (newLevel < 22) {
+                                                newLevel += 1;
+                                                await user.update({
+                                                  level: newLevel,
+                                                });
+                                              }
+                                              if (newTotal >= 350000) {
+                                                if (newLevel < 23) {
+                                                  newLevel += 1;
+                                                  await user.update({
+                                                    level: newLevel,
+                                                  });
+                                                }
+                                                if (newTotal >= 400000) {
+                                                  if (newLevel < 24) {
+                                                    newLevel += 1;
+                                                    await user.update({
+                                                      level: newLevel,
+                                                    });
+                                                  }
+                                                  if (newTotal >= 500000) {
+                                                    await user.addSprite(
+                                                      ninjaBoy
+                                                    );
+                                                    if (newLevel < 25) {
+                                                      newLevel += 1;
+                                                      await user.update({
+                                                        level: newLevel,
+                                                      });
+                                                    }
+                                                    if (newTotal >= 600000) {
+                                                      if (newLevel < 26) {
+                                                        newLevel += 1;
+                                                        await user.update({
+                                                          level: newLevel,
+                                                        });
+                                                      }
+                                                      if (newTotal >= 700000) {
+                                                        if (newLevel < 27) {
+                                                          newLevel += 1;
+                                                          await user.update({
+                                                            level: newLevel,
+                                                          });
+                                                        }
+                                                        if (
+                                                          newTotal >= 800000
+                                                        ) {
+                                                          if (newLevel < 28) {
+                                                            newLevel += 1;
+                                                            await user.update({
+                                                              level: newLevel,
+                                                            });
+                                                          }
+                                                          if (
+                                                            newTotal >= 900000
+                                                          ) {
+                                                            if (newLevel < 29) {
+                                                              newLevel += 1;
+                                                              await user.update(
+                                                                {
+                                                                  level:
+                                                                    newLevel,
+                                                                }
+                                                              );
+                                                            }
+                                                            if (
+                                                              newTotal >=
+                                                              1000000
+                                                            ) {
+                                                              await user.addSprite(
+                                                                adventureGirl
+                                                              );
+                                                              if (
+                                                                newLevel < 30
+                                                              ) {
+                                                                newLevel += 1;
+                                                                await user.update(
+                                                                  {
+                                                                    level:
+                                                                      newLevel,
+                                                                  }
+                                                                );
+                                                              }
+                                                              if (
+                                                                newTotal >=
+                                                                1100000
+                                                              ) {
+                                                                if (
+                                                                  newLevel < 31
+                                                                ) {
+                                                                  newLevel += 1;
+                                                                  await user.update(
+                                                                    {
+                                                                      level:
+                                                                        newLevel,
+                                                                    }
+                                                                  );
+                                                                }
+                                                                if (
+                                                                  newTotal >=
+                                                                  1200000
+                                                                ) {
+                                                                  if (
+                                                                    newLevel <
+                                                                    32
+                                                                  ) {
+                                                                    newLevel += 1;
+                                                                    await user.update(
+                                                                      {
+                                                                        level:
+                                                                          newLevel,
+                                                                      }
+                                                                    );
+                                                                  }
+                                                                  if (
+                                                                    newTotal >=
+                                                                    1300000
+                                                                  ) {
+                                                                    if (
+                                                                      newLevel <
+                                                                      33
+                                                                    ) {
+                                                                      newLevel += 1;
+                                                                      await user.update(
+                                                                        {
+                                                                          level:
+                                                                            newLevel,
+                                                                        }
+                                                                      );
+                                                                    }
+                                                                    if (
+                                                                      newTotal >=
+                                                                      1400000
+                                                                    ) {
+                                                                      if (
+                                                                        newLevel <
+                                                                        34
+                                                                      ) {
+                                                                        newLevel += 1;
+                                                                        await user.update(
+                                                                          {
+                                                                            level:
+                                                                              newLevel,
+                                                                          }
+                                                                        );
+                                                                      }
+                                                                      if (
+                                                                        newTotal >=
+                                                                        1500000
+                                                                      ) {
+                                                                        await user.addSprite(
+                                                                          dino
+                                                                        );
+                                                                        if (
+                                                                          newLevel <
+                                                                          35
+                                                                        ) {
+                                                                          newLevel += 1;
+                                                                          await user.update(
+                                                                            {
+                                                                              level:
+                                                                                newLevel,
+                                                                            }
+                                                                          );
+                                                                        }
+                                                                        if (
+                                                                          newTotal >=
+                                                                          1600000
+                                                                        ) {
+                                                                          if (
+                                                                            newLevel <
+                                                                            36
+                                                                          ) {
+                                                                            newLevel += 1;
+                                                                            await user.update(
+                                                                              {
+                                                                                level:
+                                                                                  newLevel,
+                                                                              }
+                                                                            );
+                                                                          }
+                                                                          if (
+                                                                            newTotal >=
+                                                                            1700000
+                                                                          ) {
+                                                                            if (
+                                                                              newLevel <
+                                                                              37
+                                                                            ) {
+                                                                              newLevel += 1;
+                                                                              await user.update(
+                                                                                {
+                                                                                  level:
+                                                                                    newLevel,
+                                                                                }
+                                                                              );
+                                                                            }
+                                                                            if (
+                                                                              newTotal >=
+                                                                              1800000
+                                                                            ) {
+                                                                              if (
+                                                                                newLevel <
+                                                                                38
+                                                                              ) {
+                                                                                newLevel += 1;
+                                                                                await user.update(
+                                                                                  {
+                                                                                    level:
+                                                                                      newLevel,
+                                                                                  }
+                                                                                );
+                                                                              }
+                                                                              if (
+                                                                                newTotal >=
+                                                                                1900000
+                                                                              ) {
+                                                                                if (
+                                                                                  newLevel <
+                                                                                  39
+                                                                                ) {
+                                                                                  newLevel += 1;
+                                                                                  await user.update(
+                                                                                    {
+                                                                                      level:
+                                                                                        newLevel,
+                                                                                    }
+                                                                                  );
+                                                                                }
+                                                                                if (
+                                                                                  newTotal >=
+                                                                                  2000000
+                                                                                ) {
+                                                                                  await user.addSprite(
+                                                                                    robot
+                                                                                  );
+                                                                                  if (
+                                                                                    newLevel <
+                                                                                    40
+                                                                                  ) {
+                                                                                    newLevel += 1;
+                                                                                    await user.update(
+                                                                                      {
+                                                                                        level:
+                                                                                          newLevel,
+                                                                                      }
+                                                                                    );
+                                                                                  }
+                                                                                  if (
+                                                                                    newTotal >=
+                                                                                    2100000
+                                                                                  ) {
+                                                                                    if (
+                                                                                      newLevel <
+                                                                                      41
+                                                                                    ) {
+                                                                                      newLevel += 1;
+                                                                                      await user.update(
+                                                                                        {
+                                                                                          level:
+                                                                                            newLevel,
+                                                                                        }
+                                                                                      );
+                                                                                    }
+                                                                                    if (
+                                                                                      newTotal >=
+                                                                                      2200000
+                                                                                    ) {
+                                                                                      if (
+                                                                                        newLevel <
+                                                                                        42
+                                                                                      ) {
+                                                                                        newLevel += 1;
+                                                                                        await user.update(
+                                                                                          {
+                                                                                            level:
+                                                                                              newLevel,
+                                                                                          }
+                                                                                        );
+                                                                                      }
+                                                                                      if (
+                                                                                        newTotal >=
+                                                                                        2300000
+                                                                                      ) {
+                                                                                        if (
+                                                                                          newLevel <
+                                                                                          43
+                                                                                        ) {
+                                                                                          newLevel += 1;
+                                                                                          await user.update(
+                                                                                            {
+                                                                                              level:
+                                                                                                newLevel,
+                                                                                            }
+                                                                                          );
+                                                                                        }
+                                                                                        if (
+                                                                                          newTotal >=
+                                                                                          2400000
+                                                                                        ) {
+                                                                                          if (
+                                                                                            newLevel <
+                                                                                            44
+                                                                                          ) {
+                                                                                            newLevel += 1;
+                                                                                            await user.update(
+                                                                                              {
+                                                                                                level:
+                                                                                                  newLevel,
+                                                                                              }
+                                                                                            );
+                                                                                          }
+                                                                                          if (
+                                                                                            newTotal >=
+                                                                                            2500000
+                                                                                          ) {
+                                                                                            await user.addSprite(
+                                                                                              santa
+                                                                                            );
+                                                                                            if (
+                                                                                              newLevel <
+                                                                                              45
+                                                                                            ) {
+                                                                                              newLevel += 1;
+                                                                                              await user.update(
+                                                                                                {
+                                                                                                  level:
+                                                                                                    newLevel,
+                                                                                                }
+                                                                                              );
+                                                                                            }
+                                                                                            if (
+                                                                                              newTotal >=
+                                                                                              2600000
+                                                                                            ) {
+                                                                                              if (
+                                                                                                newLevel <
+                                                                                                46
+                                                                                              ) {
+                                                                                                newLevel += 1;
+                                                                                                await user.update(
+                                                                                                  {
+                                                                                                    level:
+                                                                                                      newLevel,
+                                                                                                  }
+                                                                                                );
+                                                                                              }
+                                                                                              if (
+                                                                                                newTotal >=
+                                                                                                2700000
+                                                                                              ) {
+                                                                                                if (
+                                                                                                  newLevel <
+                                                                                                  47
+                                                                                                ) {
+                                                                                                  newLevel += 1;
+                                                                                                  await user.update(
+                                                                                                    {
+                                                                                                      level:
+                                                                                                        newLevel,
+                                                                                                    }
+                                                                                                  );
+                                                                                                }
+                                                                                                if (
+                                                                                                  newTotal >=
+                                                                                                  2800000
+                                                                                                ) {
+                                                                                                  if (
+                                                                                                    newLevel <
+                                                                                                    48
+                                                                                                  ) {
+                                                                                                    newLevel += 1;
+                                                                                                    await user.update(
+                                                                                                      {
+                                                                                                        level:
+                                                                                                          newLevel,
+                                                                                                      }
+                                                                                                    );
+                                                                                                  }
+                                                                                                  if (
+                                                                                                    newTotal >=
+                                                                                                    2900000
+                                                                                                  ) {
+                                                                                                    if (
+                                                                                                      newLevel <
+                                                                                                      49
+                                                                                                    ) {
+                                                                                                      newLevel += 1;
+                                                                                                      await user.update(
+                                                                                                        {
+                                                                                                          level:
+                                                                                                            newLevel,
+                                                                                                        }
+                                                                                                      );
+                                                                                                    }
+                                                                                                    if (
+                                                                                                      newTotal >=
+                                                                                                      3000000
+                                                                                                    ) {
+                                                                                                      await user.addSprite(
+                                                                                                        knight
+                                                                                                      );
+                                                                                                      if (
+                                                                                                        newLevel <
+                                                                                                        50
+                                                                                                      ) {
+                                                                                                        newLevel += 1;
+                                                                                                        await user.update(
+                                                                                                          {
+                                                                                                            level:
+                                                                                                              newLevel,
+                                                                                                          }
+                                                                                                        );
+                                                                                                      }
+                                                                                                    }
+                                                                                                  }
+                                                                                                }
+                                                                                              }
+                                                                                            }
+                                                                                          }
+                                                                                        }
+                                                                                      }
+                                                                                    }
+                                                                                  }
+                                                                                }
+                                                                              }
+                                                                            }
+                                                                          }
+                                                                        }
+                                                                      }
+                                                                    }
+                                                                  }
+                                                                }
+                                                              }
+                                                            }
+                                                          }
+                                                        }
+                                                      }
+                                                    }
+                                                  }
+                                                }
+                                              }
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
                           }
                         }
                       }
@@ -248,7 +741,7 @@ router.post("/:id/add", requireToken, async (req, res, next) => {
       });
 
       preset.status = "active";
-      preset.isPreset = false
+      preset.isPreset = false;
       preset.userId = req.user.dataValues.id;
       delete preset.id;
       let newWorkout = await Workout.create(preset);
@@ -287,8 +780,8 @@ router.post("/:id/add", requireToken, async (req, res, next) => {
         where: {
           userId: req.user.dataValues.id,
           status: "active",
-        }
-      })
+        },
+      });
 
       let preset = await Workout.findOne({
         where: {
@@ -298,7 +791,7 @@ router.post("/:id/add", requireToken, async (req, res, next) => {
       });
 
       preset.status = "active";
-      preset.isPreset = false
+      preset.isPreset = false;
       preset.userId = req.user.dataValues.id;
       delete preset.id;
       let newWorkout = await Workout.create(preset);

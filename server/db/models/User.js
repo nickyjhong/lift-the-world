@@ -105,7 +105,7 @@ User.beforeBulkCreate((users) => Promise.all(users.map(hashPassword)));
 User.addHook("afterCreate", async (user) => {
   const sprites = await Sprite.findAll({
     where: {
-      weightToUnlock: 0,
+      isDefault: true,
     },
   });
   sprites.map((sprite) => {

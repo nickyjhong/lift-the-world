@@ -36,7 +36,7 @@ async function seed() {
     isAdmin: true,
     totalWeight: 44867,
     level: 43,
-    selectedSprite: "redHatBoy",
+    selectedSprite: "dog",
   });
 
   const cherry = await User.create({
@@ -598,64 +598,47 @@ async function seed() {
   //creating our sprites
   const cat = await Sprite.create({
     name: "cat",
-    weightToUnlock: 0,
+    isDefault: true,
   });
-
   const dog = await Sprite.create({
     name: "dog",
-    weightToUnlock: 0,
+    isDefault: true,
   });
   const redHatBoy = await Sprite.create({
     name: "redHatBoy",
-    weightToUnlock: 0,
   });
-
   const cuteGirl = await Sprite.create({
     name: "cuteGirl",
-    weightToUnlock: 1000,
   });
   const adventureBoy = await Sprite.create({
     name: "adventureBoy",
-    weightToUnlock: 2000,
   });
   const zombie = await Sprite.create({
     name: "zombie",
-    weightToUnlock: 4000,
   });
-
   const ninjaGirl = await Sprite.create({
     name: "ninjaGirl",
-    weightToUnlock: 8000,
   });
   const jackOLantern = await Sprite.create({
     name: "jackOLantern",
-    weightToUnlock: 16000,
   });
-
   const ninjaBoy = await Sprite.create({
     name: "ninjaBoy",
-    weightToUnlock: 32000,
   });
-
   const adventureGirl = await Sprite.create({
     name: "adventureGirl",
-    weightToUnlock: 64000,
   });
   const dino = await Sprite.create({
     name: "dino",
-    weightToUnlock: 128000,
   });
   const robot = await Sprite.create({
     name: "robot",
-    weightToUnlock: 256000,
   });
   const santa = await Sprite.create({
     name: "santa",
-    weightToUnlock: 512000,
   });
   const knight = await Sprite.create({
     name: "knight",
-    weightToUnlock: 1024000,
   });
 
   //await cat.setUser(cherry);
@@ -675,16 +658,12 @@ async function seed() {
   await cherry.addSprite(knight);
   await ryan.addSprite(cat);
   await ryan.addSprite(dog);
-  await ryan.addSprite(redHatBoy);
   await admin.addSprite(cat);
   await admin.addSprite(dog);
-  await admin.addSprite(redHatBoy);
   await nicole.addSprite(cat);
   await nicole.addSprite(dog);
-  await nicole.addSprite(redHatBoy);
   await kyle.addSprite(cat);
   await kyle.addSprite(dog);
-  await kyle.addSprite(redHatBoy);
 
   console.log(`seeded successfully`);
 }
