@@ -13,13 +13,14 @@ const PresetWorkouts = () => {
     dispatch(getPresetsThunk());
   }, [dispatch]);
 
-  if (!presets || presets.length === 0) {
+  if (!presets || !presets[0] || presets.length === 0) {
     return (
       <div>
         <Loading />
       </div>
     );
   }
+
   return (
     <div>
       <h1>Need Help Getting Started? Choose from the Workouts Below:</h1>

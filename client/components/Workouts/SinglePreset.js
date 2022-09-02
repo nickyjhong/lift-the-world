@@ -22,6 +22,7 @@ const SinglePreset = () => {
       </div>
     );
   }
+
   return (
     <div>
       {preset && preset.id ? (
