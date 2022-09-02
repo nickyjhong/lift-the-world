@@ -248,6 +248,7 @@ router.post("/:id/add", requireToken, async (req, res, next) => {
       });
 
       preset.status = "active";
+      preset.isPreset = false
       preset.userId = req.user.dataValues.id;
       delete preset.id;
       let newWorkout = await Workout.create(preset);
@@ -297,6 +298,7 @@ router.post("/:id/add", requireToken, async (req, res, next) => {
       });
 
       preset.status = "active";
+      preset.isPreset = false
       preset.userId = req.user.dataValues.id;
       delete preset.id;
       let newWorkout = await Workout.create(preset);
