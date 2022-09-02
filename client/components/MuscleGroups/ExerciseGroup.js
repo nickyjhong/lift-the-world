@@ -23,25 +23,41 @@ export default function ExerciseGroup(props) {
           <Link to="/exercises" className="all-exercises-link">
             See all exercises
           </Link>
-          <ul className="all-exercises-list">
             {group.map((exercise) => {
               return (
-                <li 
-                  key={exercise.id}
-                  className="all-exercises-list-item"
-                >
-                  <Link to={`/exercise/${exercise.id}`} className="all-exercises-list-name">
-                    {exercise.name}
-                  </Link>
-                  <button 
-                    onClick={() => dispatch(addToWorkout(exercise))}
-                    className="all-exercises-add-btn"
-                  >
-                    add to workout</button>
-                </li>
+                <div className="exercise-container" key={exercise.id}>
+                  <div className="exercise-img-container">
+                    <img src={exercise.image} className="exercise-img"/>
+                  </div>
+                  <div className="exercise-info-container">
+                    <Link
+                        to={`/exercise/${exercise.id}`}
+                        className="exercise-name"
+                      >
+                        {exercise.name}
+                      </Link>
+
+                      <Link
+                        to={`/musclegroups/${exercise.category}`}
+                        className="exercise-category"
+                      >
+                        {exercise.category}
+                      </Link>
+                  </div>
+                  <div className="exercise-btn-container">
+                    <button
+                      onClick={() => {
+                        dispatch(addToWorkout(exercise));
+                        // notification("info");
+                      }}
+                      className="exercise-add-btn"
+                    >
+                      <img src="/images/plus-solid.svg" className="exercise-add-btn-img" />
+                    </button>
+                  </div>
+                </div>
               )
             })}
-          </ul>
         </div>
       ) : (
         <p>No exercises</p>

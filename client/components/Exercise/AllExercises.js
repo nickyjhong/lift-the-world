@@ -35,29 +35,41 @@ const AllExercises = () => {
       {exercises ? (
         <div className="all-exercises-container">
           <h1 className="all-exercises-heading">All Exercises</h1>
-          <ul className="all-exercises-list">
-            {exercises.map((exercise) => {
-              return (
-                <li key={exercise.id} className="all-exercises-list-item">
-                  <Link
+          {exercises.map((exercise) => {
+            return (
+            <div className="exercise-container" key={exercise.id}>
+              <div className="exercise-img-container">
+                <img src={exercise.image} className="exercise-img"/>
+              </div>
+              <div className="exercise-info-container">
+                <Link
                     to={`/exercise/${exercise.id}`}
-                    className="all-exercises-list-name"
+                    className="exercise-name"
                   >
                     {exercise.name}
                   </Link>
-                  <button
-                    onClick={() => {
-                      dispatch(addToWorkout(exercise));
-                      // notification("info");
-                    }}
-                    className="all-exercises-add-btn"
+
+                  <Link
+                    to={`/musclegroups/${exercise.category}`}
+                    className="exercise-category"
                   >
-                    add to workout
-                  </button>
-                </li>
-              );
-            })}
-          </ul>
+                    {exercise.category}
+                  </Link>
+              </div>
+              <div className="exercise-btn-container">
+                <button
+                  onClick={() => {
+                    dispatch(addToWorkout(exercise));
+                    // notification("info");
+                  }}
+                  className="exercise-add-btn"
+                >
+                  <img src="/images/plus-solid.svg" className="exercise-add-btn-img" />
+                </button>
+              </div>
+            </div>
+            )
+          })}
         </div>
       ) : (
         <div>
