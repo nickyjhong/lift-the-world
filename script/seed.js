@@ -8,24 +8,12 @@ async function seed() {
   console.log("db synced!");
 
   // Creating Users
-
-  const admin = await User.create({
-    username: "admin",
-    email: "admin@gmail.com",
-    password: "123",
-    isAdmin: true,
-    totalWeight: 12094,
-    level: 18,
-    selectedSprite: "dog",
-  });
-
   const kyle = await User.create({
     username: "kyle",
     email: "kparki@email.com",
     password: "123",
-    isAdmin: false,
-    totalWeight: 12097,
-    level: 18,
+    totalWeight: 0,
+    level: 1,
     selectedSprite: "cat",
   });
 
@@ -33,9 +21,8 @@ async function seed() {
     username: "nicky",
     email: "nicole@hong.com",
     password: "123",
-    isAdmin: true,
-    totalWeight: 44867,
-    level: 43,
+    totalWeight: 0,
+    level: 1,
     selectedSprite: "dog",
   });
 
@@ -43,9 +30,8 @@ async function seed() {
     username: "cherry",
     email: "cherry@xu.com",
     password: "123",
-    isAdmin: true,
-    totalWeight: 39126,
-    level: 33,
+    totalWeight: 0,
+    level: 1,
     selectedSprite: "cat",
   });
 
@@ -53,9 +39,8 @@ async function seed() {
     username: "ryan",
     email: "ryan@scoville.com",
     password: "123",
-    isAdmin: false,
-    totalWeight: 28643,
-    level: 24,
+    totalWeight: 0,
+    level: 1,
     selectedSprite: "dog",
   });
 
@@ -641,25 +626,10 @@ async function seed() {
     name: "knight",
   });
 
-  //await cat.setUser(cherry);
   await cherry.addSprite(cat);
   await cherry.addSprite(dog);
-  await cherry.addSprite(redHatBoy);
-  await cherry.addSprite(cuteGirl);
-  await cherry.addSprite(adventureBoy);
-  await cherry.addSprite(zombie);
-  await cherry.addSprite(ninjaGirl);
-  await cherry.addSprite(jackOLantern);
-  await cherry.addSprite(ninjaBoy);
-  await cherry.addSprite(adventureGirl);
-  await cherry.addSprite(dino);
-  await cherry.addSprite(robot);
-  await cherry.addSprite(santa);
-  await cherry.addSprite(knight);
   await ryan.addSprite(cat);
   await ryan.addSprite(dog);
-  await admin.addSprite(cat);
-  await admin.addSprite(dog);
   await nicole.addSprite(cat);
   await nicole.addSprite(dog);
   await kyle.addSprite(cat);
