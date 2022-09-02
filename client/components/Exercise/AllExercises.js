@@ -6,7 +6,6 @@ import { useParams } from "react-router-dom";
 import YoutubeEmbed from "./YoutubeEmbed";
 import { Link } from "react-router-dom";
 import { toast } from 'react-toastify';
-// import "react-toastify/dist/ReactToastify.css";
 
 const AllExercises = () => {
   const exercises = useSelector((state) => state.allExercises);
@@ -25,7 +24,9 @@ const AllExercises = () => {
             return (
             <div className="exercise-container" key={exercise.id}>
               <div className="exercise-img-container">
-                <img src={exercise.image} className="exercise-img"/>
+                <Link to={`/exercise/${exercise.id}`}>
+                  <img src={exercise.image} className="exercise-img"/>
+                </Link>
               </div>
               <div className="exercise-info-container">
                 <Link
