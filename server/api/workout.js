@@ -248,6 +248,7 @@ router.post("/:id/add", requireToken, async (req, res, next) => {
       });
 
       preset.status = "active";
+      preset.isPreset = false
       preset.userId = req.user.dataValues.id;
       delete preset.id;
       let newWorkout = await Workout.create(preset);
@@ -282,8 +283,55 @@ router.post("/:id/add", requireToken, async (req, res, next) => {
 
       res.send(newWorkout);
     } else {
-      console.log("You have an active workout already!");
-      res.send(workout);
+      await Workout.destroy({
+        where: {
+          userId: req.user.dataValues.id,
+          status: "active",
+        }
+      })
+
+      let preset = await Workout.findOne({
+        where: {
+          id: req.params.id,
+        },
+        raw: true,
+      });
+
+      preset.status = "active";
+      preset.isPreset = false
+      preset.userId = req.user.dataValues.id;
+      delete preset.id;
+      let newWorkout = await Workout.create(preset);
+
+      const workoutLists = await WorkoutList.findAll({
+        where: {
+          workoutId: req.params.id,
+        },
+      });
+
+      const exercises = workoutLists.map((workoutlist) => {
+        return workoutlist.dataValues.exerciseId;
+      });
+
+      for (let i = 0; i < exercises.length; i++) {
+        const exercise = await Exercise.findByPk(exercises[i]);
+        await newWorkout.addExercise(exercise);
+      }
+
+      const newWorkoutExercise = await WorkoutList.findAll({
+        where: {
+          workoutId: newWorkout.id,
+        },
+      });
+
+      newWorkoutExercise.map((exercise) => {
+        exercise.update({
+          userId: req.user.dataValues.id,
+          sets: [{ reps: "", weight: "", setId: 0 }],
+        });
+      });
+
+      res.send(newWorkout);
     }
   } catch (error) {
     next(error);

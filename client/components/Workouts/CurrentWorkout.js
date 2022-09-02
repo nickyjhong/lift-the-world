@@ -42,22 +42,24 @@ const CurrentWorkout = () => {
         {allExercises.exercises.map((exercise) => {
           return (
             <div key={exercise.id} className="cw-single-exercise-container">
-              <Link
-                to={`/exercise/${exercise.id}`}
-                className="cw-exercise-name"
-              >
-                {exercise.name}
-              </Link>
-              <button className="exercise-delete-btn" onClick={() => dispatch(deleteFromWorkout(exercise.id))}>
-                <img className="exercise-delete-btn-img" src="/images/trash.png" />
-              </button>
+              <div className="cw-exercise-name-btn">
+                <Link
+                  to={`/exercise/${exercise.id}`}
+                  className="cw-exercise-name"
+                >
+                  {exercise.name}
+                </Link>
+                <button className="exercise-delete-btn" onClick={() => dispatch(deleteFromWorkout(exercise.id))}>
+                  <img className="exercise-delete-btn-img" src="/images/trash.png" />
+                </button>
+              </div>
               <div className="cw-exercise">
                 <div className="cw-headings">
                   <p className="cw-heading">Set</p>
-                  <p className="cw-heading cw-previous-heading">Previous</p>
-                  <p className="cw-heading">Reps</p>
+                  <p className="cw-heading cw-reps-heading">Reps</p>
                   <p className="cw-heading cw-weight-heading">Weight</p>
-                  <p className="cw-heading cw-heading-check">️✔️️</p>
+                  <p className="cw-heading cw-pushed-heading">Pushed</p>
+                  <p className="cw-heading cw-heading-check">Done</p>
                 </div>
                 {exercise.workoutlist.sets.map((set, index) => {
                   return (
@@ -104,7 +106,7 @@ const CurrentWorkout = () => {
           );
         })}
       </div>
-      {allExercises.status === "active" ? (
+      <div className="cw-finish-workout-btn">
         <Link to="/recap">
           <button
             className="cw-finish-btn"
@@ -113,9 +115,7 @@ const CurrentWorkout = () => {
             Finish Workout
           </button>
         </Link>
-      ) : (
-        <button>Start a new workout</button>
-      )}
+      </div>
     </div>
   );
 };

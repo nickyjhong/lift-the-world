@@ -41,10 +41,6 @@ const CurrentWorkoutSet = (props) => {
             disabled
           />
 
-          <p className="cw-previous">
-            {props.reps} x {props.weight}
-          </p>
-
           <input
             className="cw-sr-input cw-rep-input"
             type="number"
@@ -63,12 +59,16 @@ const CurrentWorkoutSet = (props) => {
             onChange={handleChange}
           />
 
+          <p className="cw-pushed">
+            {props.reps} x {props.weight}
+          </p>
+
           <button
             className="cw-check-input"
             type="submit"
             onClick={handleConfirmSet}
           >
-            {" "}
+            ✓
           </button>
         </div>
       </form>
