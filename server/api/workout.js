@@ -115,77 +115,74 @@ router.put("/finish", requireToken, async (req, res, next) => {
 
     if (newTotal >= 1000) {
       await user.addSprite(cuteGirl);
-      if (user.hasReached2 === false) {
+      if (newLevel < 2) {
         newLevel += 1;
-        await user.update({ level: newLevel, hasReached2: true });
+        await user.update({ level: newLevel });
       }
       if (newTotal >= 2500) {
         await user.addSprite(adventureBoy);
-        if (user.hasReached3 === false) {
+        if (newLevel < 3) {
           newLevel += 1;
-          await user.update({ level: newLevel, hasReached3: true });
+          await user.update({ level: newLevel});
         }
         if (newTotal >= 5000) {
           await user.addSprite(zombie);
-          if (user.hasReached4 === false) {
+          if (newLevel < 4) {
             newLevel += 1;
-            await user.update({ level: newLevel, hasReached4: true });
+            await user.update({ level: newLevel});
           }
           if (newTotal >= 10000) {
             await user.addSprite(ninjaGirl);
-            if (user.hasReached5 === false) {
+            if (newLevel < 5) {
               newLevel += 1;
-              await user.update({ level: newLevel, hasReached5: true });
+              await user.update({ level: newLevel});
             }
             if (newTotal >= 20000) {
               await user.addSprite(jackOLantern);
-              if (user.hasReached6 === false) {
+              if (newLevel < 6) {
                 newLevel += 1;
-                await user.update({ level: newLevel, hasReached6: true });
+                await user.update({ level: newLevel });
               }
               if (newTotal >= 40000) {
                 await user.addSprite(ninjaBoy);
-                if (user.hasReached7 === false) {
+                if (newLevel < 7) {
                   newLevel += 1;
-                  await user.update({ level: newLevel, hasReached7: true });
+                  await user.update({ level: newLevel});
                 }
                 if (newTotal >= 75000) {
                   await user.addSprite(adventureGirl);
-                  if (user.hasReached8 === false) {
+                  if (newLevel < 8) {
                     newLevel += 1;
-                    await user.update({ level: newLevel, hasReached8: true });
+                    await user.update({ level: newLevel});
                   }
                   if (newTotal >= 125000) {
                     await user.addSprite(dino);
-                    if (user.hasReached9 === false) {
+                    if (newLevel < 9) {
                       newLevel += 1;
-                      await user.update({ level: newLevel, hasReached9: true });
+                      await user.update({ level: newLevel});
                     }
                     if (newTotal >= 250000) {
                       await user.addSprite(robot);
-                      if (user.hasReached10 === false) {
+                      if (newLevel < 10) {
                         newLevel += 1;
                         await user.update({
-                          level: newLevel,
-                          hasReached10: true,
+                          level: newLevel
                         });
                       }
                       if (newTotal >= 500000) {
                         await user.addSprite(santa);
-                        if (user.hasReached11 === false) {
+                        if (newLevel < 11) {
                           newLevel += 1;
                           await user.update({
-                            level: newLevel,
-                            hasReached11: true,
+                            level: newLevel
                           });
                         }
                         if (newTotal >= 1000000) {
                           await user.addSprite(knight);
-                          if (user.hasReached12 === false) {
+                          if (newLevel < 12) {
                             newLevel += 1;
                             await user.update({
-                              level: newLevel,
-                              hasReached12: true,
+                              level: newLevel
                             });
                           }
                         }
