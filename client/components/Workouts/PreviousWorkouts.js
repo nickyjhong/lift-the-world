@@ -30,8 +30,6 @@ export default function PreviousWorkouts() {
     );
   }
 
-  console.log('prev', prevWorkouts)
-
   return (
     <div className="previous-workouts-container">
       <p className="previous-workouts-message">Previous workouts</p>
