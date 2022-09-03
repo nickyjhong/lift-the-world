@@ -61,3 +61,8 @@ localhost:8080
     <img src="https://skillicons.dev/icons?i=postgres,html,css,heroku" />
   </a>
 </p>
+
+## Credits
+- Logo created from Looka[https://looka.com/logo-maker/]
+- Sprites Used from GameArt2D[https://www.gameart2d.com/freebies.html]
+- Images from Strong app[https://www.strong.app/]
