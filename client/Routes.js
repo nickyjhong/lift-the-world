@@ -17,6 +17,7 @@ import SinglePreset from "./components/Workouts/SinglePreset";
 import AllExercises from "./components/Exercise/AllExercises";
 import ChooseSprites from "./components/Sprites";
 import Timer from "./components/Timer/Timer";
+import PreviousWorkouts from "./components/Workouts/PreviousWorkouts";
 
 class Routes extends Component {
   componentDidMount() {
@@ -53,6 +54,7 @@ class Routes extends Component {
                   path="/workout/preset/:id"
                   component={SinglePreset}
                 />
+                <Route exact path="/workout/previous" component={PreviousWorkouts} />
                 <Route exact path="/exercises" component={AllExercises} />
                 <Route exact path="/exercise/:id" component={SingleExercise} />
                 <Route path="/leaderboard" component={LeaderBoard} />

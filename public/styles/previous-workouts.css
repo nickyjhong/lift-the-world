@@ -1,0 +1,66 @@
+.previous-workouts-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.previous-workouts-message {
+  text-align: center;
+  font-weight: 700;
+  margin: .5rem;
+}
+
+.previous-workout-date {
+  font-size: .8rem;
+  margin: 0;
+  color: rgb(111, 107, 107);
+  text-align: end;
+}
+
+.previous-workout-name {
+  margin: .25rem;
+}
+
+.previous-workout-container {
+  display: flex;
+  flex-direction: column;
+  margin: .75rem 0;
+}
+
+.previous-workout-headings {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: .8rem;
+  font-weight: 700;
+  padding: 0 .25rem;
+}
+
+.previous-workout-content {
+  background: #F0EFEB;
+  border-radius: 5px;
+  padding: .5rem;
+}
+
+.previous-workout-heading {
+  margin: .25rem 0;
+}
+
+.previous-exercise-name, .previous-exercise-weight {
+  font-size: .85rem;
+  padding: .25rem 0;
+}
+
+.previous-exercise-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.previous-workout-total-weight {
+  align-self: flex-end;
+  font-size: .85rem;
+  font-weight: 700;
+  padding: .25rem .5rem;
+}
