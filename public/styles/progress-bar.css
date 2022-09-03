@@ -6,8 +6,16 @@
     margin: 50;
   }
 
+  .progress-label-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: .25rem;
+  }
+
   .progress-label{
     padding: 5;
+    font-size: .8rem;
     color: black;
     font-weight: bold;
   }

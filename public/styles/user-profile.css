@@ -9,8 +9,24 @@
   height: 11em;
 }
 
-.character-margin {
-  margin: 0.5rem 0 .75rem 0;
+.profile-name {
+  margin: .75rem 0 .25rem 0;
+}
+
+.profile-level {
+  margin: .25rem;
+}
+
+.profile-level-progress {
+  margin: 1rem 0 .5rem 0;
+}
+
+.profile-text {
+  margin-top: .75rem;
+}
+
+.profile-weight {
+  margin-bottom: 1rem;
 }
 
 .logout-btn {
@@ -39,7 +55,7 @@
 }
 
 .profile-btns-container {
-  gap: 1.2rem;
+  gap: 1.1rem;
 }
 
 .progress-btn {

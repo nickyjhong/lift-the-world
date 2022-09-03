@@ -23,7 +23,7 @@ const UserProfile = () => {
 useEffect(()=>{
   dispatch(fetchUserStats());
 }, [])
- 
+
   const [frame, setFrame] = useState(0);
   let [counter, setCounter] = useState(1);
   
@@ -255,8 +255,8 @@ useEffect(()=>{
   return (
     <>
       <div className="profile-container">
-        <h1 className="character-margin">{username}</h1>
-        <h3 className="character-margin">Level {user.level}</h3>
+        <h1 className="profile-name">{username}</h1>
+        <h3 className="profile-level">Level {user.level}</h3>
       </div>
       <div className="character-container">
         <img
@@ -264,10 +264,10 @@ useEffect(()=>{
           src={character[frame]}
           className="character"
         />
-        <h4>Level Progress:</h4>
+        <h4 className="profile-level-progress">Level Progress:</h4>
         <ProgressBar percentage={percentage(level, currentWeight)}/>
-        <p className="character-margin">You've lifted a total of:</p>
-        <p className="character-margin">
+        <p className="profile-text">You've lifted a total of:</p>
+        <p className="profile-weight">
           {totalWeight.toLocaleString("en-US") || 0} lbs
         </p>
         <div className="profile-btns-container">
