@@ -63,6 +63,6 @@ localhost:8080
 </p>
 
 ## Credits
-- Logo created from Looka[https://looka.com/logo-maker/]
-- Sprites Used from GameArt2D[https://www.gameart2d.com/freebies.html]
-- Images from Strong app[https://www.strong.app/]
+- Logo created from [Looka](https://looka.com/logo-maker/)
+- Sprites Used from [GameArt2D](https://www.gameart2d.com/freebies.html)
+- Images for exercises from [Strong](https://www.strong.app/)
