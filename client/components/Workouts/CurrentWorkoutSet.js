@@ -59,8 +59,8 @@ const CurrentWorkoutSet = (props) => {
             onChange={handleChange}
           />
 
-          <p className="cw-pushed">
-            {props.reps} x {props.weight}
+          <p className="cw-total">
+            {props.reps * props.weight} lbs
           </p>
 
           <button

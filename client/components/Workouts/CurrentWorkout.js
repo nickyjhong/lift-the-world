@@ -77,21 +77,23 @@ const CurrentWorkout = () => {
                   <p className="cw-heading">Set</p>
                   <p className="cw-heading cw-reps-heading">Reps</p>
                   <p className="cw-heading cw-weight-heading">Weight</p>
-                  <p className="cw-heading cw-pushed-heading">Pushed</p>
+                  <p className="cw-heading cw-pushed-heading">Total</p>
                   <p className="cw-heading cw-heading-check">Done</p>
                 </div>
-                {exercise.workoutlist.sets.map((set, index) => {
-                  return (
-                    <CurrentWorkoutSet
-                      key={index}
-                      workoutId={workoutId}
-                      exerciseId={exercise.id}
-                      setId={index + 1}
-                      weight={set.weight}
-                      reps={set.reps}
-                    />
-                  );
-                })}
+                <div className="cw-info-container-main">
+                  {exercise.workoutlist.sets.map((set, index) => {
+                    return (
+                      <CurrentWorkoutSet
+                        key={index}
+                        workoutId={workoutId}
+                        exerciseId={exercise.id}
+                        setId={index + 1}
+                        weight={set.weight}
+                        reps={set.reps}
+                      />
+                    );
+                  })}
+                </div>
 
                 <div className="cw-btn-container">
                   <button
