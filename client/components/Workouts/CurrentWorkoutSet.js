@@ -47,8 +47,14 @@ const CurrentWorkoutSet = (props) => {
           <input
             className={confirmed ? "cw-sr-input-yes" : "cw-sr-input-no"}
             type="number"
+            onKeyPress={(event) => {
+              if (!/[0-9]/.test(event.key)) {
+                event.preventDefault();
+              }
+            }}
             min="0"
             name="reps"
+            pattern="^[1-9]\d*$"
             value={setInfo.reps}
             onChange={handleChange}
           />
@@ -56,8 +62,14 @@ const CurrentWorkoutSet = (props) => {
           <input
             className={confirmed ? "cw-weight-input-yes" : "cw-weight-input-no"}
             type="number"
+            onKeyPress={(event) => {
+              if (!/[0-9]/.test(event.key)) {
+                event.preventDefault();
+              }
+            }}
             min="0"
             name="weight"
+            pattern="^[1-9]\d*$"
             value={setInfo.weight}
             onChange={handleChange}
           />
