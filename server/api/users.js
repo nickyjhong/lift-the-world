@@ -40,7 +40,7 @@ router.get("/leaders", async (req, res, next) => {
         topTen.push(sortedUsers[i]);
       }
     } else {
-      for (let i = 0; i < sortedUsers.length - 1; i++) {
+      for (let i = 0; i < sortedUsers.length; i++) {
         topTen.push(sortedUsers[i]);
       }
     }

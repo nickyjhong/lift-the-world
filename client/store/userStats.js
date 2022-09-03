@@ -12,11 +12,11 @@ const userStats = (stats)=>{
 export const fetchUserStats = ()=>{
     return async (dispatch)=>{
         try {
-        const token = window.localStorage.getItem("token");
-        const {data: stats} = await axios.get('/api/users/stats', {headers:{
-            authorization: token
-        }});
-        dispatch(userStats(stats));
+            const token = window.localStorage.getItem("token");
+            const {data: stats} = await axios.get('/api/users/stats', {headers:{
+                authorization: token
+            }});
+            dispatch(userStats(stats));
         } catch (error) {
             console.log(error)
         }
@@ -30,7 +30,7 @@ export default function userStatsReducer(state = inittialState, action){
     switch(action.type){
         case USER_STATS:
             return action.stats;
-            default:
-                return state;
+        default:
+            return state;
     }
 }
