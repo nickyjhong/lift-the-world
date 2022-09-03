@@ -9,12 +9,12 @@ const ProgressBar = (props)=>{
         backgroundColor: '#FFC300',
         borderRadius: 'inherit',
         textAlign: 'right'
-      }
+    }
 
     return (
     <div className="progress-container">
-        <div style={filler}>
-        <span className="progress-label">{`${percentage}%`}</span>
+        <div style={filler} className="progress-label-container">
+            <span className="progress-label">{`${percentage}%`}</span>
         </div>
         
     </div>

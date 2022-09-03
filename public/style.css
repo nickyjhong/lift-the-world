@@ -14,7 +14,7 @@
 @import "./styles/loading.css";
 @import './styles/timer.css';
 @import "./styles/preset-workouts.css";
-@import "./styles/progres-bar.css";
+@import "./styles/progress-bar.css";
 @import "./styles/media-query.css";
 
 * {

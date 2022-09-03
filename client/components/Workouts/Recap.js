@@ -8,9 +8,7 @@ const Recap = () => {
       <div className="recap-congrats">
         <h4>Great job with your workout!</h4>
       </div>
-      <div className="recap-weights">
-        <WorkoutSummary />
-      </div>
+      <WorkoutSummary />
       <WeightComparison />
     </div>
   );

@@ -12,7 +12,7 @@
 }
 .cw-exercise-name {
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 700;
   margin-bottom: .5rem;
 }
 
@@ -23,6 +23,7 @@
   align-items: center;
   padding: 0;
   font-size: .5rem;
+  margin: 0 .25rem;
 }
 
 .cw-heading {
@@ -46,7 +47,7 @@
   margin-left: .25rem;
 }
 
-.cw-info-container {
+.cw-info-container, .cw-info-container-main {
   background: #EFEFEF;
   border-radius: 5px;
 }
@@ -56,13 +57,14 @@
   justify-content: space-between;
   align-items: center;
   margin: 0;
-  padding: .5rem .3rem;
+  padding: .5rem .2rem;
 }
 
 .cw-set-info input {
   text-align: center;
   font-family: "Roboto", Helvetica, sans-serif;
   font-size: .75rem;
+  margin-left: .3rem;
 }
 
 .cw-set {
@@ -78,7 +80,7 @@
 }
 
 .cw-rep-input {
-  margin-left: .25rem;
+  margin-left: 1rem;
   width: 1.5rem;
 }
 
@@ -97,9 +99,10 @@
 
 .cw-check-input {
   background: #C8E5B8;
+  margin-right: .2rem;
 }
 
-.cw-pushed {
+.cw-total {
   font-size: .7rem;
   margin: 0;
   color: #5B5757;
@@ -125,7 +128,7 @@
 
 .cw-delete-btn {
   font-size: .8rem;
-  background: #E5C7CC;
+  background: #fadde0;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15), 0px 4px 4px rgba(0, 0, 0, 0.01);
   border-radius: 5px;
   border: none;
