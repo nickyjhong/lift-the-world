@@ -150,15 +150,73 @@ export function weightFunction(weight) {
     };
   } else if (weight > 20000 && weight <= 25000) {
     return {
-      name: "school bus",
+      name: "a school bus",
       image:
         "https://chalkbeat.brightspotcdn.com/dims4/default/2ea9bf1/2147483647/strip/true/crop/7360x4201+0+711/resize/1461x834!/quality/90/?url=https%3A%2F%2Fcdn.vox-cdn.com%2Fthumbor%2Fjo1iolvhiW5TF8XDi82TWqza_oY%3D%2F0x0%3A7360x4912%2F7360x4912%2Ffilters%3Afocal%284707x3488%3A4708x3489%29%2Fcdn.vox-cdn.com%2Fuploads%2Fchorus_asset%2Ffile%2F19648441%2FNYC_Uncommon_Schools_Brooklyn_East_Collegiate_05.jpg",
     };
-  } else if (weight > 25000 && weight <= 338000) {
+  } else if (weight > 25000 && weight <= 30000) {
     return {
-      name: "13.5 school buses",
+      name: "a subway car",
+      image: "https://media.timeout.com/images/105881724/image.jpg",
+    };
+  } else if (weight > 30000 && weight <= 35000) {
+    return {
+      name: "a motorhome RV",
       image:
-        "https://www.gannett-cdn.com/-mm-/799200a2ec10fc76d7f88c45cc2d44ae1780f713/c=0-278-4879-3022/local/-/media/2020/09/10/Newport/ghows-PJ-200729648-fc16b596.jpg?width=660&height=372&fit=crop&format=pjpg&auto=webp",
+        "https://images.prismic.io/thormotorcoach/72aedb4b-6499-41e1-be84-7893507f86e7_2023-Palazzo-FBP-Pacific-Dunes-photo.png?auto=compress,format&rect=0,0,1920,768&w=800&h=320",
+    };
+  } else if (weight > 35000 && weight <= 40000) {
+    return {
+      name: "a greyhound bus",
+      image:
+        "https://www.gannett-cdn.com/presto/2018/10/22/PAPN/6958cd81-a7b5-46db-b625-1038d1acd5b6-APCBrd_07-14-2014_Crescent_1_B006__2014_07_13_IMG_XXX_greyhound-bus028_2_1_RB7TPSA3_L450303834_IMG_XXX_greyhound-bus028_2_1_RB7TPSA3.jpg?crop=2274,1285,x0,y0&width=2274&height=1285&format=pjpg&auto=webp",
+    };
+  } else if (weight > 40000 && weight <= 45000) {
+    return {
+      name: "a mobile home",
+      image:
+        "https://api.claytonhomes.com/images/MFG/EXT/02451192-4f33-4319-95e6-1668deb82216.png?width=550",
+    };
+  } else if (weight > 45000 && weight <= 50000) {
+    return {
+      name: "a fire truck",
+      image:
+        "https://www.piercemfg.com/hs-fs/hubfs/Blog/What%20is%20a%20Quint%20Fire%20Truck/Banner-pierce-quint-fire-truck-image.jpg?width=1720&name=Banner-pierce-quint-fire-truck-image.jpg",
+    };
+  } else if (weight > 50000 && weight <= 55000) {
+    return {
+      name: "a humpback whale",
+      image:
+        "https://www.americanoceans.org/wp-content/uploads/2022/04/humpback-whale-megaptera-novaeangliae.jpg",
+    };
+  } else if (weight > 55000 && weight <= 60000) {
+    return {
+      name: "an infantry fighting vehicle",
+      image: "http://www.military-today.com/apc/lynx_ifv.jpg",
+    };
+  } else if (weight > 60000 && weight <= 70000) {
+    return {
+      name: "a railroad box car",
+      image:
+        "https://img2.cgtrader.com/items/2523879/59f6c39ed8/large/boxcar-railroad-box-car-3d-model-max-obj-3ds-c4d-lwo-ma.jpg",
+    };
+  } else if (weight > 70000 && weight <= 80000) {
+    return {
+      name: "a bulldozer",
+      image:
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/CatD9T.jpg/1200px-CatD9T.jpg",
+    };
+  } else if (weight > 80000 && weight <= 90000) {
+    return {
+      name: "a cargo helicopter",
+      image:
+        "https://upload.wikimedia.org/wikipedia/commons/0/03/CH-47_Chinook_helicopter_flyby.jpg",
+    };
+  } else if (weight > 90000 && weight <= 100000) {
+    return {
+      name: "a fin whale",
+      image:
+        "https://www.northsailing.is/wp-content/uploads/2017/05/MC080langreydur-1024x573.jpg",
     };
   } else {
     return "YOU DIDN'T LIFT!";
