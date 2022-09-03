@@ -18,40 +18,29 @@ export const WorkoutSummary = () => {
   }
 
   const { allExercises } = workoutlist || [];
-  const eachSet = allExercises.exercises;
 
   return (
     <div className="workout-summary-container">
-      <div className="workout-summary-table">
+      <div className="workout-summary-headings">
         <p className="workout-summary-heading">Name</p>
-        <p className="workout-summary-heading">Sets</p>
-        <p className="workout-summary-heading">Reps</p>
         <p className="workout-summary-heading">Weight</p>
-        <p className="workout-summary-heading">Total</p>
       </div>
-      {allExercises.exercises.map((exercise) => {
-        return (
-          <div className="set-info" key={exercise.id}>
-            <p className="set-p-info">{exercise.name}</p>
-            <p className="set-p-info">{exercise.workoutlist.sets.length}</p>
-            <p className="set-p-info">
-              {exercise.workoutlist.sets.reduce((acc, curr) => {
-                return (acc += parseInt(curr.reps));
-              }, 0)}
-            </p>
-            <p className="set-p-info">
-              {exercise.workoutlist.sets.reduce((acc, curr) => {
-                return (acc += parseInt(curr.weight));
-              }, 0)}
-            </p>
-            <p className="set-p-info">
-              {exercise.workoutlist.sets.reduce((acc, curr) => {
-                return (acc += parseInt(curr.reps * curr.weight));
-              }, 0)}
-            </p>
-          </div>
-        );
-      })}
+      <div className="workout-info-container-main">
+        {allExercises.exercises.map((exercise) => {
+          return (
+            <div className="workout-info-container" key={exercise.id}>
+              <p className="workout-exercise-info-name"> {exercise.workoutlist.sets.reduce((acc, curr) => {
+                  return (acc += parseInt(curr.reps));
+                }, 0)} x {exercise.name}</p>
+              <p className="workout-exercise-info-total">
+                {exercise.workoutlist.sets.reduce((acc, curr) => {
+                  return (acc += parseInt(curr.reps * curr.weight));
+                }, 0)} lbs
+              </p>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };
