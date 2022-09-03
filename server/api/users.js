@@ -49,3 +49,17 @@ router.get("/leaders", async (req, res, next) => {
     next(error);
   }
 });
+
+router.get('/stats', requireToken, async (req, res, next) =>{
+  try {
+    const user = await User.findByPk(req.user.dataValues.id);
+    const stats = {
+      level: user.level,
+      currentWeight: user.totalWeight
+    };
+    res.send(stats);
+    
+  } catch (error) {
+    next(error)
+  }
+});

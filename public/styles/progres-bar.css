@@ -1,0 +1,13 @@
+.progress-container {
+    height: 20px;
+    width: 200px;
+    background-color: #eeecf6;
+    border-radius: 10px;
+    margin: 50;
+  }
+
+  .progress-label{
+    padding: 5;
+    color: black;
+    font-weight: bold;
+  }
