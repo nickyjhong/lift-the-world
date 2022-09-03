@@ -33,22 +33,22 @@ router.get("/all", requireToken, async (req, res, next) => {
   }
 });
 
-// router.get('/previous', requireToken, async (req, res, next) => {
-//   try {
-//     const workout = await Workout.findOne({
-//       where: {
-//         userId: req.user.dataValues.id,
-//         status: 'closed',
-//       },
-//       order: [ [ 'createdAt', 'DESC' ]],
-//       include: [Exercise],
+router.get('/allprevious', requireToken, async (req, res, next) => {
+  try {
+    const workout = await Workout.findAll({
+      where: {
+        userId: req.user.dataValues.id,
+        status: 'closed',
+      },
+      order: [ [ 'createdAt', 'DESC' ]],
+      include: [Exercise],
 
-//     });
-//     res.send(workout);
-//   } catch (error) {
-//     next(error);
-//   }
-// });
+    });
+    res.send(workout);
+  } catch (error) {
+    next(error);
+  }
+});
 
 router.put("/finish", requireToken, async (req, res, next) => {
   try {
