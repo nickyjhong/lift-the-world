@@ -12,7 +12,7 @@ const PresetWorkouts = () => {
   useEffect(() => {
     dispatch(getPresetsThunk());
   }, [dispatch]);
-  console.log("presets workouts", presets);
+
   if (!presets || !presets[0] || presets.length === 0) {
     return (
       <div>

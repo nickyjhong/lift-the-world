@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import NavIconLink from "./NavIconLink";
 
 // component to be used when logged in
 const NavBarIcons = ({ isLoggedIn }) => (
@@ -8,26 +8,39 @@ const NavBarIcons = ({ isLoggedIn }) => (
     <nav>
       {isLoggedIn ? (
         <div className="nav-icon-links">
-          {/* The navbar will show these links after you log in */}
-          <Link to="/">
-            <img className="nav-icon" src="/images/house-solid.svg" />
-          </Link>
+          <NavIconLink
+            to="/"
+            className="nav-icon"
+            altSrc="/images/home-color.png"
+            src="/images/home-black.png"
+          />
 
-          <Link to="/workout">
-            <img className="nav-icon" src="/images/dumbbell-solid.svg" />
-          </Link>
+          <NavIconLink
+            to="/workout"
+            className="nav-icon"
+            altSrc="/images/weight-lifter-color.png"
+            src="/images/weight-lifter-black.png"
+          />
 
-          <Link to="/exercises">
-            <img className="nav-icon" src="/images/plus-solid.svg" />
-          </Link>
+          <NavIconLink
+            to="/exercises"
+            className="nav-icon"
+            altSrc="/images/plus-color.png"
+            src="/images/plus-black.png"
+          />
+          <NavIconLink
+            to="/leaderboard"
+            className="nav-icon"
+            altSrc="/images/crown-color.png"
+            src="/images/crown-black.png"
+          />
 
-          <Link to="/leaderboard">
-            <img className="nav-icon" src="/images/crown-solid.svg" />
-          </Link>
-
-          <Link to="/profile">
-            <img className="nav-icon-profile" src="/images/user-solid.svg" />
-          </Link>
+          <NavIconLink
+            to="/profile"
+            className="nav-icon"
+            altSrc="/images/profile-color.png"
+            src="/images/profile-black.png"
+          />
         </div>
       ) : (
         ""

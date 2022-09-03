@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { fetchPresetWorkout } from "../../store/singleWorkout";
 import { doPresetWorkout } from "../../store/workout";
-import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 import Loading from "../Loading";
 
 const SinglePreset = () => {
@@ -34,11 +34,14 @@ const SinglePreset = () => {
               return <li key={exercise.id}>{exercise.name}</li>;
             })}
           </ul>
-          <Link to="/workout">
-            <button onClick={() => dispatch(doPresetWorkout(id))}>
-              Let's Go!
-            </button>
-          </Link>
+          <button
+            onClick={() => {
+              toast("Added to workout");
+              dispatch(doPresetWorkout(id));
+            }}
+          >
+            Let's Go!
+          </button>
         </div>
       ) : (
         <div>

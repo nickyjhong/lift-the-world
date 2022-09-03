@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchWorkoutlist } from "../../store/workoutlist";
-import Loading from "../Loading";
 
 export const WorkoutSummary = () => {
   const dispatch = useDispatch();
@@ -15,11 +14,7 @@ export const WorkoutSummary = () => {
     !workoutlist.allExercises.exercises ||
     workoutlist.allExercises.exercises.length === 0
   ) {
-    return (
-      <div>
-        <Loading />
-      </div>
-    );
+    return <div>Loading...</div>;
   }
 
   const { allExercises } = workoutlist || [];
