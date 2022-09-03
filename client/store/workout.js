@@ -5,7 +5,7 @@ import { TOKEN } from "./auth";
 const SET_WORKOUT = "SET_WORKOUT";
 const UPDATE_WORKOUT = "UPDATE_WORKOUT";
 const GET_PRESETS = "GET_PRESETS";
-const GET_PREVIOUS = "GET_PREVIOUS"
+const GET_PREVIOUS_WORKOUTS = "GET_PREVIOUS_WORKOUTS"
 
 // ACTION CREATORS
 export const _setWorkout = (workout) => ({
@@ -23,9 +23,9 @@ export const getPresets = (presets) => ({
   presets,
 });
 
-export const _getPrevious = (workout) => ({
-  type: GET_PREVIOUS,
-  workout
+export const _getPrevious = (workouts) => ({
+  type: GET_PREVIOUS_WORKOUTS,
+  workouts,
 })
 
 // THUNKS
@@ -109,7 +109,7 @@ export const getPrevious = () => {
     try {
       const token = window.localStorage.getItem(TOKEN);
       if (token) {
-        const { data } = await axios.get(`/api/workout/allprevious`, {
+        const { data } = await axios.get("/api/workout/allprevious", {
           headers: {
             authorization: token,
           },
@@ -147,8 +147,8 @@ export default function workoutReducer(state = initialState, action) {
   switch (action.type) {
     case GET_PRESETS:
       return action.presets;
-    case GET_PREVIOUS:
-      return action.workout;
+    case GET_PREVIOUS_WORKOUTS:
+      return action.workouts;
     case SET_WORKOUT:
       return action.workout;
     case UPDATE_WORKOUT:

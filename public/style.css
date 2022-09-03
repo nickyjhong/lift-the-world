@@ -14,6 +14,7 @@
 @import "./styles/loading.css";
 @import './styles/timer.css';
 @import "./styles/preset-workouts.css";
+@import "./styles/previous-workouts.css";
 @import "./styles/media-query.css";
 
 * {
@@ -30,7 +31,6 @@ body {
   margin: 0;
   width: auto;
   min-height: 100vh;
-  /* background: #f8f6f5; */
 }
 
 a {
@@ -79,6 +79,10 @@ form div {
 
 .routes-container {
   padding: 3rem 1.5rem 4rem 1.5rem;
+}
+
+p {
+  margin: 0;
 }
 
 /* media query added to accomodate space for notch */
