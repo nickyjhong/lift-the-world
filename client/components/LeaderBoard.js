@@ -13,13 +13,19 @@ const LeaderBoard = () => {
   return (
     <div className="lb-container">
       <img src="images/crown.png" className="leaderboard-crown" />
-      <h1 className="lb-heading">Leaderboard:</h1>
+      <h1 className="lb-h1-heading">Leaderboard</h1>
+      <div className="lb-table-headings">
+        <p className="lb-single-heading lb-username-heading">Username</p>
+        <p className="lb-single-heading lb-lifted-heading">Lifted</p>
+      </div>
       <div>
         {topTen.map((user) => {
           return (
             <div key={user.id} className="lb-info-container">
-              <h3 className="lb-name lb-info">{user.username}</h3>
-              <h3 className="lb-weight lb-info">{user.totalWeight.toLocaleString("en-US")}</h3>
+              <p className="lb-name lb-info">{user.username}</p>
+              <p className="lb-weight lb-info">
+                {user.totalWeight.toLocaleString("en-US")}
+              </p>
             </div>
           );
         })}
