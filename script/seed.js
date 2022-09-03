@@ -46,7 +46,7 @@ async function seed() {
 
   // creating exercises for presets
   const chest1 = await Exercise.create({
-    name: "Bench Press",
+    name: " Barbell Bench Press",
     category: "chest",
     equipment: ["barbell", "weights", "bench"],
     tipsAndTricks: [
@@ -60,9 +60,9 @@ async function seed() {
   });
 
   const chest2 = await Exercise.create({
-    name: "Shoulder Press",
+    name: "Barbell Shoulder Press",
     category: "chest",
-    equipment: ["dumbbell or barbell"],
+    equipment: ["Barbell", "Bench", "Weights"],
     tipsAndTricks: [
       "keep palms facing away from you",
       "keep chest and core braced",
@@ -522,6 +522,111 @@ async function seed() {
     embedId: "xqTh6NqbAtM",
     image: "/images/FlatKneeRaise.png",
   });
+
+  // Start Goal:
+  const dumbellShoulderPress = await Exercise.create({
+  name: "Dumbell Shoulder Press",
+    category: "chest",
+    equipment: ["Dumbells", "Bench"],
+    tipsAndTricks: [
+      "keep palms facing away from you",
+      "keep chest and core braced",
+      "press weights upwards until arms are straight and weights touch above your head",
+    ],
+    embedId: "qEwKCR5JCog",
+    image: "/images/shoulderPress.png",
+  });
+
+  const dumbellBenchPress = await Exercise.create({
+    name: "Dumbell Bench Press",
+      category: "chest",
+      equipment: ["Barbell", "Bench", "Weights"],
+      tipsAndTricks: [
+        "keep palms facing away from you",
+        "keep chest and core braced",
+        "press weights upwards until arms are straight and weights touch above your head",
+      ],
+      embedId: "5n9TlaoRD58",
+      image: "/images/dumbbell-bench-press.png",
+    });
+
+    const cableCrossover = await Exercise.create({
+      name: "Cable Crossover",
+        category: "chest",
+        equipment: ["Cable Machine"],
+        tipsAndTricks: [
+          "Set Pully on both sides at mid-level",
+          "Use full range of motion",
+          "Keep elbows slightly bent",
+        ],
+        embedId: "taI4XduLpTk",
+        image: "/images/cableCrossover.png",
+      });
+
+      const inclineDumbellFly = await Exercise.create({
+        name: "Incline Dumbell Fly",
+          category: "chest",
+          equipment: ["Bench", "Dumbells"],
+          tipsAndTricks: [
+            "Set Bench at 30-45 degrees",
+            "Turn wrist so palms are facing each other",
+            "Lower Until you feel a stretch in your pectorals",
+          ],
+          embedId: "bDaIL_zKbGs",
+          image: "/images/inclineFly.png",
+        });
+
+      const speedBenchPress = await Exercise.create({
+          name: "Speed Bench Press",
+            category: "chest",
+            equipment: ["Bench", "Barbell", "Weights"],
+            tipsAndTricks: [
+              "Bench should be totally flat",
+              "Use about 60% of your max weight",
+              "Use quick, explosive movements",
+            ],
+            embedId: "H-nUqSp8z_E",
+            image: "/images/benchPress.png",
+          });
+
+         const landMinePress = await Exercise.create({
+            name: "LandMine Press",
+              category: "chest",
+              equipment: ["Barbell", "Weights", "Towel"],
+              tipsAndTricks: [
+                "Wedge the end of a barbell into a corner",
+                "Stagger your stance",
+                "Press the Bar above your head",
+              ],
+              embedId: "nDBKgITcI3I",
+              image: "/images/landminePress.png",
+            });
+
+            const singleArmRow = await Exercise.create({
+              name: "Single Arm Dumbell Row",
+                category: "back",
+                equipment: ["Dumbell", "Bench"],
+                tipsAndTricks: [
+                  "Keep your feet square, and use one hand to stabalize yourself",
+                  "When you row, do not rotate your shoulders",
+                  "Slowly lower the weight back to starting position",
+                ],
+                embedId: "-koP10y1qZI",
+                image: "/images/dumbellRow.png",
+              });
+
+              const pullOver = await Exercise.create({
+                name: "PullOver",
+                  category: "chest",
+                  equipment: ["Kettle Bell", "Dumbell", "Medicine Ball"],
+                  tipsAndTricks: [
+                    "Lie on your back and start with the weight above your head off the floor",
+                    "Bend your elbows only slightly",
+                    "Take a deep breath every time you lower the weight behind you",
+                  ],
+                  embedId: "zUVzVXMh9Nc",
+                  image: "/images/pullover.png",
+                });
 
   const pschest1 = await Workout.create({
     name: "chest1",
