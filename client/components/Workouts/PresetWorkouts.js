@@ -22,21 +22,19 @@ const PresetWorkouts = () => {
   }
   return (
     <div>
-      <h1 className="presets-heading">
-        Need help getting started? Choose from the workouts below:
+      <h1 className="preset-heading">
+        Need help getting started? Choose from the preset workouts below:
       </h1>
       {presets.map((preset) => {
         return (
-          <Link
-            key={preset.id}
-            workout={preset}
-            to={`/workout/preset/${preset.id}`}
-          >
-            <button>
-              <img src="" />
-              {preset.name}
-            </button>
-          </Link>
+          <div className="preset-btn-container" key={preset.id}>
+            <Link workout={preset} to={`/workout/preset/${preset.id}`}>
+              <button className="preset-workouts">
+                <img src="" />
+                {preset.name}
+              </button>
+            </Link>
+          </div>
         );
       })}
     </div>

@@ -25,23 +25,25 @@ const SinglePreset = () => {
   }
 
   return (
-    <div>
+    <div className="preset-workout">
       {preset && preset.id ? (
-        <div>
-          <p>{preset.name}</p>
+        <div className="preset-workout-info-container">
+          <p className="preset-workout-name">{preset.name}</p>
           <ul>
             {preset.exercises.map((exercise) => {
               return <li key={exercise.id}>{exercise.name}</li>;
             })}
           </ul>
           <button
+            className="preset-start-workout-btn"
             onClick={() => {
-              toast("Added to workout");
+              toast(`${[preset.name]} added to workout`);
               dispatch(doPresetWorkout(id));
             }}
           >
             Let's Go!
           </button>
+          <img src="/images/cat3.png" className="cat-exercise" />
         </div>
       ) : (
         <div>
