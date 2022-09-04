@@ -3,12 +3,18 @@
   flex-direction: column;
 }
 
+form {
+  margin: 0;
+}
+
 .cw-workout-name {
   display: flex;
   flex-direction: row;
   font-size: 1.25rem;
   margin: 0;
   font-weight: 500;
+  width: 15rem;
+  border: none;
 }
 .cw-exercise-name {
   font-size: 1rem;
@@ -208,4 +214,11 @@
 .cw-finish-workout-btn {
   display: flex;
   justify-content: center;
+}
+
+.cw-heading-container {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  margin-top: 1rem;
 }

@@ -6,7 +6,9 @@ module.exports = router;
 
 router.get("/", async (req, res, next) => {
   try {
-    const exercise = await Exercise.findAll();
+    const exercise = await Exercise.findAll({
+      order: [["name", "ASC"]]
+    })
     res.send(exercise);
   } catch (error) {
     next(error);

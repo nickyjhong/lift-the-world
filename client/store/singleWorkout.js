@@ -10,12 +10,14 @@ const getPreset = (preset) => ({
 });
 
 // THUNKS
-export const fetchPresetWorkout = (id) => async (dispatch) => {
-  try {
-    const { data } = await axios.get(`/api/workout/preset/${id}`);
-    dispatch(getPreset(data));
-  } catch (error) {
-    console.log(error);
+export const fetchPresetWorkout = (id) => {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios.get(`/api/workout/preset/${id}`);
+      dispatch(getPreset(data));
+    } catch (error) {
+      console.log(error);
+    }
   }
 };
 

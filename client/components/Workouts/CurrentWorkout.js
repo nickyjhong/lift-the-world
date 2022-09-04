@@ -6,7 +6,7 @@ import {
   deleteFromWorkout,
   deleteSet,
 } from "../../store/workoutlist";
-import { fetchWorkout, finishWorkout } from "../../store/workout";
+import { fetchWorkout, finishWorkout, updateWorkoutName } from "../../store/workout";
 import CurrentWorkoutSet from "./CurrentWorkoutSet";
 import { Link } from "react-router-dom";
 import LoadingAddWorkout from "../LoadingAddWorkout";
@@ -18,11 +18,27 @@ const CurrentWorkout = () => {
   const workout = useSelector((state) => state.workout);
 
   const [openModal, setOpenModal] = useState(false);
+  const [workoutName, setWorkoutName] = useState({
+    name: ''
+  })
 
   useEffect(() => {
     dispatch(fetchWorkout());
     dispatch(fetchWorkoutlist());
   }, []);
+
+  const handleChange = (event) => {
+    event.preventDefault();
+    setWorkoutName({ [event.target.name]: event.target.value })
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    dispatch(updateWorkoutName(workoutName))
+    setWorkoutName({
+      name: ''
+    })
+  }
 
   if (
     !workoutlist.allExercises ||
@@ -51,7 +67,18 @@ const CurrentWorkout = () => {
           </button>
         )}
         {openModal && <Timer closeModal={setOpenModal} />}
-        <h1 className="cw-workout-name">{workout.name}</h1>
+        <div className="cw-heading-container">
+          <form onSubmit={handleSubmit}>
+            <input 
+              className="cw-workout-name"
+              placeholder={workout.name}
+              type="text"
+              name="name"
+              onChange={handleChange}
+            /> 
+          </form>
+          <img src="/images/pencil.png" className="update-pencil" onClick={handleSubmit}/>
+        </div>
         {allExercises.exercises.map((exercise) => {
           return (
             <div key={exercise.id} className="cw-single-exercise-container">

@@ -696,6 +696,21 @@ router.put("/finish", requireToken, async (req, res, next) => {
   }
 });
 
+router.put("/update", requireToken, async (req, res, next) => {
+  try {
+    const workout = await Workout.findOne({
+      where: {
+        status: "active",
+        userId: req.user.dataValues.id,
+      }
+    })
+    await workout.update(req.body)
+    res.send(workout)
+  } catch(error) {
+    next(error);
+  }
+})
+
 router.post("/", requireToken, async (req, res, next) => {
   try {
     const [workout, workoutCreated] = await Workout.findOrCreate({
@@ -770,7 +785,7 @@ router.post("/:id/add", requireToken, async (req, res, next) => {
       newWorkoutExercise.map((exercise) => {
         exercise.update({
           userId: req.user.dataValues.id,
-          sets: [{ reps: "", weight: "", setId: 0 }],
+          sets: [{ reps: 8, weight: "", setId: 0 }, { reps: 8, weight: "", setId: 1 }, { reps: 8, weight: "", setId: 2 }],
         });
       });
 
@@ -820,7 +835,7 @@ router.post("/:id/add", requireToken, async (req, res, next) => {
       newWorkoutExercise.map((exercise) => {
         exercise.update({
           userId: req.user.dataValues.id,
-          sets: [{ reps: "", weight: "", setId: 0 }],
+          sets: [{ reps: 8, weight: "", setId: 0 }, { reps: 8, weight: "", setId: 1 }, { reps: 8, weight: "", setId: 2 }],
         });
       });
 
