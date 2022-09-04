@@ -73,7 +73,7 @@ form {
   justify-content: space-between;
   align-items: center;
   margin: 0;
-  padding: .5rem .2rem;
+  padding: .3rem .2rem;
 }
 
 .cw-set-info input {
@@ -125,7 +125,7 @@ form {
 }
 
 .cw-reps-heading {
-  margin-left: 1.35rem;
+  margin-left: 1rem;
 }
 
 .cw-check-yes{
@@ -135,7 +135,7 @@ form {
   border-radius: 5px;
   border: none;
   text-align: center;
-  margin-right: .4rem;
+  margin-right: .2rem;
 }
 
 .cw-check-no{
@@ -145,7 +145,7 @@ form {
   border-radius: 5px;
   border: none;
   text-align: center;
-  margin-right: .4rem;
+  margin-right: .2rem;
 }
 
 .cw-total {
@@ -224,4 +224,30 @@ form {
   flex-direction: row;
   justify-content: space-between;
   margin-top: 1rem;
+}
+
+.cw-set-yes {
+  height: 1.3rem;
+  width: 1.3rem;
+  background: #adcce5;
+  border-radius: 5px;
+  font-size: .75rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0 0 .1rem;
+}
+
+.cw-set-no {
+  height: 1.3rem;
+  width: 1.3rem;
+  background: #d1e5f5;
+  border-radius: 5px;
+  font-size: .75rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0 0 .1rem;
 }

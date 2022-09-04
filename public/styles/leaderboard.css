@@ -28,11 +28,15 @@
   display: flex;
   justify-content: space-between;
   width: 15rem;
-  padding-bottom: 0.25rem;
+  /* padding-bottom: 0.25rem; */
 }
 
 .lb-info {
   margin: 0.25rem;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
 }
 
 .lb-username-heading {
@@ -46,7 +50,7 @@
 }
 
 .lb-name {
-  height: 1rem;
+  height: 1.1rem;
   width: 66%;
   padding: 0.3rem;
   margin-right: 0.5rem;
@@ -57,7 +61,7 @@
 }
 
 .lb-weight {
-  height: 1rem;
+  height: 1.1rem;
   width: 33%;
   padding: 0.3rem;
   background: #c1e7e5;

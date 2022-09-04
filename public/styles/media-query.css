@@ -84,9 +84,10 @@
   }
 
   .cw-add-btn, .cw-delete-btn {
-    width: 6rem;
+    width: 7rem;
     height: 1.25rem;
     font-size: .75rem;
+    color: inherit;
   }
 
   .cw-single-exercise-container {
@@ -96,4 +97,32 @@
   .cw-workout-name {
     font-weight: 700;
   }
+
+  .cw-finish-btn, .timer-modal-close-btn {
+    color: inherit;
+  }
+
+  .progress-btn, .profile-previous-btn {
+    width: 11rem;
+  }
+
+  .logout-btn {
+    width: 7rem;
+  }
+
+  .cw-check-yes, .cw-check-no {
+    text-align: center;
+    padding-right: 1rem;
+    height: 1.3rem;
+    width: 1.3rem;
+  }
+
+  .cw-sr-input-yes, .cw-sr-input-no, .cw-weight-input-yes, .cw-weight-input-no {
+    height: .9rem;
+  }
+
+  .update-pencil {
+    padding-right: .5rem;
+  }
+
 }
