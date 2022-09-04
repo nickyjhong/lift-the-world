@@ -98,7 +98,7 @@
     font-weight: 700;
   }
 
-  .cw-finish-btn {
+  .cw-finish-btn, .timer-modal-close-btn {
     color: inherit;
   }
 
@@ -110,12 +110,39 @@
     width: 7rem;
   }
 
+  /* .cw-check-yes{
+    height: 1.25rem;
+    width: 1.25rem;
+    background: #a8ca95;
+    border-radius: 5px;
+    border: none;
+    text-align: center;
+    margin-right: .2rem;
+  }
+  
+  .cw-check-no{
+    height: 1.25rem;
+    width: 1.25rem;
+    background: #d6d6d6;
+    border-radius: 5px;
+    border: none;
+    text-align: center;
+    margin-right: .2rem;
+  } */
+
   .cw-check-yes, .cw-check-no {
     text-align: center;
-    padding-right: 1rem
+    padding-right: 1rem;
+    height: 1.3rem;
+    width: 1.3rem;
   }
 
-  /* .cw-sr-input-yes, .cw-sr-input-no {
-    background: #adcce5
-  } */
+  .cw-sr-input-yes, .cw-sr-input-no, .cw-weight-input-yes, .cw-weight-input-no {
+    height: .9rem;
+  }
+
+  .update-pencil {
+    padding-right: .5rem;
+  }
+
 }

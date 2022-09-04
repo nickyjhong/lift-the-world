@@ -36,13 +36,11 @@ const CurrentWorkoutSet = (props) => {
     <div className={confirmed ? "cw-info-container-yes" : "cw-info-container-no"}>
       <form>
         <div className="cw-set-info">
-          <input
-            className={confirmed ? "cw-sr-input-yes" : "cw-sr-input-no"}
-            type="number"
-            name="set"
-            value={props.setId}
-            disabled
-          />
+          <div className={confirmed ? "cw-set-yes" : "cw-set-no"}>
+            <span>
+              {props.setId}
+            </span>
+          </div>
 
           <input
             className={confirmed ? "cw-sr-input-yes" : "cw-sr-input-no"}
