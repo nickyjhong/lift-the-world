@@ -13,7 +13,7 @@ form {
   font-size: 1.25rem;
   margin: 0;
   font-weight: 500;
-  width: 15rem;
+  width: 13rem;
   border: none;
 }
 .cw-exercise-name {
@@ -209,6 +209,8 @@ form {
 
 .cw-exercise-name-btn {
   margin: .5rem 0;
+  display: flex;
+  justify-content: space-between;
 }
 
 .cw-finish-workout-btn {
@@ -220,5 +222,6 @@ form {
   display: flex;
   align-items: center;
   flex-direction: row;
+  justify-content: space-between;
   margin-top: 1rem;
 }
