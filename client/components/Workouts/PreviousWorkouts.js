@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Loading from '../Loading';
 
 export default function PreviousWorkouts() {
-  const prevWorkouts = useSelector((state) => state.workout);
+  const prevWorkouts = useSelector((state) => state.workout) || [];
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -20,9 +20,7 @@ export default function PreviousWorkouts() {
     return result
   }
 
-  if (
-    !prevWorkouts || prevWorkouts.length === 0
-  ) {
+  if (!prevWorkouts || !prevWorkouts[0] || prevWorkouts.length === 0) {
     return (
       <div>
         <Loading />

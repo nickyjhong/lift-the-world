@@ -475,7 +475,7 @@ async function seed() {
     image: "/images/FlatKneeRaise.png",
   });
 
-  const DumbbellShoulderPress = await Exercise.create({
+  const dumbbellShoulderPress = await Exercise.create({
     name: "Dumbbell Shoulder Press",
     category: "chest",
     equipment: ["Dumbbells", "Bench"],
@@ -488,7 +488,7 @@ async function seed() {
     image: "/images/shoulderPress.png",
   });
 
-  const DumbbellBenchPress = await Exercise.create({
+  const dumbbellBenchPress = await Exercise.create({
     name: "Dumbbell Bench Press",
     category: "chest",
     equipment: ["Barbell", "Bench"],
@@ -527,7 +527,7 @@ async function seed() {
     image: "/images/inclineFly.png",
   });
 
-  const landMinePress = await Exercise.create({
+  const landminePress = await Exercise.create({
     name: "Landmine Press",
     category: "chest",
     equipment: ["Barbell"],
@@ -550,7 +550,7 @@ async function seed() {
       "Slowly lower the weight back to starting position",
     ],
     embedId: "koP10y1qZI",
-    image: "/images/DumbbellRow.png",
+    image: "/images/dumbbellRow.png",
   });
 
   const pullover = await Exercise.create({
@@ -565,6 +565,84 @@ async function seed() {
     embedId: "zUVzVXMh9Nc",
     image: "/images/pullover.png",
   });
+
+  const ketllebellSwing = await Exercise.create({
+    name: "Kettle Bell Swing",
+    category: "back",
+    equipment: ["Kettlebell"],
+    tipsAndTricks: [
+      "Stand with your feet slightly wider than your shoulders",
+      "Drive hips forward and explosively lift the kettle bell",
+      "Stop when the kettle bell reaches the height of your shoulders",
+    ],
+    embedId: "sSESeQAir2M",
+    image: "/images/kettleBellSwing.png",
+  });
+
+  const pullUp = await Exercise.create({
+    name: "Pull-Up",
+    category: "back",
+    equipment: ["Pull-up machine", "Pull-up bar"],
+    tipsAndTricks: [
+      "Keep your shoulder blades squeezed together",
+      "Try not to use your legs for momentum",
+      "Cross your ankles and engage your abdominal muscles to stabilize your legs and core to reduce swinging",
+    ],
+    embedId: "Ir8IrbYcM8w",
+    image: "/images/pullup.png",
+  });
+
+  const TbarRow = await Exercise.create({
+    name: "T-Bar Row",
+    category: "back",
+    equipment: ["T-Bar", "Weights"],
+    tipsAndTricks: [
+      "This exercise requires strict form, so do not use too much weight",
+      "Engage your Traps at the top of the repetition",
+      "Utilize slow and controlled movements",
+    ],
+    embedId: "SbZycT7Eq58",
+    image: "/images/tBarRow.png",
+  });
+
+  const renegadeRow = await Exercise.create({
+    name: "Renegade Row",
+    category: "back",
+    equipment: ["Dumbbells", "Floor mat"],
+    tipsAndTricks: [
+      "Try to engage your core when you do this exercise",
+      "You can have your feet wide, or closer together for a better challenge for your abs",
+    ],
+    embedId: "F68p7cJFtOI",
+    image: "/images/renegadeRow.png",
+  });
+
+  const superman = await Exercise.create({
+    name: "Superman",
+    category: "back",
+    equipment: ["Floor mat"],
+    tipsAndTricks: [
+      "It is common for people to hold their breath during this workout, make sure you are breathing!",
+      "Don't look up when doing the superman, this can strain your neck. Keep your neck at a neutral position",
+      "Even though it is tempting to point your toes, doing this will work your legs more than your back. Keep your toes neutral or slightly pointed"
+    ],
+    embedId: "ULJtPkwF3vU",
+    image: "/images/superman.png",
+  });
+
+  const singleKettlebellClean = await Exercise.create({
+    name: "Single Kettlebell Clean",
+    category: "back",
+    equipment: ["Kettlebell"],
+    tipsAndTricks: [
+      "Keep the kettle bell close to your body",
+      "At the top of the movement, squeeze your glutes and stand tall",
+      "To avoid injury, ensure to take the arm around the kettle bell, not the kettle bell around the arm "
+    ],
+    embedId: "ZuTKcP6vtfI",
+    image: "/images/kettleBellClean.png",
+  });
+
 
   const pschest1 = await Workout.create({
     name: "chest1",
@@ -612,7 +690,7 @@ async function seed() {
     workoutTotalWeight: 500,
   });
 
-  await pschest1.addExercises([chest1, chest3, chest6]);
+  await pschest1.addExercises([chest1, chest3, pullover]);
   await pschest2.addExercises([chest3, chest4, chest6]);
   await psback1.addExercises([back1, back2, back5]);
   await psback2.addExercises([back3, back4, back6]);
