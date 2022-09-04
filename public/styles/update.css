@@ -1,0 +1,9 @@
+.update-btn {
+  background: none;
+  border: none;
+}
+
+.update-pencil {
+  width: .9rem;
+  padding: 0 0 .15rem .5rem;
+}

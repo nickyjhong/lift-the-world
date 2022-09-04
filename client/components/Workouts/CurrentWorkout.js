@@ -7,6 +7,7 @@ import {
   deleteSet,
 } from "../../store/workoutlist";
 import { fetchWorkout, finishWorkout } from "../../store/workout";
+import { updateWorkout } from "../../store/singleWorkout";
 import CurrentWorkoutSet from "./CurrentWorkoutSet";
 import { Link } from "react-router-dom";
 import LoadingAddWorkout from "../LoadingAddWorkout";
@@ -18,11 +19,24 @@ const CurrentWorkout = () => {
   const workout = useSelector((state) => state.workout);
 
   const [openModal, setOpenModal] = useState(false);
+  const [workoutName, setWorkoutName] = useState({
+    name: ''
+  })
 
   useEffect(() => {
     dispatch(fetchWorkout());
     dispatch(fetchWorkoutlist());
   }, []);
+
+  const handleChange = (event) => {
+    event.preventDefault();
+    setWorkoutName({ name: event.target.value })
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    updateWorkout(...workout, ...workoutName.name)
+  }
 
   if (
     !workoutlist.allExercises ||
@@ -39,6 +53,7 @@ const CurrentWorkout = () => {
   const { allExercises } = workoutlist || [];
   const { exercises, id: workoutId } = allExercises;
 
+  console.log('workoutname', workoutName)
   return (
     <div className="cw-container">
       <div className="cw-exercise-container">
@@ -51,7 +66,20 @@ const CurrentWorkout = () => {
           </button>
         )}
         {openModal && <Timer closeModal={setOpenModal} />}
-        <h1 className="cw-workout-name">{workout.name}</h1>
+        <div className="cw-heading-container">
+          <form onSubmit={handleSubmit}>
+            <input 
+              className="cw-workout-name"
+              placeholder={workout.name}
+              type="text"
+              name="name"
+              onChange={handleChange}
+            /> 
+          </form>
+          <button className="update-btn" onClick={handleSubmit}>
+            <img src="/images/pencil.png" className="update-pencil"/>
+          </button>
+        </div>
         {allExercises.exercises.map((exercise) => {
           return (
             <div key={exercise.id} className="cw-single-exercise-container">

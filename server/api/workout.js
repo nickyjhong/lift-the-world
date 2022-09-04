@@ -696,6 +696,21 @@ router.put("/finish", requireToken, async (req, res, next) => {
   }
 });
 
+router.put("/update", requireToken, async (req, res, next) => {
+  try {
+    const workout = await Workout.findOne({
+      where: {
+        status: "active",
+        userId: req.user.dataValues.id,
+      }
+    })
+    await workout.update(req.body)
+    res.send(workout)
+  } catch(error) {
+    next(error);
+  }
+})
+
 router.post("/", requireToken, async (req, res, next) => {
   try {
     const [workout, workoutCreated] = await Workout.findOrCreate({

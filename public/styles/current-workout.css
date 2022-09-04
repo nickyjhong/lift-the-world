@@ -3,6 +3,10 @@
   flex-direction: column;
 }
 
+h1 {
+  margin: 0;
+}
+
 .cw-workout-name {
   display: flex;
   flex-direction: row;
@@ -208,4 +212,10 @@
 .cw-finish-workout-btn {
   display: flex;
   justify-content: center;
+}
+
+.cw-heading-container {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: row;
 }

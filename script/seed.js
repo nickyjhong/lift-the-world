@@ -612,7 +612,7 @@ async function seed() {
     workoutTotalWeight: 500,
   });
 
-  await pschest1.addExercises([chest1, chest3, chest5]);
+  await pschest1.addExercises([chest1, chest3, chest6]);
   await pschest2.addExercises([chest3, chest4, chest6]);
   await psback1.addExercises([back1, back2, back5]);
   await psback2.addExercises([back3, back4, back6]);
