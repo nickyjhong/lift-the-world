@@ -110,26 +110,6 @@
     width: 7rem;
   }
 
-  /* .cw-check-yes{
-    height: 1.25rem;
-    width: 1.25rem;
-    background: #a8ca95;
-    border-radius: 5px;
-    border: none;
-    text-align: center;
-    margin-right: .2rem;
-  }
-  
-  .cw-check-no{
-    height: 1.25rem;
-    width: 1.25rem;
-    background: #d6d6d6;
-    border-radius: 5px;
-    border: none;
-    text-align: center;
-    margin-right: .2rem;
-  } */
-
   .cw-check-yes, .cw-check-no {
     text-align: center;
     padding-right: 1rem;

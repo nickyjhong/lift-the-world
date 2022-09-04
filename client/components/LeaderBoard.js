@@ -22,10 +22,14 @@ const LeaderBoard = () => {
         {topTen.map((user) => {
           return (
             <div key={user.id} className="lb-info-container">
-              <p className="lb-name lb-info">{user.username}</p>
-              <p className="lb-weight lb-info">
-                {user.totalWeight.toLocaleString("en-US")}
-              </p>
+              <div className="lb-name lb-info">
+                <p>{user.username}</p>
+              </div>
+              <div className="lb-weight lb-info">
+                <p>
+                  {user.totalWeight.toLocaleString("en-US")}
+                </p>
+              </div>
             </div>
           );
         })}

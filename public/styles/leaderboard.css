@@ -33,6 +33,10 @@
 
 .lb-info {
   margin: 0.25rem;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
 }
 
 .lb-username-heading {
