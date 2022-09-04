@@ -140,6 +140,24 @@ export const finishWorkout = (workout) => {
   };
 };
 
+export const updateWorkoutName = (workout) => {
+  return async (dispatch) => {
+    try { 
+      const token = window.localStorage.getItem(TOKEN);
+      if (token) {
+        const { data } = await axios.put("/api/workout/update", workout, {
+          headers: {
+            authorization: token
+          }
+        })
+        dispatch(_updateWorkout(data))
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+}
+
 // REDUCER
 const initialState = [];
 

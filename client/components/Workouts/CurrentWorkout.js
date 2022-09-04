@@ -6,8 +6,7 @@ import {
   deleteFromWorkout,
   deleteSet,
 } from "../../store/workoutlist";
-import { fetchWorkout, finishWorkout } from "../../store/workout";
-import { updateWorkout } from "../../store/singleWorkout";
+import { fetchWorkout, finishWorkout, updateWorkoutName } from "../../store/workout";
 import CurrentWorkoutSet from "./CurrentWorkoutSet";
 import { Link } from "react-router-dom";
 import LoadingAddWorkout from "../LoadingAddWorkout";
@@ -30,12 +29,15 @@ const CurrentWorkout = () => {
 
   const handleChange = (event) => {
     event.preventDefault();
-    setWorkoutName({ name: event.target.value })
+    setWorkoutName({ [event.target.name]: event.target.value })
   }
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    updateWorkout(...workout, ...workoutName.name)
+    dispatch(updateWorkoutName(workoutName))
+    setWorkoutName({
+      name: ''
+    })
   }
 
   if (
@@ -53,7 +55,6 @@ const CurrentWorkout = () => {
   const { allExercises } = workoutlist || [];
   const { exercises, id: workoutId } = allExercises;
 
-  console.log('workoutname', workoutName)
   return (
     <div className="cw-container">
       <div className="cw-exercise-container">
@@ -76,9 +77,7 @@ const CurrentWorkout = () => {
               onChange={handleChange}
             /> 
           </form>
-          <button className="update-btn" onClick={handleSubmit}>
-            <img src="/images/pencil.png" className="update-pencil"/>
-          </button>
+          <img src="/images/pencil.png" className="update-pencil"/>
         </div>
         {allExercises.exercises.map((exercise) => {
           return (
