@@ -73,9 +73,9 @@ async function seed() {
   });
 
   const chest3 = await Exercise.create({
-    name: "Dumbell Flys",
+    name: "Dumbbell Flys",
     category: "chest",
-    equipment: ["Dumbells", "Bench"],
+    equipment: ["Dumbbells", "Bench"],
     tipsAndTricks: [
       "lift arms above the head so they're extended but not locked",
       "slight bend at your elbow, and palms and dumbbells should face each other",
@@ -101,7 +101,7 @@ async function seed() {
   const chest5 = await Exercise.create({
     name: "Bicep Curls",
     category: "triceps",
-    equipment: ["dumbell or barbell", "bench"],
+    equipment: ["Dumbbell or barbell", "bench"],
     tipsAndTricks: [
       "utilize full range of motion",
       "move slow and controlled movements",
@@ -180,7 +180,7 @@ async function seed() {
   const back5 = await Exercise.create({
     name: "Hammer Curl",
     category: "biceps",
-    equipment: ["dumbells"],
+    equipment: ["Dumbbells"],
     tipsAndTricks: [
       "stand or kneel with legs about hips-width distance apart",
       "lift weights to shoulders, keep shoulders down and back",
@@ -193,7 +193,7 @@ async function seed() {
   const back6 = await Exercise.create({
     name: "Preacher Curl",
     category: "biceps",
-    equipment: ["dumbell or barbell", "curling bench"],
+    equipment: ["Dumbbell or barbell", "curling bench"],
     tipsAndTricks: [
       "utilize full range of motion",
       "move slow and controlled movements",
@@ -257,7 +257,7 @@ async function seed() {
   const legs5 = await Exercise.create({
     name: "Bulgarian Split Squats",
     category: "glutes",
-    equipment: ["Dumbell or barbell", "bench"],
+    equipment: ["Dumbbell or barbell", "bench"],
     tipsAndTricks: [
       "stand 2-3 feet in front of knee-high bench",
       "keep torso upright, slowly lower knee towards floor",
@@ -303,10 +303,10 @@ async function seed() {
       "https://qph.cf2.quoracdn.net/main-qimg-ba713d8fa1c44cd4b214fa1a6b32e094-pjlq",
   });
 
-  const inclinedumbellcurl = await Exercise.create({
-    name: "Incline Dumbell Curl",
+  const inclineDumbbellcurl = await Exercise.create({
+    name: "Incline Dumbbell Curl",
     category: "biceps",
-    equipment: ["bench", "dumbells"],
+    equipment: ["bench", "Dumbbells"],
     tipsAndTricks: [
       "don't use momentum to lift the weights",
       "use controlled movements",
@@ -332,7 +332,7 @@ async function seed() {
   const kickBacks = await Exercise.create({
     name: "Kickbacks",
     category: "triceps",
-    equipment: ["dumbells", "bench"],
+    equipment: ["Dumbbells", "bench"],
     tipsAndTricks: [
       "bend forward slightly at waist so torso is almost parallel to the floor",
       "engage your core and keep head, neck and spine inline",
@@ -346,7 +346,7 @@ async function seed() {
   const tricepsExtension = await Exercise.create({
     name: "Triceps Extension",
     category: "triceps",
-    equipment: ["dumbell", "bench"],
+    equipment: ["Dumbbell", "bench"],
     tipsAndTricks: [
       "slowly bend your elbows and lower the weight behind your head",
       "keep trunk upright and core engaged",
@@ -386,7 +386,7 @@ async function seed() {
   const lunge = await Exercise.create({
     name: "Lunge",
     category: "legs",
-    equipment: ["barbell", "weights", "dumbells"],
+    equipment: ["barbell", "weights", "Dumbbells"],
     tipsAndTricks: [
       "lunge as far as required for your front knee to reach 90 degrees",
       "use controlled movements",
@@ -433,7 +433,7 @@ async function seed() {
   const woodChop = await Exercise.create({
     name: "Half-Kneeling Wood Chop",
     category: "core",
-    equipment: ["dumbell", "kettle bell", "floor mat"],
+    equipment: ["Dumbbell", "kettle bell", "floor mat"],
     tipsAndTricks: [
       "keep feet on ground shoulder-width apart",
       "use slow and controlled movements",
@@ -456,7 +456,7 @@ async function seed() {
   const dips = await Exercise.create({
     name: "Dips",
     category: "chest",
-    equipment: ["Dip wrack", "assisted dip machine"],
+    equipment: ["Dip rack", "assisted dip machine"],
     tipsAndTricks: [
       "don't go so far that you strain your shoulders",
       "use controlled movements",
@@ -468,7 +468,7 @@ async function seed() {
   const deadLift = await Exercise.create({
     name: "Deadlift",
     category: "back",
-    equipment: ["barbell", "weights", "squat wrack"],
+    equipment: ["barbell", "weights", "squat rack"],
     tipsAndTricks: [
       "keep your back straight",
       "avoid jerking your back",
@@ -523,11 +523,10 @@ async function seed() {
     image: "/images/FlatKneeRaise.png",
   });
 
-  // Start Goal:
-  const dumbellShoulderPress = await Exercise.create({
-  name: "Dumbell Shoulder Press",
+  const DumbbellShoulderPress = await Exercise.create({
+    name: "Dumbbell Shoulder Press",
     category: "chest",
-    equipment: ["Dumbells", "Bench"],
+    equipment: ["Dumbbells", "Bench"],
     tipsAndTricks: [
       "keep palms facing away from you",
       "keep chest and core braced",
@@ -537,96 +536,83 @@ async function seed() {
     image: "/images/shoulderPress.png",
   });
 
-  const dumbellBenchPress = await Exercise.create({
-    name: "Dumbell Bench Press",
-      category: "chest",
-      equipment: ["Barbell", "Bench", "Weights"],
-      tipsAndTricks: [
-        "keep palms facing away from you",
-        "keep chest and core braced",
-        "press weights upwards until arms are straight and weights touch above your head",
-      ],
-      embedId: "5n9TlaoRD58",
-      image: "/images/dumbbell-bench-press.png",
-    });
+  const DumbbellBenchPress = await Exercise.create({
+    name: "Dumbbell Bench Press",
+    category: "chest",
+    equipment: ["Barbell", "Bench", "Weights"],
+    tipsAndTricks: [
+      "keep palms facing away from you",
+      "keep chest and core braced",
+      "press weights upwards until arms are straight and weights touch above your head",
+    ],
+    embedId: "5n9TlaoRD58",
+    image: "/images/dumbbell-bench-press.png",
+  });
 
-    const cableCrossover = await Exercise.create({
-      name: "Cable Crossover",
-        category: "chest",
-        equipment: ["Cable Machine"],
-        tipsAndTricks: [
-          "Set Pully on both sides at mid-level",
-          "Use full range of motion",
-          "Keep elbows slightly bent",
-        ],
-        embedId: "taI4XduLpTk",
-        image: "/images/cableCrossover.png",
-      });
+  const cableCrossover = await Exercise.create({
+    name: "Cable Crossover",
+    category: "chest",
+    equipment: ["Cable Machine"],
+    tipsAndTricks: [
+      "Set Pully on both sides at mid-level",
+      "Use full range of motion",
+      "Keep elbows slightly bent",
+    ],
+    embedId: "taI4XduLpTk",
+    image: "/images/cableCrossover.png",
+  });
 
-      const inclineDumbellFly = await Exercise.create({
-        name: "Incline Dumbell Fly",
-          category: "chest",
-          equipment: ["Bench", "Dumbells"],
-          tipsAndTricks: [
-            "Set Bench at 30-45 degrees",
-            "Turn wrist so palms are facing each other",
-            "Lower Until you feel a stretch in your pectorals",
-          ],
-          embedId: "bDaIL_zKbGs",
-          image: "/images/inclineFly.png",
-        });
+  const inclineDumbbellFly = await Exercise.create({
+    name: "Incline Dumbbell Fly",
+    category: "chest",
+    equipment: ["Bench", "Dumbbells"],
+    tipsAndTricks: [
+      "Set Bench at 30-45 degrees",
+      "Turn wrist so palms are facing each other",
+      "Lower Until you feel a stretch in your pectorals",
+    ],
+    embedId: "bDaIL_zKbGs",
+    image: "/images/inclineFly.png",
+  });
 
-      const speedBenchPress = await Exercise.create({
-          name: "Speed Bench Press",
-            category: "chest",
-            equipment: ["Bench", "Barbell", "Weights"],
-            tipsAndTricks: [
-              "Bench should be totally flat",
-              "Use about 60% of your max weight",
-              "Use quick, explosive movements",
-            ],
-            embedId: "H-nUqSp8z_E",
-            image: "/images/benchPress.png",
-          });
+  const landMinePress = await Exercise.create({
+    name: "Landmine Press",
+    category: "chest",
+    equipment: ["Barbell", "Weights", "Towel"],
+    tipsAndTricks: [
+      "Wedge the end of a barbell into a corner",
+      "Stagger your stance",
+      "Press the Bar above your head",
+    ],
+    embedId: "nDBKgITcI3I",
+    image: "/images/landminePress.png",
+  });
 
-         const landMinePress = await Exercise.create({
-            name: "LandMine Press",
-              category: "chest",
-              equipment: ["Barbell", "Weights", "Towel"],
-              tipsAndTricks: [
-                "Wedge the end of a barbell into a corner",
-                "Stagger your stance",
-                "Press the Bar above your head",
-              ],
-              embedId: "nDBKgITcI3I",
-              image: "/images/landminePress.png",
-            });
+  const singleArmRow = await Exercise.create({
+    name: "Single Arm Dumbbell Row",
+    category: "back",
+    equipment: ["Dumbbell", "Bench"],
+    tipsAndTricks: [
+      "Keep your feet square, and use one hand to stabalize yourself",
+      "When you row, do not rotate your shoulders",
+      "Slowly lower the weight back to starting position",
+    ],
+    embedId: "-koP10y1qZI",
+    image: "/images/DumbbellRow.png",
+  });
 
-            const singleArmRow = await Exercise.create({
-              name: "Single Arm Dumbell Row",
-                category: "back",
-                equipment: ["Dumbell", "Bench"],
-                tipsAndTricks: [
-                  "Keep your feet square, and use one hand to stabalize yourself",
-                  "When you row, do not rotate your shoulders",
-                  "Slowly lower the weight back to starting position",
-                ],
-                embedId: "-koP10y1qZI",
-                image: "/images/dumbellRow.png",
-              });
-
-              const pullOver = await Exercise.create({
-                name: "PullOver",
-                  category: "chest",
-                  equipment: ["Kettle Bell", "Dumbell", "Medicine Ball"],
-                  tipsAndTricks: [
-                    "Lie on your back and start with the weight above your head off the floor",
-                    "Bend your elbows only slightly",
-                    "Take a deep breath every time you lower the weight behind you",
-                  ],
-                  embedId: "zUVzVXMh9Nc",
-                  image: "/images/pullover.png",
-                });
+  const pullover = await Exercise.create({
+    name: "Pullover",
+    category: "chest",
+    equipment: ["Kettle Bell", "Dumbbell", "Medicine Ball"],
+    tipsAndTricks: [
+      "Lie on your back and start with the weight above your head off the floor",
+      "Bend your elbows only slightly",
+      "Take a deep breath every time you lower the weight behind you",
+    ],
+    embedId: "zUVzVXMh9Nc",
+    image: "/images/pullover.png",
+  });
 
   const pschest1 = await Workout.create({
     name: "chest1",
