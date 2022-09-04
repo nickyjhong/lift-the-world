@@ -3,7 +3,7 @@
   flex-direction: column;
 }
 
-h1 {
+form {
   margin: 0;
 }
 
@@ -13,6 +13,7 @@ h1 {
   font-size: 1.25rem;
   margin: 0;
   font-weight: 500;
+  width: 15rem;
   border: none;
 }
 .cw-exercise-name {
@@ -217,6 +218,7 @@ h1 {
 
 .cw-heading-container {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   flex-direction: row;
+  margin-top: 1rem;
 }
