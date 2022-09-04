@@ -2,6 +2,7 @@ const {
   db,
   models: { User, Exercise, Workout, Sprite },
 } = require("../server/db");
+const WorkoutList = require("../server/db/models/WorkoutList");
 
 async function seed() {
   await db.sync({ force: true });
@@ -57,19 +58,6 @@ async function seed() {
     embedId: "gRVjAtPip0Y",
     image:
       "https://s3.amazonaws.com/prod.skimble/assets/2289486/image_iphone.jpg",
-  });
-
-  const chest2 = await Exercise.create({
-    name: "Barbell Shoulder Press",
-    category: "chest",
-    equipment: ["Barbell", "Bench", "Weights"],
-    tipsAndTricks: [
-      "keep palms facing away from you",
-      "keep chest and core braced",
-      "press weights upwards until arms are straight and weights touch above your head",
-    ],
-    embedId: "5yWaNOvgFCM",
-    image: "https://www.burnthefatinnercircle.com/members/images/1302.jpg",
   });
 
   const chest3 = await Exercise.create({
@@ -417,19 +405,6 @@ async function seed() {
       "https://s3.amazonaws.com/prod.skimble/assets/2287890/image_iphone.jpg",
   });
 
-  const deadBug = await Exercise.create({
-    name: "Dead Bug",
-    category: "core",
-    equipment: ["floor mat"],
-    tipsAndTricks: [
-      "lie down on back, bend legs and stabilize lower body",
-      "exhale as your rise, inhale as you lower",
-    ],
-    embedId: "8NBNM8haZx0",
-    image:
-      "https://images.assetsdelivery.com/compings_v2/lioputra/lioputra2104/lioputra210400056.jpg",
-  });
-
   const woodChop = await Exercise.create({
     name: "Half-Kneeling Wood Chop",
     category: "core",
@@ -441,16 +416,6 @@ async function seed() {
     embedId: "SfTBo2Tjl7M",
     image:
       "https://fitnessandhealthpromotion.ca/wp-content/uploads/2021/09/half-kneeling-woodchop.jpg",
-  });
-
-  const bodySaw = await Exercise.create({
-    name: "Body Saw",
-    category: "core",
-    equipment: ["floor mat", "floor sliders"],
-    tipsAndTricks: ["use controlled movements", "squeeze your core"],
-    embedId: "oSNHVD0zT3Q",
-    image:
-      "https://t4.ftcdn.net/jpg/04/41/56/51/360_F_441565158_qbxu8tdsVAQ0FryS1UjagNURfJnJAkCo.jpg",
   });
 
   const dips = await Exercise.create({
@@ -660,16 +625,12 @@ async function seed() {
     workoutTotalWeight: 500,
   });
 
-  await pschest1.addExercises([chest1, chest2, chest5]);
+  await pschest1.addExercises([chest1, chest3, chest5]);
   await pschest2.addExercises([chest3, chest4, chest6]);
   await psback1.addExercises([back1, back2, back5]);
   await psback2.addExercises([back3, back4, back6]);
   await pslegs1.addExercises([legs1, legs2, legs3]);
   await pslegs2.addExercises([legs4, legs5, legs6]);
-
-  // SAMPLE - TO DELETE
-  await workout1.setUser(cherry);
-  await workout2.setUser(cherry);
 
   //creating our sprites
   const cat = await Sprite.create({

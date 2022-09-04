@@ -770,7 +770,7 @@ router.post("/:id/add", requireToken, async (req, res, next) => {
       newWorkoutExercise.map((exercise) => {
         exercise.update({
           userId: req.user.dataValues.id,
-          sets: [{ reps: "", weight: "", setId: 0 }],
+          sets: [{ reps: 8, weight: "", setId: 0 }, { reps: 8, weight: "", setId: 1 }, { reps: 8, weight: "", setId: 2 }],
         });
       });
 
@@ -820,7 +820,7 @@ router.post("/:id/add", requireToken, async (req, res, next) => {
       newWorkoutExercise.map((exercise) => {
         exercise.update({
           userId: req.user.dataValues.id,
-          sets: [{ reps: "", weight: "", setId: 0 }],
+          sets: [{ reps: 8, weight: "", setId: 0 }, { reps: 8, weight: "", setId: 1 }, { reps: 8, weight: "", setId: 2 }],
         });
       });
 
