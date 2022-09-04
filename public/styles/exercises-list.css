@@ -86,3 +86,17 @@
   display: flex;
   justify-content: center;
 }
+
+.all-exercises-heading-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+}
+
+.exercise-search {
+  border-radius: 5px;
+  height: 1rem;
+  width: 7rem;
+  border: 1px solid rgb(190, 184, 184)
+}
