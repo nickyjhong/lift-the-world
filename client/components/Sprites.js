@@ -40,7 +40,7 @@ const ChooseSprites = (props) => {
       <div className="sprite-container">
         {sprites.map((sprite) => {
           return (
-            <div key={sprites.indexOf(sprite)}>
+            <div className="sprite-individual" key={sprites.indexOf(sprite)}>
               <input
                 className="sprite-small"
                 onClick={chooseSprite}
