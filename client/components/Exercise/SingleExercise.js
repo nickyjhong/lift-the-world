@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { fetchExercise } from '../../store/singleExercise';
-import { addToWorkout } from '../../store/workout';
-import { useParams } from 'react-router-dom';
-import { toast } from 'react-toastify';
-import YoutubeEmbed from './YoutubeEmbed';
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchExercise } from "../../store/singleExercise";
+import { addToWorkout } from "../../store/workout";
+import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
+import YoutubeEmbed from "./YoutubeEmbed";
 
 const SingleExercise = () => {
   let { id } = useParams();
@@ -23,26 +23,42 @@ const SingleExercise = () => {
   };
 
   return (
-    <div>
+    <div className="single-exercise-container">
       {exercise && exercise.id ? (
-        <div>
-          <h3>{exercise.name}</h3>
+        <div className="single-exercise-info">
+          <h1 className="single-exercise-name">{exercise.name}</h1>
           <YoutubeEmbed embedId={exercise.embedId} />
-          <h2>Equipment Needed:</h2>
-          <ul>
-            {exercise.equipment.map((equipment) => {
-              return (
-                <li key={exercise.equipment.indexOf(equipment)}>{equipment}</li>
-              );
-            })}
-          </ul>
-          <h2>Tips:</h2>
-          <ul>
-            {exercise.tipsAndTricks.map((tip) => {
-              return <li key={exercise.tipsAndTricks.indexOf(tip)}>{tip}</li>;
-            })}
-          </ul>
-          <button onClick={handleAdd}>add to workout</button>
+          <div className="single-exercise-box">
+            <h2 className="single-exercise-headers">Equipment Needed:</h2>
+            <ul className="single-exercise-list">
+              {exercise.equipment.map((equipment) => {
+                return (
+                  <li
+                    className="single-exercise-list-item"
+                    key={exercise.equipment.indexOf(equipment)}
+                  >
+                    - {equipment}
+                  </li>
+                );
+              })}
+            </ul>
+            <h2 className="single-exercise-headers">Tips:</h2>
+            <ul className="single-exercise-list">
+              {exercise.tipsAndTricks.map((tip) => {
+                return (
+                  <li
+                    className="single-exercise-tip"
+                    key={exercise.tipsAndTricks.indexOf(tip)}
+                  >
+                    - {tip}
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+          <button className="single-exercise-button" onClick={handleAdd}>
+            add to workout
+          </button>
         </div>
       ) : (
         <div>

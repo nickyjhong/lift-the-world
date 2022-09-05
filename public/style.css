@@ -12,13 +12,14 @@
 @import "./styles/choose-sprite.css";
 @import "./styles/workout-summary.css";
 @import "./styles/loading.css";
-@import './styles/timer.css';
+@import "./styles/timer.css";
 @import "./styles/preset-workouts.css";
 @import "./styles/previous-workouts.css";
 @import "./styles/progress-bar.css";
 @import "./styles/update.css";
 @import "./styles/single-preset.css";
 @import "./styles/modal.css";
+@import "./styles/single-exercise.css";
 @import "./styles/media-query.css";
 
 * {

@@ -1,10 +1,17 @@
-.sprite-container{
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+.choose-sprite-heading {
+  font-size: 1.25rem;
+  text-align: center;
+  padding: 0.5rem 1rem 1rem 1rem;
 }
 
-.sprite-small{
-    max-width: 100px;
-    max-height: 100px;
+.sprite-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.sprite-small {
+  max-width: 100px;
+  max-height: 100px;
 }

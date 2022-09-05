@@ -34,7 +34,9 @@ const ChooseSprites = (props) => {
 
   return (
     <div>
-      <h1>Choose from your Unlocked Sprites!</h1>
+      <h1 className="choose-sprite-heading">
+        Choose from your unlocked sprites!
+      </h1>
       <div className="sprite-container">
         {sprites.map((sprite) => {
           return (
