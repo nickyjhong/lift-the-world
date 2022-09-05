@@ -10,7 +10,7 @@ const AuthForm = (props) => {
       <form onSubmit={handleSubmit} name={name}>
         {name === "signup" ? (
           <div className="signup-container">
-            <p className="signup-title">Sign up for Lift the World</p>
+            <p className="signup-title">Sign Up</p>
 
             <div className="form-container">
               <label className="form-label">username</label>
@@ -139,9 +139,7 @@ const mapDispatch = (dispatch) => {
       const formName = evt.target.name;
       const username = evt.target.username.value;
       const password = evt.target.password.value;
-      dispatch(
-        authenticate(username, email, password, formName)
-      );
+      dispatch(authenticate(username, email, password, formName));
     },
   };
 };
