@@ -1,11 +1,12 @@
-import axios from "axios";
-import { TOKEN } from "./auth";
+import axios from 'axios';
+import { TOKEN } from './auth';
+import { fetchSingleUser } from './singleUser';
 
 // ACTION TYPES
-const SET_WORKOUT = "SET_WORKOUT";
-const UPDATE_WORKOUT = "UPDATE_WORKOUT";
-const GET_PRESETS = "GET_PRESETS";
-const GET_PREVIOUS_WORKOUTS = "GET_PREVIOUS_WORKOUTS"
+const SET_WORKOUT = 'SET_WORKOUT';
+const UPDATE_WORKOUT = 'UPDATE_WORKOUT';
+const GET_PRESETS = 'GET_PRESETS';
+const GET_PREVIOUS_WORKOUTS = 'GET_PREVIOUS_WORKOUTS';
 
 // ACTION CREATORS
 export const _setWorkout = (workout) => ({
@@ -26,7 +27,7 @@ export const getPresets = (presets) => ({
 export const _getPrevious = (workouts) => ({
   type: GET_PREVIOUS_WORKOUTS,
   workouts,
-})
+});
 
 // THUNKS
 export const fetchWorkout = () => {
@@ -34,7 +35,7 @@ export const fetchWorkout = () => {
     try {
       const token = window.localStorage.getItem(TOKEN);
       if (token) {
-        const { data } = await axios.get("/api/workout", {
+        const { data } = await axios.get('/api/workout', {
           headers: {
             authorization: token,
           },
@@ -53,7 +54,7 @@ export const addToWorkout = (exercise) => {
       const token = window.localStorage.getItem(TOKEN);
       if (token) {
         const { data } = await axios.post(
-          "/api/workout",
+          '/api/workout',
           {
             exerciseId: exercise.id,
           },
@@ -97,7 +98,7 @@ export const doPresetWorkout = (workoutId) => {
 
 export const getPresetsThunk = () => async (dispatch) => {
   try {
-    const { data: presets } = await axios.get("/api/workout/preset");
+    const { data: presets } = await axios.get('/api/workout/preset');
     dispatch(getPresets(presets));
   } catch (error) {
     console.log(error);
@@ -109,18 +110,18 @@ export const getPrevious = () => {
     try {
       const token = window.localStorage.getItem(TOKEN);
       if (token) {
-        const { data } = await axios.get("/api/workout/allprevious", {
+        const { data } = await axios.get('/api/workout/allprevious', {
           headers: {
             authorization: token,
           },
         });
-        dispatch(_getPrevious(data))
+        dispatch(_getPrevious(data));
       }
     } catch (error) {
       console.log(error);
     }
-  }
-}
+  };
+};
 
 export const finishWorkout = (workout) => {
   return async (dispatch) => {
@@ -133,6 +134,7 @@ export const finishWorkout = (workout) => {
           },
         });
         dispatch(_updateWorkout(data));
+        dispatch(fetchSingleUser());
       }
     } catch (err) {
       console.log(err);
@@ -142,21 +144,21 @@ export const finishWorkout = (workout) => {
 
 export const updateWorkoutName = (workout) => {
   return async (dispatch) => {
-    try { 
+    try {
       const token = window.localStorage.getItem(TOKEN);
       if (token) {
-        const { data } = await axios.put("/api/workout/update", workout, {
+        const { data } = await axios.put('/api/workout/update', workout, {
           headers: {
-            authorization: token
-          }
-        })
-        dispatch(_updateWorkout(data))
+            authorization: token,
+          },
+        });
+        dispatch(_updateWorkout(data));
       }
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
-}
+  };
+};
 
 // REDUCER
 const initialState = [];

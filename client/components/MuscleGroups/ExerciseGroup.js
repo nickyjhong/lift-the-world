@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
-import { fetchExerciseCategory } from "../../store/exercises";
-import { addToWorkout } from "../../store/workout";
-import { Link } from "react-router-dom";
-import { toast } from "react-toastify";
-import Loading from "../Loading";
+import React, { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { fetchExerciseCategory } from '../../store/exercises';
+import { addToWorkout } from '../../store/workout';
+import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import Loading from '../Loading';
 
 export default function ExerciseGroup(props) {
   let { category } = useParams();
@@ -15,7 +15,7 @@ export default function ExerciseGroup(props) {
   const group = useSelector((state) => state.allExercises);
 
   const [search, setSearch] = useState({
-    searchVal: "",
+    searchVal: '',
   });
 
   const handleChange = (event) => {
@@ -69,7 +69,7 @@ export default function ExerciseGroup(props) {
                 <div className="exercise-btn-container">
                   <button
                     onClick={() => {
-                      toast("Added to workout");
+                      toast(`${exercise.name} added to workout`);
                       dispatch(addToWorkout(exercise));
                     }}
                     className="exercise-add-btn"
@@ -82,7 +82,7 @@ export default function ExerciseGroup(props) {
                 </div>
               </div>
             ) : (
-              ""
+              ''
             )
           )}
         </div>
