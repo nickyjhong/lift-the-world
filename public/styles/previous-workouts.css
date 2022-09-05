@@ -1,3 +1,24 @@
+.no-previous-workouts-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.no-previous-workouts {
+  border: solid black 3px;
+  padding: 2rem;
+  border-radius: 25px;
+  margin-top: 5rem;
+  background-color: #DEEEEF;
+  text-align: center;
+}
+
+.cat-dead {
+  height: 11em;
+  margin-top: 3rem;
+}
+
 .previous-workouts-container {
   display: flex;
   flex-direction: column;

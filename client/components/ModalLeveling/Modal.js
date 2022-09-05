@@ -1,24 +1,24 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 
 const modalStyles = {
-  position: 'fixed',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  backgroundColor: '#FFF',
-  padding: '30px',
+  position: "fixed",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  backgroundColor: "#FFF",
+  padding: "30px",
   zIndex: 1000,
-  borderRadius: '25px',
+  borderRadius: "25px",
 };
 
 const overlayStyles = {
-  position: 'fixed',
+  position: "fixed",
   top: 0,
   bottom: 0,
   right: 0,
   left: 0,
-  backgroundColor: 'rgba(0, 0, 0, .5)',
+  backgroundColor: "rgba(0, 0, 0, .5)",
   zIndex: 1000,
 };
 
@@ -30,12 +30,13 @@ const Modal = ({ open, children, onClose }) => {
       <div style={overlayStyles}>
         <div style={modalStyles}>
           {children}
-          <button onClick={onClose}>Got it!</button>
-          {console.log('children', children)}
+          <button onClick={onClose} className="modal-btn">
+            Got it!
+          </button>
         </div>
       </div>
     </>,
-    document.getElementById('portal')
+    document.getElementById("portal")
   );
 };
 

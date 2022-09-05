@@ -18,6 +18,7 @@
 @import "./styles/progress-bar.css";
 @import "./styles/update.css";
 @import "./styles/single-preset.css";
+@import "./styles/modal.css";
 @import "./styles/media-query.css";
 
 * {
