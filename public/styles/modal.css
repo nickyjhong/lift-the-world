@@ -1,8 +1,19 @@
+.modal-level-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-text {
+  text-align: center;
+}
+
+.cat-jump {
+  width: 8.5rem;
+  padding: 1rem;
+}
+
 .modal-btn {
-  display: "block";
-  border-radius: "25px";
   background: #D9D9D9;
   color: #708298;
   height: 1rem;
-  padding: 0.25rem,
 }

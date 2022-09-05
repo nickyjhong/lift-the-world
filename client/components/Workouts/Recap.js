@@ -6,7 +6,7 @@ import ModalOnLeveling from "../ModalLeveling/ModalOnLeveling";
 
 const Recap = () => {
   const user = useSelector((state) => state.singleUser);
-  const [isLevelModalActive, setIsLevelModalActive] = useState(false);
+  const [isLevelModalActive, setIsLevelModalActive] = useState(true);
   const [prevLevel, setPrevLevel] = useState(0);
   const [levelLoaded, setLevelLoaded] = useState(false);
 
