@@ -6,12 +6,15 @@
 
 .sprite-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-wrap: wrap;
-  gap: 1rem;
+  flex: 1;
+}
+
+.sprite-individual {
+  width: 33%;
 }
 
 .sprite-small {
-  max-width: 100px;
   max-height: 100px;
 }
