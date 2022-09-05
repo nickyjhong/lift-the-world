@@ -20,9 +20,6 @@ const Recap = () => {
         setPrevLevel(user.level);
       }
     }
-    return () => {
-      console.log("Component unmounted");
-    };
   }, [user.level]);
 
   return (

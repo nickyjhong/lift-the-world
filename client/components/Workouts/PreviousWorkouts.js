@@ -1,7 +1,6 @@
-import React, { useEffect } from 'react'
-import { getPrevious } from '../../store/workout'
+import React, { useEffect } from "react";
+import { getPrevious } from "../../store/workout";
 import { useSelector, useDispatch } from "react-redux";
-import Loading from '../Loading';
 
 export default function PreviousWorkouts() {
   const prevWorkouts = useSelector((state) => state.workout) || [];
@@ -9,21 +8,22 @@ export default function PreviousWorkouts() {
 
   useEffect(() => {
     dispatch(getPrevious());
-  }, [dispatch])
+  }, [dispatch]);
 
   function createDate(updatedAt) {
-    let date = updatedAt.slice(0, 10)
-    let newDate = date.split('-')
-    let first = newDate.shift()
-    newDate.push(first)
-    let result = newDate.join('/')
-    return result
+    let date = updatedAt.slice(0, 10);
+    let newDate = date.split("-");
+    let first = newDate.shift();
+    newDate.push(first);
+    let result = newDate.join("/");
+    return result;
   }
 
   if (!prevWorkouts || !prevWorkouts[0] || prevWorkouts.length === 0) {
     return (
-      <div>
-        <Loading />
+      <div className="no-previous-workouts-container">
+        <p className="no-previous-workouts">No previous workouts exist yet!</p>
+        <img src="/sprites/cat/cat-dead.gif" className="cat-dead" />
       </div>
     );
   }
@@ -35,12 +35,18 @@ export default function PreviousWorkouts() {
         return (
           <div className="previous-workout-container" key={prev.id}>
             <div className="previous-workout-nd-container">
-              <p className="previous-workout-date">{createDate(prev.updatedAt)}</p>
+              <p className="previous-workout-date">
+                {createDate(prev.updatedAt)}
+              </p>
               <p className="previous-workout-name">{prev.name}</p>
             </div>
             <div className="previous-workout-headings">
-              <p className="previous-workout-heading previous-workout-heading-exercise">Exercise</p>
-              <p className="previous-workout-heading previous-workout-heading-weight">Total Weight</p>
+              <p className="previous-workout-heading previous-workout-heading-exercise">
+                Exercise
+              </p>
+              <p className="previous-workout-heading previous-workout-heading-weight">
+                Total Weight
+              </p>
             </div>
             <div className="previous-workout-content">
               {prev.exercises.map((exercise) => {
@@ -50,16 +56,19 @@ export default function PreviousWorkouts() {
                     <p className="previous-exercise-weight">
                       {exercise.workoutlist.sets.reduce((acc, curr) => {
                         return (acc += parseInt(curr.reps * curr.weight));
-                      }, 0)} lbs
+                      }, 0)}{" "}
+                      lbs
                     </p>
                   </div>
-                )
+                );
               })}
             </div>
-            <p className="previous-workout-total-weight">Workout Total: {prev.workoutTotalWeight} lbs</p>
+            <p className="previous-workout-total-weight">
+              Workout Total: {prev.workoutTotalWeight} lbs
+            </p>
           </div>
-        )
+        );
       })}
     </div>
-  )
+  );
 }

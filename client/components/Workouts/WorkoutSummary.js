@@ -33,7 +33,8 @@ export const WorkoutSummary = () => {
               <p className="workout-exercise-info-total">
                 {exercise.workoutlist.sets.reduce((acc, curr) => {
                   return (acc += parseInt(curr.reps * curr.weight));
-                }, 0)} lbs
+                }, 0)}{" "}
+                lbs
               </p>
             </div>
           );
