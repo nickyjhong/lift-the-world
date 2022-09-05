@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import WeightComparison from './WeightComparison';
-import { useDispatch, useSelector } from 'react-redux';
-import { WorkoutSummary } from './WorkoutSummary';
-import ModalOnLeveling from '../ModalLeveling/ModalOnLeveling';
+import React, { useEffect, useState } from "react";
+import WeightComparison from "./WeightComparison";
+import { useSelector } from "react-redux";
+import { WorkoutSummary } from "./WorkoutSummary";
+import ModalOnLeveling from "../ModalLeveling/ModalOnLeveling";
 
 const Recap = () => {
-  const dispatch = useDispatch();
   const user = useSelector((state) => state.singleUser);
   const [isLevelModalActive, setIsLevelModalActive] = useState(false);
   const [prevLevel, setPrevLevel] = useState(0);
@@ -22,7 +21,7 @@ const Recap = () => {
       }
     }
     return () => {
-      console.log('Component unmounted');
+      console.log("Component unmounted");
     };
   }, [user.level]);
 
