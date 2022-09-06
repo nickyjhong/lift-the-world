@@ -83,6 +83,7 @@ const CurrentWorkout = () => {
           </form>
           <button
             className="update-workout-name"
+            type="submit"
             onClick={handleSubmit}
           >
             ✓
