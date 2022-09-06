@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchUnlockedSprites } from "../store/sprites";
-import { updateSelectedSprite } from "../store/updateSelectedSprite";
+import { fetchUnlockedSprites } from "../../store/sprites";
+import { updateSelectedSprite } from "../../store/updateSelectedSprite";
 
 const ChooseSprites = (props) => {
   const isMounted = useRef(false);

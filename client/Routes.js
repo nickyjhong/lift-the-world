@@ -10,12 +10,12 @@ import { me } from "./store";
 import LeaderBoard from "./components/LeaderBoard";
 import CurrentWorkout from "./components/Workouts/CurrentWorkout";
 import PresetWorkouts from "./components/Workouts/PresetWorkouts";
-import UserProfile from "./components/UserProfile";
+import UserProfile from "./components/User/UserProfile";
 import MuscleGroups from "./components/MuscleGroups/MuscleGroups";
 import ExerciseGroup from "./components/MuscleGroups/ExerciseGroup";
 import SinglePreset from "./components/Workouts/SinglePreset";
 import AllExercises from "./components/Exercise/AllExercises";
-import ChooseSprites from "./components/Sprites";
+import ChooseSprites from "./components/User/Sprites";
 import Timer from "./components/Timer/Timer";
 import PreviousWorkouts from "./components/Workouts/PreviousWorkouts";
 

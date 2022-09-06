@@ -702,7 +702,7 @@ async function seed() {
     category: "core",
     equipment: ["Floor Mat"],
     tipsAndTricks: [
-      "Laying on your back, put your hands palms down under your glutes for stabalization",
+      "Laying on your back, put your hands palms down under your glutes for stabilization",
       "Keep your legs straight and toes pointed",
       "Don't let your heels touch the ground"
     ],
@@ -728,7 +728,7 @@ async function seed() {
     category: "core",
     equipment: ["Floor Mat"],
     tipsAndTricks: [
-      "At the start of the repetition; keep your arms and legs straight and lifted off the floor slightly",
+      "At the start of the repetition, keep your arms and legs straight and lifted off the floor slightly",
       "To keep the focus on your core, make sure your upper body is initiating the movement",
       "Keep good form by starting with your back touching the ground and abs engaged"
     ],
@@ -741,7 +741,7 @@ async function seed() {
     category: "glutes",
     equipment: ["Floor Mat", "Resistance Bands", "Ankle Weights"],
     tipsAndTricks: [
-      "To get the most out of this workout; keep your core and pelvis stable and only move your hips",
+      "To get the most out of this workout, keep your core and pelvis stable and only move your hips",
       "Point your foot to the opposite wall when you lift your leg to help your hip rotate",
       "Increase the difficulty of this exercise by including ankle weights or a resistance band"
     ],
@@ -754,7 +754,7 @@ async function seed() {
     category: "glutes",
     equipment: ["Resistance Band", "Dumbells"],
     tipsAndTricks: [
-      "If using an optional resistance band; the best place for it is just below your knees",
+      "If using an optional resistance band, the best place for it is just below your knees",
       "Ensure you push back with your hips while keeping your core engaged",
       "Hold your arms out in front of you for balance and increased engagement of your core"
     ],

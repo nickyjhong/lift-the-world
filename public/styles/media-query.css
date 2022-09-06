@@ -104,10 +104,12 @@
 
   .progress-btn, .profile-previous-btn {
     width: 11rem;
+    color: inherit;
   }
 
   .logout-btn {
     width: 7rem;
+    color: inherit;
   }
 
   .cw-check-yes, .cw-check-no {
@@ -119,10 +121,6 @@
 
   .cw-sr-input-yes, .cw-sr-input-no, .cw-weight-input-yes, .cw-weight-input-no {
     height: .9rem;
-  }
-
-  .update-pencil {
-    padding-right: .5rem;
   }
 
 }

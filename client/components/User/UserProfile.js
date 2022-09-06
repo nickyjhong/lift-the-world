@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchSingleUser } from "../store/singleUser";
+import { fetchSingleUser } from "../../store/singleUser";
 import { Link } from "react-router-dom";
-import { logout } from "../store";
-import { fetchSelectedSprite } from "../store/fetchSelectedSprite";
+import { logout } from "../../store";
+import { fetchSelectedSprite } from "../../store/fetchSelectedSprite";
 import ProgressBar from "./ProgressBar";
-import { fetchUserStats } from "../store/userStats";
+import { fetchUserStats } from "../../store/userStats";
 
 const UserProfile = () => {
 
