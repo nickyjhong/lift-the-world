@@ -1,23 +1,15 @@
-// importScripts('https://storage.googleapis.com/workbox-cdn/releases/6.4.1/workbox-sw.js');
-
-// workbox.routing.registerRoute(
-//   ({ request }) => request.destination === 'image',
-//   new workbox.strategies.CacheFirst()
-// );
-
-
 //the version of cache
-const CACHE_NAME = 'v1';
+const CACHE_NAME = "v1";
 //array of files you choose to cache
-const urlsToCache = ['index.html', 'style.css'];
+const urlsToCache = ["index.html", "style.css"];
 
 const self = this;
 
 //Install the SW
-self.addEventListener('install', (event) => {
+self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      console.log('Opened cache');
+      console.log("Opened cache");
       return cache.addAll(urlsToCache);
     })
   );
@@ -27,7 +19,7 @@ self.addEventListener('install', (event) => {
 //Cache Storage -> CACHE_NAME
 
 //Listen For Requests
-self.addEventListener('fetch', (event) => {
+self.addEventListener("fetch", (event) => {
   event.respondWith(
     //match all requests that our pages are making (i.e requests for images, api calls)
     caches.match(event.request).then(() => {
@@ -36,14 +28,14 @@ self.addEventListener('fetch', (event) => {
       return (
         fetch(event.request)
           //if cannot fetch data, respond with offline html code
-          .catch(() => caches.match('offline.html'))
+          .catch(() => caches.match("offline.html"))
       );
     })
   );
 });
 
 //Activate the SW
-self.addEventListener('activate', (event) => {
+self.addEventListener("activate", (event) => {
   //here we will be making sure to delete old verisons of the cache we no longer need
   const cacheWhitelist = [];
   cacheWhitelist.push(CACHE_NAME);
