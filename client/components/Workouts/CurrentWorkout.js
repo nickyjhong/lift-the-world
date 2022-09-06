@@ -63,14 +63,17 @@ const CurrentWorkout = () => {
     <div className="cw-container">
       <div className="cw-exercise-container">
         {!openModal && (
-          <button
-            className="timer-modal-btn"
-            onClick={() => setOpenModal(true)}
-          >
-            <img src="/images/timer.png" className="timer-modal-img" />
+          <div className="timer-cw-container">
+            <button
+              className="timer-modal-btn"
+              onClick={() => setOpenModal(true)}
+            >
+              <img src="/images/timer.png" className="timer-modal-img" />
+            </button>
             <span className="timer-word"> Timer</span>
-          </button>
+            </div>
         )}
+
         {openModal && <Timer closeModal={setOpenModal} />}
         <div className="cw-heading-container">
           <form onSubmit={handleSubmit}>

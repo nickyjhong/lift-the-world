@@ -272,3 +272,12 @@ form {
   border: none;
   border-radius: 5px;
 }
+
+.timer-cw-container {
+  display: flex;
+  align-items: center;
+  margin: .5rem 0 0 0 ;
+  padding: 0;
+  color: black;
+  
+}

@@ -27,10 +27,12 @@ const Recap = () => {
       <div className="recap-congrats">
         <h1 className="recap-h1-header">
           Great job with your workout!{"  "}
-          <img
-            className="star"
-            src="https://emojipedia-us.s3.amazonaws.com/source/skype/289/star_2b50.png"
-          />
+          <div className="star-container">
+            <img
+              className="star"
+              src="https://emojipedia-us.s3.amazonaws.com/source/skype/289/star_2b50.png"
+            />
+          </div>
         </h1>
       </div>
       <ModalOnLeveling
