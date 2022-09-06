@@ -24,26 +24,21 @@
   border-radius: 25px;
   font-weight: 500;
   font-size: .8rem;
-  margin-top: 0.5rem;
   width: 13rem;
 }
 
 .single-exercise-equipment, .single-exercise-tips {
   list-style-type: none;
-  margin-left: -1.5rem;
+  align-self: flex-start;
   margin-top: 0.25rem;
   display: flex;
   flex-direction: column;
 }
 
-.single-exercise-equipment {
-  margin-right: 5rem;
-}
-
 .single-exercise-list-item {
-  margin-bottom: 1rem;
   text-align: left;
   font-size: 0.85rem;
+  padding: 0 0 1rem 1rem ;
 }
 
 .single-exercise-box {
@@ -59,10 +54,9 @@
 }
 
 .single-exercise-tip {
-  margin: 0 0 .3rem 2rem;
   text-align: left;
   font-size: 0.85rem;
-  padding: .5rem;
+  padding: 0 0 1rem 1rem ;
 }
 
 .single-exercise-button {
