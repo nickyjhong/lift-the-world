@@ -755,7 +755,7 @@ async function seed() {
     category: "glutes",
     equipment: ["Resistance Band", "Dumbells"],
     tipsAndTricks: [
-      "If using an optional resistance band, the best place for it is just below your knees",
+      "If using an optional resistance band the best place for it is just below your knees",
       "Ensure you push back with your hips while keeping your core engaged",
       "Hold your arms out in front of you for balance and increased engagement of your core"
     ],

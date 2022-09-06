@@ -30,7 +30,7 @@ const SingleExercise = () => {
           <YoutubeEmbed embedId={exercise.embedId} />
           <div className="single-exercise-box">
             <h2 className="single-exercise-headers">Equipment Needed:</h2>
-            <ul className="single-exercise-list">
+            <ul className="single-exercise-equipment">
               {exercise.equipment.map((equipment) => {
                 return (
                   <li
@@ -43,7 +43,7 @@ const SingleExercise = () => {
               })}
             </ul>
             <h2 className="single-exercise-headers">Tips:</h2>
-            <ul className="single-exercise-list">
+            <ul className="single-exercise-tips">
               {exercise.tipsAndTricks.map((tip) => {
                 return (
                   <li
@@ -57,7 +57,7 @@ const SingleExercise = () => {
             </ul>
           </div>
           <button className="single-exercise-button" onClick={handleAdd}>
-            add to workout
+            Add to workout
           </button>
         </div>
       ) : (

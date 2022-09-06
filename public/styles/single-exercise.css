@@ -18,19 +18,26 @@
 
 .single-exercise-headers {
   text-align: center;
-  border: solid #757a81 1px;
+  border: dotted #757a81 1px;
   background-color: whitesmoke;
   padding: 0.4rem;
   border-radius: 25px;
   font-weight: 500;
-  font-size: 1rem;
+  font-size: .8rem;
   margin-top: 0.5rem;
+  width: 13rem;
 }
 
-.single-exercise-list {
+.single-exercise-equipment, .single-exercise-tips {
   list-style-type: none;
   margin-left: -1.5rem;
   margin-top: 0.25rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.single-exercise-equipment {
+  margin-right: 5rem;
 }
 
 .single-exercise-list-item {
@@ -41,15 +48,21 @@
 
 .single-exercise-box {
   background-color: #deeeef;
-  margin: 1rem;
-  padding: 1rem;
   border-radius: 25px;
+  margin-top: .5rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  width: 15.5rem;
 }
 
 .single-exercise-tip {
-  margin-bottom: 1rem;
+  margin: 0 0 .3rem 2rem;
   text-align: left;
   font-size: 0.85rem;
+  padding: .5rem;
 }
 
 .single-exercise-button {
@@ -62,5 +75,8 @@
   width: 10rem;
   box-shadow: 0px 4px 4px rgb(0 0 0 / 15%), 0px 4px 4px rgb(0 0 0 / 1%);
   cursor: pointer;
-  color: #757a81;
+  color: #3A3F42;
+  margin-top: 1rem;
+  background: #DDECD2;
+  font-weight: 700;
 }

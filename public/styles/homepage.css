@@ -21,7 +21,8 @@
   height: 2.5rem;
   width: 12rem;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15), 0px 4px 4px rgba(0, 0, 0, 0.01);
-  color: white;
+  color: #3A3F42;
+  font-weight: 700;
 }
 
 .homepage-btn:hover {
@@ -31,6 +32,7 @@
 
 .homepage-link-btn {
   margin-top: 1rem;
+  font-weight: 700;
 }
 
 .homepage-image {
