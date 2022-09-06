@@ -21,6 +21,21 @@ router.get("/", requireToken, async (req, res, next) => {
   }
 });
 
+router.get("/active", requireToken, async (req, res, next) => {
+  try {
+    const workout = await Workout.findOne({
+      where: {
+        userId: req.user.dataValues.id,
+        status: "active"
+      },
+      include: [Exercise],
+    });
+    res.send(workout);
+  } catch (err) {
+    console.error(err)
+  }
+})
+
 // ROUTE WITH CURRENT SET OF ALL EXERCISES IN MOST RECENT WORKOUT
 router.get("/current", requireToken, async (req, res, next) => {
   try {

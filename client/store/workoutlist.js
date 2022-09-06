@@ -43,7 +43,7 @@ export const fetchWorkoutlist = () => {
     try {
       const token = window.localStorage.getItem(TOKEN);
       if (token) {
-        const { data } = await axios.get("/api/workoutlist/current", {
+        const { data } = await axios.get("/api/workoutlist/active", {
           headers: {
             authorization: token,
           },
