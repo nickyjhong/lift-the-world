@@ -20,6 +20,7 @@ const PresetWorkouts = () => {
       </div>
     );
   }
+
   return (
     <div>
       <h1 className="preset-heading">

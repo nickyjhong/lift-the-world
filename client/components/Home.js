@@ -3,17 +3,17 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 export const Home = () => {
-  const username = useSelector((state) => state.auth.username)
+  const username = useSelector((state) => state.auth.username);
 
   return (
     <div className="homepage-container">
       <h3 className="homepage-header">Welcome, {username}</h3>
 
       <div className="homepage-link-btn">
-          <Link to="/exercises" className="homepage-btn-link">
-            <button className="homepage-btn">Select Exercises</button>
-          </Link>
-        </div>
+        <Link to="/exercises" className="homepage-btn-link">
+          <button className="homepage-btn">Select Exercises</button>
+        </Link>
+      </div>
 
       <div className="homepage-btn-container">
         <div className="homepage-link-btn">
@@ -30,10 +30,9 @@ export const Home = () => {
 
         <div className="homepage-link-btn">
           <Link to="/sprites" className="homepage-btn-link">
-            <button className="homepage-btn">View Unlocked Sprites</button>
+            <button className="homepage-btn">View Unlocked Characters</button>
           </Link>
         </div>
-
       </div>
       <img className="homepage-image" src="/images/cat1.png" />
     </div>

@@ -1,18 +1,14 @@
-const Sequelize = require('sequelize');
-const db = require('../db');
+const Sequelize = require("sequelize");
+const db = require("../db");
 
-const Workout = db.define('workout', {
-  name:{
+const Workout = db.define("workout", {
+  name: {
     type: Sequelize.STRING,
-    allowNull:false,
-    validate:{
-      notEmpty: true
-    },
-    defaultValue: 'workout'
+    defaultValue: "workout",
   },
   status: {
-    type: Sequelize.ENUM('active', 'closed'),
-    defaultValue: 'active',
+    type: Sequelize.ENUM("active", "closed"),
+    defaultValue: "active",
   },
   workoutTotalWeight: {
     type: Sequelize.INTEGER,
@@ -20,8 +16,8 @@ const Workout = db.define('workout', {
   },
   isPreset: {
     type: Sequelize.BOOLEAN,
-    defaultValue: false
-  }
+    defaultValue: false,
+  },
 });
 
 module.exports = Workout;

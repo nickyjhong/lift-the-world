@@ -10,22 +10,30 @@ const Exercise = db.define("exercise", {
     },
   },
   category: {
-    type: Sequelize.ENUM("chest", "back", "biceps", "triceps", "core", "legs", "glutes"),
+    type: Sequelize.ENUM(
+      "chest",
+      "back",
+      "biceps",
+      "triceps",
+      "core",
+      "legs",
+      "glutes"
+    ),
   },
   equipment: {
     type: Sequelize.ARRAY(Sequelize.STRING),
-    defaultValue: ["No Equipment Needed"]
+    defaultValue: ["No Equipment Needed"],
   },
   tipsAndTricks: {
     type: Sequelize.ARRAY(Sequelize.STRING),
-    defaultValue: ["Don't hurt yourself"]
+    defaultValue: ["Don't hurt yourself"],
   },
   embedId: {
     type: Sequelize.STRING,
   },
   image: {
-    type: Sequelize.TEXT
-  }
+    type: Sequelize.TEXT,
+  },
 });
 
 module.exports = Exercise;

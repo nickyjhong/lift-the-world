@@ -817,37 +817,37 @@ async function seed() {
   });
 
   const pschest1 = await Workout.create({
-    name: "",
+    name: "Chest - Option 1",
     status: "active",
     isPreset: true,
   });
 
   const pschest2 = await Workout.create({
-    name: "chest2",
+    name: "Chest - Option 2",
     status: "active",
     isPreset: true,
   });
 
   const psback1 = await Workout.create({
-    name: "back1",
+    name: "Back - Option 1",
     status: "active",
     isPreset: true,
   });
 
   const psback2 = await Workout.create({
-    name: "back2",
+    name: "Back - Option 2",
     status: "active",
     isPreset: true,
   });
 
   const pslegs1 = await Workout.create({
-    name: "legs1",
+    name: "Legs - Option 1",
     status: "active",
     isPreset: true,
   });
 
   const pslegs2 = await Workout.create({
-    name: "legs2",
+    name: "Legs - Option 2",
     status: "active",
     isPreset: true,
   });

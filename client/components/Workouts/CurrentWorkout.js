@@ -56,7 +56,7 @@ const CurrentWorkout = () => {
     );
   }
 
-  const { allExercises } = workoutlist || [];
+  const { exercises, allExercises } = workoutlist || [];
   const { id: workoutId } = allExercises;
 
   return (
