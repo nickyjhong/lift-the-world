@@ -102,7 +102,7 @@
   }
 
   .cw-workout-name {
-    font-weight: 700;
+    font-weight: 600;
   }
 
   .cw-finish-btn, .timer-modal-close-btn {
@@ -117,6 +117,8 @@
   .logout-btn {
     width: 7rem;
     color: #3A3F42;
+    background-color: #CDD5DE;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 15%), 0px 4px 4px rgb(0 0 0 / 1%);
   }
 
   .cw-check-yes, .cw-check-no {
