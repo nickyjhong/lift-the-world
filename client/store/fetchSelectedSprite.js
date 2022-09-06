@@ -19,7 +19,7 @@ export const fetchSelectedSprite = ()=>{
         }});
         dispatch(getSelectedSprite(sprite))
     }
-     catch (error) {
+    catch (error) {
             console.log(error);
         } 
     }

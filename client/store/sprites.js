@@ -16,7 +16,7 @@ export const fetchUnlockedSprites = ()=>{
     return async (dispatch)=>{
         try {
             const token = window.localStorage.getItem("token");
-           const {data: sprites} = await axios.get('/api/sprites', {
+            const {data: sprites} = await axios.get('/api/sprites', {
                 headers: {
                     authorization: token
                 }
