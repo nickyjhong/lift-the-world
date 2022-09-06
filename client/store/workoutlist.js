@@ -5,7 +5,7 @@ import { TOKEN } from "./auth";
 const SET_WORKOUT_LIST = "SET_WORKOUT_LIST";
 const SET_PREV_WORKOUT_SET = "SET_PREV_WORKOUT_SET";
 const UPDATE_WORKOUT_LIST = "UPDATE_WORKOUT_LIST";
-const DELETE_EXERCISE = "DELETE_EXERCISE"
+const DELETE_EXERCISE = "DELETE_EXERCISE";
 
 // ACTION CREATORS
 export const _setWorkoutlist = (workoutlist) => {
@@ -32,9 +32,9 @@ export const _updateWorkoutlist = (exercise) => {
 export const _deleteExerciseFromWOL = (exercise) => {
   return {
     type: DELETE_EXERCISE,
-    exercise
-  }
-}
+    exercise,
+  };
+};
 
 // THUNKS
 // fetch all current exercises in workout list
@@ -99,23 +99,22 @@ export const deleteSet = (exerciseId) => {
     try {
       const token = window.localStorage.getItem(TOKEN);
       if (token) {
-        const { data } = await axios.delete(`/api/workoutlist/${exerciseId}`,{
+        const { data } = await axios.delete(`/api/workoutlist/${exerciseId}`, {
           headers: {
             authorization: token,
           },
-        })
-        console.log('DATA', data)
+        });
         if (data.sets.length === 0) {
-          dispatch(_deleteExerciseFromWOL(data))
+          dispatch(_deleteExerciseFromWOL(data));
         } else {
-          dispatch(_updateWorkoutlist(data))
+          dispatch(_updateWorkoutlist(data));
         }
       }
     } catch (err) {
-      console.log(err)
+      console.log(err);
     }
-  }
-}
+  };
+};
 
 export const deleteFromWorkout = (exerciseId) => {
   return async (dispatch) => {
@@ -130,10 +129,10 @@ export const deleteFromWorkout = (exerciseId) => {
         dispatch(await _setWorkoutlist(data));
       }
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
-}
+  };
+};
 
 // updates current set
 export const confirmSet = (setData) => {
@@ -176,8 +175,13 @@ export default function workoutlistReducer(state = initialState, action) {
     case SET_PREV_WORKOUT_SET:
       return action.exercise;
     case DELETE_EXERCISE:
-      const filtered = state.allExercises.exercises.filter((exercise) => exercise.id !== action.exercise.exerciseId)
-      return { ...state, allExercises: { ...state.allExercises, exercises: filtered }}
+      const filtered = state.allExercises.exercises.filter(
+        (exercise) => exercise.id !== action.exercise.exerciseId
+      );
+      return {
+        ...state,
+        allExercises: { ...state.allExercises, exercises: filtered },
+      };
     default:
       return state;
   }

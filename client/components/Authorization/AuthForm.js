@@ -4,9 +4,8 @@ import { Link } from "react-router-dom";
 import { authenticate } from "../../store";
 
 const AuthForm = (props) => {
-  console.log("props", props);
   const { name, handleSubmit, error } = props;
-  console.log("error in frontend", error);
+
   return (
     <div className="form">
       <form onSubmit={handleSubmit} name={name}>
@@ -57,11 +56,9 @@ const AuthForm = (props) => {
               <button className="button signup-btn" type="submit">
                 Sign Up
               </button>
-              <p className="form-small-text">Have an account?</p>
-              <Link to="/login">
-                <button className="button signup-btn" type="submit">
-                  Sign In
-                </button>
+              <p className="form-small-text">Have an account? </p>
+              <Link to="/login" className="sign-up">
+                Sign in
               </Link>
               <Link to="/disclaimer" className="form-disclaimer">
                 Disclaimer
@@ -103,11 +100,9 @@ const AuthForm = (props) => {
               <button className="button login-btn" type="submit">
                 Sign In
               </button>
-              <p className="form-small-text">Don't have an account?</p>
-              <Link to="/signup">
-                <button className="button signup-btn" type="submit">
-                  Create new account
-                </button>
+              <p className="form-small-text">Don't have an account? </p>
+              <Link to="/signup" className="sign-up">
+                Sign up now
               </Link>
               <Link to="/disclaimer" className="form-disclaimer">
                 Disclaimer

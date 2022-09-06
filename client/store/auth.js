@@ -34,12 +34,8 @@ export const authenticate =
       dispatch(me());
       history.push("/");
     } catch (authError) {
-      console.log("auth error message", authError.response);
       return dispatch(setAuth({ error: authError.response.data }));
     }
-    // else {
-    //   return dispatch(setAuth({ error: "An error has occurred" }));
-    // }
   };
 
 export const logout = () => {

@@ -20,6 +20,7 @@ const App = () => {
           autoClose={2000}
           closeOnClick={true}
           newestOnTop={true}
+          hideProgressBar={true}
         />
         <NavBarIcons />
       </SettingsContext.Provider>

@@ -37,6 +37,7 @@
 
   .form-label {
     font-size: .6rem;
+    font-weight: 600;
     color: #575757;
     padding: 0 0 .25rem 0;
   }
@@ -49,9 +50,15 @@
   }
 
   .form-small-text {
-    font-size: .6rem;
+    font-size: .7rem;
     padding: 1.25rem 0 .5rem 0;
     text-align: center;
+  }
+
+  .sign-up {
+    text-decoration: underline;
+    color: #708298;
+    font-size: .7rem;
   }
 
   .form-disclaimer {
