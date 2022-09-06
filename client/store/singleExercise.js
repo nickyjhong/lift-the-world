@@ -4,22 +4,15 @@ import axios from "axios";
 const SET_EXERCISE = "SET_EXERCISE";
 const CREATE_EXERCISE = "CREATE_EXERCISE";
 
-// ACTION CREATORS 
+// ACTION CREATORS
 export const _setExercise = (exercise) => {
   return {
     type: SET_EXERCISE,
     exercise,
-  }
+  };
 };
 
-// export const _createExercise = (exercise) => {
-//   return {
-//     type: CREATE_EXERCISE,
-//     exercise,
-//   };
-// };
-
-// THUNKS 
+// THUNKS
 export const fetchExercise = (id) => {
   return async (dispatch) => {
     try {
@@ -31,17 +24,6 @@ export const fetchExercise = (id) => {
   };
 };
 
-// export const createExercise = (id) => {
-//   return async (dispatch) => {
-//     try {
-//       const { data: exercise } = await axios.put(`/exercise/${id}`);
-//       dispatch(addSingleExercise(exercise));
-//     } catch (error) {
-//       console.log("addSingleExercise Error", error);
-//     }
-//   };
-// };
-
 // REDUCER
 const initialState = {};
 
@@ -49,8 +31,6 @@ export default function singleExerciseReducer(state = initialState, action) {
   switch (action.type) {
     case SET_EXERCISE:
       return action.exercise;
-    // case ADD_SINGLE_EXERCISE:
-    //   return action.exercise;
     default:
       return state;
   }

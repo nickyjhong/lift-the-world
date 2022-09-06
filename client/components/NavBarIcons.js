@@ -2,7 +2,6 @@ import React from "react";
 import { connect } from "react-redux";
 import NavIconLink from "./NavIconLink";
 
-// component to be used when logged in
 const NavBarIcons = ({ isLoggedIn }) => (
   <div className="nav-container">
     <nav>
