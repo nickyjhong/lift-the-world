@@ -62,12 +62,6 @@ router.get("/prev/:exerciseId", requireToken, async (req, res, next) => {
       },
       order: [["createdAt", "DESC"]],
     });
-
-    // if (exerciseSet[0].sets.length === 0) {
-    //   res.send(exerciseSet[1]);
-    // } else {
-    //   res.send(exerciseSet[0]);
-    // }
     res.send(exerciseSet[1]);
   } catch (err) {
     next(err);
