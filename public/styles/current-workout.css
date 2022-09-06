@@ -18,7 +18,7 @@ form {
 }
 .cw-exercise-name {
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 600;
   margin-bottom: .5rem;
 }
 
@@ -170,7 +170,7 @@ form {
   border: none;
   width: 10rem;
   height: 1.5rem;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .cw-delete-btn {
@@ -181,7 +181,7 @@ form {
   border: none;
   width: 10rem;
   height: 1.5rem;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .cw-finish-btn {
@@ -191,7 +191,7 @@ form {
   border-radius: 5px;
   border: none;
   width: 15rem;
-  font-weight: 700;
+  font-weight: 600;
   height: 1.5rem;
 }
 
@@ -204,7 +204,7 @@ form {
   border: none;
   background: inherit;
   padding-left: .75rem;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .exercise-delete-btn-img {
@@ -215,13 +215,13 @@ form {
   margin: .5rem 0;
   display: flex;
   justify-content: space-between;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .cw-finish-workout-btn {
   display: flex;
   justify-content: center;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .cw-heading-container {
