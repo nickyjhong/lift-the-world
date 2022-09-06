@@ -48,7 +48,7 @@ export const fetchWorkoutlist = () => {
             authorization: token,
           },
         });
-        dispatch(await _setWorkoutlist(data));
+        dispatch(_setWorkoutlist(data));
       }
     } catch (error) {
       console.log("setWorkoutlist Error", error);
@@ -63,7 +63,7 @@ export const fetchPrevWorkoutSet = (exerciseId) => {
       const token = window.localStorage.getItem(TOKEN);
       if (token) {
         const { data } = await axios.get(`/api/workoutlist/prev/${exerciseId}`);
-        dispatch(await _setPrevWorkoutSet(data));
+        dispatch(_setPrevWorkoutSet(data));
       }
     } catch (error) {
       console.log("setPrevWorkoutSet Error", error);

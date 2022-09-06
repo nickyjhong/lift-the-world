@@ -10,36 +10,36 @@ export const WorkoutSummary = () => {
     dispatch(fetchWorkoutlist());
   }, []);
 
-  if (
-    !workoutlist.allExercises.exercises ||
-    workoutlist.allExercises.exercises.length === 0
-  ) {
-    return <div>Loading...</div>;
-  }
+  const allExercises = workoutlist.allExercises || [];
+  const exercises = allExercises.exercises || [];
 
-  const { allExercises } = workoutlist || [];
-
-  return (
+  return exercises.length ? (
     <div className="workout-summary-container">
       <div className="workout-summary-headings">
         <p className="workout-summary-heading">Name</p>
         <p className="workout-summary-heading">Weight</p>
       </div>
       <div className="workout-info-container-main">
-        {allExercises.exercises.map((exercise) => {
+        {exercises.map((exercise) => { 
+
           return (
             <div className="workout-info-container" key={exercise.id}>
               <p className="workout-exercise-info-name"> {exercise.name}</p>
               <p className="workout-exercise-info-total">
-                {exercise.workoutlist.sets.reduce((acc, curr) => {
-                  return (acc += parseInt(curr.reps * curr.weight));
-                }, 0)}{" "}
-                lbs
+                {exercise.workoutlist ? (
+                  exercise.workoutlist.sets.reduce((acc, curr) => {
+                    return (acc += parseInt(curr.reps * curr.weight));
+                  }, 0)
+                ) : (
+                  JSON.stringify(exercise)
+                )} 
               </p>
             </div>
           );
         })}
       </div>
     </div>
+  ) : (
+    <p>{JSON.stringify(workoutlist)}</p>
   );
 };

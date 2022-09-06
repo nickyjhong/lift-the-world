@@ -27,11 +27,10 @@ router.get("/current", requireToken, async (req, res, next) => {
     const workout = await Workout.findOne({
       where: {
         userId: req.user.dataValues.id,
-        status: "active",
       },
+      order: [["updatedAt", "DESC"]],
       include: [Exercise],
     });
-
     res.send(workout);
   } catch (err) {
     console.error(err);
