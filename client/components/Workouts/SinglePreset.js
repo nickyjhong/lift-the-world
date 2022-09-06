@@ -25,7 +25,7 @@ const SinglePreset = () => {
   }
 
   return (
-    <div className="preset-workout">
+    <div className="preset-workout-container">
       {preset && preset.id ? (
         <div className="preset-workout-info-container">
           <p className="preset-workout-name">{preset.name}</p>

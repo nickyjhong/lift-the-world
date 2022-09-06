@@ -37,8 +37,8 @@
   border: none;
   height: 2rem;
   width: 5rem;
+  font-weight: 600;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15), 0px 4px 4px rgba(0, 0, 0, 0.01);
-  color: #757a81;
 }
 
 .progress-btn, .profile-previous-btn {
@@ -49,9 +49,9 @@
   border: none;
   height: 2rem;
   width: 10rem;
+  font-weight: 600;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15), 0px 4px 4px rgba(0, 0, 0, 0.01);
   cursor: pointer;
-  color: #757a81;
 }
 
 .profile-btns-container {

@@ -6,7 +6,11 @@ import {
   deleteFromWorkout,
   deleteSet,
 } from "../../store/workoutlist";
-import { fetchWorkout, finishWorkout, updateWorkoutName } from "../../store/workout";
+import {
+  fetchWorkout,
+  finishWorkout,
+  updateWorkoutName,
+} from "../../store/workout";
 import CurrentWorkoutSet from "./CurrentWorkoutSet";
 import { Link } from "react-router-dom";
 import LoadingAddWorkout from "../LoadingAddWorkout";
@@ -19,8 +23,8 @@ const CurrentWorkout = () => {
 
   const [openModal, setOpenModal] = useState(false);
   const [workoutName, setWorkoutName] = useState({
-    name: ''
-  })
+    name: "",
+  });
 
   useEffect(() => {
     dispatch(fetchWorkout());
@@ -29,16 +33,16 @@ const CurrentWorkout = () => {
 
   const handleChange = (event) => {
     event.preventDefault();
-    setWorkoutName({ [event.target.name]: event.target.value })
-  }
+    setWorkoutName({ [event.target.name]: event.target.value });
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(updateWorkoutName(workoutName))
+    dispatch(updateWorkoutName(workoutName));
     setWorkoutName({
-      name: ''
-    })
-  }
+      name: "",
+    });
+  };
 
   if (
     !workoutlist.allExercises ||
@@ -69,15 +73,19 @@ const CurrentWorkout = () => {
         {openModal && <Timer closeModal={setOpenModal} />}
         <div className="cw-heading-container">
           <form onSubmit={handleSubmit}>
-            <input 
+            <input
               className="cw-workout-name"
               placeholder={workout.name}
               type="text"
               name="name"
               onChange={handleChange}
-            /> 
+            />
           </form>
-          <img src="/images/pencil.png" className="update-pencil" onClick={handleSubmit}/>
+          <img
+            src="/images/pencil.png"
+            className="update-pencil"
+            onClick={handleSubmit}
+          />
         </div>
         {allExercises.exercises.map((exercise) => {
           return (
@@ -105,7 +113,7 @@ const CurrentWorkout = () => {
                   <p className="cw-heading cw-reps-heading">Reps</p>
                   <p className="cw-heading cw-weight-heading">Weight</p>
                   <p className="cw-heading cw-pushed-heading">Total</p>
-                  <p className="cw-heading cw-heading-check">Done</p>
+                  <p className="cw-heading cw-heading-check">Save</p>
                 </div>
                 <div className="cw-info-container-main">
                   {exercise.workoutlist.sets.map((set, index) => {

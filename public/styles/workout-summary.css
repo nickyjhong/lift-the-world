@@ -17,6 +17,7 @@
   flex-direction: column;
   background: #F0EFEB;
   border-radius: 5px;
+  margin-bottom: 1.5rem;
 }
 
 .workout-info-container{
