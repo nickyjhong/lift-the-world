@@ -21,6 +21,7 @@ const App = () => {
           closeOnClick={true}
           newestOnTop={true}
           hideProgressBar={true}
+          position="top-right"
         />
         <NavBarIcons />
       </SettingsContext.Provider>

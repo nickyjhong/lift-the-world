@@ -58,7 +58,7 @@
   .sign-up {
     text-decoration: underline;
     color: #708298;
-    font-size: .7rem;
+    
   }
 
   .form-disclaimer {
@@ -94,7 +94,7 @@
     width: 7rem;
     height: 1.25rem;
     font-size: .75rem;
-    color: inherit;
+    color: #3A3F42;
   }
 
   .cw-single-exercise-container {
@@ -106,17 +106,17 @@
   }
 
   .cw-finish-btn, .timer-modal-close-btn {
-    color: inherit;
+    color: #3A3F42;
   }
 
   .progress-btn, .profile-previous-btn {
     width: 11rem;
-    color: inherit;
+    color: #3A3F42;
   }
 
   .logout-btn {
     width: 7rem;
-    color: inherit;
+    color: #3A3F42;
   }
 
   .cw-check-yes, .cw-check-no {
