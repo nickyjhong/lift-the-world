@@ -45,7 +45,7 @@ async function seed() {
     selectedSprite: "dog",
   });
 
-  const Sul = await User.create({
+  const sul = await User.create({
     username: "Sul",
     email: "sul@email.com",
     password: "123",
@@ -53,6 +53,7 @@ async function seed() {
     level: 2,
     selectedSprite: "dog",
   });
+
 
   const bob = await User.create({
     username: "Bob",
@@ -922,6 +923,34 @@ async function seed() {
   await nicole.addSprite(dog);
   await kyle.addSprite(cat);
   await kyle.addSprite(dog);
+  await sul.addSprite(cat);
+  await sul.addSprite(dog);
+  await sul.addSprite(redHatBoy);
+  await bob.addSprite(cat);
+  await bob.addSprite(dog);
+  await bob.addSprite(redHatBoy);
+  await sandra.addSprite(cat);
+  await sandra.addSprite(dog);
+  await sandra.addSprite(redHatBoy);
+  await charlie.addSprite(cat);
+  await charlie.addSprite(dog);
+  await charlie.addSprite(redHatBoy);
+  await charlie.addSprite(cuteGirl);
+  await erica.addSprite(cat);
+  await erica.addSprite(dog);
+  await erica.addSprite(redHatBoy);
+  await erica.addSprite(cuteGirl);
+  await erica.addSprite(adventureBoy);
+  await erica.addSprite(zombie);
+  await erica.addSprite(ninjaGirl);
+  await lisa.addSprite(cat);
+  await lisa.addSprite(dog);
+  await lisa.addSprite(redHatBoy);
+  await lisa.addSprite(cuteGirl);
+  await lisa.addSprite(adventureBoy);
+  await lisa.addSprite(zombie);
+  await lisa.addSprite(ninjaGirl);
+  await lisa.addSprite(jackOLantern);
 
   console.log(`seeded successfully`);
 }
