@@ -57,7 +57,7 @@ const CurrentWorkout = () => {
   }
 
   const { allExercises } = workoutlist || [];
-  const { exercises, id: workoutId } = allExercises;
+  const { id: workoutId } = allExercises;
 
   return (
     <div className="cw-container">
@@ -68,6 +68,7 @@ const CurrentWorkout = () => {
             onClick={() => setOpenModal(true)}
           >
             <img src="/images/timer.png" className="timer-modal-img" />
+            <span className="timer-word"> Timer</span>
           </button>
         )}
         {openModal && <Timer closeModal={setOpenModal} />}
