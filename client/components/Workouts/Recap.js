@@ -25,7 +25,13 @@ const Recap = () => {
   return (
     <div className="recap-container">
       <div className="recap-congrats">
-        <h4>Great job with your workout!</h4>
+        <h1 className="recap-h1-header">
+          Great job with your workout!{"  "}
+          <img
+            className="star"
+            src="https://emojipedia-us.s3.amazonaws.com/source/skype/289/star_2b50.png"
+          />
+        </h1>
       </div>
       <ModalOnLeveling
         isActive={isLevelModalActive}

@@ -38,11 +38,13 @@ const WeightComparison = () => {
   return (
     <div>
       <div className="recap-total-weight">
-        <p>
-          You lifted {totalWeight.toLocaleString("en-US")} pounds during this
-          workout!
+        <p className="recap-weight-message">
+          You lifted a grand total of {totalWeight.toLocaleString("en-US")}{" "}
+          pounds during this workout!
         </p>
-        <p>That's the weight of {comparison.name}</p>
+        <p className="recap-weight-message">
+          That's the weight of {comparison.name}
+        </p>
         <img className="comparison-image" src={comparison.image} />
       </div>
     </div>
