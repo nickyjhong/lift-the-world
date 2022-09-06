@@ -600,7 +600,7 @@ async function seed() {
     category: "back",
     equipment: ["Dumbbell", "Bench"],
     tipsAndTricks: [
-      "Keep your feet square, and use one hand to stabalize yourself",
+      "Keep your feet square, and use one hand to stabilize yourself",
       "When you row, do not rotate your shoulders",
       "Slowly lower the weight back to starting position",
     ],
@@ -814,7 +814,6 @@ async function seed() {
     embedId: "dLC-1B7lKI0",
     image: "/images/swissBallWallSquat.png",
   });
-
 
   const pschest1 = await Workout.create({
     name: "chest1",
