@@ -4,7 +4,9 @@ import { Link } from "react-router-dom";
 import { authenticate } from "../../store";
 
 const AuthForm = (props) => {
-  const { name, displayName, handleSubmit, error } = props;
+  console.log("props", props);
+  const { name, handleSubmit, error } = props;
+  console.log("error in frontend", error);
   return (
     <div className="form">
       <form onSubmit={handleSubmit} name={name}>
@@ -20,6 +22,7 @@ const AuthForm = (props) => {
                   type="text"
                   name="username"
                   placeholder="Username"
+                  required
                 />
               </div>
             </div>
@@ -29,9 +32,10 @@ const AuthForm = (props) => {
               <div className="form-input-container">
                 <input
                   className="form-input"
-                  type="text"
+                  type="email"
                   name="email"
                   placeholder="Email"
+                  required
                 />
               </div>
             </div>
@@ -44,8 +48,10 @@ const AuthForm = (props) => {
                   type="password"
                   name="password"
                   placeholder="Password"
+                  required
                 />
               </div>
+              {error && <div className="error-message"> {error} </div>}
             </div>
             <div className="signup-btn-container">
               <button className="button signup-btn" type="submit">
@@ -87,11 +93,13 @@ const AuthForm = (props) => {
                   type="password"
                   name="password"
                   placeholder="Password"
+                  required
                 />
               </div>
             </div>
 
             <div className="login-btn-container">
+              {error && <div className="error-message"> {error} </div>}
               <button className="button login-btn" type="submit">
                 Sign In
               </button>

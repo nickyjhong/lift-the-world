@@ -22,8 +22,8 @@ export const me = () => async (dispatch) => {
   }
 };
 
-export const authenticate = (username, email, password, method) =>
-  async (dispatch) => {
+export const authenticate =
+  (username, email, password, method) => async (dispatch) => {
     try {
       const res = await axios.post(`/auth/${method}`, {
         username,
@@ -34,8 +34,12 @@ export const authenticate = (username, email, password, method) =>
       dispatch(me());
       history.push("/");
     } catch (authError) {
-      return dispatch(setAuth({ error: authError }));
+      console.log("auth error message", authError.response);
+      return dispatch(setAuth({ error: authError.response.data }));
     }
+    // else {
+    //   return dispatch(setAuth({ error: "An error has occurred" }));
+    // }
   };
 
 export const logout = () => {

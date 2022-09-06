@@ -1,9 +1,11 @@
-const router = require('express').Router();
-const { models: { User }} = require('../db');
-const { Op } = require('sequelize')
+const router = require("express").Router();
+const {
+  models: { User },
+} = require("../db");
+const { Op } = require("sequelize");
 module.exports = router;
 
-router.post('/login', async (req, res, next) => {
+router.post("/login", async (req, res, next) => {
   try {
     res.send({ token: await User.authenticate(req.body) });
   } catch (err) {
@@ -11,42 +13,41 @@ router.post('/login', async (req, res, next) => {
   }
 });
 
-router.post('/signup', async (req, res, next) => {
+router.post("/signup", async (req, res, next) => {
   try {
     const { username, email, password } = req.body;
     let sameEmail = await User.findOne({
       where: {
         email: {
-          [Op.iLike]: `%${email}%`
-        }
-      }
-    })
+          [Op.iLike]: `%${email}%`,
+        },
+      },
+    });
 
     let sameUsername = await User.findOne({
       where: {
         username: {
-          [Op.iLike]: `%${username}%`
-        }
-      }
-    })
+          [Op.iLike]: `%${username}%`,
+        },
+      },
+    });
 
     if (!sameEmail && !sameUsername) {
-      const user = await User.create({ username, email, password })
-      res.send({token: await user.generateToken()})
+      const user = await User.create({ username, email, password });
+      res.send({ token: await user.generateToken() });
     } else {
-      console.log('user exists!')
+      res.status(401).send("User already exists");
     }
-
   } catch (err) {
-    if (err.name === 'SequelizeUniqueConstraintError') {
-      res.status(401).send('User already exists')
+    if (err.name === "SequelizeUniqueConstraintError") {
+      res.status(401).send("User already exists");
     } else {
-      next(err)
+      next(err);
     }
   }
-})
+});
 
-router.get('/me', async (req, res, next) => {
+router.get("/me", async (req, res, next) => {
   try {
     res.send(await User.findByToken(req.headers.authorization));
   } catch (ex) {
