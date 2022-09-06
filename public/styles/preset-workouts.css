@@ -1,6 +1,7 @@
 .preset-heading {
   font-size: 1.25rem;
-  margin-bottom: 2rem;
+  margin: 1.5rem 0 1.5rem;
+  text-align: center;
 }
 
 .preset-btn-container {

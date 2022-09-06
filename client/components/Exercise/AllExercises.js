@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { getExercisesThunk } from '../../store/exercises';
-import { addToWorkout } from '../../store/workout';
-import { Link } from 'react-router-dom';
-import { toast } from 'react-toastify';
-import Loading from '../Loading';
+import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { getExercisesThunk } from "../../store/exercises";
+import { addToWorkout } from "../../store/workout";
+import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
+import Loading from "../Loading";
 
 const AllExercises = () => {
   const exercises = useSelector((state) => state.allExercises);
   const dispatch = useDispatch();
 
   const [search, setSearch] = useState({
-    searchVal: '',
+    searchVal: "",
   });
 
   const handleChange = (event) => {
@@ -75,7 +75,7 @@ const AllExercises = () => {
                 </div>
               </div>
             ) : (
-              ''
+              ""
             )
           )}
         </div>

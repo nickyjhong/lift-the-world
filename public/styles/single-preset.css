@@ -1,13 +1,17 @@
-.preset-workout {
+.preset-workout-container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin-top: -1rem;
 }
 
 .preset-workout-info-container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 .preset-workout-name {
@@ -25,7 +29,8 @@ height: 2rem;
 width: 10rem;
 box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15), 0px 4px 4px rgba(0, 0, 0, 0.01);
 cursor: pointer;
-color: #757a81;
+color: black;
+background-color: #8DB2B3;
 }
 
 .cat-exercise {
