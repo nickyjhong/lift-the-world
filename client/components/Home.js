@@ -9,16 +9,16 @@ export const Home = () => {
     <div className="homepage-container">
       <h3 className="homepage-header">Welcome, {username}</h3>
 
+      <div className="homepage-link-btn">
+          <Link to="/exercises" className="homepage-btn-link">
+            <button className="homepage-btn">Select Exercises</button>
+          </Link>
+        </div>
+
       <div className="homepage-btn-container">
         <div className="homepage-link-btn">
           <Link to="/musclegroups" className="homepage-btn-link">
             <button className="homepage-btn">See Muscle Groups</button>
-          </Link>
-        </div>
-
-        <div className="homepage-link-btn">
-          <Link to="/exercises" className="homepage-btn-link">
-            <button className="homepage-btn">Select Exercises</button>
           </Link>
         </div>
 

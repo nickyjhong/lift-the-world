@@ -817,7 +817,7 @@ async function seed() {
   });
 
   const pschest1 = await Workout.create({
-    name: "chest1",
+    name: "",
     status: "active",
     isPreset: true,
   });

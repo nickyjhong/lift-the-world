@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { fetchPresetWorkout } from "../../store/singleWorkout";
 import { doPresetWorkout } from "../../store/workout";
 import { toast } from "react-toastify";
@@ -32,7 +32,11 @@ const SinglePreset = () => {
           <div className="preset-exercise-container">
             <ul >
               {preset.exercises.map((exercise) => {
-                return <li key={exercise.id} className="preset-exercise">3 sets x 8 reps {exercise.name}</li>;
+                return <li key={exercise.id} className="preset-exercise">{`3 sets x 8 reps `}
+                  <Link to={`/exercise/${exercise.id}`}>
+                    {exercise.name}
+                  </Link>  
+                </li>;
               })}
             </ul>
           </div>
