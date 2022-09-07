@@ -20,7 +20,7 @@ export const WorkoutSummary = () => {
         <p className="workout-summary-heading">Weight</p>
       </div>
       <div className="workout-info-container-main">
-        {exercises.map((exercise) => { 
+        {exercises.map((exercise) => {
           return (
             <div className="workout-info-container" key={exercise.id}>
               <p className="workout-exercise-info-name"> {exercise.name}</p>
@@ -30,12 +30,22 @@ export const WorkoutSummary = () => {
                 }, 0)}{" "}
                 lbs
               </p>
+              {exercise.workoutlist ? (
+                <p>
+                  {exercise.workoutlist.sets.reduce((acc, curr) => {
+                    return (acc += parseInt(curr.reps * curr.weight));
+                  }, 0)}{" "}
+                  lbs
+                </p>
+              ) : (
+                JSON.stringify(exercise)
+              )}
             </div>
           );
         })}
       </div>
     </div>
   ) : (
-    ''
+    ""
   );
 };
