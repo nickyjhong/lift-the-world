@@ -54,9 +54,11 @@ export default function PreviousWorkouts() {
                   <div className="previous-exercise-content" key={exercise.id}>
                     <p className="previous-exercise-name">{exercise.name}</p>
                     <p className="previous-exercise-weight">
-                      {exercise.workoutlist.sets.reduce((acc, curr) => {
-                        return (acc += parseInt(curr.reps * curr.weight));
-                      }, 0)}{" "}
+                      {exercise.workoutlist.sets
+                        .reduce((acc, curr) => {
+                          return (acc += parseInt(curr.reps * curr.weight));
+                        }, 0)
+                        .toLocaleString("en-US")}{" "}
                       lbs
                     </p>
                   </div>
@@ -64,7 +66,8 @@ export default function PreviousWorkouts() {
               })}
             </div>
             <p className="previous-workout-total-weight">
-              Workout Total: {prev.workoutTotalWeight} lbs
+              Workout Total: {prev.workoutTotalWeight.toLocaleString("en-US")}{" "}
+              lbs
             </p>
           </div>
         );
