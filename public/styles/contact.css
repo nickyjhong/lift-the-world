@@ -1,0 +1,53 @@
+.contact-heading {
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin: .75rem 0 1rem 0;
+  color: #379dc0
+}
+
+.contact-members-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.contact-single-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 15px;
+  box-shadow: rgb(19 19 18 / 17%) 0px 0.5rem 1rem;
+  padding: .75rem;
+}
+
+.contact-pic-container, .contact-info-container {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .75rem;
+}
+
+.contact-pic {
+  border-radius: 50%;
+  width: 20vh;
+  border: .3rem solid white;
+  box-shadow: rgb(19 19 18 / 17%) 0px 0.5rem 1rem
+}
+
+.contact-info {
+  font-weight: 600;
+}
+
+.contact-name {
+  font-size: .9rem;
+}
+
+.contact-github {
+  color: #b192f2
+}
+
+.contact-linkedin {
+  color: #90c7d9
+}

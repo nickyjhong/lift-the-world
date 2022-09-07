@@ -33,6 +33,12 @@ export const Home = () => {
             <button className="homepage-btn">View Unlocked Characters</button>
           </Link>
         </div>
+
+        <div className="homepage-link-btn">
+          <Link to="/info" className="homepage-btn-link">
+            <button className="homepage-btn">Get Info</button>
+          </Link>
+        </div>
       </div>
       <img className="homepage-image" src="/images/cat1.png" />
     </div>

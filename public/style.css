@@ -20,6 +20,8 @@
 @import "./styles/single-preset.css";
 @import "./styles/modal.css";
 @import "./styles/single-exercise.css";
+@import "./styles/info.css";
+@import "./styles/contact.css";
 @import "./styles/media-query.css";
 
 * {

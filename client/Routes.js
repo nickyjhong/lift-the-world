@@ -18,6 +18,8 @@ import AllExercises from "./components/Exercise/AllExercises";
 import ChooseSprites from "./components/User/Sprites";
 import Timer from "./components/Timer/Timer";
 import PreviousWorkouts from "./components/Workouts/PreviousWorkouts";
+import Info from "./components/Info/Info";
+import Contact from "./components/Info/Contact";
 
 class Routes extends Component {
   componentDidMount() {
@@ -37,6 +39,8 @@ class Routes extends Component {
                 <Route exact path="/" component={Home} />
                 <Route path="/recap" component={Recap} />
                 <Route path="/disclaimer" component={Disclaimer} />
+                <Route path="/info" component={Info} />
+                <Route path="/contact" component={Contact} />
                 <Route exact path="/musclegroups" component={MuscleGroups} />
                 <Route
                   exact

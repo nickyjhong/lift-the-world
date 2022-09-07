@@ -1,0 +1,81 @@
+.info-vocabulary-container, .info-example-container {
+  margin: .75rem 0;
+}
+
+.info-vocabulary-heading, .info-example-heading {
+  font-weight: 700;
+  text-align: center;
+}
+
+.info-single-vocab {
+  margin: .75rem 0;
+}
+
+.info-example {
+  margin: .3rem 0;
+}
+
+.info-word {
+  font-weight: 700;
+}
+
+.info-definition {
+  font-size: .9rem;
+}
+
+.info-example {
+  text-align: center;
+}
+
+.info-example-explained {
+  font-size: .9rem;
+  margin-bottom: .5rem;
+}
+
+.info-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.info-contact-heading {
+  font-size: .8rem;
+  color: #3A3F42;
+  margin: .5rem;
+}
+
+.info-contact-btn {
+  text-align: center;
+  text-decoration: none;
+  border-radius: 25px;
+  font-size: .8rem;
+  border: none;
+  height: 2rem;
+  width: 10rem;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15), 0px 4px 4px rgba(0, 0, 0, 0.01);
+  cursor: pointer;
+  color: #3A3F42;
+  font-weight: 600;
+  background: #C9E0E8;
+}
+
+.info-source-code {
+  text-align: center;
+  text-decoration: none;
+  border-radius: 25px;
+  font-size: .8rem;
+  border: none;
+  height: 2rem;
+  width: 10rem;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15), 0px 4px 4px rgba(0, 0, 0, 0.01);
+  cursor: pointer;
+  color: #3A3F42;
+  font-weight: 600;
+  background: #DDECD2;
+}
+
+.info-btns {
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+}
