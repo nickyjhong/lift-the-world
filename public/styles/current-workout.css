@@ -11,7 +11,7 @@ form {
   display: flex;
   flex-direction: row;
   font-size: 1.25rem;
-  margin: 0;
+  margin: 0 .25rem 0 0;
   font-weight: 500;
   width: 12.5rem;
   border: none;
