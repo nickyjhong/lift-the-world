@@ -24,14 +24,8 @@ export const WorkoutSummary = () => {
           return (
             <div className="workout-info-container" key={exercise.id}>
               <p className="workout-exercise-info-name"> {exercise.name}</p>
-              <p className="workout-exercise-info-total">
-                {exercise.workoutlist.sets.reduce((acc, curr) => {
-                  return (acc += parseInt(curr.reps * curr.weight));
-                }, 0)}{" "}
-                lbs
-              </p>
               {exercise.workoutlist ? (
-                <p>
+                <p className="workout-exercise-info-total">
                   {exercise.workoutlist.sets.reduce((acc, curr) => {
                     return (acc += parseInt(curr.reps * curr.weight));
                   }, 0)}{" "}
