@@ -29,6 +29,17 @@ const overlayStyles = {
 const modalButtonStyles = {
   padding: "0.5rem",
   marginTop: "1rem",
+  textAlign: "center",
+  textDecoration: "none",
+  borderRadius: "25px",
+  fontSize: "0.8rem",
+  border: "none",
+  height: "2rem",
+  width: "5rem",
+  fontWeight: "600",
+  backgroundColor: "#D9D9D9",
+  color: "#708298",
+  boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.15), 0px 4px 4px rgba(0, 0, 0, 0.01)",
 };
 
 const Modal = ({ open, children, onClose }) => {
