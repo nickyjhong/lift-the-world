@@ -3,7 +3,6 @@
   font-weight: 700;
   font-size: 1.25rem;
   margin: .75rem 0 1rem 0;
-  color: #379dc0
 }
 
 .contact-members-container {
@@ -14,6 +13,7 @@
 
 .contact-single-container {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
   border-radius: 15px;
@@ -32,7 +32,7 @@
 .contact-pic {
   border-radius: 50%;
   width: 20vh;
-  border: .3rem solid white;
+  border: .2rem solid white;
   box-shadow: rgb(19 19 18 / 17%) 0px 0.5rem 1rem
 }
 
@@ -41,13 +41,30 @@
 }
 
 .contact-name {
-  font-size: .9rem;
+  font-size: 1.2rem;
+  padding-bottom: .25rem;
 }
 
-.contact-github {
-  color: #b192f2
+.github {
+  background-image: linear-gradient(#862294, #522377);
+  background-clip: text;
+  color: transparent;
+  font-size: 3rem;
 }
 
-.contact-linkedin {
-  color: #90c7d9
+.linkedin {
+  color: #0966C2;
+  font-size: 3rem;
+}
+
+.id-alt {
+  font-size: 2.3rem;
+  padding-bottom: .1rem;
+  color: #c0b6b1;
+}
+
+.contact-info-container {
+  flex-direction: row;
+  font-size: 2.5rem;
+  gap: 2rem;
 }
