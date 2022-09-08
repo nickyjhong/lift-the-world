@@ -17,6 +17,9 @@ You can use Lift the World to track how much weight you've moved during a specif
 
 <br/>
 
+## Download iOS Simulator (if you don't use your phone!)
+- [Xcode](https://apps.apple.com/us/app/xcode/id497799835?mt=12) - iOS Simulator for Mac
+
 ## Getting Started
 **Step 1:** Clone the repo
 ```js
