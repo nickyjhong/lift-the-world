@@ -24,7 +24,7 @@ const AllExercises = () => {
   }, [dispatch]);
 
   return (
-    <div>
+    <div className="all-exercises">
       {exercises ? (
         <div className="all-exercises-container">
           <div className="all-exercises-heading-container">
