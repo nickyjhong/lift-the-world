@@ -131,5 +131,11 @@
   .cw-sr-input-yes, .cw-sr-input-no, .cw-weight-input-yes, .cw-weight-input-no {
     height: .9rem;
   }
+}
 
+@media(min-width: 390px) {
+  .all-exercises {
+    display: flex;
+    justify-content: center;
+  }
 }
