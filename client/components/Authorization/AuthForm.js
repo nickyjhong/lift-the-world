@@ -12,7 +12,6 @@ const AuthForm = (props) => {
         {name === "signup" ? (
           <div className="signup-container">
             <p className="signup-title">Sign Up</p>
-
             <div className="form-container">
               <label className="form-label">username</label>
               <div className="form-input-container">
