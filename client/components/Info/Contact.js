@@ -50,7 +50,7 @@ export default function Contact() {
               </div>
               <div className="contact-info-container">
                 <a href={contact.github}>
-                  <i className="fa fa-github fa-social github" />
+                  <i className="fa fa-github" />
                 </a>
                 <a href={contact.linkedin}>
                   <i className="fa fa-linkedin-square fa-social linkedin" />
