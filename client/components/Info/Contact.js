@@ -15,7 +15,7 @@ const contacts = [
   {
     name: "Cherry Xu",
     image:
-      "https://media-exp1.licdn.com/dms/image/C4E03AQEol4Y_4bO4JQ/profile-displayphoto-shrink_800_800/0/1598046633166?e=1668038400&v=beta&t=VboBOjwJOXHeGSVvzkbPRBZA2s551bj6zR0HrJlbO-s",
+      "https://media-exp1.licdn.com/dms/image/D4E03AQHNsmSXEPD5rw/profile-displayphoto-shrink_800_800/0/1664555998479?e=1671667200&v=beta&t=ftLJAopa-NZ09RIAe3HJZl6iO9H9ve6z8R6ntMmKcmY",
     github: "https://github.com/mscherryxu",
     linkedin: "https://www.linkedin.com/in/cherryxu-rdcdn/",
     personal: "https://cherryxu.dev"
