@@ -29,9 +29,9 @@ export default function Info() {
           <Link to="/contact" className="info-contact-link">
             <button className="info-contact-btn">Contact us!</button>
           </Link>
-          <Link to="https://github.com/2206-capstone-lifters/lift-the-world">
+          <a href="https://github.com/2206-capstone-lifters/lift-the-world">
             <button className="info-source-code">{`</> Source Code`}</button>
-          </Link>
+          </a>
         </div>
       </div>
     </div>
