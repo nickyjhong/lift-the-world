@@ -7,7 +7,7 @@ const contacts = [
   {
     name: "Nicole Hong",
     image:
-      "https://media-exp1.licdn.com/dms/image/C4E03AQH0MhShnu4r_A/profile-displayphoto-shrink_400_400/0/1658867372014?e=1668038400&v=beta&t=S7Ha1giy8_-f7GrKr-AzIBWxSUKZLaBRp4eXJl7Theg",
+      "https://avatars.githubusercontent.com/u/101421813?v=4",
     github: "https://github.com/nickyjhong",
     linkedin: "https://www.linkedin.com/in/nicolejhong/",
     personal: "https://nicolehong.dev"
